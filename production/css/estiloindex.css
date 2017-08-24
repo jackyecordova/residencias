@@ -3,7 +3,7 @@
 	height: 380px;
 }
 .logoimagen {
-	width: 40%;
+	width: 40% !important;
 	height: 350px;
 	margin-left: 5%
 }
