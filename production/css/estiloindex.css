@@ -1,3 +1,7 @@
+.logotipo{
+	width: 65%;
+
+}
 .logo{
 	width: 70%;
 	height: 380px;
@@ -5,7 +9,7 @@
 .logoimagen {
 	width: 40% !important;
 	height: 350px;
-	margin-left: 5%
+	margin-left: 1%;
 }
  .clima{
  	float: left !important;
