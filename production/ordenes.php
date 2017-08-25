@@ -44,12 +44,11 @@
               <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
-            </div>  
-              <div id="container"></div>  
+            </div>    
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
+            <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>De Nuevo Casas Grandes
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -94,9 +93,10 @@
     <!-- bootstrap-daterangepicker -->
     <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+<div id="container"></div>
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <script src="../js/ordenes.js"></script>
 	
   </body>
 </html>
