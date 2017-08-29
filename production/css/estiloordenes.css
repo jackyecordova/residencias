@@ -72,3 +72,9 @@ button:focus{outline:0;}
   color: #fff;
   background: rgb(255,85,0);
 }
+.ordenes div{
+  margin: 0;
+  padding: 0;
+  width: 5px;
+  height: 5px;
+}  
