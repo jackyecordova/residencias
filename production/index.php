@@ -34,9 +34,183 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-       <?php include "./barramenu.php";?>
+      <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-university"></i> <span>Presidencia</span>
+              <span> Municipal</span></a>
+            </div>
 
-        <!-- top navigation -->
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenido</span>
+                <h2>USUARIO</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Inicio<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.php">Presupuesto Anual</a></li>
+                      <li><a href="index2.php">Ordenes</a></li>
+                     <!-- <li><a href="index3.html">Tres</a></li>-->
+                    </ul>
+                  </li>
+                     <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="general_elements.html">Archivo Historico
+                      </a></li>
+
+                      <li><a href="media_gallery.html">
+                      Atencion
+                      </a></li>
+
+                      <li><a href="typography.html">Biblioteca Eduardo Contreras
+                      </a></li>
+
+                      <li><a href="icons.html">
+                      Biblioteca Francisca Holguín
+                      </a></li>
+
+                      <li><a href="glyphicons.html">
+                        C4
+                      </a></li>
+
+                      <li><a href="widgets.html">
+                      Catastro
+                      </a></li>
+
+                      <li><a href="invoice.html">
+                      Comisarios
+                      </a></li>
+                      <li><a href="inbox.html">
+                      Comunicación Social
+                      </a></li>
+                      <li><a href="calendar.html">
+                      Cultura
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Deportes
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Desarrollo Rural
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Desarrollo Social
+                      </a></li>
+
+                       <li><a href="calendar.html">
+                      Desarrollo Urbano
+                      </a></li> <li><a href="calendar.html">
+                      Educación
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Fomento Económico
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Obras Públicas
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Oficialía Mayor
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Pensiones y Jubilados
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Presidencia
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Protecci+on Civil
+                      </a></li>
+                       <li><a href="calendar.html">
+                      Regidores
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Salud
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Secretaría
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Secretaría de Relaciones Exteriores
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Seguridad Pública
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Servicios Públicos
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Sindicatura
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Tesorería
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Tránsito
+                      </a></li>
+                        <li><a href="calendar.html">
+                      Turismo
+                      </a></li>
+                    Unidad de Información
+                      </a></li>
+
+
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> Cuentas <span class="fa fa-chevron-down"></span></a>
+                   
+                  </li>
+                   <li><a><i class="fa fa-edit"></i> Obras <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">General Form</a></li>
+                      <li><a href="#">Advanced Components</a></li>
+                      <li><a href="#">Form Validation</a></li>
+                      <li><a href="#">Form Wizard</a></li>
+                      <li><a href="#">Form Upload</a></li>
+                      <li><a href="#">Form Buttons</a></li>
+                    </ul>
+                  </li>
+               
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+       <!--<?php include "./barramenu.php";?>
+
+         top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
@@ -152,6 +326,7 @@
                  <img class="logoimagen" src="images/logoncg.jpg">
                  
                   <!-- start of weather widget -->
+                
                 <div class="col-md-4 col-sm-4 col-xs-12" class="clima" class="pull-right">
                   <div class="x_panel">
                     <div class="x_title">
@@ -257,21 +432,30 @@
                   </div>
 
                 </div>
+
+
+
+
+
+
                      </div>
                 <!-- end of weather widget -->
                </div>
                
               
+             <?php 
+                  for ($i=0; $i < 12; $i++) { 
+                     # code...
+                ?>
 
-
-                <div class="clearfix"></div>
+               <!-- <div class="clearfix"></div>-->
              
        
 
-    <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel tile fixed_height_320 overflow_hidden">
+    <div class="col-md-4 col-sm-4 col-xs-12" >
+              <div class="x_panel tile fixed_height_320 overflow_hidden" class="graficas">
                 <div class="x_title">
-                  <h2>Device Usage</h2>
+                  <h2>Departamento</h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -312,31 +496,28 @@
                           </tr>
                           <tr>
                             <td>
-                              <p><i class="fa fa-square purple"></i> </p>
+                              <p><i class="fa fa-square purple"></i>Pagado </p>
                             </td>
                             <td>20%</td>
                           </tr>
                           <tr>
                             <td>
-                              <p><i class="fa fa-square aero"></i>Symbian </p>
+                              <p><i class="fa fa-square aero"></i>Restante </p>
                             </td>
                             <td>15%</td>
                           </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square red"></i>Others </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
+                          
                         </table>
                       </td>
                     </tr>
                   </table>
                 </div>
               </div>
-            </div>
+    </div>
+     <?php  } ?>
 
- </div>
+
+    </div>
 <br>
 
 
