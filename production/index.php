@@ -57,6 +57,15 @@
 
             <br />
 
+
+
+
+
+
+
+
+
+
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
@@ -65,7 +74,20 @@
                   <li><a><i class="fa fa-home"></i> Inicio<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php">Presupuesto Anual</a></li>
-                      <li><a href="index2.php">Ordenes</a></li>
+                        <!-- Dos niveles-->
+                      <li class="active"><a>Ordenes<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                            <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
+                            </li>
+                           
+                            <li><a href="projects.php">Generar</a>
+                            </li>
+                             <li><a href="projects.php">Cancelar</a>
+                            </li>
+                          </ul>
+                      </li>
+
+
                      <!-- <li><a href="index3.html">Tres</a></li>-->
                     </ul>
                   </li>
@@ -189,6 +211,15 @@
 
             </div>
             <!-- /sidebar menu -->
+
+
+
+
+
+
+
+
+
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
