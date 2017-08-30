@@ -55,7 +55,8 @@
         <!-- /footer content -->
       </div>
     </div>
-
+    <div class="ordenes">
+<div id="container"></div></div>
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -93,7 +94,7 @@
     <!-- bootstrap-daterangepicker -->
     <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-<div id="container"></div>
+
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
     <script src="../js/ordenes.js"></script>
