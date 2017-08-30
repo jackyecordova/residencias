@@ -48,7 +48,7 @@
             <br />
 
             <!-- sidebar menu -->
-             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+ <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -61,9 +61,9 @@
                             <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
                             </li>
                            
-                            <li><a href="projects.php">Generar</a>
+                            <li><a href="form_validation.html">Generar</a>
                             </li>
-                             <li><a href="projects.php">Cancelar</a>
+                             <li><a href="plain_page.html">Cancelar</a>
                             </li>
                           </ul>
                       </li>
@@ -191,6 +191,7 @@
               </div>
 
             </div>
+
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->

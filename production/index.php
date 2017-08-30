@@ -80,9 +80,9 @@
                             <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
                             </li>
                            
-                            <li><a href="projects.php">Generar</a>
+                            <li><a href="form_validation.html">Generar</a>
                             </li>
-                             <li><a href="projects.php">Cancelar</a>
+                             <li><a href="plain_page.html">Cancelar</a>
                             </li>
                           </ul>
                       </li>
