@@ -412,7 +412,15 @@
                             <small>57% Complete</small>
                           </td>
                           <td>
-                            <button type="button" class="btn btn-success btn-xs">Devengado</button>
+                            <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas">
+
+
+                         
+                            Devengado
+                      
+
+
+                            </button>
                           </td>
                           <td> <button type="button" class="btn btn-success btn-xs">Pagado</button>
                           </td>
@@ -441,6 +449,47 @@
         </div>
         <!-- /page content -->
 
+
+
+
+
+
+
+
+
+   <!-- Show the cropped image in modal -->
+                      <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title" id="getCroppedCanvasTitle">Cropped</h4>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.png">Download</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div><!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- footer content -->
         <footer>
           <div class="pull-right">
@@ -462,7 +511,9 @@
     <script src="../vendors/nprogress/nprogress.js"></script>
     <!-- bootstrap-progressbar -->
     <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    
+     <!-- Cropper -->
+    <script src="../vendors/cropper/dist/cropper.min.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
   </body>
