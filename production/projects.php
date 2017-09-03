@@ -224,7 +224,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="images/img.jpg" alt="">Itzel Estrada
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -318,26 +318,29 @@
                 <h3>Ordenes <small>Registro </small></h3>
               </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
+              
             
             <div class="clearfix"></div>
 
             <div class="row">
               <div class="col-md-12">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Projects</h2>
-                    <ul class="nav navbar-right panel_toolbox">
+                 
+                    <h2>Control Presupuestal</h2>
+
+
+                    <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>           
+                  </div>
+                </div>
+
+                <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li class="dropdown">
@@ -353,7 +356,10 @@
                       </li>
                     </ul>
                     <div class="clearfix"></div>
-                  </div>
+
+              </div>
+            </div>
+
                   <div class="x_content">
 
                     <p>Registro de las ordenes emitidas</p>
