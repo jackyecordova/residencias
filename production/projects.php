@@ -418,7 +418,7 @@
                             <small>57% COMPLETADO</small>
                           </td>
                           <td>
-                            <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas">
+                            <button type="button" class="btn btn-success btn-xs disabled"  class="btn btn-primary"  data-method="getCroppedCanvas">
 
 
                          
@@ -454,46 +454,6 @@
           </div>
         </div>
         <!-- /page content -->
-
-
-
-
-
-
-
-
-
-   <!-- Show the cropped image in modal -->
-                      <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <h4 class="modal-title" id="getCroppedCanvasTitle">Cropped</h4>
-                            </div>
-                            <div class="modal-body"></div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.png">Download</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div><!-- /.modal -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <!-- footer content -->
