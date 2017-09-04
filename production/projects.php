@@ -334,7 +334,7 @@
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
+                      <button class="btn btn-default" type="button">Buscar</button>
                     </span>
                   </div>           
                   </div>
@@ -362,7 +362,7 @@
 
                   <div class="x_content">
 
-                    <p>Registro de las ordenes emitidas</p>
+                    <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
 
                     <!-- start project list -->
                     <table class="table table-striped projects">
@@ -415,7 +415,7 @@
                             <div class="progress progress_sm">
                               <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
                             </div>
-                            <small>57% Complete</small>
+                            <small>57% COMPLETADO</small>
                           </td>
                           <td>
                             <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas">
