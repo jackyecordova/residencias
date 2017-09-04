@@ -18,6 +18,10 @@
     
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+     <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -409,9 +413,17 @@
                               </form>
                         </div>
                     </div>
-
-
-
+<fieldset>
+                          <div class="control-group">
+                            <div class="controls">
+                              <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                                <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
 
 
 
@@ -461,6 +473,11 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-datetimepicker -->    
+    <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 	
   </body>
 </html>
