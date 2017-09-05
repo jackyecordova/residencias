@@ -419,22 +419,17 @@
                           </td>
                           <td>
                             <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
-                             data-toggle="modal" data-target="#myModal">
-
-
-                         
+                             data-toggle="modal" data-target="#Devengada">
                             Devengado
-                      
-
-
                             </button>
                           </td>
-                          <td> <button type="button" class="btn btn-success btn-xs">Pagado</button>
+                          <td> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
+                          Pagado</button>
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
-                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar </a>
+                          <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a>
+                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#eliminar"><i class="fa fa-trash-o"></i> Eliminar </a>
                           </td>
                         </tr>
 
@@ -454,28 +449,98 @@
             </div>
           </div>
         </div>
-        <!-- /page content -->
-        <div id="myModal" class="modal fade" role="dialog">
+       
+          <!-- Cantidad Devengado-->
+        <div id="Devengada" class="modal fade" role="dialog">
             <div class="modal-dialog">
-
-              <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
+                  <h4 class="modal-title">Cantidad Devengada</h4>
                 </div>
-                <div class="modal-body">
-                  <p>Some text in the modal.</p>
+                <div class="modal-body" style="text-align: center">
+                  <p>Deseas obtener la cantidad Devengada</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
               </div>
 
             </div>
           </div>
 
-        <!-- footer content -->
+            <!-- Cantidad Pagada-->
+        <div id="Pagada" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Cantidad Pagada</h4>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                  <p>Deseas obtener la cantidad Pagada</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- Ver-->
+        <div id="ver" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Detalles</h4>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                  <p>Deseas VISUALIZAR toda la información</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+           <!-- editar-->
+        <div id="editar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Editar Información</h4>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                  <p>Estas seguro de EDITAR la información</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- eliminar-->
+        <div id="eliminar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Eliminar información</h4>
+                </div>
+                <div class="modal-body" style="text-align: center">
+                  <p>Estas seguro de ELIMINAR la información</p>
+                </div>
+                  <div>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <a class="btn btn-default submit" href="index.php">Aceptar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+       <!-- footer content -->
         <footer>
           <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
