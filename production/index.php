@@ -240,7 +240,7 @@
             <!-- /menu footer buttons -->
           </div>
         </div>
-       <!--<?php include "./barramenu.php";?>
+       <!--<?php // include "./barramenu.php";?>
 
          top navigation -->
         <div class="top_nav">
