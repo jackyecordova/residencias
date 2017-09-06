@@ -462,7 +462,8 @@
                   <p>Deseas obtener la cantidad Devengada</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
                 </div>
               </div>
 
@@ -481,7 +482,8 @@
                   <p>Deseas obtener la cantidad Pagada</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Pagada">Pagada</button>
                 </div>
               </div>
             </div>
@@ -498,7 +500,8 @@
                   <p>Deseas VISUALIZAR toda la información</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ver">Ver</button>
                 </div>
               </div>
             </div>
@@ -515,7 +518,8 @@
                   <p>Estas seguro de EDITAR la información</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>
                 </div>
               </div>
             </div>
@@ -531,25 +535,59 @@
                 <div class="modal-body" style="text-align: center">
                   <p>Estas seguro de ELIMINAR la información</p>
                 </div>
-                  <div>
-              </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <a class="btn btn-default submit" href="index.php">Aceptar</a>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
                 </div>
+                
+  
               </div>
             </div>
           </div>
-       <!-- footer content -->
+
+     <!-- Cantidad pagada-->
+              <div id="Pagada" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                        <h4 class="modal-title" >Cantidad Pagada</h4>
+                      </div>
+                      <div class="modal-body" style="text-align: left">
+                        <p>Cantidad </p> <input id="devengar"  style="margin-left:50px;" class="form-control col-md-4 col-xs-12"  placeholder="000,000,000.00" required="required" type="text">
+                      </div>
+                      <div class="modal-footer" style="padding-top:35px;">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
           </div>
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
       </div>
     </div>
+
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
