@@ -199,12 +199,9 @@
                   </li>
                    <li><a><i class="fa fa-edit"></i> Obras <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">General Form</a></li>
-                      <li><a href="#">Advanced Components</a></li>
-                      <li><a href="#">Form Validation</a></li>
-                      <li><a href="#">Form Wizard</a></li>
-                      <li><a href="#">Form Upload</a></li>
-                      <li><a href="#">Form Buttons</a></li>
+                      <li><a href="#">V</a></li>
+                      <li><a href="#">Crear</a></li>
+                      
                     </ul>
                   </li>
                
