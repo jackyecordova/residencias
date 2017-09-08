@@ -358,27 +358,33 @@
                         <div class="well" style="overflow: auto">
 
 
-                            <div></div>
+                                <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control" placeholder="Departamento">
+                                  <option>Presidencia</option>
+                                  <option>Tesorería</option>
+                                  <option>Catastro</option>
+                                  <option>Obras Públicas</option>
+                                  <option>Oficialía Mayor</option>
+                                </select>
 
-                            <div class="col-md-12">
-                              <label class="control-label col-md-3 col-sm-4 col-xs-12" for="name">Fecha  <span class="required">*</span>
-                        </label>
-                              <form class="form-horizontal" class="pull-center ">
-                                <fieldset>
-                                  <div class="control-group" >
-                                    <div class="controls" >
+                            <div class="col-xs-6 col-md-4">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  <span class="required">*</span>
+                                        </label>
+                                        <form class="form-horizontal" class="pull-center ">
+                                          <fieldset>
+                                            <div class="control-group" >
+                                              <div class="controls" >
 
-                                      <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;" >
-                                        <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
-                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                        <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-                                      </div>
+                                                <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;" >
+                                                  <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                  <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                                                </div>
 
-                                    </div>
-                                  </div>
-                                </fieldset>
-                              </form>
-                        </div>
+                                              </div>
+                                            </div>
+                                          </fieldset>
+                                        </form>
+                            </div>
                       <br>
 
 
@@ -422,7 +428,7 @@
 
                       <div class="col-md-6 col-md-offset-3" style="padding-bottom:20px;padding-top:20px;  ">
                              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
-                            <button type="button" class="btn btn-danger">Pagado</button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
                       </div>
 
                       <div class="ln_solid"></div>
@@ -460,7 +466,7 @@
                          <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
                            <div class="col-sm-8">  </div>
                               <div class="input-group"> 
-                                                  <input type="text" class="form-control" name="price" data-fv-field="price">
+                                                  <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
                                                       <span class="input-group-addon">
                                                            $
                                                        </span> 
@@ -471,7 +477,8 @@
                         
                      
                       <div class="modal-footer" style="padding-top:35px;">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
+                       <button type="button"  class="btn btn-success" >Devengar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
                       </div>
                     </div>
 
@@ -479,9 +486,42 @@
                 </div>
 
 
+       <!--end Cantidad Devengado-->
+
+ <!-- Cantidad Pagado-->
+              <div id="Pagado" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                        <h4 class="modal-title" >Cantidad Pagada</h4>
+                      </div>
+                      <div class="modal-body" style="text-align: left; ">
+                       
+                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
+                           <div class="col-sm-8">  </div>
+                              <div class="input-group"> 
+                                                  <input type="text" class="form-control" placeholder="000,000,000.00" name="price" data-fv-field="price">
+                                                      <span class="input-group-addon">
+                                                           $
+                                                       </span> 
+                                </div>
+                            </div>
+                          <div class="col-sm-1"></div>
+
+                        
+                     
+                      <div class="modal-footer" style="padding-top:35px;">
+                       <button type="button"  class="btn btn-success" >Pagar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
 
 
-
+       <!--end Cantidad Pagado-->
 
 
       <!-- footer content -->
