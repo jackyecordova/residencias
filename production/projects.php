@@ -326,19 +326,22 @@
               <div class="col-md-12">
                 <div class="x_panel">
                  
-                    <h2>Control Presupuestal</h2>
-
-
+                   
+          <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Control</h5> </div>
+                           <div class="col-sm-8">  </div>
                     <div class="title_right">
+                   
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                 
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
+                    <input type="text" class="form-control" placeholder="Buscar Registros...">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Buscar</button>
                     </span>
                   </div>           
                   </div>
                 </div>
+
 
                 <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -450,44 +453,70 @@
           </div>
         </div>
        
-          <!-- Cantidad Devengado-->
-        <div id="Devengada" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Cantidad Devengada</h4>
-                </div>
-                <div class="modal-body" style="text-align: center">
-                  <p>Deseas obtener la cantidad Devengada</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
-                </div>
-              </div>
+                  <!-- Cantidad Devengado-->
+              <div id="Devengada" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                        <h4 class="modal-title" >Cantidad Devengada</h4>
+                      </div>
+                      <div class="modal-body" style="text-align: left; ">
+                       
+                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
+                           <div class="col-sm-8">  </div>
+                              <div class="input-group"> 
+                                                  <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
+                                                      <span class="input-group-addon">
+                                                           $
+                                                       </span> 
+                                </div>
+                            </div>
+                          <div class="col-sm-1"></div>
 
-            </div>
-          </div>
+                        
+                     
+                      <div class="modal-footer" style="padding-top:35px;">
+                       <button type="button"  class="btn btn-success" >Devengar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                      </div>
+                    </div>
 
-            <!-- Cantidad Pagada-->
-        <div id="Pagada" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Cantidad Pagada</h4>
+                  </div>
                 </div>
-                <div class="modal-body" style="text-align: center">
-                  <p>Deseas obtener la cantidad Pagada</p>
+
+                 <!-- Cantidad Devengado-->
+              <div id="Pagada" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                        <h4 class="modal-title" >Cantidad Pagada</h4>
+                      </div>
+                      <div class="modal-body" style="text-align: left; ">
+                       
+                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
+                           <div class="col-sm-8">  </div>
+                              <div class="input-group"> 
+                                                  <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
+                                                      <span class="input-group-addon">
+                                                           $
+                                                       </span> 
+                                </div>
+                            </div>
+                          <div class="col-sm-1"></div>
+
+                        
+                     
+                      <div class="modal-footer" style="padding-top:35px;">
+                       <button type="button"  class="btn btn-success" >Pagar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Pagada">Pagada</button>
-                </div>
-              </div>
-            </div>
-          </div>
+
             <!-- Ver-->
         <div id="ver" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -545,36 +574,7 @@
             </div>
           </div>
 
-     <!-- Cantidad pagada-->
-              <div id="Pagada" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-                        <h4 class="modal-title" >Cantidad Pagada</h4>
-                      </div>
-                      <div class="modal-body" style="text-align: left">
-                        <p>Cantidad </p> <input id="devengar"  style="margin-left:50px;" class="form-control col-md-4 col-xs-12"  placeholder="000,000,000.00" required="required" type="text">
-                      </div>
-                      <div class="modal-footer" style="padding-top:35px;">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
+     
 
 
   <!-- footer content -->
