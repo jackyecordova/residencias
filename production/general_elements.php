@@ -55,6 +55,7 @@
             <br />
 
             <!-- sidebar menu -->
+             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
@@ -81,101 +82,101 @@
                   </li>
                      <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="widgets.php">Archivo Historico
+                      <li><a href="general_elements.php">Archivo Historico
                       </a></li>
 
-                      <li><a href="widgets.php">
+                      <li><a href="general_elements.php">
                       Atencion
                       </a></li>
 
-                      <li><a href="widgets.php">Biblioteca Eduardo Contreras
+                      <li><a href="general_elements.php">Biblioteca Eduardo Contreras
                       </a></li>
 
-                      <li><a href="widgets.php">
+                      <li><a href="general_elements.php">
                       Biblioteca Francisca Holguín
                       </a></li>
 
-                      <li><a href="widgets.php">
+                      <li><a href="general_elements.php">
                         C4
                       </a></li>
 
-                      <li><a href="widgets.php">
+                      <li><a href="general_elements.php">
                       Catastro
                       </a></li>
 
-                      <li><a href="widgets.php">
+                      <li><a href="general_elements.php">
                       Comisarios
                       </a></li>
-                      <li><a href="widgets.php">
+                      <li><a href="general_elements.php">
                       Comunicación Social
                       </a></li>
-                      <li><a href="widgets.php">
+                      <li><a href="general_elements.php">
                       Cultura
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Deportes
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Desarrollo Rural
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Desarrollo Social
                       </a></li>
 
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Desarrollo Urbano
-                      </a></li> <li><a href="widgets.php">
+                      </a></li> <li><a href="general_elements.php">
                       Educación
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Fomento Económico
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Obras Públicas
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Oficialía Mayor
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Pensiones y Jubilados
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Presidencia
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Protecci+on Civil
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                       Regidores
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Salud
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Secretaría
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Secretaría de Relaciones Exteriores
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Seguridad Pública
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Servicios Públicos
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Sindicatura
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Tesorería
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Tránsito
                       </a></li>
-                        <li><a href="widgets.php">
+                        <li><a href="general_elements.php">
                       Turismo
                       </a></li>
-                       <li><a href="widgets.php">
+                       <li><a href="general_elements.php">
                     Unidad de Información
                       </a></li>
 
@@ -196,6 +197,8 @@
               </div>
 
             </div>
+            <!-- /sidebar menu -->
+
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
@@ -374,10 +377,11 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><i class="fa fa-bars"></i> Tabs <small>Float left</small></h2>
-                                       <div class="col-xs-6 col-md-4">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  <span class="required">*</span>
+                                    
+                                       <div class="col-xs-6 col-md-4" style="wifth:90%;">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
                                                 </label>
-                                                
+                                     
                                                   <fieldset>
                                                     <div class="control-group">
                                                       <div class="controls">
@@ -391,8 +395,11 @@
                                                       </div>
                                                     </div>
                                                   </fieldset>
-                                                
-                                    </div>  
+                                                 
+                                    </div>
+
+                        
+
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -431,32 +438,38 @@
                 
                  
                   </ul>
-                  <div cl  </div>
+                            
                 <div class="x_content">
-                  <ul class="list-unstyled timeline">
-                    <li>
-                      <div class="block">
-                        <div class="tags">
-                          <a href="" class="tag">
-                            <span>14 Sep</span>
-                          </a>
-                        </div>
-                        <div class="block_content">
-                          <h2 class="title">
-                                          <a>Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                                      </h2>
-                          <div class="byline">
-                            <span>13 hours ago</span> by <a>Jane Smith</a>
+                
+                      <ul class="list-unstyled timeline"> 
+                      <?php for ($i=0; $i <10 ; $i++) { 
+                                       # code...
+                                          ?>
+                        <li>
+                          <div class="block">
+                            <div class="tags">
+                              <a href="" class="tag">
+                                <span>14 Sep</span>
+                              </a>
+                            </div>
+                            <div class="block_content">
+                              <h2 class="title">
+                                              <a>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</a>
+                                          </h2>
+                              <div class="byline">
+                                <span>PRESIDENCIA </span>    <a>     $ 1000,000.00</a>
+                              </div>
+                              <p class="excerpt">BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02
+                              <br><a>Leer más...</a>
+                              </p>
+                            </div>
                           </div>
-                          <p class="excerpt">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  
-                  </ul>
-
+                        </li>
+                      <?php  } ?>
+                      </ul>
+              
                 </div>
+                 
               </div>
             </div>   
                           </div>

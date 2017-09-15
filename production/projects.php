@@ -48,7 +48,8 @@
             <br />
 
             <!-- sidebar menu -->
- <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+           <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -74,100 +75,101 @@
                   </li>
                      <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">Archivo Historico
+                      <li><a href="general_elements.php">Archivo Historico
                       </a></li>
 
-                      <li><a href="media_gallery.html">
+                      <li><a href="general_elements.php">
                       Atencion
                       </a></li>
 
-                      <li><a href="typography.html">Biblioteca Eduardo Contreras
+                      <li><a href="general_elements.php">Biblioteca Eduardo Contreras
                       </a></li>
 
-                      <li><a href="icons.html">
+                      <li><a href="general_elements.php">
                       Biblioteca Francisca Holguín
                       </a></li>
 
-                      <li><a href="glyphicons.html">
+                      <li><a href="general_elements.php">
                         C4
                       </a></li>
 
-                      <li><a href="widgets.html">
+                      <li><a href="general_elements.php">
                       Catastro
                       </a></li>
 
-                      <li><a href="invoice.html">
+                      <li><a href="general_elements.php">
                       Comisarios
                       </a></li>
-                      <li><a href="inbox.html">
+                      <li><a href="general_elements.php">
                       Comunicación Social
                       </a></li>
-                      <li><a href="calendar.html">
+                      <li><a href="general_elements.php">
                       Cultura
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Deportes
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Desarrollo Rural
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Desarrollo Social
                       </a></li>
 
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Desarrollo Urbano
-                      </a></li> <li><a href="calendar.html">
+                      </a></li> <li><a href="general_elements.php">
                       Educación
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Fomento Económico
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Obras Públicas
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Oficialía Mayor
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Pensiones y Jubilados
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Presidencia
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Protecci+on Civil
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Regidores
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Salud
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Secretaría
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Secretaría de Relaciones Exteriores
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Seguridad Pública
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Servicios Públicos
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Sindicatura
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Tesorería
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Tránsito
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Turismo
                       </a></li>
+                       <li><a href="general_elements.php">
                     Unidad de Información
                       </a></li>
 
@@ -179,18 +181,16 @@
                   </li>
                    <li><a><i class="fa fa-edit"></i> Obras <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">General Form</a></li>
-                      <li><a href="#">Advanced Components</a></li>
-                      <li><a href="#">Form Validation</a></li>
-                      <li><a href="#">Form Wizard</a></li>
-                      <li><a href="#">Form Upload</a></li>
-                      <li><a href="#">Form Buttons</a></li>
+                      <li><a href="#">V</a></li>
+                      <li><a href="#">Crear</a></li>
+                      
                     </ul>
                   </li>
                
               </div>
 
             </div>
+           
 
             <!-- /sidebar menu -->
 
