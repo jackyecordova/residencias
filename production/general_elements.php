@@ -339,7 +339,7 @@
 
 
            <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"    style=" margin-right: -30px;">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"    >
               <span class="count_top"><i class="fa fa-user"></i>Presupuesto</span>
               <div class="count" style="font-size: 25px;margin-bottom: -10px;">$2500</div>
               <span class="count_bottom"><i class="green">100% </i> Total</span>
@@ -364,10 +364,10 @@
               <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$2,315</div>
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>30% </i> Coompletado</span>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+           <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
               <span class="count_top"><i class="fa fa-user"></i> bla bla</span>
               <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$7,325</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i>Completado</span>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i>Completado</span>-->
             </div>
           </div>
             <div class="clearfix"></div>
@@ -376,28 +376,17 @@
               <div class="col-md-6 col-sm-6 col-xs-12" style="width:100%;">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-bars"></i> Tabs <small>Float left</small></h2>
-                                    
-                                       <div class="col-xs-6 col-md-4" style="wifth:90%;">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
-                                                </label>
+                    <h2><i class="fa fa-bars"></i> Ordenes <small>Registradas</small></h2>
+                                   
                                      
-                                                  <fieldset>
-                                                    <div class="control-group">
-                                                      <div class="controls">
-
-                                                        <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-                                                          <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
-                                                          <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                                          <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-                                                        </div>
-
-                                                      </div>
-                                                    </div>
-                                                  </fieldset>
-                                                 
-                                    </div>
-
+                                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                        <div class="input-group">
+                                          <input type="text" class="form-control" placeholder="Search for...">
+                                          <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Go!</button>
+                                          </span>
+                                        </div>
+                                      </div>
                         
 
                     <ul class="nav navbar-right panel_toolbox">
@@ -417,7 +406,7 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
+                  <div class="x_content" style="width: 70%;">
 
 
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
@@ -449,7 +438,7 @@
                           <div class="block">
                             <div class="tags">
                               <a href="" class="tag">
-                                <span>14 Sep</span>
+                                <span>No Orden</span>
                               </a>
                             </div>
                             <div class="block_content">
@@ -457,7 +446,7 @@
                                               <a>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</a>
                                           </h2>
                               <div class="byline">
-                                <span>PRESIDENCIA </span>    <a>     $ 1000,000.00</a>
+                                <span> 15 Septiembre</span>    <a>  PRESIDENCIA   $ 1000,000.00</a>
                               </div>
                               <p class="excerpt">BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02
                               <br><a>Leer más...</a>
@@ -480,7 +469,24 @@
                 </div>
               </div>
 
-
+                                    <div class="col-lg-2">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Buscar por registro...">
+                                           
+                                          </div><!-- /input-group -->
+                                        </div><!-- /.col-lg-6 -->
+                                         <div class="col-lg-2">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Buscar por Orden...">
+                                           
+                                          </div><!-- /input-group -->
+                                        </div><!-- /.col-lg-6 -->
+                                         <div class="col-lg-2">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Buscar por Cuenta...">
+                                           
+                                          </div><!-- /input-group -->
+                                        </div><!-- /.col-lg-6 -->
             
               <div class="clearfix"></div>
 
