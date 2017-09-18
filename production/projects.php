@@ -329,9 +329,10 @@
                    
           <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Control</h5> </div>
                            <div class="col-sm-8">  </div>
-                    <div class="title_right">
+                    <div class="title_right" 
+    style=" margin-left: -300px;">
                    
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="col-md-8 col-sm-5 col-xs-12 form-group pull-right top_search">
                  
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Buscar Registros...">
@@ -340,8 +341,12 @@
                     </span>
                   </div>           
                   </div>
-                </div>
 
+
+                </div>
+               
+ <div class="col-md-2 col-sm-2 col-xs-12 ">
+                </div>
 
                 <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -477,7 +482,7 @@
 
                              <div class="modal-body" style="text-align: left; ">
                        
-                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
+                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
                            <div class="col-sm-8">  </div>
                               <div class="input-group"> 
                                                   <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
