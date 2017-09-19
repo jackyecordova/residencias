@@ -91,123 +91,132 @@
                      <!-- <li><a href="index3.html">Tres</a></li>-->
                     </ul>
                   </li>
-                     <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.php">Archivo Historico
-                      </a></li>
+                  <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu" style="display: none;">
+                               <li><a href="nuevodepartamento.php">Nuevo</a>
+                                 </li>
+                               <li class="active"><a>Departamentos<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                                   
+                                <li>
+                                <a href="general_elements.php">Archivo Historico
+                                </a></li>
 
-                      <li><a href="general_elements.php">
-                      Atencion
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Atencion
+                                </a></li>
 
-                      <li><a href="general_elements.php">Biblioteca Eduardo Contreras
-                      </a></li>
+                                <li><a href="general_elements.php">Biblioteca Eduardo Contreras
+                                </a></li>
 
-                      <li><a href="general_elements.php">
-                      Biblioteca Francisca Holguín
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Biblioteca Francisca Holguín
+                                </a></li>
 
-                      <li><a href="general_elements.php">
-                        C4
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                  C4
+                                </a></li>
 
-                      <li><a href="general_elements.php">
-                      Catastro
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Catastro
+                                </a></li>
 
-                      <li><a href="general_elements.php">
-                      Comisarios
-                      </a></li>
-                      <li><a href="general_elements.php">
-                      Comunicación Social
-                      </a></li>
-                      <li><a href="general_elements.php">
-                      Cultura
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Deportes
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Desarrollo Rural
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Desarrollo Social
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Comisarios
+                                </a></li>
+                                <li><a href="general_elements.php">
+                                Comunicación Social
+                                </a></li>
+                                <li><a href="general_elements.php">
+                                Cultura
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Deportes
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Desarrollo Rural
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Desarrollo Social
+                                </a></li>
 
-                       <li><a href="general_elements.php">
-                      Desarrollo Urbano
-                      </a></li> <li><a href="general_elements.php">
-                      Educación
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Fomento Económico
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Obras Públicas
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Oficialía Mayor
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Pensiones y Jubilados
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Presidencia
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Protecci+on Civil
-                      </a></li>
-                       <li><a href="general_elements.php">
-                      Regidores
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Salud
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Secretaría
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Secretaría de Relaciones Exteriores
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Seguridad Pública
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Servicios Públicos
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Sindicatura
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Tesorería
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Tránsito
-                      </a></li>
-                        <li><a href="general_elements.php">
-                      Turismo
-                      </a></li>
-                       <li><a href="general_elements.php">
-                    Unidad de Información
-                      </a></li>
-
-
-                    </ul>
+                                 <li><a href="general_elements.php">
+                                Desarrollo Urbano
+                                </a></li> <li><a href="general_elements.php">
+                                Educación
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Fomento Económico
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Obras Públicas
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Oficialía Mayor
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Pensiones y Jubilados
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Presidencia
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Protecci+on Civil
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Regidores
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Salud
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Secretaría
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Secretaría de Relaciones Exteriores
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Seguridad Pública
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Servicios Públicos
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Sindicatura
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Tesorería
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Tránsito
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Turismo
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                   Unidad de Información
+                                    </a>
+                                </li>
+                                
+                              </ul>
+                            </li>
+                            
+                               </ul>
                   </li>
                   <!--dos niveles-->
-                   <li class="active"><a>Obras<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: block;">
+                   <li ><a>Obras<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
                           
                            
-                            <li><a href="form_validation.html">Consultar</a>
-                            </li>
+                             <li><a href="form_validation.html">Consultar</a>
+                             </li>
                              <li><a href="plain_page.html">Crear</a>
-                            </li>
+                             </li>
                           </ul>
                       </li>
 
-                   <li class="active"><a>Cuentas<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: block;">
+                   <li><a>Cuentas<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
                            
                            
                             <li><a href="form_validation.html">Consultar</a>
@@ -231,22 +240,7 @@
 
 
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
+           
           </div>
         </div>
        <!--<?php // include "./barramenu.php";?>
@@ -488,7 +482,7 @@
  <div class="clearfix"></div>
              <div class="alert alert-success">
                         <ul class="margin-bottom-none padding-left-lg">
-                          
+                          <i class="fa fa-info-circle fa-lg fa-li"></i>
                           <h2>Datos generales del presupuesto de cada departamento.</h2>
                         </ul>
 
