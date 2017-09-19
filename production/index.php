@@ -483,9 +483,6 @@
 
 
 
-
-
-
                      </div>
                 <!-- end of weather widget -->
  <div class="clearfix"></div>
