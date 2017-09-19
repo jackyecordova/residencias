@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -16,15 +15,7 @@
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
 
-    <!-- bootstrap-datetimepicker -->
-    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
-    <!-- PNotify -->
-   
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -49,13 +40,14 @@
                 <span>Welcome,</span>
                 <h2>John Doe</h2>
               </div>
+              <div class="clearfix"></div>
             </div>
             <!-- /menu profile quick info -->
 
             <br />
 
             <!-- sidebar menu -->
-           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -198,7 +190,7 @@
                            
                              <li><a href="form_validation.html">Consultar</a>
                              </li>
-                             <li><a href="plain_page.php">Crear</a>
+                             <li><a href="plain_page.html">Crear</a>
                              </li>
                           </ul>
                       </li>
@@ -209,7 +201,7 @@
                            
                             <li><a href="form_validation.html">Consultar</a>
                             </li>
-                             <li><a href="plain_page.php">Crear</a>
+                             <li><a href="plain_page.html">Crear</a>
                             </li>
                           </ul>
                       </li>
@@ -219,7 +211,22 @@
             </div>
             <!-- /sidebar menu -->
 
-           
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
           </div>
         </div>
 
@@ -325,197 +332,103 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Departamento</h3>
+                <h3>Plain Page</h3>
               </div>
 
               <div class="title_right">
-                <div class="col-md-4 col-sm-5 col-xs-12 form-group  top_search">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="No mostrar este search...">
-                    <span class="input-group-btn" >No mostrar este search
-                    !</button>
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
 
-
-
-           <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"    >
-              <span class="count_top"><i class="fa fa-user"></i>Presupuesto</span>
-              <div class="count" style="font-size: 25px;margin-bottom: -10px;">$2500</div>
-              <span class="count_bottom"><i class="green">100% </i> Total</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
-              <span class="count_top" ><i class="fa fa-clock-o"></i>Comprometido</span>
-              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$123.50</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>15% </i> Completado</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
-              <span class="count_top"><i class="fa fa-user"></i> Devengado</span>
-              <div class="count green" style="font-size: 25px;    margin-bottom: -10px;">$2,500</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>25% </i>Completado</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
-              <span class="count_top"><i class="fa fa-user"></i> Pagado</span>
-              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$4,567</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>20% </i> Completado</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
-              <span class="count_top"><i class="fa fa-user"></i>Restante</span>
-              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$2,315</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>30% </i> Coompletado</span>
-            </div>
-           <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
-              <span class="count_top"><i class="fa fa-user"></i> bla bla</span>
-              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$7,325</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i>Completado</span>-->
-            </div>
-          </div>
             <div class="clearfix"></div>
 
-            <div class="">
-              <div class="col-md-6 col-sm-6 col-xs-12" style="width:100%;">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-bars"></i> Ordenes <small>Registradas</small></h2>
-                                   
-                                     
-                               <div class="title_right" style=" margin-left: 20px;">
-                                                 
-                                              <div class="col-md-6 col-sm-5 col-xs-12 form-group  top_search" style="margin-left: 20px;">
-                                               
-                                                <div class="input-group">
-                                                  <input type="text" class="form-control" placeholder="Buscar Registros...">
-                                                  <span class="input-group-btn">
-                                                    <button class="btn btn-default" type="button">Buscar</button>
-                                                  </span>
-                                                </div>           
-                                                </div>
-
-                                                  <div class="btn-group" class="pull-rigth" style="margin-left">
-                                                       <button class="btn btn-info"type="button">
-                                                          <i class="fa fa-print"></i>
-                                                       </button>
-                                                    </div>
-                                                       <div class="btn-group" class="pull-rigth">
-                                                       <button class="btn btn-success"type="button">
-                                                            <i class="fa fa-floppy-o"></i>
-                                                       </button>
-                                                    </div>
-
-
-
-                            </div>
-
-                  
+                    <h2>Historial de ordenes registradas </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content" style="width: 80%;">
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                     
+                    </p>
+                    <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length">
+                    <label>Mostrar
+                    <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
+                    <option value="10">
+                    10
+                    </option>
+                    <option value="25">
+                    25
+                    </option>
+                    <option value="50">
+                    50
+                    </option>
+                    <option value="100">
+                    100
+                    </option>
+                    </select> entries</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                      <thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195px;">Name</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 312px;">Position</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 142px;">Office</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 72px;">Age</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 136px;">Start date</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 112px;">Salary</th></tr>
+                      </thead>
 
 
-                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">General</a>
-                        </li>
-                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Emitido</a>
-                        </li>
-                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Devengado</a>
-                        </li>
-                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Pagado</a>
-                        </li>
-                      </ul>
-                          <div id="myTabContent" class="tab-content">
-                             <div class="col-md-6 col-sm-6 col-xs-12"     style="width: 100%;">
-              <div class="x_panel" >
-               
-                
-                 
-                  </ul>
-                            
-                <div class="x_content">
-                
-                      <ul class="list-unstyled timeline"> 
-                      <?php for ($i=0; $i <10 ; $i++) { 
-                                       # code...
-                                          ?>
-                        <li>
-                          <div class="block">
-                            <div class="tags">
-                              <a href="" class="tag">
-                                <span>No Orden</span>
-                              </a>
-                            </div>
-                            <div class="block_content">
-                              <h2 class="title">
-                                              <a>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</a>
-                                          </h2>
-                              <div class="byline">
-                                <span> 5-00-00-00-00-00     </span>    <a>  PRESIDENCIA   $ 1000,000.00</a> <small>15 Septiembre</small>
-                              </div>
-                              <p class="excerpt">BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02
-                              <br><a>Leer más...</a>
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                      <?php  } ?>
-                      </ul>
-              
-                </div>
-                 
-              </div>
-            </div>   
-                          </div>
-                        </div>
-                    </div>
-
+                      <tbody>
+                  <?php for ($i=0; $i <10 ; $i++) { 
+                    # code...
+                   ?>
+                        
+                        <tr role="row" class="odd">
+                            <td class="sorting_1">Airi Satou</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>33</td>
+                            <td>2008/11/28</td>
+                            <td>$162,700</td>
+                        </tr>
+                        <?php  }?>
+                        </tbody>
+                    </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="datatable_previous"><a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div></div></div>
                   </div>
                 </div>
               </div>
-
-                                  
-            
-              <div class="clearfix"></div>
-
-             
-              
-              <div class="clearfix"></div>
-
-
-           
-
-
-
             </div>
-            <div class="clearfix"></div>
-
-         
-
-         
           </div>
-          <div class="clearfix"></div>
         </div>
         <!-- /page content -->
 
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           </div>
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
       </div>
-    </div>
-
-    <div id="custom_notifications" class="custom-notifications dsp_none">
-      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-      </ul>
-      <div class="clearfix"></div>
-      <div id="notif-group" class="tabbed_notifications"></div>
     </div>
 
     <!-- jQuery -->
@@ -526,17 +439,8 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- PNotify -->
-   
-  <!-- bootstrap-datetimepicker -->    
-    <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-
+    
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-	
   </body>
 </html>

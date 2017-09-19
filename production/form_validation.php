@@ -321,7 +321,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Generar una nueva orden</h3>
+                <h3>Ordenes</h3>
               </div>
 
              
@@ -332,7 +332,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Orden<small></small></h2>
+                    <h2>Generar una nueva orden<small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -353,10 +353,9 @@
 
                     <form class="form-horizontal form-label-left" novalidate>
 
-                      <p>Crea una nueva orden  <!--<code></code> -->
+                      <p>Detalles de la orden  <!--<code></code> -->
                       </p>
-                      <span class="section">Información</span>
-
+                   
 
 
                           <!--Ventana gris-->
@@ -364,6 +363,7 @@
 
 
                                 <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="width:20%;" placeholder="Departamento">
+                                <option>Departamento</option>
                                   <option>Presidencia</option>
                                   <option>Tesorería</option>
                                   <option>Catastro</option>
@@ -371,15 +371,20 @@
                                   <option>Oficialía Mayor</option>
                                 </select>
 
+                                 <div class="clearfix"></div>
+                                <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
+                                            </div>
+                              </div>
+                                      <div class="clearfix"></div>
 
-                                
-                                  <div class="clearfix"></div>
-  <div class="clearfix"></div>
 
                          <div class="col-xs-12 col-md-12">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  <span class="required">*</span>
                                         </label>
-                                        
                                           <fieldset>
                                             <div class="control-group">
                                               <div class="controls">
@@ -399,9 +404,8 @@
 
 
 
-  <div class="clearfix"></div>
-
-
+                               <div class="clearfix"></div>
+                      
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
                         </label>
@@ -431,6 +435,15 @@
                           <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
                         </div>
                       </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                        </div>
+                      </div>
+
                     
                    
                     
@@ -474,25 +487,27 @@
                       <div class="modal-body" style="text-align: left; ">                     
                          <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
                           <div class="col-sm-8">  </div>
-                               <div class="input-group"> 
-                                                  <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
-                                                      <span class="input-group-addon">
-                                                           $
-                                                     </span> 
-                                </div>
-                            </div>
-                             <div class="modal-body" style="text-align: left; ">
-                       
-                                   <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
-                                    <div class="col-sm-8">  </div>
-                                    <div class="input-group"> 
+                         <div class="input-group"> 
                                             <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
                                                 <span class="input-group-addon">
-                                                                     $
-                                                </span> 
-                                    </div>
+                                                     $
+                                               </span> 
+                          </div>
+                        </div>
+                        <!--poliza -->
+                        <div class="modal-body" style="text-align: left;margin-top: -20px;text-align: left; ">
+                       
+                             <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
+                              <div class="col-sm-8">  </div>
+                              <div class="input-group"> 
+                                      <input type="text"  class="form-control" name="price" data-fv-field="price">
+                                          <span class="input-group-addon">
+                                                               
+                                          </span> 
+                              </div>
                                           
-                            </div>
+                        </div>
+                         <!--poliza -->
                           <div class="col-sm-1"></div>
                       <div class="modal-footer" style="padding-top:35px;">
                        <button type="button"  class="btn btn-success" >Devengar</button>
@@ -526,6 +541,19 @@
                                                        </span> 
                                 </div>
                             </div>
+                              <!--poliza -->
+                              <div class="modal-body" style="text-align: left;margin-top: -20px;text-align: left; ">
+                       
+                                     <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
+                                        <div class="col-sm-8">  </div>
+                                        <div class="input-group"> 
+                                                <input type="text"  class="form-control" name="price" data-fv-field="price">
+                                                <span class="input-group-addon">
+                                                </span> 
+                                        </div>
+                                          
+                          </div>
+                          <!--poliza -->
                           <div class="col-sm-1"></div>
 
                         
