@@ -48,7 +48,8 @@
             <br />
 
             <!-- sidebar menu -->
- <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+           <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -63,7 +64,7 @@
                            
                             <li><a href="form_validation.html">Generar</a>
                             </li>
-                             <li><a href="plain_page.html">Cancelar</a>
+                             <li><a href="plain_page.html">Historial</a>
                             </li>
                           </ul>
                       </li>
@@ -74,123 +75,134 @@
                   </li>
                      <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">Archivo Historico
+                      <li><a href="general_elements.php">Archivo Historico
                       </a></li>
 
-                      <li><a href="media_gallery.html">
+                      <li><a href="general_elements.php">
                       Atencion
                       </a></li>
 
-                      <li><a href="typography.html">Biblioteca Eduardo Contreras
+                      <li><a href="general_elements.php">Biblioteca Eduardo Contreras
                       </a></li>
 
-                      <li><a href="icons.html">
+                      <li><a href="general_elements.php">
                       Biblioteca Francisca Holguín
                       </a></li>
 
-                      <li><a href="glyphicons.html">
+                      <li><a href="general_elements.php">
                         C4
                       </a></li>
 
-                      <li><a href="widgets.html">
+                      <li><a href="general_elements.php">
                       Catastro
                       </a></li>
 
-                      <li><a href="invoice.html">
+                      <li><a href="general_elements.php">
                       Comisarios
                       </a></li>
-                      <li><a href="inbox.html">
+                      <li><a href="general_elements.php">
                       Comunicación Social
                       </a></li>
-                      <li><a href="calendar.html">
+                      <li><a href="general_elements.php">
                       Cultura
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Deportes
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Desarrollo Rural
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Desarrollo Social
                       </a></li>
 
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Desarrollo Urbano
-                      </a></li> <li><a href="calendar.html">
+                      </a></li> <li><a href="general_elements.php">
                       Educación
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Fomento Económico
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Obras Públicas
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Oficialía Mayor
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Pensiones y Jubilados
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Presidencia
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Protecci+on Civil
                       </a></li>
-                       <li><a href="calendar.html">
+                       <li><a href="general_elements.php">
                       Regidores
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Salud
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Secretaría
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Secretaría de Relaciones Exteriores
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Seguridad Pública
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Servicios Públicos
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Sindicatura
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Tesorería
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Tránsito
                       </a></li>
-                        <li><a href="calendar.html">
+                        <li><a href="general_elements.php">
                       Turismo
                       </a></li>
+                       <li><a href="general_elements.php">
                     Unidad de Información
                       </a></li>
 
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Cuentas <span class="fa fa-chevron-down"></span></a>
-                   
-                  </li>
-                   <li><a><i class="fa fa-edit"></i> Obras <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">General Form</a></li>
-                      <li><a href="#">Advanced Components</a></li>
-                      <li><a href="#">Form Validation</a></li>
-                      <li><a href="#">Form Wizard</a></li>
-                      <li><a href="#">Form Upload</a></li>
-                      <li><a href="#">Form Buttons</a></li>
-                    </ul>
-                  </li>
+                  <!--dos niveles-->
+                   <li class="active"><a>Obras<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                          
+                           
+                            <li><a href="form_validation.html">Consultar</a>
+                            </li>
+                             <li><a href="plain_page.html">Crear</a>
+                            </li>
+                          </ul>
+                      </li>
+
+                   <li class="active"><a>Cuentas<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                           
+                           
+                            <li><a href="form_validation.html">Consultar</a>
+                            </li>
+                             <li><a href="plain_page.html">Crear</a>
+                            </li>
+                          </ul>
+                      </li>
                
               </div>
 
             </div>
+           
 
             <!-- /sidebar menu -->
 
@@ -327,40 +339,31 @@
                 <div class="x_panel">
                  
                    
-          <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Control</h5> </div>
-                           <div class="col-sm-8">  </div>
-                    <div class="title_right">
+                   <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Control</h5> </div>
+                                 <div class="col-sm-8">  </div>
+                        <div class="title_right" 
+                               style=" margin-left: -300px;">
                    
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                 
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar Registros...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Buscar</button>
-                    </span>
-                  </div>           
-                  </div>
+                      <div class="col-md-8 col-sm-5 col-xs-12 form-group pull-right top_search">
+                       
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Buscar Registros...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Buscar</button>
+                          </span>
+                        </div>           
+                        </div>
+
+
+                      </div>
+                     
+                 <div class="col-md-2 col-sm-2 col-xs-12 ">
                 </div>
 
-
-                <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+               
                     <div class="clearfix"></div>
 
-              </div>
+            
             </div>
 
                   <div class="x_content">
@@ -445,7 +448,7 @@
                       </tbody>
                     </table>
                     <!-- end project list -->
-
+              </div>
                   </div>
                 </div>
               </div>
@@ -471,7 +474,25 @@
                                                            $
                                                        </span> 
                                 </div>
+
                             </div>
+
+
+                             <div class="modal-body" style="text-align: left; ">
+                       
+                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
+                           <div class="col-sm-8">  </div>
+                              <div class="input-group"> 
+                                                  <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
+                                                      <span class="input-group-addon">
+                                                           $
+                                                       </span> 
+                                </div>
+                                
+                            </div>
+
+
+
                           <div class="col-sm-1"></div>
 
                         

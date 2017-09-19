@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -15,13 +16,17 @@
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    
-    <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
-     <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+
     <!-- bootstrap-datetimepicker -->
     <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- PNotify -->
+   
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -50,7 +55,7 @@
             <br />
 
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -202,7 +207,7 @@
                
               </div>
 
-            </div>
+            </div>s
             <!-- /sidebar menu -->
 
             <!-- /sidebar menu -->
@@ -328,215 +333,182 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Generar una nueva orden</h3>
+                <h3>Departamento</h3>
               </div>
 
+              <div class="title_right">
+                <div class="col-md-4 col-sm-5 col-xs-12 form-group  top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="No mostrar este search...">
+                    <span class="input-group-btn" >No mostrar este search
+                    !</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+           <div class="row tile_count">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"    >
+              <span class="count_top"><i class="fa fa-user"></i>Presupuesto</span>
+              <div class="count" style="font-size: 25px;margin-bottom: -10px;">$2500</div>
+              <span class="count_bottom"><i class="green">100% </i> Total</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+              <span class="count_top" ><i class="fa fa-clock-o"></i>Comprometido</span>
+              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$123.50</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>15% </i> Completado</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+              <span class="count_top"><i class="fa fa-user"></i> Devengado</span>
+              <div class="count green" style="font-size: 25px;    margin-bottom: -10px;">$2,500</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>25% </i>Completado</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+              <span class="count_top"><i class="fa fa-user"></i> Pagado</span>
+              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$4,567</div>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>20% </i> Completado</span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+              <span class="count_top"><i class="fa fa-user"></i>Restante</span>
+              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$2,315</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>30% </i> Coompletado</span>
+            </div>
+           <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+              <span class="count_top"><i class="fa fa-user"></i> bla bla</span>
+              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$7,325</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i>Completado</span>-->
+            </div>
+          </div>
+            <div class="clearfix"></div>
+
+            <div class="">
+              <div class="col-md-6 col-sm-6 col-xs-12" style="width:100%;">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Ordenes <small>Registradas</small></h2>
+                                   
+                                     
+                               <div class="title_right" style=" margin-left: 20px;">
+                                                 
+                                              <div class="col-md-6 col-sm-5 col-xs-12 form-group  top_search" style="margin-left: 20px;">
+                                               
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" placeholder="Buscar Registros...">
+                                                  <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">Buscar</button>
+                                                  </span>
+                                                </div>           
+                                                </div>
+
+                                                  <div class="btn-group" class="pull-rigth" style="margin-left">
+                                                       <button class="btn btn-info"type="button">
+                                                          <i class="fa fa-print"></i>
+                                                       </button>
+                                                    </div>
+                                                       <div class="btn-group" class="pull-rigth">
+                                                       <button class="btn btn-success"type="button">
+                                                            <i class="fa fa-floppy-o"></i>
+                                                       </button>
+                                                    </div>
+
+
+
+                            </div>
+
+                  
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" style="width: 80%;">
+
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">General</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Emitido</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Devengado</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Pagado</a>
+                        </li>
+                      </ul>
+                          <div id="myTabContent" class="tab-content">
+                             <div class="col-md-6 col-sm-6 col-xs-12"     style="width: 100%;">
+              <div class="x_panel" >
+               
+                
+                 
+                  </ul>
+                            
+                <div class="x_content">
+                
+                      <ul class="list-unstyled timeline"> 
+                      <?php for ($i=0; $i <10 ; $i++) { 
+                                       # code...
+                                          ?>
+                        <li>
+                          <div class="block">
+                            <div class="tags">
+                              <a href="" class="tag">
+                                <span>No Orden</span>
+                              </a>
+                            </div>
+                            <div class="block_content">
+                              <h2 class="title">
+                                              <a>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</a>
+                                          </h2>
+                              <div class="byline">
+                                <span> 5-00-00-00-00-00     </span>    <a>  PRESIDENCIA   $ 1000,000.00</a> <small>15 Septiembre</small>
+                              </div>
+                              <p class="excerpt">BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02
+                              <br><a>Leer más...</a>
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      <?php  } ?>
+                      </ul>
+              
+                </div>
+                 
+              </div>
+            </div>   
+                          </div>
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+                                  
+            
+              <div class="clearfix"></div>
+
              
+              
+              <div class="clearfix"></div>
+
+
+           
+
+
+
             </div>
             <div class="clearfix"></div>
 
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Orden<small></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Cancelar</a>
-                          </li>
-                         
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+         
 
-                    <form class="form-horizontal form-label-left" novalidate>
-
-                      <p>Crea una nueva orden  <!--<code></code> -->
-                      </p>
-                      <span class="section">Información</span>
-
-
-
-                          <!--Ventana gris-->
-                        <div class="well" style="overflow: auto">
-
-
-                                <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="width:20%;" placeholder="Departamento">
-                                  <option>Presidencia</option>
-                                  <option>Tesorería</option>
-                                  <option>Catastro</option>
-                                  <option>Obras Públicas</option>
-                                  <option>Oficialía Mayor</option>
-                                </select>
-
-                            <div class="col-xs-6 col-md-4">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  <span class="required">*</span>
-                                        </label>
-                                        <form class="form-horizontal" class="pull-center ">
-                                          <fieldset>
-                                            <div class="control-group" >
-                                              <div class="controls" >
-
-                                                <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;" >
-                                                  <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
-                                                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                                  <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-                                                </div>
-
-                                              </div>
-                                            </div>
-                                          </fieldset>
-                                        </form>
-                            </div>
-                      <br>
-
-
-
-
-                      
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
-                        </div>
-                      </div>
-                    
-
-
-
-
-
-
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Número de cuenta" required="required" type="text">
-                        </div>
-                      </div>
-                    
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
-                        </div>
-                      </div>
-                    
-                   
-                    
-                   
-
-
-                      <div class="col-md-6 col-md-offset-3" style="padding-bottom:20px;padding-top:20px;  ">
-                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
-                      </div>
-
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
-                          <button id="send" type="submit" class="btn btn-success">Enviar</button>
-                        </div>
-                      </div>
-                         </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
+         
           </div>
+          <div class="clearfix"></div>
         </div>
         <!-- /page content -->
 
-
-
-
-
-
-         <!-- Cantidad Devengado-->
-              <div id="Devengada" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-                        <h4 class="modal-title" >Cantidad Devengada</h4>
-                      </div>
-                      <div class="modal-body" style="text-align: left; ">
-                       
-                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-                           <div class="col-sm-8">  </div>
-                              <div class="input-group"> 
-                                                  <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
-                                                      <span class="input-group-addon">
-                                                           $
-                                                       </span> 
-                                </div>
-                            </div>
-                          <div class="col-sm-1"></div>
-
-                        
-                     
-                      <div class="modal-footer" style="padding-top:35px;">
-                       <button type="button"  class="btn btn-success" >Devengar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-
-       <!--end Cantidad Devengado-->
-
- <!-- Cantidad Pagado-->
-              <div id="Pagado" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-                        <h4 class="modal-title" >Cantidad Pagada</h4>
-                      </div>
-                      <div class="modal-body" style="text-align: left; ">
-                       
-                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-                           <div class="col-sm-8">  </div>
-                              <div class="input-group"> 
-                                                  <input type="text" class="form-control" placeholder="000,000,000.00" name="price" data-fv-field="price">
-                                                      <span class="input-group-addon">
-                                                           $
-                                                       </span> 
-                                </div>
-                            </div>
-                          <div class="col-sm-1"></div>
-
-                        
-                     
-                      <div class="modal-footer" style="padding-top:35px;">
-                       <button type="button"  class="btn btn-success" >Pagar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-
-       <!--end Cantidad Pagado-->
-
-
-      <!-- footer content -->
+        <!-- footer content -->
         <footer>
           <div class="pull-right">
             <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
@@ -547,6 +519,13 @@
       </div>
     </div>
 
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+      </ul>
+      <div class="clearfix"></div>
+      <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -555,17 +534,17 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- validator -->
-    <script src="../vendors/validator/validator.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- PNotify -->
+   
+  <!-- bootstrap-datetimepicker -->    
+    <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- bootstrap-datetimepicker -->    
-    <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-  <!--  <script type="./js/the-basics.js"></script>-->
 	
   </body>
 </html>
