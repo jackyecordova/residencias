@@ -82,7 +82,7 @@
                            
                             <li><a href="form_validation.html">Generar</a>
                             </li>
-                             <li><a href="plain_page.html">Cancelar</a>
+                             <li><a href="plain_page.html">Historial</a>
                             </li>
                           </ul>
                       </li>
@@ -194,16 +194,28 @@
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Cuentas <span class="fa fa-chevron-down"></span></a>
-                   
-                  </li>
-                   <li><a><i class="fa fa-edit"></i> Obras <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">V</a></li>
-                      <li><a href="#">Crear</a></li>
-                      
-                    </ul>
-                  </li>
+                  <!--dos niveles-->
+                   <li class="active"><a>Obras<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                          
+                           
+                            <li><a href="form_validation.html">Consultar</a>
+                            </li>
+                             <li><a href="plain_page.html">Crear</a>
+                            </li>
+                          </ul>
+                      </li>
+
+                   <li class="active"><a>Cuentas<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                           
+                           
+                            <li><a href="form_validation.html">Consultar</a>
+                            </li>
+                             <li><a href="plain_page.html">Crear</a>
+                            </li>
+                          </ul>
+                      </li>
                
               </div>
 
@@ -352,11 +364,18 @@
 
 
                <div>
-                 <img class="logoimagen" src="images/logoncg.jpg">
-                 
+                   <!--<img class="logoimagen" src="images/logoncg.jpg">-->
+
+
+              <div class="col-md-6 col-sm-6 col-xs-10 " style="padding:100px">
+
+                  <h1>Control Presupuestal<small></small></h1>
+
+              </div>
                   <!-- start of weather widget -->
                 
-                <div class="col-md-4 col-sm-4 col-xs-12" class="clima" class="pull-right">
+                <div class="col-md-4 col-sm-4 col-xs-12  pull-right" class="clima"  > 
+               
                   <div class="x_panel">
                     <div class="x_title">
                       <h2>Clima <small>Usuario</small></h2>
@@ -469,9 +488,14 @@
 
                      </div>
                 <!-- end of weather widget -->
-               </div>
-               
-              
+ <div class="clearfix"></div>
+             <div class="alert alert-success">
+                        <ul class="margin-bottom-none padding-left-lg">
+                          
+                          <h2>Datos generales del presupuesto de cada departamento.</h2>
+                        </ul>
+
+                      </div>
              <?php 
                   for ($i=0; $i < 12; $i++) { 
                      # code...

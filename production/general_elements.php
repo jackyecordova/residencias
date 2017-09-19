@@ -55,8 +55,7 @@
             <br />
 
             <!-- sidebar menu -->
-             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -71,7 +70,7 @@
                            
                             <li><a href="form_validation.html">Generar</a>
                             </li>
-                             <li><a href="plain_page.html">Cancelar</a>
+                             <li><a href="plain_page.html">Historial</a>
                             </li>
                           </ul>
                       </li>
@@ -183,20 +182,32 @@
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Cuentas <span class="fa fa-chevron-down"></span></a>
-                   
-                  </li>
-                   <li><a><i class="fa fa-edit"></i> Obras <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">V</a></li>
-                      <li><a href="#">Crear</a></li>
-                      
-                    </ul>
-                  </li>
+                  <!--dos niveles-->
+                   <li class="active"><a>Obras<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                          
+                           
+                            <li><a href="form_validation.html">Consultar</a>
+                            </li>
+                             <li><a href="plain_page.html">Crear</a>
+                            </li>
+                          </ul>
+                      </li>
+
+                   <li class="active"><a>Cuentas<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                           
+                           
+                            <li><a href="form_validation.html">Consultar</a>
+                            </li>
+                             <li><a href="plain_page.html">Crear</a>
+                            </li>
+                          </ul>
+                      </li>
                
               </div>
 
-            </div>
+            </div>s
             <!-- /sidebar menu -->
 
             <!-- /sidebar menu -->
@@ -326,10 +337,11 @@
               </div>
 
               <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                <div class="col-md-4 col-sm-5 col-xs-12 form-group  top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn" >Buscar!</button>
+                    <input type="text" class="form-control" placeholder="No mostrar este search...">
+                    <span class="input-group-btn" >No mostrar este search
+                    !</button>
                     </span>
                   </div>
                 </div>
@@ -379,34 +391,37 @@
                     <h2><i class="fa fa-bars"></i> Ordenes <small>Registradas</small></h2>
                                    
                                      
-                                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                                        <div class="input-group">
-                                          <input type="text" class="form-control" placeholder="Search for...">
-                                          <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">Go!</button>
-                                          </span>
-                                        </div>
-                                      </div>
-                        
+                               <div class="title_right" style=" margin-left: 20px;">
+                                                 
+                                              <div class="col-md-6 col-sm-5 col-xs-12 form-group  top_search" style="margin-left: 20px;">
+                                               
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" placeholder="Buscar Registros...">
+                                                  <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">Buscar</button>
+                                                  </span>
+                                                </div>           
+                                                </div>
 
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                                                  <div class="btn-group" class="pull-rigth" style="margin-left">
+                                                       <button class="btn btn-info"type="button">
+                                                          <i class="fa fa-print"></i>
+                                                       </button>
+                                                    </div>
+                                                       <div class="btn-group" class="pull-rigth">
+                                                       <button class="btn btn-success"type="button">
+                                                            <i class="fa fa-floppy-o"></i>
+                                                       </button>
+                                                    </div>
+
+
+
+                            </div>
+
+                  
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content" style="width: 70%;">
+                  <div class="x_content" style="width: 80%;">
 
 
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
@@ -446,7 +461,7 @@
                                               <a>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</a>
                                           </h2>
                               <div class="byline">
-                                <span> 15 Septiembre</span>    <a>  PRESIDENCIA   $ 1000,000.00</a>
+                                <span> 5-00-00-00-00-00     </span>    <a>  PRESIDENCIA   $ 1000,000.00</a> <small>15 Septiembre</small>
                               </div>
                               <p class="excerpt">BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02
                               <br><a>Leer más...</a>
@@ -469,24 +484,7 @@
                 </div>
               </div>
 
-                                    <div class="col-lg-2">
-                                          <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Buscar por registro...">
-                                           
-                                          </div><!-- /input-group -->
-                                        </div><!-- /.col-lg-6 -->
-                                         <div class="col-lg-2">
-                                          <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Buscar por Orden...">
-                                           
-                                          </div><!-- /input-group -->
-                                        </div><!-- /.col-lg-6 -->
-                                         <div class="col-lg-2">
-                                          <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Buscar por Cuenta...">
-                                           
-                                          </div><!-- /input-group -->
-                                        </div><!-- /.col-lg-6 -->
+                                  
             
               <div class="clearfix"></div>
 
