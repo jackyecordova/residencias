@@ -525,12 +525,15 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Detalles</h4>
                 </div>
-                <div class="modal-body" style="text-align: center">
-                  <p>Deseas VISUALIZAR toda la información</p>
-                </div>
-                <div class="modal-footer">
+                <div class="modal-body" style="text-align: left; ">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:8px;">Cuenta </h5> </div>
+                         <label>
+                           01280413955
+                         </label>
+
                   <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#ver">Ver</button>
+
                 </div>
               </div>
             </div>
