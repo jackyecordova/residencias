@@ -528,15 +528,116 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Detalles</h4>
                 </div>
-                <div class="modal-body" style="text-align: left; ">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:8px;">Cuenta </h5> </div>
+                <!-- cuenta-->
+                <div class="col-sm-4" class="modal-body" style="text-align: left; ">
+                          
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Cuenta </h5> </div>
+                         <br>
+                         <br>
                          <label>
                            01280413955
                          </label>
-
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-
+                          </div>
+                   <!-- Departamento-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-8">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Departamento </h5> </div>
+                         <br>
+                         <br>
+                         <label>
+                           Oficialia Mayor
+                         </label>
+                      </div> 
+                   <!-- fecha-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-8">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Fecha </h5> </div>
+                         <br>
+                         <br>
+                         <label>
+                           12/09/2017
+                         </label>
+                      </div>
+                   <!-- libre-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;"> </h5> </div>
+                         <br>
+                         <br>
+                         <label>
+                         </label>
+                      </div>                    
+                  <!-- Observaciones-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Observaciones </h5> </div>
+                         <br>
+                         <br>
+                         <label>
+                           TRANSMISION DEL PROGRAMA DESAYUNANDO CON EN PAGUINA WEB
+                         </label>
+                      </div>
+                    <!-- ord_vehiculo-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Ord_vehiculo </h5> </div>
+                         <br>
+                         <br>
+                         <label>
+                          PARA CASETAS VALE POR 1500 PESOS
+                         </label>
+                      </div>  
+                  <!-- libre-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;"> </h5> </div>
+                         <br>
+                         <br>
+                         <label>
+                         </label>
+                      </div>               
+                    <!-- tot compromet.-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Total Comprometido </h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                          $1740
+                         </label>
+                      </div>   
+                   <!-- libre-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;"> </h5> </div>
+                         <br>
+                         <br>
+                         <label>
+                         </label>
+                      </div>  
+                  <!-- Póliza Dev.-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Poliza Devengada </h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                         PD 254
+                         </label>
+                      </div>    
+                    <!-- ppto dev-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Presupuesto Devengado </h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                         $1,700.00
+                         </label>
+                      </div>                                                               
                 </div>
               </div>
             </div>
