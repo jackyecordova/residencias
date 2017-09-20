@@ -559,13 +559,7 @@
                          </label>
                       </div>
                    <!-- libre-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;"> </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                         </label>
+                  <div class="col-sm-4" >
                       </div>                    
                   <!-- Observaciones-->
                   <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
@@ -588,13 +582,7 @@
                          </label>
                       </div>  
                   <!-- libre-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;"> </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                         </label>
+                  <div class="col-sm-4">
                       </div>               
                     <!-- tot compromet.-->
                   <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
@@ -607,15 +595,7 @@
                           $1740
                          </label>
                       </div>   
-                   <!-- libre-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;"> </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                         </label>
-                      </div>  
+                
                   <!-- Póliza Dev.-->
                   <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
                        
@@ -637,9 +617,76 @@
                          <label>
                          $1,700.00
                          </label>
-                      </div>                                                               
+                      </div>  
+                    <!-- FECH DEVENG-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Fecha Devengada</h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                         27-1-17
+                         </label>
+                      </div> 
+                   <!-- Póliza Pagada-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Poliza Pagada </h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                         PD 3
+                         </label>
+                      </div>   
+                    <!-- ppto pagado-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Presupuesto Pagado</h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                         $1,740.00
+                         </label>
+                      </div> 
+                       <!-- FECH Pagada-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Fecha Pagada</h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                        6/2/2017
+                         </label>
+                      </div>   
+                      <!-- Orden No. Factura-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">orden Numero de Factura</h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                         RECIBO 1621016598
+                         </label>
+                      </div>  
+                       <!-- st&dpt&cta-->
+                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
+                       
+                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Estatus,Departamento y Cuenta</h5> </div>
+                         <br>
+                         <br>
+                         <br>
+                         <label>
+                         PAGADA345-1-3-6-001-0002-000
+                         </label>
+                      </div>                                                                            
                 </div>
               </div>
+              <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
             </div>
           </div>
            <!-- editar-->
