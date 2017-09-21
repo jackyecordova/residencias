@@ -1,14 +1,14 @@
 
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/php; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Presupuesto Anual</title>
+    <title>Gentelella Alela! | </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,29 +16,22 @@
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
-    <!-- bootstrap-progressbar -->
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+    
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
-    <link href="./css/estiloindex.css" rel="stylesheet">
+     <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-      <div class="col-md-3 left_col">
+        <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><i class="fa fa-university"></i> <span>Presidencia</span>
-              <span> Municipal</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -49,25 +42,16 @@
                 <img src="images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Bienvenido</span>
-                <h2>USUARIO</h2>
+                <span>Welcome,</span>
+                <h2>John Doe</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
 
             <br />
 
-
-
-
-
-
-
-
-
-
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -80,15 +64,15 @@
                             <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
                             </li>
                            
-                            <li><a href="form_validation.php">Generar</a>
+                            <li><a href="form_validation.html">Generar</a>
                             </li>
-                             <li><a href="plain_page.php">Historial</a>
+                             <li><a href="plain_page.html">Historial</a>
                             </li>
                           </ul>
                       </li>
 
 
-                     <!-- <li><a href="index3.php">Tres</a></li>-->
+                     <!-- <li><a href="index3.html">Tres</a></li>-->
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
@@ -204,13 +188,13 @@
                                </ul>
                   </li>
                   <!--dos niveles-->
-                   <li ><a><i class="fa fa-table"></i>Obras<span class="fa fa-chevron-down"></span></a>
+                   <li ><a>Obras<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                           
                            
-                             <li><a href="verobra.php">Consultar</a>
+                             <li><a href="form_validation.html">Consultar</a>
                              </li>
-                             <li><a href="nuevaobra.php">Crear</a>
+                             <li><a href="plain_page.html">Crear</a>
                              </li>
                           </ul>
                       </li>
@@ -219,9 +203,9 @@
                           <ul class="nav child_menu" style="display: none;">
                            
                            
-                            <li><a href="vercuenta.php">Consultar</a>
+                            <li><a href="form_validation.html">Consultar</a>
                             </li>
-                             <li><a href="nuevacuenta.php">Crear</a>
+                             <li><a href="plain_page.html">Crear</a>
                             </li>
                           </ul>
                       </li>
@@ -231,21 +215,11 @@
             </div>
             <!-- /sidebar menu -->
 
-
-
-
-
-
-
-
-
-
-           
+            
           </div>
         </div>
-       <!--<?php // include "./barramenu.php";?>
 
-         top navigation -->
+        <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
@@ -256,11 +230,11 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">USUARIO
+                    <img src="images/img.jpg" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;">Perfil</a></li>
+                    <li><a href="javascript:;"> Profile</a></li>
                     <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
@@ -268,7 +242,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
@@ -341,252 +315,148 @@
           </div>
         </div>
         <!-- /top navigation -->
- <div class="row">
+
         <!-- page content -->
         <div class="right_col" role="main">
-          <!-- top tiles -->
-           <div class="col-md-12 col-sm-12 col-xs-12" class="logotipo" >
-              <div class="dashboard_graph" >
-
-                <div class="row x_title">
-                  <div class="col-md-6">
-                    <h3>Presidencia Municipal <small> Nuevo Casas Grandes</small></h3>
-                  </div>
-                 
-                  </div>
-                </div>
-
-
-               <div>
-                   <!--<img class="logoimagen" src="images/logoncg.jpg">-->
-
-
-              <div class="col-md-6 col-sm-6 col-xs-10 " style="padding:100px">
-
-                  <h1>Control Presupuestal<small></small></h1>
-
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Generar una nueva cuenta</h3>
               </div>
-                  <!-- start of weather widget -->
-                
-                <div class="col-md-4 col-sm-4 col-xs-12  pull-right" class="clima"  > 
-               
-                  <div class="x_panel">
-                    <div class="x_title">
-                      <h2>Clima <small>Usuario</small></h2>
-                      <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                      </ul>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="temperature"><b>Lunes</b>, 07:30 AM
-                           
-                        
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <div class="weather-icon">
-                            <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
-                          </div>
-                        </div>
-                        <div class="col-sm-8">
-                          <div class="weather-text">
-                            <h2>Nuevo Casas Grandes<br><i>Chihuahua</i></h2>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="weather-text pull-right">
-                          <h3 class="degrees">23</h3>
-                        </div>
-                      </div>
 
-                      <div class="clearfix"></div>
-
-                      <div class="row weather-days">
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Lun</h2>
-                            <h3 class="degrees">25</h3>
-                            <canvas id="clear-day" width="32" height="32"></canvas>
-                            <h5>15 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Mar</h2>
-                            <h3 class="degrees">25</h3>
-                            <canvas height="32" width="32" id="rain"></canvas>
-                            <h5>12 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Mier</h2>
-                            <h3 class="degrees">27</h3>
-                            <canvas height="32" width="32" id="snow"></canvas>
-                            <h5>14 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Jue</h2>
-                            <h3 class="degrees">28</h3>
-                            <canvas height="32" width="32" id="sleet"></canvas>
-                            <h5>15 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Vie</h2>
-                            <h3 class="degrees">28</h3>
-                            <canvas height="32" width="32" id="wind"></canvas>
-                            <h5>11 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Sab</h2>
-                            <h3 class="degrees">26</h3>
-                            <canvas height="32" width="32" id="cloudy"></canvas>
-                            <h5>10 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-
-
-                     </div>
-                <!-- end of weather widget -->
- <div class="clearfix"></div>
-             <div class="alert alert-success">
-                        <ul class="margin-bottom-none padding-left-lg">
-                          <i class="fa fa-info-circle fa-lg fa-li"></i>
-                          <h2>Datos generales del presupuesto de cada departamento.</h2>
-                        </ul>
-
-                      </div>
-             <?php 
-                  for ($i=0; $i < 12; $i++) { 
-                     # code...
-                ?>
-
-               <!-- <div class="clearfix"></div>-->
              
-       
+            </div>
+            <div class="clearfix"></div>
 
-    <div class="col-md-4 col-sm-4 col-xs-12" >
-              <div class="x_panel tile fixed_height_320 overflow_hidden" class="graficas">
-                <div class="x_title">
-                  <h2>Departamento</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Cuenta<small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Cancelar</a>
+                          </li>
+                         
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <form class="form-horizontal form-label-left" novalidate>
+
+                      <p>Registro del nuevo departamento <!--<code></code> -->
+                      </p>
+                      <span class="section">Información</span>
+
+
+
+                          <!--Ventana gris-->
+                        <div class="well" style="overflow: auto">
+
+
+                              
+                         
+
+
+
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre del departamento" required="required" type="text">
+                        </div>
+                      </div>
+                    
+
+
+
+
+
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Presupuesto  <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12" >
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Presupuesto otorgado" required="required" type="text">
+                      
+
+                        </div>
+                      </div>
+                    
+                     
+                    
+                   
+                    
+                   
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                          <button type="submit" class="btn btn-primary">Cancelar</button>
+                         <button id="send" type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+                         </div>
+                    </form>
+                  </div>
                 </div>
-                <div class="x_content">
-                  <table class="" style="width:100%">
-                
-                    <tr>
-                      <td>
-                        <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                      </td>
-                      <td>
-                        <table class="tile_info">
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square blue"></i>Comprometido </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square green"></i>Devengado</p>
-                            </td>
-                            <td>10%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square purple"></i>Pagado </p>
-                            </td>
-                            <td>20%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square aero"></i>Restante </p>
-                            </td>
-                            <td>15%</td>
-                          </tr>
-                          
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-    </div>
-     <?php  } ?>
-
-
-    </div>
-<br>
-
-
-
-        
-
-
-          <!-- /top tiles -->
-
-         
-        
-          </div>
-          <br />
-
-         
-                <!-- End to do list -->
-                
-              
               </div>
             </div>
           </div>
         </div>
         <!-- /page content -->
 
-        <!-- footer content -->
+
+
+
+
+
+    
+ <!-- Cantidad Pagado-->
+              <div id="Pagado" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                        <h4 class="modal-title" >Cantidad Pagada</h4>
+                      </div>
+                      <div class="modal-body" style="text-align: left; ">
+                       
+                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
+                           <div class="col-sm-8">  </div>
+                              <div class="input-group"> 
+                                                  <input type="text" class="form-control" placeholder="000,000,000.00" name="price" data-fv-field="price">
+                                                     
+                                </div>
+                            </div>
+                          <div class="col-sm-1"></div>
+
+                        
+                     
+                      <div class="modal-footer" style="padding-top:35px;">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                       <button type="button"  class="btn btn-success" >Guardar</button>
+                      
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+       <!--end Cantidad Pagado-->
+
+
+      <!-- footer content -->
         <footer>
           <div class="pull-right">
             <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
@@ -605,38 +475,17 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-datetimepicker -->    
+    <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <!--  <script type="./js/the-basics.js"></script>-->
 	
   </body>
-</php>
+</html>
