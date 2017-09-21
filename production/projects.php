@@ -698,8 +698,108 @@
                   <h4 class="modal-title">Editar Información</h4>
                 </div>
                 <div class="modal-body" style="text-align: center">
-                  <p>Estas seguro de EDITAR la información</p>
+                    <form class="form-horizontal form-label-left" novalidate>
+
+                      <p>Detalles de la orden  <!--<code></code> -->
+                      </p>
+                          <!--Ventana gris-->
+                        <div class="well" style="overflow: auto">
+
+
+                                <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="margin-left: 25%;margin-bottom: 20px;width:50%;;" placeholder="Departamento">
+                                <option>Departamento</option>
+                                  <option>Presidencia</option>
+                                  <option>Tesorería</option>
+                                  <option>Catastro</option>
+                                  <option>Obras Públicas</option>
+                                  <option>Oficialía Mayor</option>
+                                </select>
+
+                                 <div class="clearfix"></div>
+                                <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
+                                            </div>
+                              </div>
+                                      <div class="clearfix"></div>
+
+
+                         <div class="col-xs-12 col-md-12">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  <span class="required">*</span>
+                                        </label>
+                                          <fieldset>
+                                            <div class="control-group">
+                                              <div class="controls">
+
+                                                <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
+                                                  <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                  <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                                                </div>
+
+                                              </div>
+                                            </div>
+                                          </fieldset>
+                                        
+                            </div>
+                      <br>
+
+
+
+                               <div class="clearfix"></div>
+                      
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
+                        </div>
+                      </div>
+                 
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12" >
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Número de cuenta" required="required" type="text">
+                        </div>
+                      </div>
+                    
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                        </div>
+                      </div>
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                        </div>
+                      </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
                   <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>

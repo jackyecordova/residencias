@@ -321,7 +321,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Generar una nueva orden</h3>
+                <h3>Generar una nueva Obra</h3>
               </div>
 
              
@@ -332,7 +332,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Orden<small></small></h2>
+                    <h2>Obra<small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -353,7 +353,7 @@
 
                     <form class="form-horizontal form-label-left" novalidate>
 
-                      <p>Registro del nuevo departamento <!--<code></code> -->
+                      <p>Registro de una nueva obra <!--<code></code> -->
                       </p>
                       <span class="section">Información</span>
 
@@ -373,21 +373,32 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre del departamento" required="required" type="text">
+                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" 
+                          placeholder="Nombre de la obra" required="required" type="text">
                         </div>
                       </div>
                     
 
 
 
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12" >
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2"
+                           name="name" placeholder="Numero de la cuenta" required="required" type="text">
+                      
 
+                        </div>
+                      </div>
 
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Presupuesto  <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo">Costo  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Presupuesto otorgado" required="required" type="text">
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"
+                           data-validate-words="2" name="name" placeholder="Costo de la orden" required="required" type="text">
                       
 
                         </div>
@@ -420,40 +431,6 @@
 
 
 
-    
- <!-- Cantidad Pagado-->
-              <div id="Pagado" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-                        <h4 class="modal-title" >Cantidad Pagada</h4>
-                      </div>
-                      <div class="modal-body" style="text-align: left; ">
-                       
-                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-                           <div class="col-sm-8">  </div>
-                              <div class="input-group"> 
-                                                  <input type="text" class="form-control" placeholder="000,000,000.00" name="price" data-fv-field="price">
-                                                     
-                                </div>
-                            </div>
-                          <div class="col-sm-1"></div>
-
-                        
-                     
-                      <div class="modal-footer" style="padding-top:35px;">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-                       <button type="button"  class="btn btn-success" >Guardar</button>
-                      
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-
-       <!--end Cantidad Pagado-->
 
 
       <!-- footer content -->

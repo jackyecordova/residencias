@@ -355,9 +355,6 @@
 
                       <p>Detalles de la orden  <!--<code></code> -->
                       </p>
-                   
-
-
                           <!--Ventana gris-->
                         <div class="well" style="overflow: auto">
 
@@ -413,13 +410,7 @@
                           <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
                         </div>
                       </div>
-                    
-
-
-
-
-
-
+                 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  <span class="required">*</span>
                         </label>
