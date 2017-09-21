@@ -48,7 +48,7 @@
             <br />
 
             <!-- sidebar menu -->
-           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -61,15 +61,15 @@
                             <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
                             </li>
                            
-                            <li><a href="form_validation.html">Generar</a>
+                            <li><a href="form_validation.php">Generar</a>
                             </li>
-                             <li><a href="plain_page.html">Historial</a>
+                             <li><a href="plain_page.php">Historial</a>
                             </li>
                           </ul>
                       </li>
 
 
-                     <!-- <li><a href="index3.html">Tres</a></li>-->
+                     <!-- <li><a href="index3.php">Tres</a></li>-->
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
@@ -185,13 +185,13 @@
                                </ul>
                   </li>
                   <!--dos niveles-->
-                   <li ><a>Obras<span class="fa fa-chevron-down"></span></a>
+                   <li ><a><i class="fa fa-table"></i>Obras<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                           
                            
-                             <li><a href="form_validation.html">Consultar</a>
+                             <li><a href="verobra.php">Consultar</a>
                              </li>
-                             <li><a href="plain_page.html">Crear</a>
+                             <li><a href="nuevaobra.php">Crear</a>
                              </li>
                           </ul>
                       </li>
@@ -200,9 +200,9 @@
                           <ul class="nav child_menu" style="display: none;">
                            
                            
-                            <li><a href="form_validation.html">Consultar</a>
+                            <li><a href="vercuenta.php">Consultar</a>
                             </li>
-                             <li><a href="plain_page.html">Crear</a>
+                             <li><a href="nuevacuenta.php">Crear</a>
                             </li>
                           </ul>
                       </li>

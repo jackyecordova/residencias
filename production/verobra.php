@@ -60,15 +60,15 @@
                             <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
                             </li>
                            
-                            <li><a href="form_validation.html">Generar</a>
+                            <li><a href="form_validation.php">Generar</a>
                             </li>
-                             <li><a href="plain_page.html">Historial</a>
+                             <li><a href="plain_page.php">Historial</a>
                             </li>
                           </ul>
                       </li>
 
 
-                     <!-- <li><a href="index3.html">Tres</a></li>-->
+                     <!-- <li><a href="index3.php">Tres</a></li>-->
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
@@ -184,13 +184,13 @@
                                </ul>
                   </li>
                   <!--dos niveles-->
-                   <li ><a>Obras<span class="fa fa-chevron-down"></span></a>
+                   <li ><a><i class="fa fa-table"></i>Obras<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                           
                            
-                             <li><a href="form_validation.html">Consultar</a>
+                             <li><a href="verobra.php">Consultar</a>
                              </li>
-                             <li><a href="plain_page.html">Crear</a>
+                             <li><a href="nuevaobra.php">Crear</a>
                              </li>
                           </ul>
                       </li>
@@ -199,9 +199,9 @@
                           <ul class="nav child_menu" style="display: none;">
                            
                            
-                            <li><a href="form_validation.html">Consultar</a>
+                            <li><a href="vercuenta.php">Consultar</a>
                             </li>
-                             <li><a href="plain_page.html">Crear</a>
+                             <li><a href="nuevacuenta.php">Crear</a>
                             </li>
                           </ul>
                       </li>
@@ -332,7 +332,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Plain Page</h3>
+                <h3>Obras Registradas</h3>
               </div>
 
               <div class="title_right">
@@ -411,7 +411,46 @@
                         </tr>
                         <?php  }?>
                         </tbody>
-                    </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="datatable_previous"><a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div></div></div>
+                    </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" 
+                    id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                    </div>
+                    <div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+                    <ul class="pagination"><li class="paginate_button previous disabled" id="datatable_previous">
+                    <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
+                    </a>
+                    </li>
+                    <li class="paginate_button active">
+                    <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
+                    </a>
+                    </li>
+                    <li class="paginate_button ">
+                    <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
+                    </a>
+                    </li>
+                    <li class="paginate_button ">
+                    <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a>
+                    </li>
+                    <li class="paginate_button ">
+                    <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
+                    </a>
+                    </li>
+                    <li class="paginate_button ">
+                    <a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
+                    </a>
+                                 </li>
+                                 <li class="paginate_button ">
+                                         <a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6
+                                       </a>
+                                  </li>
+                                  <li class="paginate_button next" id="datatable_next">
+                                    <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
+                                    </a>
+                                 </li>
+                             </ul>
+                         </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
