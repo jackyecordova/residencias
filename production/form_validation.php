@@ -441,14 +441,14 @@
                    
 
 
-                      <div class="col-md-6 col-md-offset-3" style="padding-bottom:20px;padding-top:20px;  ">
+                      <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
                              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
                       </div>
 
                       <div class="ln_solid"></div>
                       <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
+                        <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px; ">
                           <button type="submit" class="btn btn-primary">Cancelar</button>
                           <button id="send" type="submit" class="btn btn-success">Enviar</button>
                         </div>
