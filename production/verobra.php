@@ -392,7 +392,35 @@
                     </option>
                     </select> entries</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
                       <thead>
-                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195px;">Name</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 312px;">Position</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 142px;">Office</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 72px;">Age</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 136px;">Start date</th><th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 112px;">Salary</th></tr>
+                           <tr role="row">
+                                  <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
+                                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195px;">
+                                     Name
+                                  </th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable"
+                                 rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
+                                  style="width: 312px;">
+                                       Position
+                                 </th>
+                                <th class="sorting" tabindex="0" 
+                                aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                                style="width: 142px;">
+                                      Office
+                                 </th>
+                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                 colspan="1" aria-label="Age: activate to sort column ascending" style="width: 72px;">
+                                     Age
+                                </th>
+                               <th class="sorting" tabindex="0" aria-controls="datatable" 
+                               rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" 
+                               style="width: 136px;">
+                                   Start date
+                               </th>
+                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
+                                     aria-label="Salary: activate to sort column ascending" style="width: 112px;">
+                                   Salary
+                                </th>
+                            </tr>
                       </thead>
 
 
