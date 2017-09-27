@@ -439,24 +439,28 @@
                 <div class="x_content">
                 
                       <ul class="list-unstyled timeline"> 
-                      <?php for ($i=0; $i <10 ; $i++) { 
+                      <?php 
+                       include './conexion.php';
+                        $consulta=$mysqli->query("select * from orden order by ord_id ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
                                        # code...
                                           ?>
                         <li>
                           <div class="block">
                             <div class="tags">
                               <a href="" class="tag">
-                                <span>No Orden</span>
+                                <span><?php echo $fila['ord_id'] ?></span>
                               </a>
                             </div>
                             <div class="block_content">
                               <h2 class="title">
-                                              <a>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</a>
+                                              <a><?php echo $fila['id_obra'] ?></a>
                                           </h2>
                               <div class="byline">
-                                <span> 5-00-00-00-00-00     </span>    <a>  PRESIDENCIA   $ 1000,000.00</a> <small>15 Septiembre</small>
+                                <span><?php echo $fila['id_cuenta'] ?> </span>    <a> <?php echo $fila['id_departamento'] ?>   $<?php echo $fila['total_compromet'] ?></a> 
+                                <small><?php echo $fila['fecha'] ?></small>
                               </div>
-                              <p class="excerpt">BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02
+                              <p class="excerpt"><?php echo $fila['observaciones'] ?>
                               <br><a>Leer más...</a>
                               </p>
                             </div>

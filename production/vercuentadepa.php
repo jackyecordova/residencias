@@ -424,12 +424,22 @@
                                 <th class="sorting" tabindex="0" aria-controls="datatable"
                                  rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
                                   style="width: 312px;">
-                                      Descripción
+                                      Id Presupuestos
                                  </th>
                                 <th class="sorting" tabindex="0" 
                                 aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
                                 style="width: 142px;">
-                                     Costo
+                                     Nombre Cuenta
+                                 </th>
+                                  <th class="sorting" tabindex="0" 
+                                aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                                style="width: 142px;">
+                                    Año
+                                 </th>
+                                  <th class="sorting" tabindex="0" 
+                                aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                                style="width: 142px;">
+                                    Monto
                                  </th>
                               
                             </tr>
@@ -439,15 +449,17 @@
                       <tbody>
                   <?php 
                   include './conexion.php';
-                        $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+                        $consulta=$mysqli->query("select * from presupuesto_depa order by id_presupuesto_depa ASC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                     # code...
                    ?>
                         
                         <tr role="row" class="odd">
-                            <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
-                             <td><?php echo $fila['descripcion'] ?></td>
-                              <td><?php echo $fila['costo'] ?></td>
+                            <td class="sorting_1"><?php echo $fila['id_presupuesto_depa'] ?></td>
+                             <td><?php echo $fila['id_presupuesto'] ?></td>
+                              <td><?php echo $fila['id_cuenta'] ?></td>
+                               <td><?php echo $fila['anio'] ?></td>
+                                <td><?php echo $fila['monto'] ?></td>
                             
                         </tr>
                         <?php  }?>

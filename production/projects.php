@@ -377,9 +377,11 @@
                       </thead>
                       <tbody>
 
-                      <?php 
-                      for ($i=0; $i <10 ; $i++) { 
-                        # code...
+                     <?php 
+                        include './conexion.php';
+                        $consulta=$mysqli->query("select * from orden order by id_cuenta ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+                           # code...
                     ?>
                         <tr>
                           <td>1</td>
