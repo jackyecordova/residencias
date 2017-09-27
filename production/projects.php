@@ -379,34 +379,21 @@
 
                      <?php 
                         include './conexion.php';
-                        $consulta=$mysqli->query("select * from orden order by id_cuenta ASC")or die($mysqli->error);
+                        $consulta=$mysqli->query("select * from orden order by ord_id ASC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                            # code...
                     ?>
                         <tr>
-                          <td>1</td>
+                          <td>1<?php echo $fila['ord_id'] ?></td>
                           <td>
-                            <a>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</a>
+                            <a><?php echo $fila['id_obra'] ?></a>
                             <br />
-                            <small>PRESIDENCIA</small>
+                            <small><?php echo $fila['id_departamento'] ?></small>
                           </td>
                           <td>
 
-                         <a>  BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02</a>
-                            <!--<ul class="list-inline">
-                              <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
-                              </li>
-                              <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
-                              </li>
-                              <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
-                              </li>
-                              <li>
-                                <img src="images/user.png" class="avatar" alt="Avatar">
-                              </li>
-                            </ul>-->
+                         <a> <?php echo $fila['observaciones'] ?></a>
+                           
                           </td>
                           <td class="project_progress">
 
@@ -415,7 +402,16 @@
                             <div class="progress progress_sm">
                               <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
                             </div>
-                            <small>57% COMPLETADO</small>
+                            <small><?php 
+                                  $todo=$fila['total_compromet'];
+                                  $dev=$fila['ppto_dev'];
+                                  $pag=$fila['ppto_pag'];
+                                  if ($dev<$todo) {
+                                    # code...
+                                  }
+
+                                  
+                            echo $fila['ord_id'] ?>57% COMPLETADO</small>
                           </td>
                           <td>
                             <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
