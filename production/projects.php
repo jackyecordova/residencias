@@ -384,10 +384,10 @@
                            # code...
                     ?>
                         <tr>
-                          <td>1<?php echo $fila['ord_id'] ?></td>
+                          <td><?php echo $fila['ord_id'] ?></td>
                           <td>
                             <a><?php echo $fila['id_obra'] ?></a>
-                            <br />
+                            
                             <small><?php echo $fila['id_departamento'] ?></small>
                           </td>
                           <td>
@@ -407,10 +407,15 @@
                                   $dev=$fila['ppto_dev'];
                                   $pag=$fila['ppto_pag'];
                                   if ($dev<$todo) {
-                                    # code...
+                                    $res=$dev * 100 / $total;
+                                    echo $res;
+                                  }else if ($dev=$total){
+                                      $res =$pag * 100 / $total;
+                                      echo $res;
                                   }
 
-                                  
+
+
                             echo $fila['ord_id'] ?>57% COMPLETADO</small>
                           </td>
                           <td>
