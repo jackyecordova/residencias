@@ -1,4 +1,14 @@
 
+<!--<?php 
+
+//session_start();
+//if (isset($_SESSION['miSesion']{
+//      $arreglo=$_SESSION['miSesion'];
+//      }else{
+//        header("Location: ./login.html");  
+
+//}
+ ?>-->
 <!DOCTYPE php>
 <php lang="en">
   <head>
@@ -94,6 +104,18 @@
                   <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu" style="display: none;">
                                <li><a href="nuevodepartamento.php">Nuevo</a>
+                                 </li>
+                                 <li class="active"><a >Cuentas<span class="fa fa-chevron-down"></span></a>
+                                       <ul class="nav child_menu" style="display: block;">
+                                         <li>
+                                            <a href="crearcuentadepa.php">Crear
+                                            </a>
+                                          </li>
+                                          <li>
+                                            <a href="vercuentadepa.php">Consultar
+                                            </a>
+                                          </li>
+                                       </ul>
                                  </li>
                                <li class="active"><a>Departamentos<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: block;">
@@ -215,7 +237,7 @@
                           </ul>
                       </li>
 
-                   <li><a>Cuentas<span class="fa fa-chevron-down"></span></a>
+                   <li><a><i class="fa fa-table"></i>Cuentas<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                            
                            
@@ -223,6 +245,16 @@
                             </li>
                              <li><a href="nuevacuenta.php">Crear</a>
                             </li>
+                          </ul>
+                      </li>
+                        <li ><a><i class="fa fa-table"></i>Proveedores<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
+                          
+                           
+                             <li><a href="verproveedores.php">Consultar</a>
+                             </li>
+                             <li><a href="nuevoproveedor.php">Crear</a>
+                             </li>
                           </ul>
                       </li>
                
@@ -364,6 +396,11 @@
               <div class="col-md-6 col-sm-6 col-xs-10 " style="padding:100px">
 
                   <h1>Control Presupuestal<small></small></h1>
+                  <h2>$ <?php 
+                          echo("1,000,000.00")
+                   ?></h2>
+                   <br>
+                   <h3><small>Presupuesto otorgado para el año 2017</small> </h3>
 
               </div>
                   <!-- start of weather widget -->

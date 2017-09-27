@@ -46,7 +46,8 @@
 
             <br />
 
-            <!-- sidebar menu -->
+         
+          <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
@@ -74,6 +75,18 @@
                   <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu" style="display: none;">
                                <li><a href="nuevodepartamento.php">Nuevo</a>
+                                 </li>
+                                 <li class="active"><a >Cuentas<span class="fa fa-chevron-down"></span></a>
+                                       <ul class="nav child_menu" style="display: block;">
+                                         <li>
+                                            <a href="crearcuentadepa.php">Crear
+                                            </a>
+                                          </li>
+                                          <li>
+                                            <a href="vercuentadepa.php">Consultar
+                                            </a>
+                                          </li>
+                                       </ul>
                                  </li>
                                <li class="active"><a>Departamentos<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: block;">
@@ -195,7 +208,7 @@
                           </ul>
                       </li>
 
-                   <li><a>Cuentas<span class="fa fa-chevron-down"></span></a>
+                   <li><a><i class="fa fa-table"></i>Cuentas<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                            
                            
@@ -205,12 +218,21 @@
                             </li>
                           </ul>
                       </li>
+                        <li ><a><i class="fa fa-table"></i>Proveedores<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
+                          
+                           
+                             <li><a href="verproveedores.php">Consultar</a>
+                             </li>
+                             <li><a href="nuevoproveedor.php">Crear</a>
+                             </li>
+                          </ul>
+                      </li>
                
               </div>
 
             </div>
             <!-- /sidebar menu -->
-
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -395,47 +417,36 @@
                            <tr role="row">
                                   <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
                                   colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195px;">
-                                     Name
+                                    Id
                                   </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable"
                                  rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
                                   style="width: 312px;">
-                                       Position
+                                      Descripción
                                  </th>
                                 <th class="sorting" tabindex="0" 
                                 aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
                                 style="width: 142px;">
-                                      Office
+                                     Costo
                                  </th>
-                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                 colspan="1" aria-label="Age: activate to sort column ascending" style="width: 72px;">
-                                     Age
-                                </th>
-                               <th class="sorting" tabindex="0" aria-controls="datatable" 
-                               rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" 
-                               style="width: 136px;">
-                                   Start date
-                               </th>
-                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
-                                     aria-label="Salary: activate to sort column ascending" style="width: 112px;">
-                                   Salary
-                                </th>
+                              
                             </tr>
                       </thead>
 
 
                       <tbody>
-                  <?php for ($i=0; $i <10 ; $i++) { 
+                  <?php 
+                  include './conexion.php';
+                        $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
                     # code...
                    ?>
                         
                         <tr role="row" class="odd">
-                            <td class="sorting_1">Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>33</td>
-                            <td>2008/11/28</td>
-                            <td>$162,700</td>
+                            <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
+                             <td><?php echo $fila['descripcion'] ?></td>
+                              <td><?php echo $fila['costo'] ?></td>
+                            
                         </tr>
                         <?php  }?>
                         </tbody>

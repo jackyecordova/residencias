@@ -47,8 +47,6 @@
             <br />
 
             <!-- sidebar menu -->
-        
-            <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
@@ -62,139 +60,157 @@
                             <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
                             </li>
                            
-                            <li><a href="form_validation.html">Generar</a>
+                            <li><a href="form_validation.php">Generar</a>
                             </li>
-                             <li><a href="plain_page.html">Historial</a>
+                             <li><a href="plain_page.php">Historial</a>
                             </li>
                           </ul>
                       </li>
 
 
-                     <!-- <li><a href="index3.html">Tres</a></li>-->
+                     <!-- <li><a href="index3.php">Tres</a></li>-->
                     </ul>
                   </li>
-                     <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="widgets.php">Archivo Historico
-                      </a></li>
+                  <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu" style="display: none;">
+                               <li><a href="nuevodepartamento.php">Nuevo</a>
+                                 </li>
+                               <li class="active"><a>Departamentos<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: block;">
+                                   
+                                <li>
+                                <a href="general_elements.php">Archivo Historico
+                                </a></li>
 
-                      <li><a href="widgets.php">
-                      Atencion
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Atencion
+                                </a></li>
 
-                      <li><a href="widgets.php">Biblioteca Eduardo Contreras
-                      </a></li>
+                                <li><a href="general_elements.php">Biblioteca Eduardo Contreras
+                                </a></li>
 
-                      <li><a href="widgets.php">
-                      Biblioteca Francisca Holguín
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Biblioteca Francisca Holguín
+                                </a></li>
 
-                      <li><a href="widgets.php">
-                        C4
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                  C4
+                                </a></li>
 
-                      <li><a href="widgets.php">
-                      Catastro
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Catastro
+                                </a></li>
 
-                      <li><a href="widgets.php">
-                      Comisarios
-                      </a></li>
-                      <li><a href="widgets.php">
-                      Comunicación Social
-                      </a></li>
-                      <li><a href="widgets.php">
-                      Cultura
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Deportes
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Desarrollo Rural
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Desarrollo Social
-                      </a></li>
+                                <li><a href="general_elements.php">
+                                Comisarios
+                                </a></li>
+                                <li><a href="general_elements.php">
+                                Comunicación Social
+                                </a></li>
+                                <li><a href="general_elements.php">
+                                Cultura
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Deportes
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Desarrollo Rural
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Desarrollo Social
+                                </a></li>
 
-                       <li><a href="widgets.php">
-                      Desarrollo Urbano
-                      </a></li> <li><a href="widgets.php">
-                      Educación
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Fomento Económico
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Obras Públicas
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Oficialía Mayor
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Pensiones y Jubilados
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Presidencia
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Protecci+on Civil
-                      </a></li>
-                       <li><a href="widgets.php">
-                      Regidores
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Salud
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Secretaría
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Secretaría de Relaciones Exteriores
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Seguridad Pública
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Servicios Públicos
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Sindicatura
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Tesorería
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Tránsito
-                      </a></li>
-                        <li><a href="widgets.php">
-                      Turismo
-                      </a></li>
-                       <li><a href="widgets.php">
-                    Unidad de Información
-                      </a></li>
-
-
-                    </ul>
+                                 <li><a href="general_elements.php">
+                                Desarrollo Urbano
+                                </a></li> <li><a href="general_elements.php">
+                                Educación
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Fomento Económico
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Obras Públicas
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Oficialía Mayor
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Pensiones y Jubilados
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Presidencia
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Protecci+on Civil
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                Regidores
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Salud
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Secretaría
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Secretaría de Relaciones Exteriores
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Seguridad Pública
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Servicios Públicos
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Sindicatura
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Tesorería
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Tránsito
+                                </a></li>
+                                  <li><a href="general_elements.php">
+                                Turismo
+                                </a></li>
+                                 <li><a href="general_elements.php">
+                                   Unidad de Información
+                                    </a>
+                                </li>
+                                
+                              </ul>
+                            </li>
+                            
+                               </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Cuentas <span class="fa fa-chevron-down"></span></a>
-                   
-                  </li>
-                   <li><a><i class="fa fa-edit"></i> Obras <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">General Form</a></li>
-                      <li><a href="#">Advanced Components</a></li>
-                      <li><a href="#">Form Validation</a></li>
-                      <li><a href="#">Form Wizard</a></li>
-                      <li><a href="#">Form Upload</a></li>
-                      <li><a href="#">Form Buttons</a></li>
-                    </ul>
-                  </li>
+                  <!--dos niveles-->
+                   <li ><a><i class="fa fa-table"></i>Obras<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
+                          
+                           
+                             <li><a href="verobra.php">Consultar</a>
+                             </li>
+                             <li><a href="nuevaobra.php">Crear</a>
+                             </li>
+                          </ul>
+                      </li>
+
+                   <li><a>Cuentas<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu" style="display: none;">
+                           
+                           
+                            <li><a href="vercuenta.php">Consultar</a>
+                            </li>
+                             <li><a href="nuevacuenta.php">Crear</a>
+                            </li>
+                          </ul>
+                      </li>
                
               </div>
 
             </div>
             <!-- /sidebar menu -->
-            <!-- /sidebar menu -->
+
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
@@ -375,35 +391,35 @@
                     <option value="100">
                     100
                     </option>
-                    </select> entries</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                    </select> Registros</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
                       <thead>
                            <tr role="row">
                                   <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195px;">
-                                     Name
+                                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 35px;">
+                                     Id orden
                                   </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable"
                                  rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                                  style="width: 312px;">
-                                       Position
+                                  style="width: 270px;">
+                                       Obra
                                  </th>
                                 <th class="sorting" tabindex="0" 
                                 aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                                style="width: 142px;">
-                                      Office
+                                style="width: 200px;">
+                                      Descripcion
                                  </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                 colspan="1" aria-label="Age: activate to sort column ascending" style="width: 72px;">
-                                     Age
+                                 colspan="1" aria-label="Age: activate to sort column ascending" style="width:120px;">
+                                     Cuenta
                                 </th>
                                <th class="sorting" tabindex="0" aria-controls="datatable" 
                                rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" 
-                               style="width: 136px;">
-                                   Start date
+                               style="width: 120px;">
+                                   Fecha
                                </th>
                                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
-                                     aria-label="Salary: activate to sort column ascending" style="width: 112px;">
-                                   Salary
+                                     aria-label="Salary: activate to sort column ascending" style="width: 120px;">
+                                   Cantidad
                                 </th>
                             </tr>
                       </thead>
@@ -412,13 +428,14 @@
                       <tbody>
                   <?php for ($i=0; $i <10 ; $i++) { 
                     # code...
+
                    ?>
                         
                         <tr role="row" class="odd">
-                            <td class="sorting_1">Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>33</td>
+                            <td > 1</td>
+                            <td>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</td>
+                            <td>BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02</td>
+                            <td>5-00-00-00-00-00   </td>
                             <td>2008/11/28</td>
                             <td>$162,700</td>
                         </tr>
