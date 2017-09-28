@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Ordenes</title>
-
+     <title>Control Presupuestal </title>
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -33,285 +32,21 @@
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
-              <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Bienvenido</span>
-                <h2>USUARIO</h2>
-              </div>
-            </div>
+           <!-- menu profile quick info -->
+              <?php  include "./menuusuario.php";?>
+
             <!-- /menu profile quick info -->
 
             <br />
-
-      
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Inicio<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.php">Presupuesto Anual</a></li>
-                        <!-- Dos niveles-->
-                      <li class="active"><a>Ordenes<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: block;">
-                            <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
-                            </li>
-                           
-                            <li><a href="form_validation.php">Generar</a>
-                            </li>
-                             <li><a href="plain_page.php">Historial</a>
-                            </li>
-                          </ul>
-                      </li>
-
-
-                     <!-- <li><a href="index3.php">Tres</a></li>-->
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu" style="display: none;">
-                               <li><a href="nuevodepartamento.php">Nuevo</a>
-                                 </li>
-                               <li class="active"><a>Departamentos<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: block;">
-                                   
-                                <li>
-                                <a href="general_elements.php">Archivo Historico
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                Atencion
-                                </a></li>
-
-                                <li><a href="general_elements.php">Biblioteca Eduardo Contreras
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                Biblioteca Francisca Holguín
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                  C4
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                Catastro
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                Comisarios
-                                </a></li>
-                                <li><a href="general_elements.php">
-                                Comunicación Social
-                                </a></li>
-                                <li><a href="general_elements.php">
-                                Cultura
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Deportes
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Desarrollo Rural
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Desarrollo Social
-                                </a></li>
-
-                                 <li><a href="general_elements.php">
-                                Desarrollo Urbano
-                                </a></li> <li><a href="general_elements.php">
-                                Educación
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Fomento Económico
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Obras Públicas
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Oficialía Mayor
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Pensiones y Jubilados
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Presidencia
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Protecci+on Civil
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Regidores
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Salud
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Secretaría
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Secretaría de Relaciones Exteriores
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Seguridad Pública
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Servicios Públicos
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Sindicatura
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Tesorería
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Tránsito
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Turismo
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                   Unidad de Información
-                                    </a>
-                                </li>
-                                
-                              </ul>
-                            </li>
-                            
-                               </ul>
-                  </li>
-                  <!--dos niveles-->
-                   <li ><a><i class="fa fa-table"></i>Obras<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: none;">
-                          
-                           
-                             <li><a href="verobra.php">Consultar</a>
-                             </li>
-                             <li><a href="nuevaobra.php">Crear</a>
-                             </li>
-                          </ul>
-                      </li>
-
-                   <li><a>Cuentas<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: none;">
-                           
-                           
-                            <li><a href="vercuenta.php">Consultar</a>
-                            </li>
-                             <li><a href="nuevacuenta.php">Crear</a>
-                            </li>
-                          </ul>
-                      </li>
-               
-              </div>
-
-            </div>
+            <!-- sidebar menu -->        
+          <?php  include "./barramenu.php";?>
             <!-- /sidebar menu -->
-
-          
+           
           </div>
         </div>
-
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">USUARIO
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Ayuda</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
-                  </ul>
-                </li>
-
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">2</span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+     
+          <!-- /top navigation -->
+        <?php  include "./topnavigation.php";?>
         <!-- /top navigation -->
 
         <!-- page content -->
@@ -367,8 +102,8 @@
                       <thead>
                         <tr>
                           <th style="width: 1%">Id</th>
-                          <th style="width: 20%">Obra</th>
-                          <th>Observaciones</th>
+                          <th style="width: 25%">Obra</th>
+                          <th style="width: 32%">Observaciones</th>
                           <th class="status">Status</th>
                           <th></th>
                            <th></th>
@@ -397,26 +132,32 @@
                           </td>
                           <td class="project_progress">
 
-
-
-                            <div class="progress progress_sm">
-                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
-                            </div>
-                            <small><?php 
+                                    <?php 
                                   $todo=$fila['total_compromet'];
                                   $dev=$fila['ppto_dev'];
                                   $pag=$fila['ppto_pag'];
                                   if ($dev<$todo) {
-                                    $res=$dev * 100 / $total;
-                                    echo $res;
-                                  }else if ($dev=$total){
-                                      $res =$pag * 100 / $total;
-                                      echo $res;
+                                    $res=$dev * 100 / $todo;
+                                   echo $res;
+                                  }else {
+                                      $res =$pag * 100 / $todo;
+                                     
+                                  }
+                                  if ($pag==$todo) {
+                                   $pagado=true;
+
+                                  }else{
+                                    $pagado=false;
                                   }
 
 
 
-                            echo $fila['ord_id'] ?>57% COMPLETADO</small>
+                            ?>
+
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
+                            </div>
+                            <small><?php  echo $res?>% COMPLETADO</small>
                           </td>
                           <td>
                             <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
