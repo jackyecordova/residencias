@@ -105,7 +105,7 @@
 
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Departamento <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" 
@@ -120,7 +120,7 @@
 
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre  <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cuenta  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name"
@@ -133,7 +133,7 @@
 
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" > Año <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name"
@@ -143,6 +143,17 @@
                         </div>
                       </div>
                     
+
+                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" > Monto <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12" >
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name"
+                           placeholder="Nombre de la cuenta" required="required" type="text">
+                      
+
+                        </div>
+                      </div>
                      
                     
                    

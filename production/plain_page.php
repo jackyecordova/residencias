@@ -112,7 +112,7 @@
                     <option value="100">
                     100
                     </option>
-                    </select> Registros</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                    </select> Registros</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
                       <thead>
                            <tr role="row">
                                   <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
@@ -147,18 +147,20 @@
 
 
                       <tbody>
-                  <?php for ($i=0; $i <10 ; $i++) { 
+                  <?php 
+                  include './conexion.php';
+                        $consulta=$mysqli->query("select * from orden order by ord_id DESC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
                     # code...
-
                    ?>
                         
                         <tr role="row" class="odd">
-                            <td > 1</td>
-                            <td>01-SUBSIDIO A INSTITUCIONES Y AGRUPACIONES DIVERSAS</td>
-                            <td>BELTRAN MARQUEZ DIANA ARMINE CJON CHIHUAHUA 1406 CENTRO BEMD830812MCHLRN02</td>
-                            <td>5-00-00-00-00-00   </td>
-                            <td>2008/11/28</td>
-                            <td>$162,700</td>
+                            <td > <?php echo $fila['ord_id'] ?></td>
+                            <td><?php echo $fila['id_obra'] ?>INERJOIN</td>
+                            <td><?php echo $fila['observaciones'] ?></td>
+                            <td><?php echo $fila['id_cuenta'] ?>INNER JOIN   </td>
+                            <td><?php echo $fila['fecha'] ?></td>
+                            <td><?php echo $fila['total_compromet'] ?></td>
                         </tr>
                         <?php  }?>
                         </tbody>

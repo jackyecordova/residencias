@@ -58,7 +58,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Generar una nueva orden</h3>
+                <h3>Registrar un nuevo departamento</h3>
               </div>
 
              

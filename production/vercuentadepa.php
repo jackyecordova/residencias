@@ -70,7 +70,7 @@
                 <div class="x_panel">
                  
                    
-                   <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Control</h5> </div>
+                   <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;"></h5> </div>
                                  <div class="col-sm-8">  </div>
                         <div class="title_right" 
                                style=" margin-left: -300px;">
@@ -105,13 +105,13 @@
                     <table class="table table-striped projects">
                       <thead>
                         <tr>
-                          <th style="width: 1%">Id</th>
-                          <th style="width: 15%">Presupuesto</th>
-                          <th style="width: 15%">Cuenta</th>
+                          <th style="width:8%">Id</th>
+                          <th style="width: 20%">Presupuesto</th>
+                          <th style="width: 20%">Cuenta</th>
                           <th style="width: 15%">Año</th>
-                           <th style="width: 15%">Monto</th>
-                            <th style="width: 15%"></th>
-                             <th style="width: 15%"></th>
+                           <th style="width: 25%">Monto</th>
+                            <th style="width: 5%"></th>
+                             <th style="width: 5%"></th>
                           <th></th>
                            <th></th>
                           <th style="width: 20%"></th>
@@ -126,15 +126,15 @@
                            # code...
                     ?>
                         <tr>
-                          <td><?php echo $fila['id_presupuesto_depa'] ?></td>
+                          <td>    <?php echo $fila['id_presupuesto_depa'] ?></td>
                           <td>
-                           <?php echo $fila['id_presupuesto'] ?></td>
+                               <?php echo $fila['id_departamento'] ?></td>
                             
-                          <td><?php echo $fila['id_cuenta'] ?></td>
+                          <td>      <?php echo $fila['id_cuenta'] ?></td>
                           
                           <td>
 
-                         <?php echo $fila['anio'] ?>
+                                  <?php echo $fila['anio'] ?>
                            
                           </td>
                           <td class="project_progress">
@@ -145,9 +145,9 @@
 
                             ?>
 
-                          
-                            <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#eliminar"><i class="fa fa-trash-o"></i> Eliminar </a>
+                          <td>
+                            <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a></td>
+                           <td> <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#eliminar"><i class="fa fa-trash-o"></i> Eliminar </a>
                           </td>
                         </tr>
 
