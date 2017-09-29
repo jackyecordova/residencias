@@ -81,9 +81,18 @@
                         </div>           
                         </div>
 
-
+                                              
                       </div>
-                     
+                      <div class="btn-group" class="pull-rigth" style="margin-left">
+                                                       <button class="btn btn-info"type="button">
+                                                          <i class="fa fa-print"></i>
+                                                       </button>
+                                                    </div>
+                                                       <div class="btn-group" class="pull-rigth">
+                                                       <button class="btn btn-success"type="button">
+                                                            <i class="fa fa-floppy-o"></i>
+                                                       </button>
+                                                    </div>
                  <div class="col-md-2 col-sm-2 col-xs-12 ">
                 </div>
 
@@ -96,6 +105,7 @@
                   <div class="x_content">
 
                     <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
+
 
                     <!-- start project list -->
                     <table class="table table-striped projects">

@@ -23,7 +23,7 @@
                      <!-- <li><a href="index3.php">Tres</a></li>-->
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-qrcode"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu" style="display: none;">
                                 <li><a href="nuevodepartamento.php">Nuevo</a>
                                  </li>
@@ -148,7 +148,7 @@
                                </ul>
                   </li>
                   <!--dos niveles-->
-                   <li ><a><i class="fa fa-table"></i>Obras<span class="fa fa-chevron-down"></span></a>
+                   <li ><a><i class="fa fa-server"></i>Obras<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                           
                            
@@ -159,7 +159,7 @@
                           </ul>
                       </li>
 
-                   <li><a><i class="fa fa-table"></i>Cuentas<span class="fa fa-chevron-down"></span></a>
+                   <li><a><i class="fa fa-credit-card-alt"></i>Cuentas<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                            
                            
@@ -169,7 +169,7 @@
                             </li>
                           </ul>
                       </li>
-                        <li ><a><i class="fa fa-table"></i>Proveedores<span class="fa fa-chevron-down"></span></a>
+                        <li ><a><i class="fa fa-group"></i>Proveedores<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                           
                            
