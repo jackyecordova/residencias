@@ -92,9 +92,13 @@
               <div class="col-md-6 col-sm-6 col-xs-10 " style="padding:100px">
 
                   <h1>Control Presupuestal<small></small></h1>
-                  <h2>$ <?php 
-                          echo("1,000,000.00")
-                   ?></h2>
+                  <h2>$  <?php 
+                        include './conexion.php';
+                        $consulta=$mysqli->query("select * from presupuestos ")or die($mysqli->error);
+                       //Imprimir si es de este año
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+                         echo $fila['monto'];}
+                    ?></h2>
                    <br>
                    <h3><small>Presupuesto otorgado para el año 2017</small> </h3>
 
