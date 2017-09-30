@@ -4,7 +4,7 @@
 		# code...
 
 		$mysqli->query("insert into proveedores 
-			(id_proveedornombre,direccion,telefono")or die($mysqli->error);
+			(id_proveedornombre,direccion,telefono) values")or die($mysqli->error);
 
 	}else
 	{
