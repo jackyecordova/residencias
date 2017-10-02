@@ -85,7 +85,7 @@
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate action=".codigos/proveedores.php" method="post">
+                    <form class="form-horizontal form-label-left" novalidate action="./codigos/proveedores.php" method="post">
 
                       <p>Registro del un nuevo Proveedor<!--<code></code> -->
                       </p>
@@ -107,8 +107,10 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="nombre" 
-                          placeholder="Número de la cuenta" required="required" type="text">
+                          <input id="obra" class="form-control col-md-7 col-xs-12" 
+                          name="nombre" 
+
+                          placeholder="Nombre del Proveedor o Empresa" required="required" type="text">
                         </div>
                       </div>
                     
@@ -122,8 +124,10 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >Direccion  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="direccion"
-                           placeholder="Nombre de la cuenta" required="required" type="text">
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                          name="direccion"
+
+                           placeholder="Direccion del Proveedor" required="required" type="text">
                       
 
                         </div>
@@ -135,8 +139,10 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >Teléfono <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="telefono"
-                           placeholder="Nombre de la cuenta" required="required" type="text">
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                          name="telefono"
+
+                           placeholder="NTeléfono del Proveedor" required="required" type="text">
                       
 
                         </div>

@@ -1,14 +1,27 @@
 <?php
-	include './conexion.php';
-	if (isset($_POST['nombre'])) && (isset($_POST['direccion'])) && (isset($_POST['telefono'])){
+	include 'conexion.php';
+	if (isset($_POST["nombre"]) && isset($_POST["direccion"]) && isset($_POST["telefono"])){
 		# code...
+		
+		$id= $mysqli->query("count * ");
+		echo $prov;
+		$nombre=$_POST['nombre'];
+		$direccion=$_POST['direccion'];
+		$telefono=$_POST['telefono'];
 
-		$mysqli->query("insert into proveedores 
-			(id_proveedornombre,direccion,telefono) values")or die($mysqli->error);
+		$consulta="INSERT INTO proveedores 
+			values(0,'$nombre',
+				'$direccion,
+				'$telefono'
+			)"
 
+
+		$mysqli->query($consulta)or die($mysqli->error);
+
+		echo "listo";
 	}else
 	{
-		echo"algunos campos nofueron completados";
+		echo "algunos campos nofueron completados";
 	}
 
 
