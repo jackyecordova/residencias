@@ -142,7 +142,7 @@
                           <input id="cuenta" class="form-control col-md-7 col-xs-12" 
                           name="telefono"
 
-                           placeholder="NTeléfono del Proveedor" required="required" type="text">
+                           placeholder="Teléfono del Proveedor" required="required" type="text">
                       
 
                         </div>

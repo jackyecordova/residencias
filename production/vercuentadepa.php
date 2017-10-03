@@ -140,9 +140,8 @@
                           <td class="project_progress">
 
                                     <?php 
-                               $fila['monto'];
-                              
-
+                              echo $fila['monto'];
+                            
                             ?>
 
                           <td>
