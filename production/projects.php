@@ -282,174 +282,89 @@
                   </div>
                 </div>
 
-            <!-- Ver-->
+       <!-- Ver-->
         <div id="ver" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Detalles</h4>
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Detalles</h4>
+                  </div>
+                 
+            <div class="row">
+              <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Reporte <small>Detalles de la orden</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th style="text-align: center">Cuenta</th> 
+                          <th style="text-align: center">Departamento</th>
+                          <th style="text-align: center">Fecha</th>
+                          <th style="text-align: center">Observaciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="text-align: center">01280413955</td>
+                          <td style="text-align: center">Oficialia Mayor</td>
+                          <td style="text-align: center">12/09/2017</td>
+                          <td style="text-align: center">TRANSMISION DEL PROGRAMA DESAYUNANDO CON EN PAGUINA WEB</td>
+                        </tr>
+                        <tr>
+                          <th style="text-align: center">Ord_vehiculo</th>
+                          <th style="text-align: center">Total Comprometido</th>
+                          <th style="text-align: center">Poliza Devengada</th>
+                          <th style="text-align: center">Presupuesto Devengado</th>
+                        </tr>
+                        <tr>
+                          <td style="text-align: center">PARA CASETAS VALE POR 1500 PESOS</td>
+                          <td style="text-align: center">$1740</td>
+                          <td style="text-align: center">PD 254</td>
+                          <td style="text-align: center">$1,700.00</td>
+                        </tr>
+                        <tr>
+                          <th style="text-align: center">Fecha Devengada</th>
+                          <th style="text-align: center">Poliza Pagada </th>
+                          <th style="text-align: center">Presupuesto Pagado</th>
+                          <th style="text-align: center">Fecha Pagada</th>
+                        </tr>
+                        <tr>
+                          <td style="text-align: center">27-1-17</td>
+                          <td style="text-align: center">PD 3</td>
+                          <td style="text-align: center">$1,740.00</td>
+                          <td style="text-align: center">6/2/2017</td>
+                        </tr>
+                        <tr>
+                          <th style="text-align: center">Orden Numero de Factura</th>
+                          <th style="text-align: center">Estatus,Departamento y Cuenta </th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <td style="text-align: center">RECIBO 1621016598</td>
+                          <td style="text-align: center">PAGADA345-1-3-6-001-0002-000</td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <!-- cuenta-->
-                <div class="col-sm-4" class="modal-body" style="text-align: left; ">
-                          
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Cuenta </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                           01280413955
-                         </label>
-                          </div>
-                   <!-- Departamento-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-8">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Departamento </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                           Oficialia Mayor
-                         </label>
-                      </div> 
-                   <!-- fecha-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-8">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Fecha </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                           12/09/2017
-                         </label>
-                      </div>
-                   <!-- libre-->
-                  <div class="col-sm-4" >
-                      </div>                    
-                  <!-- Observaciones-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Observaciones </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                           TRANSMISION DEL PROGRAMA DESAYUNANDO CON EN PAGUINA WEB
-                         </label>
-                      </div>
-                    <!-- ord_vehiculo-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Ord_vehiculo </h5> </div>
-                         <br>
-                         <br>
-                         <label>
-                          PARA CASETAS VALE POR 1500 PESOS
-                         </label>
-                      </div>  
-                  <!-- libre-->
-                  <div class="col-sm-4">
-                      </div>               
-                    <!-- tot compromet.-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Total Comprometido </h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                          $1740
-                         </label>
-                      </div>   
-                
-                  <!-- Póliza Dev.-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Poliza Devengada </h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                         PD 254
-                         </label>
-                      </div>    
-                    <!-- ppto dev-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Presupuesto Devengado </h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                         $1,700.00
-                         </label>
-                      </div>  
-                    <!-- FECH DEVENG-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Fecha Devengada</h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                         27-1-17
-                         </label>
-                      </div> 
-                   <!-- Póliza Pagada-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Poliza Pagada </h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                         PD 3
-                         </label>
-                      </div>   
-                    <!-- ppto pagado-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Presupuesto Pagado</h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                         $1,740.00
-                         </label>
-                      </div> 
-                       <!-- FECH Pagada-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Fecha Pagada</h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                        6/2/2017
-                         </label>
-                      </div>   
-                      <!-- Orden No. Factura-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">orden Numero de Factura</h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                         RECIBO 1621016598
-                         </label>
-                      </div>  
-                       <!-- st&dpt&cta-->
-                  <div class="col-sm-4" class="modal-body" style="text-align: right; text-align: left;">
-                       
-                         <div class="col-sm-4">  <h5 class="modal-title" style="padding-top:5px; font-size: 15px; font-weight: bolder;">Estatus,Departamento y Cuenta</h5> </div>
-                         <br>
-                         <br>
-                         <br>
-                         <label>
-                         PAGADA345-1-3-6-001-0002-000
-                         </label>
-                      </div>                                                                            
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Cancelar</button>
+              </div>  
+              
+                  </div>                                                                                
                 </div>
               </div>
-              <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-            </div>
           </div>
            <!-- editar-->
         <div id="editar" class="modal fade" role="dialog">
