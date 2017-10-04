@@ -225,9 +225,9 @@
                                    <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
                                     <div class="col-sm-8">  </div>
                                     <div class="input-group"> 
-                                            <input type="text" placeholder="" class="form-control" name="price" >
+                                            <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
                                                 <span class="input-group-addon">
-                                                                     
+                                                                     $
                                                 </span> 
                                     </div>
                                           
@@ -242,39 +242,31 @@
                   </div>
                 </div>
 
-                 <!-- Cantidad pagada-->
+                 <!-- Cantidad Devengado-->
               <div id="Pagada" class="modal fade" role="dialog">
-                     <div class="modal-dialog">
+                  <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" >&times;</button>
                         <h4 class="modal-title" >Cantidad Pagada</h4>
                       </div>
-                      <div class="modal-body" style="text-align: left; ">                     
+                      <div class="modal-body" style="text-align: left; ">
+                       
                          <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-                          <div class="col-sm-8">  </div>
-                               <div class="input-group"> 
+                           <div class="col-sm-8">  </div>
+                              <div class="input-group"> 
                                                   <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
                                                       <span class="input-group-addon">
                                                            $
-                                                     </span> 
+                                                       </span> 
                                 </div>
                             </div>
-                             <div class="modal-body" style="text-align: left; ">
-                       
-                                   <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
-                                    <div class="col-sm-8">  </div>
-                                    <div class="input-group"> 
-                                            <input type="text" placeholder="" class="form-control" name="price" >
-                                                <span class="input-group-addon">
-                                                                     
-                                                </span> 
-                                    </div>
-                                          
-                            </div>
                           <div class="col-sm-1"></div>
+
+                        
+                     
                       <div class="modal-footer" style="padding-top:35px;">
-                       <button type="button"  class="btn btn-success" >Devengar</button>
+                       <button type="button"  class="btn btn-success" >Pagar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
                       </div>
                     </div>
@@ -282,7 +274,7 @@
                   </div>
                 </div>
 
-       <!-- Ver-->
+            <!-- Ver-->
         <div id="ver" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -459,22 +451,8 @@
                         </div>
                       </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </form>
+                </div>
 
 
                 <div class="modal-footer">
@@ -484,6 +462,10 @@
               </div>
             </div>
           </div>
+          </div>
+          </div>
+
+          
             <!-- eliminar-->
         <div id="eliminar" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -495,7 +477,7 @@
                 <div class="modal-body" style="text-align: center">
                   <p>Estas seguro de ELIMINAR la información</p>
                 </div>
-                 <div class="modal-footer">
+                  <div class="modal-footer">
                   <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
                   <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
                 </div>
@@ -509,12 +491,7 @@
 
 
   <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+       
         <!-- /footer content -->
       </div>
     </div>
