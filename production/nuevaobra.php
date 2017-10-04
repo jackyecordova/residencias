@@ -86,7 +86,7 @@
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate>
+                    <form class="form-horizontal form-label-left" novalidate action="./codigos/obras.php" method="post">
 
                       <p>Registro de una nueva obra <!--<code></code> -->
                       </p>
@@ -133,7 +133,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"
-                           data-validate-words="2" name="name" placeholder="Costo de la orden" required="required" type="text">
+                           data-validate-words="2" name="name" placeholder="Costo de la obra" required="required" type="text">
                       
 
                         </div>
