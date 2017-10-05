@@ -86,7 +86,7 @@
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate>
+                    <form class="form-horizontal form-label-left" novalidate action="./codigos/cuentadepa.php" method="post">
 
                       <p>Registro del nuevo departamento <!--<code></code> -->
                       </p>
@@ -108,8 +108,28 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >Departamento <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" 
-                          placeholder="Número de la cuenta" required="required" type="text">
+                          <input id="obra" class="form-control col-md-7 col-xs-12" name="name" 
+                          placeholder="Número de la cuenta"  type="text">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Custom</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="select2_single form-control"  class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                            <option></option>
+                            <?php 
+                        include './conexion.php';
+                        $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+                           # code...
+                         
+                          
+                         ?>
+                            <option value="<?php  $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                            <?php } ?>
+                          </select>
                         </div>
                       </div>
                     
