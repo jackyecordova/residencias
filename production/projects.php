@@ -124,9 +124,9 @@
 
                      <?php 
                         include './conexion.php';
-                        $consulta=$mysqli->query("select * from orden order by ord_id ASC")or die($mysqli->error);
+                        $consulta=$mysqli->query("select * from orden  where Activo='Si' order by ord_id ASC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
-                           # code...
+                        
                     ?>
                         <tr>
                           <td><?php echo $fila['ord_id'] ?></td>
@@ -140,7 +140,7 @@
                          <a> <?php echo $fila['observaciones'] ?></a>
                            
                           </td>
-                          <td class="project_progress">
+                          <td class="project_progress ">
 
                                     <?php 
                                   $todo=$fila['total_compromet'];
@@ -159,10 +159,8 @@
                                   }else{
                                     $pagado=false;
                                   }
-
-
-
                             ?>
+                            
 
                             <div class="progress progress_sm">
                               <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
@@ -181,7 +179,11 @@
                           <td>
                           <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
                             <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#eliminar"><i class="fa fa-trash-o"></i> Eliminar </a>
+                            <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+                              data-id="<?php echo $fila['ord_id'] ?>"
+                              data-toggle="modal" data-target="#eliminar">
+                              <i class="fa fa-trash-o"></i> Eliminar 
+                            </a>
                           </td>
                         </tr>
 
@@ -294,58 +296,21 @@
                   </div>
                   <div class="x_content">
 
-                    <table class="table">
+                    <table class="table" >
                       <thead>
-                        <tr>
-                          <th style="text-align: center">Cuenta</th> 
-                          <th style="text-align: center">Departamento</th>
-                          <th style="text-align: center">Fecha</th>
-                          <th style="text-align: center">Observaciones</th>
+                        <tr >
+                          <td class="col-md-3">Departamento de</td><td class="col-md-3">Oficialia Mayor</td>
+
+                          <td class="col-md-3">Orden Numero de Factura</td><td class="col-md-3">RECIBO 1621016598</td>
+                        </tr>
+                        <tr >
+                          <td class="col-md-3">Fecha</td><td class="col-md-3">12/09/2017</td>
+
+                          <td class="col-md-3">Cuenta</td><td class="col-md-3">01280413955</td>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td style="text-align: center">01280413955</td>
-                          <td style="text-align: center">Oficialia Mayor</td>
-                          <td style="text-align: center">12/09/2017</td>
-                          <td style="text-align: center">TRANSMISION DEL PROGRAMA DESAYUNANDO CON EN PAGUINA WEB</td>
-                        </tr>
-                        <tr>
-                          <th style="text-align: center">Ord_vehiculo</th>
-                          <th style="text-align: center">Total Comprometido</th>
-                          <th style="text-align: center">Poliza Devengada</th>
-                          <th style="text-align: center">Presupuesto Devengado</th>
-                        </tr>
-                        <tr>
-                          <td style="text-align: center">PARA CASETAS VALE POR 1500 PESOS</td>
-                          <td style="text-align: center">$1740</td>
-                          <td style="text-align: center">PD 254</td>
-                          <td style="text-align: center">$1,700.00</td>
-                        </tr>
-                        <tr>
-                          <th style="text-align: center">Fecha Devengada</th>
-                          <th style="text-align: center">Poliza Pagada </th>
-                          <th style="text-align: center">Presupuesto Pagado</th>
-                          <th style="text-align: center">Fecha Pagada</th>
-                        </tr>
-                        <tr>
-                          <td style="text-align: center">27-1-17</td>
-                          <td style="text-align: center">PD 3</td>
-                          <td style="text-align: center">$1,740.00</td>
-                          <td style="text-align: center">6/2/2017</td>
-                        </tr>
-                        <tr>
-                          <th style="text-align: center">Orden Numero de Factura</th>
-                          <th style="text-align: center">Estatus,Departamento y Cuenta </th>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                        <tr>
-                          <td style="text-align: center">RECIBO 1621016598</td>
-                          <td style="text-align: center">PAGADA345-1-3-6-001-0002-000</td>
-                          <td></td>
-                          <td></td>
-                        </tr>
+                      
                       </tbody>
                     </table>
                   </div>
@@ -470,24 +435,31 @@
         <div id="eliminar" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Eliminar información</h4>
-                </div>
-                <div class="modal-body" style="text-align: center">
-                  <p>Estas seguro de ELIMINAR la información</p>
-                </div>
-                  <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
-                </div>
-                
+                <form action="./codigos/eliminarorden.php" method="post">
+                  <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Eliminar información</h4>
+                    <input type="hidden" id="idOrdene" name="idOrdene">
+
+                  </div>
+                  <div class="modal-body" style="text-align: center">
+                    <p>Estas seguro de ELIMINAR la información</p>
+                  </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                  </div>
+                </form>
   
               </div>
             </div>
           </div>
 
-     
+      <tbody>
+                        
+
+                   </tbody>
 
 
   <!-- footer content -->
@@ -512,5 +484,13 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <script type="text/javascript">
+     
+          $(".btnEliminar").on('click',function(){
+            var id=$(this).data('id');
+            $("#idOrdene").val(id);
+          });
+  
+    </script>
   </body>
 </html>
