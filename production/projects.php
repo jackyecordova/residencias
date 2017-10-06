@@ -323,6 +323,7 @@
                 </div>
               </div>
           </div>
+          </div>
            <!-- editar-->
         <div id="editar" class="modal fade" role="dialog">
             <div class="modal-dialog">
