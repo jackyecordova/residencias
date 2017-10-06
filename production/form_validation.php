@@ -93,15 +93,26 @@
                         <div class="well" style="overflow: auto">
 
 
-                                <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="width:20%;" placeholder="Departamento">
-                                <option>Departamento</option>
-                                  <option>Presidencia</option>
-                                  <option>Tesorería</option>
-                                  <option>Catastro</option>
-                                  <option>Obras Públicas</option>
-                                  <option>Oficialía Mayor</option>
-                                </select>
+                               <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="select2_single form-control"
+                            name="departamento"
+                           class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                            <option></option>
 
+
+                            <?php 
+                        include './conexion.php';
+                        $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+                          
+                         ?>
+                            <option value="<?php  $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                      </div>
                                  <div class="clearfix"></div>
                                 <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
@@ -145,13 +156,36 @@
                         </div>
                       </div>
                  
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Número de cuenta" required="required" type="text">
-                        </div>
+                     
+                      <!--Option para las cuentas existentes-->
+                      <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <select class="select2_single form-control"
+                                      name="departamento"
+                                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
+                                                <option></option>
+
+
+                                                <?php 
+                                            include './conexion.php';
+                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                                            while ( $fila=mysqli_fetch_array($consulta)) {
+
+                                              
+                                             ?> <!--Concatenar el nombre de la cuenta-->
+                                                <option value="<?php  $fila['id_cuenta'] ?>"><?php echo $fila['cuenta']  ?></option>
+                                                <?php } ?>
+                                    </select>
+                              </div>
                       </div>
+
+
+
+
+
+
+
                     
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
