@@ -86,7 +86,7 @@
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate>
+                    <form class="form-horizontal form-label-left" novalidate action="./codigos/obras.php" method="post">
 
                       <p>Registro de una nueva obra <!--<code></code> -->
                       </p>
@@ -108,8 +108,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" 
-                          placeholder="Nombre de la obra" required="required" type="text">
+                          <input class="form-control col-md-7 col-xs-12" name="nombre" 
+                          placeholder="Descripcion de la obra" type="text">
                         </div>
                       </div>
                     
@@ -120,8 +120,8 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2"
-                           name="name" placeholder="Numero de la cuenta" required="required" type="text">
+                          <input  class="form-control col-md-7 col-xs-12" 
+                           name="cuenta" placeholder="Numero de la cuenta" type="text">
                       
 
                         </div>
@@ -132,8 +132,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo">Costo  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6"
-                           data-validate-words="2" name="name" placeholder="Costo de la orden" required="required" type="text">
+                          <input class="form-control col-md-7 col-xs-12" 
+                          name="costo"
+                           placeholder="Costo de la obra"  type="text">
                       
 
                         </div>

@@ -96,7 +96,10 @@
                     <p class="text-muted font-13 m-b-30">
                      
                     </p>
-                    <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length">
+                    <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="dataTables_length" id="datatable_length">
                     <label>Mostrar
                     <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
                     <option value="10">
@@ -115,18 +118,23 @@
                       <thead>
                            <tr role="row">
                                   <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 195px;">
+                                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">
                                     Id
                                   </th>
                                 <th class="sorting" tabindex="0" aria-controls="datatable"
                                  rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                                  style="width: 312px;">
+                                  style="width: 250px;">
                                       Descripción
                                  </th>
                                 <th class="sorting" tabindex="0" 
                                 aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                                style="width: 142px;">
+                                style="width: 100px;">
                                      Costo
+                                 </th>
+                                  <th class="sorting" tabindex="0" 
+                                aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                                style="width: 80px;">
+                                    
                                  </th>
                               
                             </tr>
@@ -145,7 +153,15 @@
                             <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
                              <td><?php echo $fila['descripcion'] ?></td>
                               <td><?php echo $fila['costo'] ?></td>
-                            
+                            <td>               
+                                       <a href="#" class="btn btn-info btn-xs" data-toggle="modal"
+                                        data-target="#editar"><i class="fa fa-pencil">
+                                          
+                                        </i> Editar </a>
+                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" 
+                                     data-target="#eliminar"><i class="fa fa-trash-o">
+                                       </i> Eliminar </a>
+                           </td>
                         </tr>
                         <?php  }?>
                         </tbody>

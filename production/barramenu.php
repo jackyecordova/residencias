@@ -25,7 +25,7 @@
                   </li>
                   <li><a><i class="fa fa-qrcode"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu" style="display: none;">
-                                <li><a href="nuevodepartamento.php">Nuevo</a>
+                                <li><a href="nuevodepartamento.php">Nuevo Departamento</a>
                                  </li>
                                  <li><a>Cuentas<span class="fa fa-chevron-down"></span></a>
                                        <ul class="nav child_menu" style="display: block;">
@@ -41,107 +41,22 @@
                                  </li>
                                <li class="active"><a>Departamentos<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: block;">
-                                   
+                                   <?php 
+                        include './conexion.php';
+                        $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+                           # code...
+                         
+                          
+                         ?>
+
+
+
                                 <li>
-                                <a href="general_elements.php">Archivo Historico
+                                <a href="general_elements.php"><?php echo $fila['departamento'] ?>
                                 </a></li>
 
-                                <li><a href="general_elements.php">
-                                Atencion
-                                </a></li>
-
-                                <li><a href="general_elements.php">Biblioteca Eduardo Contreras
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                Biblioteca Francisca Holguín
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                  C4
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                Catastro
-                                </a></li>
-
-                                <li><a href="general_elements.php">
-                                Comisarios
-                                </a></li>
-                                <li><a href="general_elements.php">
-                                Comunicación Social
-                                </a></li>
-                                <li><a href="general_elements.php">
-                                Cultura
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Deportes
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Desarrollo Rural
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Desarrollo Social
-                                </a></li>
-
-                                 <li><a href="general_elements.php">
-                                Desarrollo Urbano
-                                </a></li> <li><a href="general_elements.php">
-                                Educación
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Fomento Económico
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Obras Públicas
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Oficialía Mayor
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Pensiones y Jubilados
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Presidencia
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Protecci+on Civil
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                Regidores
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Salud
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Secretaría
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Secretaría de Relaciones Exteriores
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Seguridad Pública
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Servicios Públicos
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Sindicatura
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Tesorería
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Tránsito
-                                </a></li>
-                                  <li><a href="general_elements.php">
-                                Turismo
-                                </a></li>
-                                 <li><a href="general_elements.php">
-                                   Unidad de Información
-                                    </a>
-                                </li>
-                                
+                                <?php } ?>
                               </ul>
                             </li>
                             

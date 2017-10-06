@@ -143,7 +143,12 @@
                                                        colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
                                                            Cantidad
                                                       </th>
-                                                    
+                                                      <th class="sorting" tabindex="0" 
+                                                      aria-controls="datatable" rowspan="1" colspan="1"
+                                                       aria-label="Office: activate to sort column ascending" 
+                                                      style="width: 80px;">
+                                                          
+                                                       </th>
                                                      
                                                   </tr>
                                             </thead>
@@ -164,7 +169,15 @@
                                   <td><?php echo $fila['cuenta'] ?></td>
                                   <td><?php echo $fila['nombre'] ?></td>
                                   <td><?php echo $fila['cantidad'] ?></td>
-                                 
+                                  <td>               
+                                       <a href="#" class="btn btn-info btn-xs" data-toggle="modal"
+                                        data-target="#editar"><i class="fa fa-pencil">
+                                          
+                                        </i> Editar </a>
+                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" 
+                                     data-target="#eliminar"><i class="fa fa-trash-o">
+                                       </i> Eliminar </a>
+                           </td>
                                 
                               </tr>
                               <?php  }?>
