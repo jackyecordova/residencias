@@ -5,8 +5,9 @@
 		){
 		# code...
 		$departamento=$_POST['departamento'];
-		$nombre=$_POST['nombre'];
-		$cantidad=$_POST['cantidad'];
+		$cuenta=$_POST['cuenta'];
+		$ano=$_POST['ano'];
+		$monto=$_POST['monto'];
 
 		$consulta="INSERT INTO cuentas 
 			values(0,'$numero',
