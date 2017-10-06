@@ -68,13 +68,15 @@
                    
                    <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Control</h5> </div>
                                  <div class="col-sm-8">  </div>
+                      
                         <div class="title_right" 
                                style=" margin-left: -300px;">
                    
                       <div class="col-md-8 col-sm-5 col-xs-12 form-group pull-right top_search">
                        
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Buscar Registros...">
+                          <input type="text" class="form-control" name="busqueda" id="busqueda"  placeholder="Buscar Registros...">
+                           <?php //include 'search.php'; ?>
                           <span class="input-group-btn">
                             <button class="btn btn-default" type="button">Buscar</button>
                           </span>
@@ -102,11 +104,11 @@
             
             </div>
 
-                  <div class="x_content">
+                  <div class="x_content" id="result">
 
                     <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
 
-
+             
                     <!-- start project list -->
                     <table class="table table-striped projects">
                       <thead>
@@ -124,16 +126,24 @@
 
                      <?php 
                         include './conexion.php';
-                        $consulta=$mysqli->query("select * from orden  where activo='si' order by ord_id ASC")or die($mysqli->error);
+                        $consulta=$mysqli->query("
+                            SELECT orden.ord_id,orden.total_compromet,orden.ppto_dev,orden.ppto_pag, obras.descripcion,departamentos.departamento
+                              FROM ((orden
+                              INNER JOIN obras ON orden.id_obra = obras.id_obra)
+                              INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento);
+
+
+
+                          ")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                         
                     ?>
                         <tr>
                           <td><?php echo $fila['ord_id'] ?></td>
                           <td>
-                            <a><?php echo $fila['id_obra'] ?></a>
+                            <a><?php echo $fila['obra'] ?></a>
                             
-                            <small><?php echo $fila['id_departamento'] ?></small>
+                            <small><?php echo $fila['departamento'] ?></small>
                           </td>
                           <td>
 
@@ -482,6 +492,7 @@
     <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
      <!-- Cropper -->
     <script src="../vendors/cropper/dist/cropper.min.js"></script>
+    <script type="./index.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>

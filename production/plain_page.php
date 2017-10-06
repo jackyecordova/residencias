@@ -149,16 +149,16 @@
                       <tbody>
                   <?php 
                   include './conexion.php';
-                        $consulta=$mysqli->query("select * from orden where Activo='No' order by ord_id DESC")or die($mysqli->error);
+                        $consulta=$mysqli->query("select * from orden  order by ord_id DESC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                     # code...
                    ?>
                         
                         <tr role="row" class="odd">
                             <td > <?php echo $fila['ord_id'] ?></td>
-                            <td><?php echo $fila['id_obra'] ?>INERJOIN</td>
+                            <td><?php echo $fila['id_obra'] ?></td>
                             <td><?php echo $fila['observaciones'] ?></td>
-                            <td><?php echo $fila['id_cuenta'] ?>INNER JOIN   </td>
+                            <td><?php echo $fila['id_cuenta'] ?></td>
                             <td><?php echo $fila['fecha'] ?></td>
                             <td><?php echo $fila['total_compromet'] ?></td>
                         </tr>
