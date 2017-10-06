@@ -124,7 +124,7 @@
 
                      <?php 
                         include './conexion.php';
-                        $consulta=$mysqli->query("select * from orden  where Activo='Si' order by ord_id ASC")or die($mysqli->error);
+                        $consulta=$mysqli->query("select * from orden  where activo='si' order by ord_id ASC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                         
                     ?>
