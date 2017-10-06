@@ -132,25 +132,25 @@
 
 
 
-                         <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="select2_single form-control"
-                            name="departamento"
-                           class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
-                            <option></option>
+                      <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta</label>
+                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <select class="select2_single form-control"
+                                      name="departamento"
+                                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
+                                                <option></option>
 
 
-                            <?php 
-                        include './conexion.php';
-                        $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
-                        while ( $fila=mysqli_fetch_array($consulta)) {
-                          
-                         ?>
-                            <option value="<?php  $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
-                            <?php } ?>
-                          </select>
-                        </div>
+                                                <?php 
+                                            include './conexion.php';
+                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                                            while ( $fila=mysqli_fetch_array($consulta)) {
+                                              
+                                             ?>
+                                                <option value="<?php  $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
+                                                <?php } ?>
+                                    </select>
+                              </div>
                       </div>
 
 
