@@ -181,7 +181,10 @@
                           <td>
                           <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
                             <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a>
-                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#eliminar"><i class="fa fa-trash-o"></i> Eliminar </a>
+                            <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+                              data-id="<?php echo $fila['ord_id'] ?>"
+                              data-toggle="modal" data-target="#eliminar">
+                              <i class="fa fa-trash-o"></i> Eliminar </a>
                           </td>
                         </tr>
 
@@ -569,26 +572,80 @@
               </div>
             </div>
           </div>
+           <!-- Ver-->
+        <div id="ver" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Detalles</h4>
+                  </div>
+                 
+            <div class="row">
+              <div class="col-md-12 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Reporte <small>Detalles de la orden</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table" >
+                      <thead>
+                        <tr >
+                          <td class="col-md-3">Departamento de</td><td class="col-md-3">Oficialia Mayor</td>
+
+                          <td class="col-md-3">Orden Numero de Factura</td><td class="col-md-3">RECIBO 1621016598</td>
+                        </tr>
+                        <tr >
+                          <td class="col-md-3">Fecha</td><td class="col-md-3">12/09/2017</td>
+
+                          <td class="col-md-3">Cuenta</td><td class="col-md-3">01280413955</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Cancelar</button>
+              </div>  
+              
+                  </div>                                                                                
+                </div>
+              </div>
+          </div>
+          </div>
             <!-- eliminar-->
+             <!-- eliminar-->
         <div id="eliminar" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Eliminar información</h4>
-                </div>
-                <div class="modal-body" style="text-align: center">
-                  <p>Estas seguro de ELIMINAR la información</p>
-                </div>
-                 <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
-                </div>
-                
+                <form action="./codigos/eliminarorden.php" method="post">
+                  <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Eliminar información</h4>
+                    <input type="hidden" id="idOrdene" name="idOrdene">
+
+                  </div>
+                  <div class="modal-body" style="text-align: center">
+                    <p>Estas seguro de ELIMINAR la información</p>
+                  </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                  </div>
+                </form>
   
               </div>
             </div>
           </div>
+
 
      
 
@@ -620,5 +677,13 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <script type="text/javascript">
+     
+          $(".btnEliminar").on('click',function(){
+            var id=$(this).data('id');
+            $("#idOrdene").val(id);
+          });
+  
+    </script>
   </body>
 </html>
