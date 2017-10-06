@@ -2,7 +2,7 @@
 	$nombredeusuario="root";
 	$passwordbd="";
 	$servidor="localhost";
-	$basededatos="presidencia municipal";
+	$basededatos="presidencia";
 	$mysqli = new mysqli($servidor, $nombredeusuario, $passwordbd, $basededatos);
 	
 	if($mysqli->connect_error){
