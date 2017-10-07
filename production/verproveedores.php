@@ -157,13 +157,56 @@
                                        <a href="#" class="btn btn-info btn-xs" data-toggle="modal"
                                         data-target="#editar"><i class="fa fa-pencil">
                                           
-                                        </i> Editar </a>
+                                        </i>  </a>
                                      <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" 
                                      data-target="#eliminar"><i class="fa fa-trash-o">
-                                       </i> Eliminar </a>
+                                       </i>  </a>
                            </td>
                         </tr>
                         <?php  }?>
+
+
+
+
+
+
+
+
+
+
+                    <!-- eliminar-->
+                          <div id="eliminar" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <form action="./codigos/eliminarorden.php" method="post">
+                                    <div class="modal-header">
+
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Eliminar información</h4>
+                                      <input type="hidden" id="idOrdene" name="idOrdene">
+
+                                    </div>
+                                    <div class="modal-body" style="text-align: center">
+                                      <p>Estas seguro de ELIMINAR la información</p>
+                                    </div>
+                                      <div class="modal-footer">
+                                      <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                                      <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                                    </div>
+                                  </form>
+                    
+                                </div>
+                              </div>
+                            </div>
+                   <!-- eliminar-->
+
+
+
+
+
+
+
+                        
                         </tbody>
                     </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" 
                     id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>

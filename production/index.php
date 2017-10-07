@@ -310,6 +310,9 @@
                         while ( $fila=mysqli_fetch_array($consulta)) {
                     # code...
                    ?>
+
+
+
                       <div class="panel">
 
                         <a class="panel-heading" role="tab" id="headingOne1" data-toggle="collapse"
@@ -328,13 +331,26 @@
                                 </tr>
                               </thead>
                               <tbody>
+                              <?php   $con=$mysqli->query("
+                               SELECT presupuesto_depa.*, departamentos.departamento
+                              FROM presupuesto_depa 
+                             
+                              INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento;"
+
+
+ //where id_cuenta=". $fila['id_cuenta']. "
+
+
+                               )or die($mysqli->error);
+                                         while ( $fi=mysqli_fetch_array($con)) {?>
                                 <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
+                                  <th scope="row">
+                                      <?php echo $fi['id_departamento'] ?></th>
+                                  <td><?php echo $fi['departamento'] ?></td>
+                                  <td><?php echo $fi['monto'] ?></td>
+                                 
                                 </tr>
-                                
+                                <?php } ?>
                               </tbody>
                             </table>
                           </div>

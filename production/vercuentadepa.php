@@ -106,10 +106,12 @@
                       <thead>
                         <tr>
                           <th style="width:8%">Id</th>
+                           <th style="width: 30%">Departamento</th>
                           <th style="width: 20%">Presupuesto</th>
-                          <th style="width: 20%">Cuenta</th>
+                          <th style="width: 10%">Cuenta</th>
+                           <th style="width: 20%"></th>
                           <th style="width: 15%">Año</th>
-                           <th style="width: 25%">Monto</th>
+                           
                             <th style="width: 5%"></th>
                              <th style="width: 5%"></th>
                           <th></th>
@@ -125,9 +127,12 @@
 
 
 
-                     
+                      SELECT presupuesto_depa.*, departamentos.departamento
+                              FROM presupuesto_depa 
+                             
+                              INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento;
 
-                          select * from presupuesto_depa order by id_presupuesto_depa ASC
+                        
 
 
                           ")or die($mysqli->error);
@@ -136,23 +141,20 @@
                     ?>
                         <tr>
                           <td>    <?php echo $fila['id_presupuesto_depa'] ?></td>
+
                           <td>
-                               <?php echo $fila['id_departamento'] ?></td>
+                               <?php echo $fila['departamento'] ?></td> 
+                          <td>    <?php echo $fila['monto'] ?></td>
                             
                           <td>      <?php echo $fila['id_cuenta'] ?></td>
+                             <td>      <?php echo $fila['id_cuenta'] ?></td>
                           
                           <td>
 
                                   <?php echo $fila['anio'] ?>
                            
                           </td>
-                          <td class="project_progress">
-
-                                    <?php 
-                              echo $fila['monto'];
-                            
-                            ?>
-
+                         
                           <td>
                             <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a></td>
                            <td> <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#eliminar"><i class="fa fa-trash-o"></i> Eliminar </a>
