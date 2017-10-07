@@ -187,7 +187,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
+                          <button type="cancel" class="btn btn-primary">Cancelar</button>
                          <button id="send" type="submit" class="btn btn-success">Guardar</button>
                         </div>
                       </div>

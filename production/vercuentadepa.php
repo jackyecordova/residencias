@@ -99,7 +99,7 @@
 
                   <div class="x_content">
 
-                    <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
+                    <p>REGISTRO DE LAS CUENTAS POR DEPARTAMENTO</p>
 
                     <!-- start project list -->
                     <table class="table table-striped projects">
@@ -121,7 +121,16 @@
 
                      <?php 
                         include './conexion.php';
-                        $consulta=$mysqli->query("select * from presupuesto_depa order by id_presupuesto_depa ASC")or die($mysqli->error);
+                        $consulta=$mysqli->query("
+
+
+
+                     
+
+                          select * from presupuesto_depa order by id_presupuesto_depa ASC
+
+
+                          ")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                            # code...
                     ?>

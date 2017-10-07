@@ -117,8 +117,22 @@
                           <th style="width: 25%">Obra</th>
                           <th style="width: 32%">Observaciones</th>
                           <th class="status">Status</th>
-                          <th></th>
-                           <th></th>
+                          <th> 
+                                                <div class="btn-group" class="pull-rigth" style="margin-left">
+                                                       <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                                                       id="filtrardev">
+                                                          <i class="fa fa-filter" style="font-size: 10px;"></i>
+                                                       </button>
+                                                    </div>
+                          </th>
+                           <th>
+                                                  <div class="btn-group" class="pull-rigth" style="margin-left;">
+                                                       <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                                                       id="filtrardpag">
+                                                          <i class="fa fa-filter" style="font-size: 10px;"></i>
+                                                       </button>
+                                                    </div>
+                           </th>
                           <th style="width: 20%"></th>
                         </tr>
                       </thead>
@@ -128,6 +142,7 @@
                         include './conexion.php';
                         $consulta=$mysqli->query("
                             SELECT orden.ord_id,orden.total_compromet,orden.ppto_dev,orden.ppto_pag, obras.descripcion,departamentos.departamento
+                           
                               FROM ((orden
                               INNER JOIN obras ON orden.id_obra = obras.id_obra)
                               INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento);
@@ -138,7 +153,7 @@
                         while ( $fila=mysqli_fetch_array($consulta)) {
                         
                     ?>
-                        <tr>
+                        <tr style="<?php  echo $pagado?>">
                           <td><?php echo $fila['ord_id'] ?></td>
                           <td>
                             <a><?php echo $fila['obra'] ?></a>
@@ -164,10 +179,14 @@
                                      
                                   }
                                   if ($pag==$todo) {
-                                   $pagado=true;
+                                    //verde
+                                   $pagado='background-color:rgba(194, 91, 91, 0.41)';
+
 
                                   }else{
-                                    $pagado=false;
+                                    //rojo
+                                    $pagado='background-color:rgba(46, 186, 48, 0.14)';
+                                    
                                   }
                             ?>
                             
@@ -205,6 +224,8 @@
                    
                       </tbody>
                     </table>
+
+                     <div class="clearfix"></div>
                     <!-- end project list -->
               </div>
                   </div>
