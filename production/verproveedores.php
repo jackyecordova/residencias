@@ -191,7 +191,11 @@
                                     </div>
                                       <div class="modal-footer">
                                       <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                                      <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                                      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+                                  class="btn btn-danger btn-xs btnEliminar" 
+                              data-id="<?php echo $fila['ord_id'] ?>"
+                              data-toggle="modal" data-target="#eliminar"
+                                      >Eliminar</button>
                                     </div>
                                   </form>
                     
@@ -206,7 +210,7 @@
 
 
 
-                        
+
                         </tbody>
                     </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" 
                     id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
