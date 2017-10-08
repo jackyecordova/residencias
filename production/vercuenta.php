@@ -24,9 +24,7 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-            </div>
+             <?php include './navar.php'; ?>
 
             <div class="clearfix"></div>
 
@@ -160,13 +158,41 @@
                                         data-target="#editar"><i class="fa fa-pencil">
                                           
                                         </i>  </a>
-                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" 
-                                     data-target="#eliminar"><i class="fa fa-trash-o">
-                                       </i>  </a>
+                                    <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+                              data-id="<?php echo $fila['id_cuenta'] ?>"
+                              data-toggle="modal" data-target="#eliminar">
+                              <i class="fa fa-trash-o"></i>  
+                            </a>
                            </td>
                                 
                               </tr>
                               <?php  }?>
+
+                                  <!-- eliminar-->
+                            <div id="eliminar" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <form action="./codigos/eliminarcuenta.php" method="post">
+                                      <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Eliminar información</h4>
+                                        <input type="hidden" id="idOrdene" name="idOrdene">
+
+                                      </div>
+                                      <div class="modal-body" style="text-align: center">
+                                        <p>Estas seguro de eliminar esta cuenta</p>
+                                      </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                                      </div>
+                                    </form>
+                      
+                                  </div>
+                                </div>
+                              </div>
+             <!-- eliminar-->
                    </tbody>
                     </table>
                     </div>
@@ -246,5 +272,15 @@
     
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
+     <script type="text/javascript">
+     
+          $(".btnEliminar").on('click',function(){
+            var id=$(this).data('id');
+            $("#idcuenta").val(id);
+            
+          });
+  
+    </script>
   </body>
 </html>

@@ -24,9 +24,7 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-            </div>
+           <?php include './navar.php'; ?>
 
             <div class="clearfix"></div>
 
@@ -145,6 +143,7 @@
                   include './conexion.php';
                         $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
+                        
                     # code...
                    ?>
                         
@@ -158,51 +157,107 @@
                                         data-target="#editar"><i class="fa fa-pencil">
                                           
                                         </i>  </a>
-                                     <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" 
-                                     data-target="#eliminar"><i class="fa fa-trash-o">
-                                       </i>  </a>
+                                     <a href="#" class="btn btn-danger btn-xs btnEliminar" data-toggle="modal" 
+                                     data-target="#eliminar"                                       
+                                        data-id="<?php echo $fila['id_prov'] ?>">
+                                        <i class="fa fa-trash-o">
+                                       </i>  <?php//  $borrar= $fila['id_proveedor']?> </a>
                            </td>
                         </tr>
                         <?php  }?>
-
-
-
-
-
-
-
-
-
-
-                    <!-- eliminar-->
-                          <div id="eliminar" class="modal fade" role="dialog">
+                    <!-- editar-->
+                     <div id="editar" class="modal fade" role="dialog">
                               <div class="modal-dialog">
                                 <div class="modal-content">
-                                  <form action="./codigos/eliminarorden.php" method="post">
+                                  <form action="./codigos/editarprov.php" method="post">
                                     <div class="modal-header">
 
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                      <h4 class="modal-title">Eliminar información</h4>
+                                      <h4 class="modal-title">Editar información del proveedor</h4>
                                       <input type="hidden" id="idOrdene" name="idOrdene">
 
                                     </div>
                                     <div class="modal-body" style="text-align: center">
-                                      <p>Estas seguro de ELIMINAR la información</p>
+                                    
+
+                                <div class="item form-group"    style=" margin-bottom: 20px;width:100%;">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%">Nombre <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
+                                              <input id="obra" class="form-control col-md-7 col-xs-12" style="width:100%"
+                                              name="nombre" 
+
+                                              placeholder="Nombre del Proveedor o Empresa"  type="text">
+                                            </div>
+                                          </div>
+
+                                          <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%" >Direccion  <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
+                                              <input id="cuenta" class="form-control col-md-7 col-xs-12" style="width:100%"
+                                              name="direccion"
+
+                                               placeholder="Direccion del Proveedor"  type="text">
+                                          
+
+                                            </div>
+                                          </div>
+                                          <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%">Teléfono <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
+                                              <input id="cuenta" class="form-control col-md-7 col-xs-12" style="width:100%"
+                                              name="telefono"
+
+                                               placeholder="Teléfono del Proveedor"  type="text">
+                                            </div>
+                                          </div>
                                     </div>
                                       <div class="modal-footer">
                                       <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                                      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
-                                  class="btn btn-danger btn-xs btnEliminar" 
-                              data-id="<?php echo $fila['ord_id'] ?>"
-                              data-toggle="modal" data-target="#eliminar"
-                                      >Eliminar</button>
+                                      <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
+                         
+                                      >Guardar</button>
                                     </div>
                                   </form>
                     
                                 </div>
                               </div>
                             </div>
-                   <!-- eliminar-->
+                    <!-- editar-->
+
+
+
+
+
+                <!-- eliminar-->
+                      <div id="eliminar" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <form action="./codigos/eliminarprov.php" method="post">
+                                <div class="modal-header">
+
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Eliminar información</h4>
+                                  <input type="hidden" id="idprov" name="idprov">
+
+                                </div>
+                                <div class="modal-body" style="text-align: center">
+                                  <p>Estas seguro de Eliminar al proveedor </p>
+                                </div>
+                                  <div class="modal-footer">
+                                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+                     
+                                  >Eliminar</button>
+                                </div>
+                              </form>
+                
+                            </div>
+                          </div>
+                        </div>
+               <!-- eliminar-->
 
 
 
@@ -263,7 +318,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -282,5 +337,14 @@
     
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+      <script type="text/javascript">
+     
+          $(".btnEliminar").on('click',function(){
+            var id=$(this).data('id');
+            $("#idprov").val(id);
+            
+          });
+  
+    </script>
   </body>
 </html>

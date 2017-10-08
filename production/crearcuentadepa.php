@@ -29,9 +29,7 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-            </div>
+             <?php include './navar.php'; ?>
 
             <div class="clearfix"></div>
 
@@ -136,7 +134,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta</label>
                               <div class="col-md-9 col-sm-9 col-xs-12">
                                     <select class="select2_single form-control"
-                                      name="departamento"
+                                      name="cuenta"
                                      class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
                                                 <option></option>
 
@@ -160,7 +158,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="cuenta" class="form-control col-md-7 col-xs-12" 
-                          name="ano"
+                          name="anio"
                            placeholder="Año de carga"  type="text">
                       
 

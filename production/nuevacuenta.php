@@ -66,9 +66,7 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-            </div>
+             <?php include './navar.php'; ?>
 
             <div class="clearfix"></div>
 
@@ -182,7 +180,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input  class="form-control col-md-7 col-xs-12" 
                          name="cantidad"
-                           placeholder="Cantidad de la Cuenta" type="text">
+                           placeholder="Cantidad de la Cuenta" type="number">
                         </div>
                       </div>
                     
@@ -194,7 +192,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
+                         <a href="./vercuenta.php"> <button type="buton" class="btn btn-primary">Cancelar</button></a>
                          <button id="send" type="submit" class="btn btn-success">Guardar</button>
                         </div>
                       </div>

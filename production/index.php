@@ -46,11 +46,7 @@
       <div class="main_container">
       <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><i class="fa fa-university"></i> <span>Presidencia</span>
-              <span> Municipal</span></a>
-            </div>
-
+           <?php include './navar.php'; ?>
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->

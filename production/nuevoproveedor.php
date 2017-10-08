@@ -28,10 +28,7 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
-            </div>
-
+            <?php include './navar.php'; ?>
             <div class="clearfix"></div>
 
   <!-- menu profile quick info -->
@@ -110,7 +107,7 @@
                           <input id="obra" class="form-control col-md-7 col-xs-12" 
                           name="nombre" 
 
-                          placeholder="Nombre del Proveedor o Empresa" required="required" type="text">
+                          placeholder="Nombre del Proveedor o Empresa" type="text">
                         </div>
                       </div>
                     
@@ -127,7 +124,7 @@
                           <input id="cuenta" class="form-control col-md-7 col-xs-12" 
                           name="direccion"
 
-                           placeholder="Direccion del Proveedor" required="required" type="text">
+                           placeholder="Direccion del Proveedor"  type="text">
                       
 
                         </div>
@@ -139,10 +136,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >Teléfono <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                          <input id="cuenta" class="form-control col-md-7 col-xs-12"  
+                          data-inputmask="'mask' : '(***)-***-**-**'"
                           name="telefono"
 
-                           placeholder="Teléfono del Proveedor" required="required" type="text">
+                           placeholder="Teléfono del Proveedor"  type="text">
                       
 
                         </div>
@@ -156,7 +154,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
+                          <a href="./verproveedores.php"><button type="button" class="btn btn-primary">Cancelar</button></a>
                          <button id="send" type="submit" class="btn btn-success">Guardar</button>
                         </div>
                       </div>
@@ -205,6 +203,8 @@
     <!-- bootstrap-datetimepicker -->    
     <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
   <!--  <script type="./js/the-basics.js"></script>-->
+     <!-- jquery.inputmask -->
+    <script src="../vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 	
   </body>
 </html>
