@@ -161,11 +161,13 @@
                                       $res =$pag * 100 / $todo;
                                      
                                   }
-                                  if ($pag==$todo) {
-                                    //verde
+                                  if ($dev==$todo) {
+                                    //blanco
                                  
-                                      $pagado='background-color:rgba(46, 186, 48, 0.14)';
+                                      $pagado='background-color:rgba(00, 00, 00, 0.0)';
 
+                                  }else if ($pag==$todo) {
+                                      $pagado='background-color:rgba(46, 186, 48, 0.14)';
                                   }else{
                                     //rojo
                                    
