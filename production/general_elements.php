@@ -1,3 +1,17 @@
+ <?php 
+                       include './conexion.php';
+                        $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
+                        
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+                          $nombre=$fila['departamento'];
+                        }
+                        if (isset($nombre)) { }else{
+                          header("Location: ./index.php");
+                        }
+                                
+
+                                          ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,22 +74,13 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Departamento</h3>
+                <h3>Departamento <?php echo $nombre; ?></h3>
               </div>
 
-              <div class="title_right">
-                <div class="col-md-4 col-sm-5 col-xs-12 form-group  top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="No mostrar este search...">
-                    <span class="input-group-btn" >No mostrar este search
-                    !</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
+             
             </div>
 
-
+ <div class="clearfix"></div>
 
            <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"    >

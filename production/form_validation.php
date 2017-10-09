@@ -87,131 +87,222 @@
 
                       <p>Detalles de la orden  <!--<code></code> -->
                       </p>
+
+
+
+
+<div id="wizard" class="form_wizard wizard_horizontal">
+                      <ul class="wizard_steps anchor">
+                        <li>
+                          <a href="#step-1" class="selected" isdone="1" rel="1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                                              Paso 1<br>
+                                              <small>Datos Generales de la orden</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2" class="disabled" isdone="0" rel="2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                                              Paso 2<br>
+                                              <small>Información de la orden</small>
+                                          </span>
+                          </a>
+                        </li>
+                       
+                      </ul>
+                      
+                      
+                      
+                      
+
+                    <div class="stepContainer" style="height: 450px;"><div id="step-1" class="content" style="display: block;">
+                        <form class="form-horizontal form-label-left">
+
+                        <!--formulario-->
+                   <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                          <select class="select2_single form-control"
+                                            name="departamento"
+                                           class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                                            <option></option>
+
+
+                                            <?php 
+                                        include './conexion.php';
+                                        $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                                        while ( $fila=mysqli_fetch_array($consulta)) {
+                                          
+                                         ?>
+                                            <option value="<?php  $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                                            <?php } ?>
+                                          </select>
+                                        </div>
+                                      </div>
+                                                 <div class="clearfix"></div>
+                                                <div class="item form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
+                                                            </div>
+                                              </div>
+                                                      <div class="clearfix"></div>
+
+
+                                         <div class="col-xs-12 col-md-12" style="block:none;">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  <span class="required">*</span>
+                                                        </label>
+                                                          <fieldset>
+                                                            <div class="control-group">
+                                                              <div class="controls">
+
+                                                                <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
+                                                                  <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                                                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                                  <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                                                                </div>
+
+                                                              </div>
+                                                            </div>
+                                                          </fieldset>
+                                                        
+                                            </div>
+                                      <br>
+
+
+
+                                               <div class="clearfix"></div>
+                                      
+                                      <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
+                                        </div>
+                                      </div>
+                                 
+                                     
+                                      <!--Option para las cuentas existentes-->
+                                      <div class="form-group">
+                                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
+                                              <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <select class="select2_single form-control"
+                                                      name="departamento"
+                                                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
+                                                                <option></option>
+
+
+                                                                <?php 
+                                                            include './conexion.php';
+                                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                                                            while ( $fila=mysqli_fetch_array($consulta)) {
+
+                                                              
+                                                             ?> <!--Concatenar el nombre de la cuenta-->
+                                                                <option value="<?php  $fila['id_cuenta'] ?>"><?php echo $fila['cuenta']  ?></option>
+                                                                <?php } ?>
+                                                    </select>
+                                              </div>
+                                      </div>
+
+
+
+
+
+
+
+                                    
+                                      <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                                        </div>
+                                      </div>
+
+                                      <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                                        </div>
+                                      </div>
+
+                                    
+                                   
+                                    
+                                   
+
+
+                                      <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
+                                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
+                                      </div>
+
+
+                                        </form>
+
+                                      </div><div id="step-2" class="content" style="display: none;">
+                                        <h2 class="StepTitle">Step 2 Content</h2>
+                                       <form>
+                                           <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                                        </div>
+                                      </div>
+                                       </form>
+                                      </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <div class="msgBox">
+                                            <div class="content">
+                                              
+                                            </div>
+                                            <a href="#" class="close">X
+                                            </a>
+                                          </div>
+                                          <div class="loader">
+                                          Loading</div>
+                                          <a href="#" class="buttonFinish buttonDisabled btn btn-default">
+                                          Finish</a>
+                                          <a href="#" class="buttonNext btn btn-success">
+                                          Next</a>
+                                          <a href="#" class="buttonPrevious buttonDisabled btn btn-primary">
+                                          Previous</a>
+                                      </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                           <!--Ventana gris-->
                         <div class="well" style="overflow: auto">
 
 
-                               <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="select2_single form-control"
-                            name="departamento"
-                           class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
-                            <option></option>
-
-
-                            <?php 
-                        include './conexion.php';
-                        $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
-                        while ( $fila=mysqli_fetch_array($consulta)) {
-                          
-                         ?>
-                            <option value="<?php  $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
-                            <?php } ?>
-                          </select>
-                        </div>
-                      </div>
-                                 <div class="clearfix"></div>
-                                <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
-                                            </div>
-                              </div>
-                                      <div class="clearfix"></div>
-
-
-                         <div class="col-xs-12 col-md-12">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  <span class="required">*</span>
-                                        </label>
-                                          <fieldset>
-                                            <div class="control-group">
-                                              <div class="controls">
-
-                                                <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-                                                  <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
-                                                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                                  <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-                                                </div>
-
-                                              </div>
-                                            </div>
-                                          </fieldset>
-                                        
-                            </div>
-                      <br>
-
-
-
-                               <div class="clearfix"></div>
-                      
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
-                        </div>
-                      </div>
-                 
-                     
-                      <!--Option para las cuentas existentes-->
-                      <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
-                              <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <select class="select2_single form-control"
-                                      name="departamento"
-                                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
-                                                <option></option>
-
-
-                                                <?php 
-                                            include './conexion.php';
-                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
-                                            while ( $fila=mysqli_fetch_array($consulta)) {
-
-                                              
-                                             ?> <!--Concatenar el nombre de la cuenta-->
-                                                <option value="<?php  $fila['id_cuenta'] ?>"><?php echo $fila['cuenta']  ?></option>
-                                                <?php } ?>
-                                    </select>
-                              </div>
-                      </div>
-
-
-
-
-
-
-
-                    
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
-                        </div>
-                      </div>
-
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
-                        </div>
-                      </div>
-
-                    
-                   
-                    
-                   
-
-
-                      <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
-                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
-                      </div>
-
+                            
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px; ">
@@ -358,6 +449,7 @@
     <!-- bootstrap-datetimepicker -->    
     <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
   <!--  <script type="./js/the-basics.js"></script>-->
-	
+	 <!-- jQuery Smart Wizard -->
+    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
   </body>
 </html>

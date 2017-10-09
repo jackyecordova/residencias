@@ -139,7 +139,7 @@
                      <?php 
                         include './conexion.php';
                         $consulta=$mysqli->query("
-                            SELECT orden.ord_id,orden.total_compromet,orden.ppto_dev,orden.ppto_pag, obras.descripcion,departamentos.departamento
+                            SELECT orden.*,obras.*,departamentos.departamento
                            
                               FROM ((orden
                               INNER JOIN obras ON orden.id_obra = obras.id_obra)
@@ -150,22 +150,7 @@
                           ")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                         
-                    ?>
-                        <tr style="<?php  echo $pagado?>">
-                          <td><?php echo $fila['ord_id'] ?></td>
-                          <td>
-                            <a><?php echo $fila['obra'] ?></a>
-                            
-                            <small><?php echo $fila['departamento'] ?></small>
-                          </td>
-                          <td>
-
-                         <a> <?php echo $fila['observaciones'] ?></a>
-                           
-                          </td>
-                          <td class="project_progress ">
-
-                                    <?php 
+                    ?>  <?php 
                                   $todo=$fila['total_compromet'];
                                   $dev=$fila['ppto_dev'];
                                   $pag=$fila['ppto_pag'];
@@ -178,15 +163,30 @@
                                   }
                                   if ($pag==$todo) {
                                     //verde
-                                   $pagado='background-color:rgba(194, 91, 91, 0.41)';
-
+                                 
+                                      $pagado='background-color:rgba(46, 186, 48, 0.14)';
 
                                   }else{
                                     //rojo
-                                    $pagado='background-color:rgba(46, 186, 48, 0.14)';
-                                    
+                                   
+                                      $pagado='background-color:rgba(194, 91, 91, 0.41)';
                                   }
                             ?>
+                        <tr style="<?php  echo $pagado?>">
+                          <td><?php echo $fila['ord_id'] ?></td>
+                          <td>
+                            <a><?php echo $fila['descripcion'] ?></a>
+                            
+                            <small><?php echo $fila['departamento'] ?></small>
+                          </td>
+                          <td>
+
+                         <a> <?php echo $fila['observaciones'] ?></a>
+                           
+                          </td>
+                          <td class="project_progress ">
+
+                                  
                             
 
                             <div class="progress progress_sm">

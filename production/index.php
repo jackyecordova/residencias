@@ -81,9 +81,7 @@
                 </div>
 
 
-               <div>
-                   <!--<img class="logoimagen" src="images/logoncg.jpg">-->
-
+      
 
               <div class="col-md-6 col-sm-6 col-xs-10 " style="padding:100px">
 
@@ -194,9 +192,6 @@
 
                 </div>
 
-
-
-                     </div>
                 <!-- end of weather widget -->
  <div class="clearfix"></div>
                <div class="alert alert-success">
@@ -303,8 +298,9 @@
                      <?php 
                   include './conexion.php';
                         $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                        $cont=0;
                         while ( $fila=mysqli_fetch_array($consulta)) {
-                    # code...
+                        ++$cont;
                    ?>
 
 
@@ -312,10 +308,10 @@
                       <div class="panel">
 
                         <a class="panel-heading" role="tab" id="headingOne1" data-toggle="collapse"
-                         data-parent="#accordion1" href="#collapseOne1" aria-expanded="false" aria-controls="collapseOne">
+                         data-parent="#accordion " href="#collapseOne<?php echo $cont?>" aria-expanded="false" aria-controls="collapseOne<?php echo $cont?>">
                           <h4 class="panel-title"><?php echo $fila['nombre']?> <small>   <?php echo $fila['cuenta']?> </small> </h4>
                         </a>
-                        <div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapseOne<?php echo $cont?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                           <div class="panel-body">
                             <table class="table table-striped">
                               <thead>

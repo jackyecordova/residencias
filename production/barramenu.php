@@ -53,7 +53,7 @@
 
 
                                 <li>
-                                <a href="general_elements.php"><?php echo $fila['departamento'] ?>
+                                <a href="general_elements.php?id=<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?>
                                 </a></li>
 
                                 <?php } ?>

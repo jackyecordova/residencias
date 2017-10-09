@@ -118,7 +118,7 @@
                         while ( $fila=mysqli_fetch_array($consulta)) {
                           
                          ?>
-                            <option value="<?php  $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                            <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
                             <?php } ?>
                           </select>
                         </div>
@@ -145,7 +145,7 @@
                                             while ( $fila=mysqli_fetch_array($consulta)) {
                                               
                                              ?>
-                                                <option value="<?php  $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
+                                                <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
                                                 <?php } ?>
                                     </select>
                               </div>

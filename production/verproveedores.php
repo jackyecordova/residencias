@@ -158,8 +158,11 @@
                                           
                                         </i>  </a>
                                      <a href="#" class="btn btn-danger btn-xs btnEliminar" data-toggle="modal" 
-                                     data-target="#eliminar"                                       
-                                        data-id="<?php echo $fila['id_prov'] ?>">
+                                        data-target="#eliminar"                                       
+                                        data-id="<?php echo $fila['id_proveedor'] ?>"
+                                        data-nombre="<?php echo $fila['nombre'] ?>"
+
+                                        >
                                         <i class="fa fa-trash-o">
                                        </i>  <?php//  $borrar= $fila['id_proveedor']?> </a>
                            </td>
@@ -174,7 +177,8 @@
 
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                                       <h4 class="modal-title">Editar información del proveedor</h4>
-                                      <input type="hidden" id="idOrdene" name="idOrdene">
+                                      <input type="text" id="idOrdene" name="idOrdene">
+                                     <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
 
                                     </div>
                                     <div class="modal-body" style="text-align: center">
@@ -244,7 +248,7 @@
 
                                 </div>
                                 <div class="modal-body" style="text-align: center">
-                                  <p>Estas seguro de Eliminar al proveedor </p>
+                                  <p>Estas seguro de Eliminar al proveedor <span id="nombreeliminar"></span> </p>
                                 </div>
                                   <div class="modal-footer">
                                   <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
@@ -341,9 +345,11 @@
      
           $(".btnEliminar").on('click',function(){
             var id=$(this).data('id');
+            var nombre=$(this).data('nombre');
             $("#idprov").val(id);
-            
+            $("#nombreeliminar").text(nombre) ;         
           });
+
   
     </script>
   </body>
