@@ -141,9 +141,10 @@
                         $consulta=$mysqli->query("
                             SELECT orden.*,obras.*,departamentos.departamento
                            
-                              FROM ((orden
+                              FROM ((orden 
                               INNER JOIN obras ON orden.id_obra = obras.id_obra)
                               INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
+                              where orden.activo='si'
 
 ;
 
@@ -379,13 +380,13 @@
                         <div class="well" style="overflow: auto">
 
 
-                                <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="margin-left: 25%;margin-bottom: 20px;width:50%;;" placeholder="Departamento">
-                                <option>Departamento</option>
-                                  <option>Presidencia</option>
-                                  <option>Tesorería</option>
-                                  <option>Catastro</option>
-                                  <option>Obras Públicas</option>
-                                  <option>Oficialía Mayor</option>
+                                <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="margin-left: 25%;margin-bottom: 20px;width:50%;;" placeholder="Departamento" name="dpto">
+                                      <option value="1">Departamento</option>
+                                      <option value="2">Presidencia</option>
+                                      <option value="3">Tesorería</option>
+                                      <option value="4">Catastro</option>
+                                      <option value="5">Obras Públicas</option>
+                                      <option value="6">Oficialía Mayor</option>
                                 </select>
 
                                  <div class="clearfix"></div>
@@ -407,7 +408,7 @@
                                               <div class="controls">
 
                                                 <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-                                                  <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                                                  <input type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="First Name" aria-describedby="inputSuccess2Status4" name="fecha">
                                                   <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                                   <span id="inputSuccess2Status4" class="sr-only">(success)</span>
                                                 </div>
@@ -427,7 +428,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
+                          <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="margin-left: 25%;margin-bottom: 20px;width:50%;;" placeholder="Obras" name="ob">
+                                      <option value="1">Obras</option>
+                                      <option value="2">qwrer</option>
+                                      <option value="3">ghgf</option>
+                                      <option value="4">hh</option>
+                                      <option value="5">ther</option>
+                                      <option value="6">klk</option>
+                                </select>
                         </div>
                       </div>
                  
@@ -435,7 +443,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Número de cuenta" required="required" type="text">
+                           <select class="control-label col-md-3 col-sm-3 col-xs-1" class="form-control"  style="margin-left: 25%;margin-bottom: 20px;width:50%;;" placeholder="Cuentas" name="cu">
+                                      <option value="1">Cuentas</option>
+                                      <option value="2">64377</option>
+                                      <option value="3">897899</option>
+                                      <option value="4">098790</option>
+                                      <option value="5">97090</option>
+                                      <option value="6">45435</option>
+                                </select>
                         </div>
                       </div>
                     
@@ -443,7 +458,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
                         </div>
                       </div>
 
@@ -451,7 +466,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Observaciones dentro de la obra" required="required" type="text">
+                          <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Observaciones dentro de la obra" required="required" type="text">
                         </div>
                       </div>
                 </div>
@@ -461,7 +476,7 @@
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>
+                  <button type="submit" class="btn btn-warning" >Editar</button>
                 </div>
                 </form>
               </div>
@@ -530,9 +545,13 @@
           $(".btnEliminar").on('click',function(){
             var id=$(this).data('id');
             $("#idOrdene").val(id);
-            $("#idOrdena").val(id);
+           
           });
-  
+             $(".btnEditar").on('click',function(){
+            var id=$(this).data('id');
+            $("#idOrdena").val(id);
+           
+          });
     </script>
   </body>
 </html>
