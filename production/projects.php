@@ -143,7 +143,9 @@
                            
                               FROM ((orden
                               INNER JOIN obras ON orden.id_obra = obras.id_obra)
-                              INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento);
+                              INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
+
+;
 
 
 
@@ -207,7 +209,10 @@
                           </td>
                           <td>
                           <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
-                            <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a>
+                            <a href="#" class="btn btn-info btn-xs btnEditar"
+                            data-id="<?php echo $fila['ord_id'] ?>"
+                             data-toggle="modal" data-target="#editar">
+                             <i class="fa fa-pencil"></i> Editar </a>
                             <a href="#" class="btn btn-danger btn-xs btnEliminar" 
                               data-id="<?php echo $fila['ord_id'] ?>"
                               data-toggle="modal" data-target="#eliminar">
@@ -359,15 +364,17 @@
         <div id="editar" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
+                <form action="./codigos/actualizarorden.php" method="post">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Editar Información</h4>
                 </div>
                 <div class="modal-body" style="text-align: center">
-                    <form class="form-horizontal form-label-left" novalidate>
 
                       <p>Detalles de la orden  <!--<code></code> -->
                       </p>
+                       <input type="text" id="idOrdena" name="idOrdena">
+
                           <!--Ventana gris-->
                         <div class="well" style="overflow: auto">
 
@@ -448,21 +455,22 @@
                         </div>
                       </div>
                 </div>
-                </form>
+               
                 </div>
 
 
                 <div class="modal-footer">
                   <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>
+                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>
                 </div>
+                </form>
               </div>
             </div>
           </div>
           </div>
           </div>
 
-            
+
                         <!-- eliminar-->
                     <div id="eliminar" class="modal fade" role="dialog">
                         <div class="modal-dialog">
@@ -472,7 +480,7 @@
 
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title">Eliminar información</h4>
-                                <input type="hidden" id="idOrdene" name="idOrdene">
+                                <input type="text" id="idOrdene" name="idOrdene">
 
                               </div>
                               <div class="modal-body" style="text-align: center">
@@ -522,7 +530,7 @@
           $(".btnEliminar").on('click',function(){
             var id=$(this).data('id');
             $("#idOrdene").val(id);
-            
+            $("#idOrdena").val(id);
           });
   
     </script>

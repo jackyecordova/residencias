@@ -146,7 +146,7 @@
                       <tbody>
                   <?php 
                   include './conexion.php';
-                        $consulta=$mysqli->query("select * from orden  order by ord_id DESC")or die($mysqli->error);
+                        $consulta=$mysqli->query("select * from orden where activo='no' order by ord_id DESC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
                     # code...
                    ?>
