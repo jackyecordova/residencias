@@ -524,7 +524,7 @@
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Eliminar información</h4>
-          <input type="text" id="idOrdene" name="idOrdene">
+          <input type="hidden" id="idOrdene" name="idOrdene">
 
         </div>
         <div class="modal-body" style="text-align: center">
