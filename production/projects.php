@@ -328,6 +328,11 @@
             <div class="x_title">
               <h2>Reporte <small>Detalles de la orden</small></h2>
               <ul class="nav navbar-right panel_toolbox">
+              <div class="btn-group" class="pull-rigth" style="margin-left">
+               <button class="btn btn-info"type="button">
+                <i class="fa fa-print"></i>
+              </button>
+            </div>
               </ul>
               <div class="clearfix"></div>
             </div>
