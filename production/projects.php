@@ -141,16 +141,13 @@
        $consulta=$mysqli->query("
         SELECT orden.*,obras.*,departamentos.departamento
 
-        FROM ((orden 
-        INNER JOIN obras ON orden.id_obra = obras.id_obra)
-        INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
-        where orden.activo='si'
-
-        ;
+        FROM ((orden
+          INNER JOIN obras ON orden.id_obra = obras.id_obra)
+       INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento);
 
 
 
-        ")or die($mysqli->error);
+       ")or die($mysqli->error);
        while ( $fila=mysqli_fetch_array($consulta)) {
 
         ?>  <?php 
@@ -164,65 +161,65 @@
           $res =$pag * 100 / $todo;
 
         }
-        if ($dev==$todo) {
+        if ($dev<$todo) {
                                     //blanco
+         $pagado='background-color:rgba(194, 47, 47, 0.08)';
 
-          $pagado='background-color:rgba(00, 00, 00, 0.0)';
 
-        }else if ($pag==$todo) {
-          $pagado='background-color:rgba(46, 186, 48, 0.14)';
-        }else{
+       }else if ($pag==$todo) {
+        $pagado='background-color:rgba(24, 139, 26, 0.17)';
+      }else{
                                     //rojo
 
-          $pagado='background-color:rgba(194, 91, 91, 0.41)';
-        }
-        ?>
-        <tr style="<?php  echo $pagado?>">
-          <td><?php echo $fila['ord_id'] ?></td>
-          <td>
-            <a><?php echo $fila['descripcion'] ?></a>
+       $pagado='background-color:rgba(00, 00, 00, 0.0)';
+     }
+     ?>
+     <tr style="<?php  echo $pagado?>">
+      <td><?php echo $fila['ord_id'] ?></td>
+      <td>
+        <a><?php echo $fila['descripcion'] ?></a>
 
-            <small><?php echo $fila['departamento'] ?></small>
-          </td>
-          <td>
-
-           <a> <?php echo $fila['observaciones'] ?></a>
-
-         </td>
-         <td class="project_progress ">
-
-
-
-
-          <div class="progress progress_sm">
-            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
-          </div>
-          <small><?php  echo $res?>% COMPLETADO</small>
-        </td>
-        <td>
-          <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
-          data-toggle="modal" data-target="#Devengada">
-          Devengado
-        </button>
-      </td>
-      <td> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
-        Pagado</button>
+        <small><?php echo $fila['departamento'] ?></small>
       </td>
       <td>
-        <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
-        <a href="#" class="btn btn-info btn-xs btnEditar"
-        data-id="<?php echo $fila['ord_id'] ?>"
-        data-toggle="modal" data-target="#editar">
-        <i class="fa fa-pencil"></i> Editar </a>
-        <a href="#" class="btn btn-danger btn-xs btnEliminar" 
-        data-id="<?php echo $fila['ord_id'] ?>"
-        data-toggle="modal" data-target="#eliminar">
-        <i class="fa fa-trash-o"></i> Eliminar 
-      </a>
-    </td>
-  </tr>
 
-  <?php 
+       <a> <?php echo $fila['observaciones'] ?></a>
+
+     </td>
+     <td class="project_progress ">
+
+
+
+
+      <div class="progress progress_sm">
+        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
+      </div>
+      <small><?php  echo $res?>% COMPLETADO</small>
+    </td>
+    <td>
+      <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
+      data-toggle="modal" data-target="#Devengada">
+      Devengado
+    </button>
+  </td>
+  <td> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
+    Pagado</button>
+  </td>
+  <td>
+   <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
+   <a href="#" class="btn btn-info btn-xs btnEditar"
+   data-id="<?php echo $fila['ord_id'] ?>"
+   data-toggle="modal" data-target="#editar">
+   <i class="fa fa-pencil"></i> Editar</a>
+   <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+   data-id="<?php echo $fila['ord_id'] ?>"
+   data-toggle="modal" data-target="#eliminar">
+   <i class="fa fa-trash-o"></i> Eliminar</a>
+
+</td>
+</tr>
+
+<?php 
 
 } ?>
 
@@ -285,11 +282,11 @@
 <div id="Pagada" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-    <form action="./codigos/pagarorden.php" method="post">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" >&times;</button>
         <h4 class="modal-title" >Cantidad Pagada</h4>
-        <input type="text" id="idOrdenp" name="idOrdenp">
+        
       </div>
       <div class="modal-body" style="text-align: left; ">
 
@@ -311,7 +308,7 @@
 
 
    <div class="modal-footer" style="padding-top:35px;">
-     <button type="submit"  class="btn btn-success" >Pagar</button>
+     <button type="button"  class="btn btn-success" >Pagar</button>
      <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
    </div>
  </div>
@@ -334,11 +331,6 @@
             <div class="x_title">
               <h2>Reporte <small>Detalles de la orden</small></h2>
               <ul class="nav navbar-right panel_toolbox">
-              <div class="btn-group" class="pull-rigth" style="margin-left">
-               <button class="btn btn-info"type="button">
-                <i class="fa fa-print"></i>
-              </button>
-            </div>
               </ul>
               <div class="clearfix"></div>
             </div>
@@ -376,21 +368,26 @@
 <div id="editar" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="./codigos/actualizarorden.php" method="post">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Editar Información</h4>
-        </div>
-        <div class="modal-body" style="text-align: center">
+       <form action="./codigos/actualizarorden.php" method="post">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar Información</h4>
+      </div>
+      <div class="modal-body" style="text-align: center">
+        <form class="form-horizontal form-label-left" action="./codigos/actualizarorden.php" method="post">
 
           <p>Detalles de la orden  <!--<code></code> -->
           </p>
-          <input type="hidden" id="idOrdena" name="idOrdena">
+          <!--Ventana gris-->
+          <div class="well" style="overflow: auto">
+
+
+           <input type="hidden" id="idOrdena" name="idOrdena">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Departamento </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" name="dpto">
-                <option value="1">Departamentos</option>
+                <option ></option>
                  <?php 
                  include './conexion.php';
                                             $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
@@ -403,15 +400,26 @@
             </div>
           </div>
 
-          <div class="clearfix"></div><br>
+            <div class="clearfix"></div>
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="obra" class="form-control col-md-7 col-xs-12"  name="name" placeholder="Nombre de la Obra"  type="text">
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+
+            <div class="clearfix"></div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Numero de la Factura" required="required" type="text">
+              <input id="obra" class="form-control col-md-7 col-xs-12" name="name" placeholder="Numero de la Factura"  type="text">
             </div>
           </div>
-          <div class="clearfix"></div><br>
+          <div class="clearfix"></div>
 
 
           <div class="item form-group">
@@ -440,7 +448,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Obras" name="ob">
-              <option value="1">Obras</option>
+              <option ></option>
                 <?php 
                  include './conexion.php';
                                             $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
@@ -452,13 +460,13 @@
               </select>
             </div>
           </div>
-          <div class="clearfix"></div><br>
+          <div class="clearfix"></div>
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12" >
              <select class="form-control col-md-3 col-sm-3 col-xs-1" placeholder="Cuentas" name="cu">
-             <option value="1">Cuentas</option>
+             <option ></option>
                <?php 
                                             include './conexion.php';
                                             $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
@@ -470,34 +478,33 @@
             </select>
           </div>
         </div>
-           <div class="clearfix"></div><br>
+           <div class="clearfix"></div>
         <div class="item form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
+            <input id="observaciones" class="form-control col-md-7 col-xs-12"  name="observaciones" placeholder="Observaciones dentro de la obra"  type="text">
           </div>
         </div>
-        <div class="clearfix"></div><br>
+        <div class="clearfix"></div>
         <div class="item form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
+            <input id="observaciones" class="form-control col-md-7 col-xs-12"  name="vehiculo" placeholder="Vehiculo" type="text">
           </div>
         </div>
-        <div class="clearfix"></div><br>
-
+          </div>
+        </form>
       </div>
 
 
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-warning" >Editar</button>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>
       </div>
-    </form>
+    </div>
   </div>
-</div>
 </div>
 </div>
 </div>
@@ -564,16 +571,14 @@
     $("#idOrdene").val(id);
 
   });
+
   $(".btnEditar").on('click',function(){
     var id=$(this).data('id');
     $("#idOrdena").val(id);
 
   });
-  $(".btnEditar").on('click',function(){
-    var id=$(this).data('id');
-    $("#idOrdenp").val(id);
 
-  });
+
 </script>
 </body>
 </html>

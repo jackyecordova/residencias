@@ -1,6 +1,6 @@
 <?php 
 		
 	include '../conexion.php';
-	$mysqli->query("delete from cuentas where id_cuenta=".$_POST['idcuenta']);
+	$mysqli->query("DELETE FROM cuentas where id_cuenta=".$_POST['idcuenta']);
 	header("Location: ../vercuenta.php");
  ?>
