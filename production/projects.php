@@ -161,17 +161,17 @@
                                       $res =$pag * 100 / $todo;
                                      
                                   }
-                                  if ($dev==$todo) {
+                                  if ($dev<$todo) {
                                     //blanco
-                                 
-                                      $pagado='background-color:rgba(00, 00, 00, 0.0)';
+                                   $pagado='background-color:rgba(194, 47, 47, 0.08)';
+                                   
 
                                   }else if ($pag==$todo) {
-                                      $pagado='background-color:rgba(46, 186, 48, 0.14)';
+                                      $pagado='background-color:rgba(24, 139, 26, 0.17)';
                                   }else{
                                     //rojo
                                    
-                                      $pagado='background-color:rgba(194, 91, 91, 0.41)';
+                                       $pagado='background-color:rgba(00, 00, 00, 0.0)';
                                   }
                             ?>
                         <tr style="<?php  echo $pagado?>">

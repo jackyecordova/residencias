@@ -110,6 +110,7 @@
                     100
                     </option>
                     </select> Registros</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                      <?php  ?>
                       <thead>
                            <tr role="row">
                                   <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
@@ -148,10 +149,18 @@
                   include './conexion.php';
                         $consulta=$mysqli->query("select * from orden  order by ord_id DESC")or die($mysqli->error);
                         while ( $fila=mysqli_fetch_array($consulta)) {
+                           if ($fila['activo']== "si" ) {
+                                    //blanco
+                                   $activado='background-color:rgba(0, 0,0, 0)';
+                                   
+
+                                  }else {
+                                      $activado='background-color:rgba(194, 47, 47, 0.08)';
+                                  }
                     # code...
                    ?>
                         
-                        <tr role="row" class="odd">
+                        <tr role="row" class="odd"  style="<?php echo$activado ?>">
                             <td > <?php echo $fila['ord_id'] ?></td>
                             <td><?php echo $fila['id_obra'] ?></td>
                             <td><?php echo $fila['observaciones'] ?></td>
