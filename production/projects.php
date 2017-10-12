@@ -281,23 +281,29 @@
 </div>
 </div>
 
-<!-- Cantidad Devengado-->
+<!-- Cantidad Pagada-->
 <div id="Pagada" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
+    <form action="./codigos/pagarorden.php" method="post">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" >&times;</button>
         <h4 class="modal-title" >Cantidad Pagada</h4>
+        <input type="text" id="idOrdenp" name="idOrdenp">
       </div>
       <div class="modal-body" style="text-align: left; ">
 
        <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
        <div class="col-sm-8">  </div>
-       <div class="input-group"> 
+
+ <div class="input-group"> 
+
         <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
+        
         <span class="input-group-addon">
          $
        </span> 
+
      </div>
    </div>
    <div class="col-sm-1"></div>
@@ -305,7 +311,7 @@
 
 
    <div class="modal-footer" style="padding-top:35px;">
-     <button type="button"  class="btn btn-success" >Pagar</button>
+     <button type="submit"  class="btn btn-success" >Pagar</button>
      <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
    </div>
  </div>
@@ -561,6 +567,11 @@
   $(".btnEditar").on('click',function(){
     var id=$(this).data('id');
     $("#idOrdena").val(id);
+
+  });
+  $(".btnEditar").on('click',function(){
+    var id=$(this).data('id');
+    $("#idOrdenp").val(id);
 
   });
 </script>
