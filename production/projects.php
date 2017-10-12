@@ -211,12 +211,12 @@
    <a href="#" class="btn btn-info btn-xs btnEditar"
    data-id="<?php echo $fila['ord_id'] ?>"
    data-toggle="modal" data-target="#editar">
-   <i class="fa fa-pencil"></i> Editar </a>
+   <i class="fa fa-pencil"></i> Editar</a>
    <a href="#" class="btn btn-danger btn-xs btnEliminar" 
    data-id="<?php echo $fila['ord_id'] ?>"
    data-toggle="modal" data-target="#eliminar">
-   <i class="fa fa-trash-o"></i> Eliminar 
- </a>
+   <i class="fa fa-trash-o"></i> Eliminar</a>
+
 </td>
 </tr>
 
@@ -279,23 +279,29 @@
 </div>
 </div>
 
-<!-- Cantidad Devengado-->
+<!-- Cantidad Pagada-->
 <div id="Pagada" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" >&times;</button>
         <h4 class="modal-title" >Cantidad Pagada</h4>
+        
       </div>
       <div class="modal-body" style="text-align: left; ">
 
        <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
        <div class="col-sm-8">  </div>
-       <div class="input-group"> 
+
+ <div class="input-group"> 
+
         <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
+        
         <span class="input-group-addon">
          $
        </span> 
+
      </div>
    </div>
    <div class="col-sm-1"></div>
@@ -363,6 +369,7 @@
 <div id="editar" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
+       <form action="./codigos/actualizarorden.php" method="post">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Editar Información</h4>
@@ -565,7 +572,14 @@
     $("#idOrdene").val(id);
 
   });
-  
+
+  $(".btnEditar").on('click',function(){
+    var id=$(this).data('id');
+    $("#idOrdena").val(id);
+
+  });
+
+
 </script>
 </body>
 </html>
