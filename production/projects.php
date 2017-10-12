@@ -138,7 +138,8 @@
 
        <?php 
        include './conexion.php';
-       $consulta=$mysqli->query("
+        //where orden.activo='no'
+        $consulta=$mysqli->query("
         SELECT orden.*,obras.*,departamentos.departamento
 
         FROM ((orden
@@ -512,7 +513,7 @@
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Eliminar información</h4>
-          <input type="hidden" id="idOrdene" name="idOrdene">
+          <input type="text" id="idOrdene" name="idOrdene">
 
         </div>
         <div class="modal-body" style="text-align: center">
