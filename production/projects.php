@@ -146,9 +146,7 @@
           INNER JOIN obras ON orden.id_obra = obras.id_obra)
 
        INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
-        where orden.activo='si'
-        ;
-
+        where orden.activo='si';
 
 
 
