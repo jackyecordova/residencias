@@ -261,7 +261,7 @@
 
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Eliminar información</h4>
-                <input type="hidden" id="idprov" name="idprov">
+                <input type="text" id="idprov" name="idprov">
 
               </div>
               <div class="modal-body" style="text-align: center">
