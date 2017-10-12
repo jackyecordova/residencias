@@ -379,12 +379,15 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Departamento </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" name="dpto">
-                <option value="1">Departamento</option>
-                <option value="2">Presidencia</option>
-                <option value="3">Tesorería</option>
-                <option value="4">Catastro</option>
-                <option value="5">Obras Públicas</option>
-                <option value="6">Oficialía Mayor</option>
+                <option value="1">Departamentos</option>
+                 <?php 
+                 include './conexion.php';
+                                            $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                                            while ( $fila=mysqli_fetch_array($consulta)) {
+                                              
+                                             ?>
+                                                <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                                                <?php } ?>
               </select>
             </div>
           </div>
@@ -394,7 +397,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Nombre de la Obra" required="required" type="text">
+              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Numero de la Factura" required="required" type="text">
             </div>
           </div>
           <div class="clearfix"></div><br>
@@ -426,12 +429,15 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Obras" name="ob">
-                <option value="1">Obras</option>
-                <option value="2">qwrer</option>
-                <option value="3">ghgf</option>
-                <option value="4">hh</option>
-                <option value="5">ther</option>
-                <option value="6">klk</option>
+              <option value="1">Obras</option>
+                <?php 
+                 include './conexion.php';
+                                            $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+                                            while ( $fila=mysqli_fetch_array($consulta)) {
+                                              
+                                             ?>
+                                                <option value="<?php echo $fila['id_obra'] ?>"><?php echo $fila['descripcion'] ?></option>
+                                                <?php } ?>
               </select>
             </div>
           </div>
@@ -441,12 +447,15 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12" >
              <select class="form-control col-md-3 col-sm-3 col-xs-1" placeholder="Cuentas" name="cu">
-              <option value="1">Cuentas</option>
-              <option value="2">64377</option>
-              <option value="3">897899</option>
-              <option value="4">098790</option>
-              <option value="5">97090</option>
-              <option value="6">45435</option>
+             <option value="1">Cuentas</option>
+               <?php 
+                                            include './conexion.php';
+                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                                            while ( $fila=mysqli_fetch_array($consulta)) {
+                                              
+                                             ?>
+                                                <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
+                                                <?php } ?>
             </select>
           </div>
         </div>
@@ -463,7 +472,7 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Observaciones dentro de la obra" required="required" type="text">
+            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
           </div>
         </div>
         <div class="clearfix"></div><br>
@@ -492,7 +501,7 @@
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Eliminar información</h4>
-          <input type="text" id="idOrdene" name="idOrdene">
+          <input type="hidden" id="idOrdene" name="idOrdene">
 
         </div>
         <div class="modal-body" style="text-align: center">
