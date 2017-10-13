@@ -19,11 +19,11 @@
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
   <!-- Datatables -->
-    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -147,8 +147,12 @@
                     <td><?php echo $fila['descripcion'] ?></td>
                     <td><?php echo $fila['costo'] ?></td>
                     <td>               
-                     <a href="#" class="btn btn-info btn-xs" data-toggle="modal"
-                     data-target="#editar"><i class="fa fa-pencil">
+                    <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
+                     data-target="#editar"
+
+                     data-id="<?php echo $fila['id_obra'] ?>"
+                     data-descripcion="<?php echo $fila['descripcion'] ?>"
+                     data-costo="<?php echo $fila['costo'] ?>" ><i class="fa fa-pencil">
 
                    </i>  </a>
                    <a href="#" class="btn btn-danger btn-xs btnEliminar" 
@@ -173,7 +177,7 @@
 
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Eliminar información</h4>
-                        <input type="hidden" id="idobra" name="idobra">
+                        <input type="text" id="idobra" name="idobra">
 
                       </div>
                       <div class="modal-body" style="text-align: center">
@@ -197,12 +201,12 @@
               <div id="editar" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <form action="./codigos/editarprov.php" method="post">
+                    <form action="./codigos/editarobra.php" method="post">
                       <div class="modal-header">
 
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Editar información del proveedor</h4>
-                        <input type="hidden" id="idprov" name="idprov">
+                        <h4 class="modal-title">Editar información de la obra</h4>
+                        <input type="text" id="idobraedi" name="idobraedi">
                         <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
 
                       </div>
@@ -210,100 +214,112 @@
 
                         <div class="item form-group"  style=" margin-bottom: 20px;width:100%;">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                          style="width:20%" for="name">Descripcion <span class="required">*</span>
-                          </label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input class="form-control col-md-7 col-xs-12" 
-                            name="descripcion" 
-                            id="descripcioneditar" 
-                            placeholder="Descripcion de la obra" type="text">
-                          </div>
-                        </div>
-
-
-
-
-                        <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-                          style="width:20%">No de cuenta 
-                           <span class="required">*</span>
-                         </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
-                          name="cuenta" 
-                          placeholder="Número de la Cuenta" 
-                          type="text">
+                          style="width:20%" for="name"
+                          id="descripcion">Descripcion <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input class="form-control col-md-7 col-xs-12" 
+                          name="descripcion" 
+                          id="descripcioneditar" 
+                          placeholder="Descripcion de la obra" type="text">
                         </div>
                       </div>
+
 
 
 
                       <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
-                        style="width:20%">Costo  <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input class="form-control col-md-7 col-xs-12" 
-                          name="costo"
-                          placeholder="Costo de la obra"  type="text">
-
-
-                        </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" 
+                        style="width:20%">No de cuenta 
+                        <span class="required">*</span>
+                      </label>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
+                        name="cuenta" 
+                        placeholder="Número de la Cuenta" 
+                        id="cuentaeditar"
+                        type="text">
                       </div>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                      <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
 
-                      >Guardar</button>
+
+
+                    <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
+                      style="width:20%">Costo  <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12" >
+                      <input class="form-control col-md-7 col-xs-12" 
+                      name="costo"
+                      id="costoeditar"
+                      placeholder="Costo de la obra"  type="text">
+
+
                     </div>
-                  </form>
-
+                  </div>
                 </div>
-              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
+
+                  >Guardar</button>
+                </div>
+              </form>
+
             </div>
-            <!-- editar-->
+          </div>
+        </div>
+        <!-- editar-->
 
 
 
-          </tbody>
-        </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" 
-        id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
-      </div>
-      <div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-        <ul class="pagination"><li class="paginate_button previous disabled" id="datatable_previous">
-          <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
-          </a>
-        </li>
-        <li class="paginate_button active">
-          <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
-          </a>
-        </li>
-        <li class="paginate_button ">
-          <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
-          </a>
-        </li>
-        <li class="paginate_button ">
-          <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a>
-        </li>
-        <li class="paginate_button ">
-          <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
-          </a>
-        </li>
-        <li class="paginate_button ">
-          <a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
-          </a>
-        </li>
-        <li class="paginate_button ">
-         <a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6
-         </a>
-       </li>
-       <li class="paginate_button next" id="datatable_next">
-        <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-5">
+    <div class="dataTables_info" 
+    id="datatable_info" role="status" aria-live="polite">
+    Showing 1 to 10 of 57 entries
+  </div>
+</div>
+<div class="col-sm-7">
+  <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
+    <ul class="pagination">
+      <li class="paginate_button previous disabled" id="datatable_previous">
+        <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
         </a>
       </li>
-    </ul>
-  </div>
+      <li class="paginate_button active">
+        <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
+        </a>
+      </li>
+      <li class="paginate_button ">
+        <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
+        </a>
+      </li>
+      <li class="paginate_button ">
+        <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a>
+      </li>
+      <li class="paginate_button ">
+        <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
+        </a>
+      </li>
+      <li class="paginate_button ">
+        <a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
+        </a>
+      </li>
+      <li class="paginate_button ">
+       <a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6
+       </a>
+     </li>
+     <li class="paginate_button next" id="datatable_next">
+      <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
+      </a>
+    </li>
+  </ul>
+</div>
 </div>
 </div>
 </div>
@@ -338,21 +354,21 @@
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.min.js"></script>
 <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../vendors/jszip/dist/jszip.min.js"></script>
+<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
 
 <script type="text/javascript">
@@ -367,7 +383,7 @@
    var id=$(this).data('id');
    var descripcion=$(this).data('descripcion');
    var costo=$(this).data('costo');
-   $("#idobra").val(id);
+   $("#idobraedi").val(id);
    $("#descripcioneditar").val(descripcion) ;   
    $("#costoeditar").val(costo) ;
 

@@ -192,7 +192,7 @@
 
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Editar información del proveedor</h4>
-                <input type="hidden" id="idprov" name="idprov">
+                <input type="hidden" id="idprovedi" name="idprovedi">
                 <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
 
               </div>
@@ -261,7 +261,7 @@
 
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Eliminar información</h4>
-                <input type="text" id="idprov" name="idprov">
+                <input type="hidden" id="idprov" name="idprov">
 
               </div>
               <div class="modal-body" style="text-align: center">
@@ -391,7 +391,7 @@
    var direccion=$(this).data('direccion');
    var telefono=$(this).data('telefono');
 
-   $("#idprov").val(id);
+   $("#idprovedi").val(id);
    $("#nombreeditar").val(nombre) ;   
    $("#direccioneditar").val(direccion) ;   
    $("#telefonoeditar").val(telefono) ;   
