@@ -89,7 +89,7 @@
                 </p>
                 <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 
-                  
+
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
@@ -195,13 +195,13 @@
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Editar información de la obra</h4>
-                    <input type="text" id="idobraedi" name="idobraedi">
+                    <input type="hidden" id="idobraedi" name="idobraedi">
                     <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
 
                   </div>
                   <div class="modal-body" style="text-align: center">
 
-                    <div class="item form-group"  style=" margin-bottom: 20px;width:100%;">
+                    <div class="item form-group"  style=" margin-bottom: 40px;width:100%;">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12"
                       style="width:20%" for="name"
                       id="descripcion">Descripcion <span class="required">*</span>
@@ -214,10 +214,10 @@
                     </div>
                   </div>
 
+                  <div class="clearfix"></div>
 
 
-
-                  <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+                  <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" 
                     style="width:20%">No de cuenta 
                     <span class="required">*</span>
@@ -231,9 +231,9 @@
                   </div>
                 </div>
 
+  <div class="clearfix"></div>
 
-
-                <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+                <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
                   style="width:20%">Costo  <span class="required">*</span>
                 </label>
