@@ -100,7 +100,7 @@
                <!-- start of weather widget -->
                
                <div class="col-md-4 col-sm-4 col-xs-12  pull-right" class="clima"  > 
-                 
+
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Clima <small>Usuario</small></h2>
@@ -111,8 +111,8 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <div class="temperature"><b>Lunes</b>, 07:30 AM
-                         
-                          
+
+
                         </div>
                       </div>
                     </div>
@@ -221,7 +221,7 @@
                   </div>
                   <div class="x_content">
                     <table class="" style="width:100%">
-                      
+
                       <tr>
                         <td>
                           <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
@@ -309,84 +309,89 @@
 
                       <a class="panel-heading" role="tab" id="headingOne1" data-toggle="collapse"
                       data-parent="#accordion " href="#collapseOne<?php echo $cont?>" aria-expanded="false" aria-controls="collapseOne<?php echo $cont?>">
-                      <h4 class="panel-title"><?php echo $fila['nombre']?> <small>   <?php echo $fila['cuenta']?> </small> </h4>
-                    </a>
-                    <div id="collapseOne<?php echo $cont?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                      <div class="panel-body">
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>Id</th>
-                              <th>Departamento</th>
-                              <th>Presupuesto</th>
-                              
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php   $con=$mysqli->query("
-                             SELECT presupuesto_depa.*, departamentos.departamento
-                             FROM presupuesto_depa 
-                             
-                             INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento
+                      <h4 class="panel-title"><?php echo $fila['nombre']?> <small>   <?php echo $fila['cuenta']?> </small>.  
+                        Total de presupuesto: <?php echo $fila['cantidad']?> <small></small></h4>
+                      </a>
+                      <div id="collapseOne<?php echo $cont?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>Id</th>
+                                <th>Departamento</th>
+                                <th>Presupuesto</th>
 
-
-                where id_cuenta=". $fila['id_cuenta'].";"
-
-
-                             )or die($mysqli->error);
-                             while ( $fi=mysqli_fetch_array($con)) {?>
-                             <tr>
-                              <th scope="row">
-                                <?php echo $fi['id_departamento'] ?></th>
-                                <td><?php echo $fi['departamento'] ?></td>
-                                <td><?php echo $fi['monto'] ?></td>
-                                
                               </tr>
-                              <?php } ?>
-                            </tbody>
-                          </table>
+                            </thead>
+                            <tbody>
+                              <?php   $con=$mysqli->query("
+                               SELECT presupuesto_depa.*, departamentos.departamento
+                               FROM presupuesto_depa 
+
+                               INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento
+
+
+                               where id_cuenta=". $fila['id_cuenta'].";"
+
+
+                               )or die($mysqli->error);
+                               while ( $fi=mysqli_fetch_array($con)) {?>
+                               <tr>
+                                <th scope="row">
+                                  <?php echo $fi['id_departamento'] ?></th>
+                                  <td><?php echo $fi['departamento'] ?></td>
+                                  <td><?php echo $fi['monto'] ?></td>
+                                    <?php $res=+ $fi['monto'];
+                                    echo $res ?> 
+                                </tr>
+                                <?php } 
+
+                                ?>
+
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
+
+                      <?php } ?>
                     </div>
-                    
-                    <?php } ?>
+                    <!-- end of accordion -->
+
+
                   </div>
-                  <!-- end of accordion -->
-
-
                 </div>
               </div>
+
+
+
+              <!-- /top tiles -->
+
+
+
             </div>
-            
+            <br />
 
 
-            <!-- /top tiles -->
 
-            
-            
+            <!-- End to do list -->
+
+
           </div>
-          <br />
-
-
-          
-          <!-- End to do list -->
-          
-          
         </div>
       </div>
     </div>
-  </div>
-  <!-- /page content -->
+    <!-- /page content -->
 
-  <!-- footer content -->
-  <footer>
-    <div class="pull-right">
-      <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
-    </div>
-    <div class="clearfix"></div>
-  </footer>
-  <!-- /footer content -->
-</div>
+    <!-- footer content -->
+    <footer>
+      <div class="pull-right">
+        <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+  </div>
 </div>
 
 <!-- jQuery -->
