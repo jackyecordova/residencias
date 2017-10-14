@@ -10,7 +10,7 @@ $costo=$_POST['costo'];
 $consulta="INSERT INTO obras
 values(0,
 	'$nombre',
-	'$cuenta'
+	'$cuenta',
 	'$costo'
 	)";
 
