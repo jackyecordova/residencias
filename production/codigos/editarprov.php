@@ -7,7 +7,7 @@ $mysqli->query("UPDATE proveedores SET
 	 ,telefono='".$_POST['telefono']."'
 	  WHERE id_proveedor=".$_POST['idprovedi']
 
-	);
+	)or die($mysqli->error);
 header("Location: ../verproveedores.php");
 ?>
 
