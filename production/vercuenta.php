@@ -206,7 +206,7 @@
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Editar información</h4>
-                    <input type="hidden" id="idcuenta" name="idcuenta">
+                    <input type="hidden" id="idcuentaeditar" name="idcuenta">
 
                   </div>  <div class="clearfix"></div>
                   <div class="modal-body" style="text-align: center">
@@ -346,7 +346,7 @@
    var cuenta=$(this).data('cuenta');
    var nombre=$(this).data('nombre');
    var cantidad=$(this).data('cantidad');
-   $("#idcuenta").val(id);
+   $("#idcuentaeditar").val(id);
    $("#cuentaeditar").val(cuenta) ;   
    $("#nombreeditar").val(nombre) ;   
    $("#cantidadeditar").val(cantidad) ;   

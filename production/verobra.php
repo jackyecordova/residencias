@@ -106,210 +106,175 @@
                     style="width: 250px;">
                     Descripción
                   </th>
-                  <th class="sorting" tabindex="0" 
-                  aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                  style="width: 100px;">
-                  Costo
+                  <th class="sorting" tabindex="0" aria-controls="datatable"
+                  rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
+                  style="width: 250px;">
+                  Cuenta
                 </th>
                 <th class="sorting" tabindex="0" 
                 aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                style="width: 80px;">
-
+                style="width: 100px;">
+                Costo
               </th>
+              <th class="sorting" tabindex="0" 
+              aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+              style="width: 80px;">
 
-            </tr>
-          </thead>
+            </th>
 
-
-
-
-          <tbody>
-            <?php 
-            include './conexion.php';
-            $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
-            while ( $fila=mysqli_fetch_array($consulta)) {
-                    # code...
-             ?>
-
-             <tr role="row" class="odd">
-              <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
-              <td><?php echo $fila['descripcion'] ?></td>
-              <td><?php echo $fila['costo'] ?></td>
-              <td>               
-                <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
-                data-target="#editar"
-
-                data-id="<?php echo $fila['id_obra'] ?>"
-                data-descripcion="<?php echo $fila['descripcion'] ?>"
-                data-costo="<?php echo $fila['costo'] ?>" ><i class="fa fa-pencil">
-
-              </i>  </a>
-              <a href="#" class="btn btn-danger btn-xs btnEliminar" 
-              data-toggle="modal" 
-              data-target="#eliminar"                                       
-              data-id="<?php echo $fila['id_obra'] ?>"
-              data-descripcion="<?php echo $fila['descripcion'] ?>" >
-              <i class="fa fa-trash-o">
-              </i>  </a>
-            </td>
           </tr>
-          <?php  }?>
+        </thead>
 
 
 
-          <!-- eliminar-->
-          <div id="eliminar" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <form action="./codigos/eliminarobra.php" method="post">
-                  <div class="modal-header">
 
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Eliminar información</h4>
-                    <input type="text" id="idobra" name="idobra">
+        <tbody>
+          <?php 
+          include './conexion.php';
+          $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+          while ( $fila=mysqli_fetch_array($consulta)) {
+                    # code...
+           ?>
 
+           <tr role="row" class="odd">
+            <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
+            <td><?php echo $fila['descripcion'] ?></td>
+            <td><?php echo $fila['id_cuenta'] ?></td>
+            <td><?php echo $fila['costo'] ?></td>
+            <td>               
+              <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
+              data-target="#editar"
+
+              data-id="<?php echo $fila['id_obra'] ?>"
+              data-descripcion="<?php echo $fila['descripcion'] ?>"
+              data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
+              data-costo="<?php echo $fila['costo'] ?>" ><i class="fa fa-pencil">
+
+            </i>  </a>
+            <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+            data-toggle="modal" 
+            data-target="#eliminar"                                       
+            data-id="<?php echo $fila['id_obra'] ?>"
+            data-descripcion="<?php echo $fila['descripcion'] ?>" >
+            <i class="fa fa-trash-o">
+            </i>  </a>
+          </td>
+        </tr>
+        <?php  }?>
+
+
+
+        <!-- eliminar-->
+        <div id="eliminar" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form action="./codigos/eliminarobra.php" method="post">
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Eliminar información</h4>
+                  <input type="text" id="idobra" name="idobra">
+
+                </div>
+                <div class="modal-body" style="text-align: center">
+                  <p>Estas seguro de eliminar la obra <br>
+                   <span style="font-size:20px;" 
+                   id="descripcioneliminar"></span> </p>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+
+                  >Eliminar</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <!-- eliminar-->
+        <!-- editar-->
+        <div id="editar" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form action="./codigos/editarobra.php" method="post">
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Editar información de la obra</h4>
+                  <input type="hidden" id="idobraedi" name="idobraedi">
+                  <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
+
+                </div>
+                <div class="modal-body" style="text-align: center">
+
+                  <div class="item form-group"  style=" margin-bottom: 40px;width:100%;">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                    style="width:20%" for="name"
+                    id="descripcion">Descripcion <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input class="form-control col-md-7 col-xs-12" 
+                    name="descripcion" 
+                    id="descripcioneditar" 
+                    placeholder="Descripcion de la obra" type="text">
                   </div>
-                  <div class="modal-body" style="text-align: center">
-                    <p>Estas seguro de eliminar la obra <br>
-                     <span style="font-size:20px;" 
-                     id="descripcioneliminar"></span> </p>
-                   </div>
-                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+                </div>
 
-                    >Eliminar</button>
-                  </div>
-                </form>
+                <div class="clearfix"></div>
+
+                
+                <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" 
+                  style="width:20%">No de cuenta 
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
+                  name="cuenta" 
+                  placeholder="Número de la Cuenta" 
+                  id="cuentaeditar"
+                  type="text">
+                </div>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
+                style="width:20%">Costo  <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12" >
+                <input class="form-control col-md-7 col-xs-12" 
+                name="costo"
+                id="costoeditar"
+                placeholder="Costo de la obra"  type="text">
+
 
               </div>
             </div>
           </div>
-          <!-- eliminar-->
-          <!-- editar-->
-          <div id="editar" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <form action="./codigos/editarobra.php" method="post">
-                  <div class="modal-header">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
 
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Editar información de la obra</h4>
-                    <input type="hidden" id="idobraedi" name="idobraedi">
-                    <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
+            >Guardar</button>
+          </div>
+        </form>
 
-                  </div>
-                  <div class="modal-body" style="text-align: center">
-
-                    <div class="item form-group"  style=" margin-bottom: 40px;width:100%;">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                      style="width:20%" for="name"
-                      id="descripcion">Descripcion <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input class="form-control col-md-7 col-xs-12" 
-                      name="descripcion" 
-                      id="descripcioneditar" 
-                      placeholder="Descripcion de la obra" type="text">
-                    </div>
-                  </div>
-
-                  <div class="clearfix"></div>
-
-
-                  <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-                    style="width:20%">No de cuenta 
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
-                    name="cuenta" 
-                    placeholder="Número de la Cuenta" 
-                    id="cuentaeditar"
-                    type="text">
-                  </div>
-                </div>
-
-  <div class="clearfix"></div>
-
-                <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
-                  style="width:20%">Costo  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12" >
-                  <input class="form-control col-md-7 col-xs-12" 
-                  name="costo"
-                  id="costoeditar"
-                  placeholder="Costo de la obra"  type="text">
-
-
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
-
-              >Guardar</button>
-            </div>
-          </form>
-
-        </div>
       </div>
     </div>
-    <!-- editar-->
+  </div>
+  <!-- editar-->
 
 
 
-  </tbody>
+</tbody>
 </table>
 </div>
 </div>
-<div class="row">
-  <div class="col-sm-5">
-    <div class="dataTables_info" 
-    id="datatable_info" role="status" aria-live="polite">
-    Showing 1 to 10 of 57 entries
-  </div>
-</div>
-<div class="col-sm-7">
-  <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-    <ul class="pagination">
-      <li class="paginate_button previous disabled" id="datatable_previous">
-        <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
-        </a>
-      </li>
-      <li class="paginate_button active">
-        <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
-        </a>
-      </li>
-      <li class="paginate_button ">
-        <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
-        </a>
-      </li>
-      <li class="paginate_button ">
-        <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a>
-      </li>
-      <li class="paginate_button ">
-        <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
-        </a>
-      </li>
-      <li class="paginate_button ">
-        <a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
-        </a>
-      </li>
-      <li class="paginate_button ">
-       <a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6
-       </a>
-     </li>
-     <li class="paginate_button next" id="datatable_next">
-      <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
-      </a>
-    </li>
-  </ul>
-</div>
-</div>
+
+
 </div>
 </div>
 </div>
@@ -372,8 +337,10 @@
    var id=$(this).data('id');
    var descripcion=$(this).data('descripcion');
    var costo=$(this).data('costo');
+   var cuenta=$(this).data('cuenta');
    $("#idobraedi").val(id);
-   $("#descripcioneditar").val(descripcion) ;   
+   $("#descripcioneditar").val(descripcion) ;  
+   $("#cuentaeditar").val(cuetna) ;    
    $("#costoeditar").val(costo) ;
 
 
