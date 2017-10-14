@@ -202,7 +202,7 @@
                 placeholder="Nombre del Proveedor o Empresa"  type="text">
               </div>
             </div>
-
+  <div class="clearfix"></div>
             <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%" >Direccion  <span class="required">*</span>
               </label>
@@ -215,6 +215,7 @@
 
               </div>
             </div>
+              <div class="clearfix"></div>
             <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%">Teléfono <span class="required">*</span>
               </label>
@@ -225,6 +226,7 @@
                 placeholder="Teléfono del Proveedor"  type="text">
               </div>
             </div>
+              <div class="clearfix"></div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>

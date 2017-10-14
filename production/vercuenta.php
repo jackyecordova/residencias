@@ -208,7 +208,7 @@
                     <h4 class="modal-title">Editar información</h4>
                     <input type="hidden" id="idcuenta" name="idcuenta">
 
-                  </div>
+                  </div>  <div class="clearfix"></div>
                   <div class="modal-body" style="text-align: center">
 
                     <div class="item form-group" style="width:100%;margin-bottom: 20px;">
@@ -224,6 +224,7 @@
                       type="text">
                     </div>
                   </div>
+                    <div class="clearfix"></div>
 
                   <div class="item form-group" style="width:100%;margin-bottom: 20px;">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre 
@@ -236,6 +237,7 @@
                     id="nombreeditar" type="text">
                   </div>
                 </div>
+  <div class="clearfix"></div>
 
                 <div class="item form-group" style="width:100%;margin-bottom: 20px;">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  

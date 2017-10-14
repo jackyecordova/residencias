@@ -42,7 +42,7 @@ if (isset($_POST["poldev"]) && isset($_POST["dev"])) {
 	$dev=$_POST['dev'];
 	$polpag=$_POST[' '];
 	$pag=$_POST[' '];
-}else if (isset($_POST["poldpag"]) && isset($_POST["pag"]) && isset($_POST["poldev"]) && isset($_POST["dev"])) {
+}else if (isset($_POST["polpag"]) && isset($_POST["pag"]) && isset($_POST["poldev"]) && isset($_POST["dev"])) {
 	# code...
 	$poldev=$_POST[' '];
 	$dev=$_POST[' '];
