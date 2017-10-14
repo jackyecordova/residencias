@@ -330,7 +330,7 @@
                              INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento
 
 
-                where id_cuenta=". $fila['id_cuenta'];
+                where id_cuenta=". $fila['id_cuenta'].";"
 
 
                              )or die($mysqli->error);
