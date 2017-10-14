@@ -88,194 +88,183 @@
 
                 </p>
                 <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="dataTables_length" id="datatable_length">
-                        <label>Mostrar
-                          <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
-                            <option value="10">
-                              10
-                            </option>
-                            <option value="25">
-                              25
-                            </option>
-                            <option value="50">
-                              50
-                            </option>
-                            <option value="100">
-                              100
-                            </option>
-                          </select> entries</label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
-                          <thead>
-                           <tr role="row">
-                            <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                            colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">
-                            Id
-                          </th>
-                          <th class="sorting" tabindex="0" aria-controls="datatable"
-                          rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                          style="width: 250px;">
-                          Descripción
-                        </th>
-                        <th class="sorting" tabindex="0" 
-                        aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                        style="width: 100px;">
-                        Costo
-                      </th>
-                      <th class="sorting" tabindex="0" 
-                      aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                      style="width: 80px;">
 
+                  
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table id="datatable" class="table table-striped table-bordered 
+                    dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                    <thead>
+                     <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
+                      colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 40px;">
+                      Id
                     </th>
+                    <th class="sorting" tabindex="0" aria-controls="datatable"
+                    rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
+                    style="width: 250px;">
+                    Descripción
+                  </th>
+                  <th class="sorting" tabindex="0" 
+                  aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                  style="width: 100px;">
+                  Costo
+                </th>
+                <th class="sorting" tabindex="0" 
+                aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                style="width: 80px;">
 
-                  </tr>
-                </thead>
+              </th>
+
+            </tr>
+          </thead>
 
 
 
 
-                <tbody>
-                  <?php 
-                  include './conexion.php';
-                  $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
-                  while ( $fila=mysqli_fetch_array($consulta)) {
+          <tbody>
+            <?php 
+            include './conexion.php';
+            $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+            while ( $fila=mysqli_fetch_array($consulta)) {
                     # code...
-                   ?>
+             ?>
 
-                   <tr role="row" class="odd">
-                    <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
-                    <td><?php echo $fila['descripcion'] ?></td>
-                    <td><?php echo $fila['costo'] ?></td>
-                    <td>               
-                    <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
-                     data-target="#editar"
+             <tr role="row" class="odd">
+              <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
+              <td><?php echo $fila['descripcion'] ?></td>
+              <td><?php echo $fila['costo'] ?></td>
+              <td>               
+                <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
+                data-target="#editar"
 
-                     data-id="<?php echo $fila['id_obra'] ?>"
-                     data-descripcion="<?php echo $fila['descripcion'] ?>"
-                     data-costo="<?php echo $fila['costo'] ?>" ><i class="fa fa-pencil">
+                data-id="<?php echo $fila['id_obra'] ?>"
+                data-descripcion="<?php echo $fila['descripcion'] ?>"
+                data-costo="<?php echo $fila['costo'] ?>" ><i class="fa fa-pencil">
 
-                   </i>  </a>
-                   <a href="#" class="btn btn-danger btn-xs btnEliminar" 
-                   data-toggle="modal" 
-                   data-target="#eliminar"                                       
-                   data-id="<?php echo $fila['id_obra'] ?>"
-                   data-descripcion="<?php echo $fila['descripcion'] ?>" >
-                   <i class="fa fa-trash-o">
-                   </i>  </a>
-                 </td>
-               </tr>
-               <?php  }?>
+              </i>  </a>
+              <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+              data-toggle="modal" 
+              data-target="#eliminar"                                       
+              data-id="<?php echo $fila['id_obra'] ?>"
+              data-descripcion="<?php echo $fila['descripcion'] ?>" >
+              <i class="fa fa-trash-o">
+              </i>  </a>
+            </td>
+          </tr>
+          <?php  }?>
 
 
 
-               <!-- eliminar-->
-               <div id="eliminar" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <form action="./codigos/eliminarobra.php" method="post">
-                      <div class="modal-header">
+          <!-- eliminar-->
+          <div id="eliminar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form action="./codigos/eliminarobra.php" method="post">
+                  <div class="modal-header">
 
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Eliminar información</h4>
-                        <input type="text" id="idobra" name="idobra">
-
-                      </div>
-                      <div class="modal-body" style="text-align: center">
-                        <p>Estas seguro de eliminar la obra <br>
-                         <span style="font-size:20px;" 
-                         id="descripcioneliminar"></span> </p>
-                       </div>
-                       <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
-
-                        >Eliminar</button>
-                      </div>
-                    </form>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Eliminar información</h4>
+                    <input type="text" id="idobra" name="idobra">
 
                   </div>
-                </div>
+                  <div class="modal-body" style="text-align: center">
+                    <p>Estas seguro de eliminar la obra <br>
+                     <span style="font-size:20px;" 
+                     id="descripcioneliminar"></span> </p>
+                   </div>
+                   <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+
+                    >Eliminar</button>
+                  </div>
+                </form>
+
               </div>
-              <!-- eliminar-->
-              <!-- editar-->
-              <div id="editar" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <form action="./codigos/editarobra.php" method="post">
-                      <div class="modal-header">
-
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Editar información de la obra</h4>
-                        <input type="text" id="idobraedi" name="idobraedi">
-                        <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
-
-                      </div>
-                      <div class="modal-body" style="text-align: center">
-
-                        <div class="item form-group"  style=" margin-bottom: 20px;width:100%;">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                          style="width:20%" for="name"
-                          id="descripcion">Descripcion <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" 
-                          name="descripcion" 
-                          id="descripcioneditar" 
-                          placeholder="Descripcion de la obra" type="text">
-                        </div>
-                      </div>
-
-
-
-
-                      <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-                        style="width:20%">No de cuenta 
-                        <span class="required">*</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
-                        name="cuenta" 
-                        placeholder="Número de la Cuenta" 
-                        id="cuentaeditar"
-                        type="text">
-                      </div>
-                    </div>
-
-
-
-                    <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
-                      style="width:20%">Costo  <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12" >
-                      <input class="form-control col-md-7 col-xs-12" 
-                      name="costo"
-                      id="costoeditar"
-                      placeholder="Costo de la obra"  type="text">
-
-
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
-
-                  >Guardar</button>
-                </div>
-              </form>
-
             </div>
           </div>
+          <!-- eliminar-->
+          <!-- editar-->
+          <div id="editar" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form action="./codigos/editarobra.php" method="post">
+                  <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Editar información de la obra</h4>
+                    <input type="text" id="idobraedi" name="idobraedi">
+                    <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
+
+                  </div>
+                  <div class="modal-body" style="text-align: center">
+
+                    <div class="item form-group"  style=" margin-bottom: 20px;width:100%;">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                      style="width:20%" for="name"
+                      id="descripcion">Descripcion <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input class="form-control col-md-7 col-xs-12" 
+                      name="descripcion" 
+                      id="descripcioneditar" 
+                      placeholder="Descripcion de la obra" type="text">
+                    </div>
+                  </div>
+
+
+
+
+                  <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" 
+                    style="width:20%">No de cuenta 
+                    <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
+                    name="cuenta" 
+                    placeholder="Número de la Cuenta" 
+                    id="cuentaeditar"
+                    type="text">
+                  </div>
+                </div>
+
+
+
+                <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
+                  style="width:20%">Costo  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12" >
+                  <input class="form-control col-md-7 col-xs-12" 
+                  name="costo"
+                  id="costoeditar"
+                  placeholder="Costo de la obra"  type="text">
+
+
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
+
+              >Guardar</button>
+            </div>
+          </form>
+
         </div>
-        <!-- editar-->
+      </div>
+    </div>
+    <!-- editar-->
 
 
 
-      </tbody>
-    </table>
-  </div>
+  </tbody>
+</table>
+</div>
 </div>
 <div class="row">
   <div class="col-sm-5">

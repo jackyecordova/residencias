@@ -18,11 +18,11 @@
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
   <!-- Datatables -->
-    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -99,236 +99,190 @@
                 <p class="text-muted font-13 m-b-30">
 
                 </p>
-                <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length">
-                  <label>Mostrar por:
-                    <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
-                      <option value="10">
-                        10
-                      </option>
-                      <option value="25">
-                        25
-                      </option>
-                      <option value="50">
-                        50
-                      </option>
-                      <option value="100">
-                        100
-                      </option>
-                    </select> </label></div></div><div class="col-sm-6"><div id="datatable_filter" class="dataTables_filter"><label>Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
-                    <thead>
-                     <tr role="row">
-                      <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                      colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width:80px;">
-                      Id
-                    </th>
-                    <th class="sorting" tabindex="0" aria-controls="datatable"
-                    rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                    style="width: 200px;">
-                    Nombre
+
+
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table id="datatable" class="table table-striped 
+                  table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                  <thead>
+                   <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
+                    colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width:80px;">
+                    Id
                   </th>
-                  <th class="sorting" tabindex="0" 
-                  aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                  style="width:350px;">
-                  Dirección
+                  <th class="sorting" tabindex="0" aria-controls="datatable"
+                  rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
+                  style="width: 200px;">
+                  Nombre
                 </th>
-                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
-                Teléfono
+                <th class="sorting" tabindex="0" 
+                aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                style="width:350px;">
+                Dirección
               </th>
-              <th class="sorting" tabindex="0" 
-              aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-              style="width: 80px;">
-
+              <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+              colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
+              Teléfono
             </th>
+            <th class="sorting" tabindex="0" 
+            aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+            style="width: 80px;">
 
-          </tr>
-        </thead>
+          </th>
+
+        </tr>
+      </thead>
 
 
-        <tbody>
-          <?php 
-          include './conexion.php';
-          $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
-          while ( $fila=mysqli_fetch_array($consulta)) {
+      <tbody>
+        <?php 
+        include './conexion.php';
+        $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
+        while ( $fila=mysqli_fetch_array($consulta)) {
 
                     # code...
-           ?>
+         ?>
 
-           <tr role="row" class="odd">
-            <td class="sorting_1"><?php echo $fila['id_proveedor'] ?></td>
-            <td><?php echo $fila['nombre'] ?></td>
-            <td><?php echo $fila['direccion'] ?></td>
-            <td><?php echo $fila['telefono'] ?></td>
-            <td>               
-             <a href="#" class="btn btn-info btn-xs btnEditar" 
-             data-target="#editar"
-             data-toggle="modal"
-             data-id="<?php echo $fila['id_proveedor'] ?>"
-             data-nombre="<?php echo $fila['nombre'] ?>"
-             data-direccion="<?php echo $fila['direccion'] ?>"
-             data-telefono="<?php echo $fila['telefono'] ?>"
-             ><i class="fa fa-pencil">
-
-           </i>  </a>
-
-           <a href="#" class="btn btn-danger btn-xs btnEliminar"
-           data-toggle="modal" 
-           data-target="#eliminar"                                       
+         <tr role="row" class="odd">
+          <td class="sorting_1"><?php echo $fila['id_proveedor'] ?></td>
+          <td><?php echo $fila['nombre'] ?></td>
+          <td><?php echo $fila['direccion'] ?></td>
+          <td><?php echo $fila['telefono'] ?></td>
+          <td>               
+           <a href="#" class="btn btn-info btn-xs btnEditar" 
+           data-target="#editar"
+           data-toggle="modal"
            data-id="<?php echo $fila['id_proveedor'] ?>"
-           data-nombre="<?php echo $fila['nombre'] ?>" >
-           <i class="fa fa-trash-o">
-           </i>  <?php//  $borrar= $fila['id_proveedor']?> </a>
-         </td>
-       </tr>
-       <?php  }?>
+           data-nombre="<?php echo $fila['nombre'] ?>"
+           data-direccion="<?php echo $fila['direccion'] ?>"
+           data-telefono="<?php echo $fila['telefono'] ?>"
+           ><i class="fa fa-pencil">
+
+         </i>  </a>
+
+         <a href="#" class="btn btn-danger btn-xs btnEliminar"
+         data-toggle="modal" 
+         data-target="#eliminar"                                       
+         data-id="<?php echo $fila['id_proveedor'] ?>"
+         data-nombre="<?php echo $fila['nombre'] ?>" >
+         <i class="fa fa-trash-o">
+         </i>  <?php//  $borrar= $fila['id_proveedor']?> </a>
+       </td>
+     </tr>
+     <?php  }?>
 
 
-       <!-- editar-->
-       <div id="editar" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form action="./codigos/editarprov.php" method="post">
-              <div class="modal-header">
+     <!-- editar-->
+     <div id="editar" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form action="./codigos/editarprov.php" method="post">
+            <div class="modal-header">
 
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Editar información del proveedor</h4>
-                <input type="hidden" id="idprovedi" name="idprovedi">
-                <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
-
-              </div>
-              <div class="modal-body" style="text-align: center">
-
-
-                <div class="item form-group"    style=" margin-bottom: 20px;width:100%;">
-                  <label class="control-label
-                   col-md-3 col-sm-3 col-xs-12" style="width:20%">Nombre <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
-                    <input  class="form-control col-md-7 col-xs-12" style="width:100%"
-                    name="nombre" 
-                    id="nombreeditar" 
-
-                    placeholder="Nombre del Proveedor o Empresa"  type="text">
-                  </div>
-                </div>
-
-                <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%" >Direccion  <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
-                    <input  class="form-control col-md-7 col-xs-12" style="width:100%"
-                    name="direccion"
-                    id="direccioneditar" 
-                    placeholder="Direccion del Proveedor"  type="text">
-
-
-                  </div>
-                </div>
-                <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%">Teléfono <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
-                    <input  class="form-control col-md-7 col-xs-12" style="width:100%"
-                    name="telefono"
-                    id="telefonoeditar" 
-                    placeholder="Teléfono del Proveedor"  type="text">
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
-
-                >Guardar</button>
-              </div>
-            </form>
-
-          </div>
-        </div>
-      </div>
-      <!-- editar-->
-
-
-
-
-
-      <!-- eliminar-->
-      <div id="eliminar" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form action="./codigos/eliminarprov.php" method="post">
-              <div class="modal-header">
-
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Eliminar información</h4>
-                <input type="hidden" id="idprov" name="idprov">
-
-              </div>
-              <div class="modal-body" style="text-align: center">
-                <p>Estas seguro de Eliminar al proveedor <br> 
-                  <span style="font-size:20px;" 
-                  id="nombreeliminar"></span> </p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
-
-                  >Eliminar</button>
-                </div>
-              </form>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Editar información del proveedor</h4>
+              <input type="hidden" id="idprovedi" name="idprovedi">
+              <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
 
             </div>
+            <div class="modal-body" style="text-align: center">
+
+
+              <div class="item form-group"    style=" margin-bottom: 20px;width:100%;">
+                <label class="control-label
+                col-md-3 col-sm-3 col-xs-12" style="width:20%">Nombre <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
+                <input  class="form-control col-md-7 col-xs-12" style="width:100%"
+                name="nombre" 
+                id="nombreeditar" 
+
+                placeholder="Nombre del Proveedor o Empresa"  type="text">
+              </div>
+            </div>
+
+            <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%" >Direccion  <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
+                <input  class="form-control col-md-7 col-xs-12" style="width:100%"
+                name="direccion"
+                id="direccioneditar" 
+                placeholder="Direccion del Proveedor"  type="text">
+
+
+              </div>
+            </div>
+            <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%">Teléfono <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12" style="width:70%;">
+                <input  class="form-control col-md-7 col-xs-12" style="width:100%"
+                name="telefono"
+                id="telefonoeditar" 
+                placeholder="Teléfono del Proveedor"  type="text">
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- eliminar-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
 
+            >Guardar</button>
+          </div>
+        </form>
 
-
-
-
-
-
-
-      </tbody>
-    </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" 
-    id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-    <ul class="pagination"><li class="paginate_button previous disabled" id="datatable_previous">
-      <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
-      </a>
-    </li>
-    <li class="paginate_button active">
-      <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
-      </a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
-      </a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
-      </a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
-      </a>
-    </li>
-    <li class="paginate_button ">
-     <a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6
-     </a>
-   </li>
-   <li class="paginate_button next" id="datatable_next">
-    <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
-    </a>
-  </li>
-</ul>
-</div>
-</div>
-</div>
+  <!-- editar-->
+
+
+
+
+
+  <!-- eliminar-->
+  <div id="eliminar" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="./codigos/eliminarprov.php" method="post">
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Eliminar información</h4>
+            <input type="hidden" id="idprov" name="idprov">
+
+          </div>
+          <div class="modal-body" style="text-align: center">
+            <p>Estas seguro de Eliminar al proveedor <br> 
+              <span style="font-size:20px;" 
+              id="nombreeliminar"></span> </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+
+              >Eliminar</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <!-- eliminar-->
+
+
+
+
+
+
+
+
+  </tbody>
+</table></div></div>
+
 </div>
 </div>
 </div>
@@ -361,21 +315,21 @@
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.min.js"></script>
 <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../vendors/jszip/dist/jszip.min.js"></script>
+<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
 <script type="text/javascript">
 
