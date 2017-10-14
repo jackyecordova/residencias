@@ -214,14 +214,14 @@
 
                 <div class="clearfix"></div>
 
-                
+                <!-- data-inputmask="'mask' : '*-*-*-*-***-****-***'"-->
                 <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" 
                   style="width:20%">No de cuenta 
                   <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
+                  <input  class="form-control col-md-7 col-xs-12" 
                   name="cuenta" 
                   placeholder="Número de la Cuenta" 
                   id="cuentaeditar"
@@ -331,7 +331,7 @@
    var cuenta=$(this).data('cuenta');
    $("#idobraedi").val(id);
    $("#descripcioneditar").val(descripcion) ;  
-   $("#cuentaeditar").val(cuetna) ;    
+   $("#cuentaeditar").val(cuenta) ;    
    $("#costoeditar").val(costo) ;
 
 

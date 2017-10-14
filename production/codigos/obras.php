@@ -3,7 +3,7 @@ include '../conexion.php';
 if (isset($_POST["nombre"])  && isset($_POST["costo"])
 	&& isset($_POST["cuenta"])){
 		# code...
-	$nombre=$_POST['nombre'];
+$nombre=$_POST['nombre'];
 $cuenta=$_POST['cuenta'];
 $costo=$_POST['costo'];
 
