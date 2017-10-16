@@ -266,8 +266,8 @@
 
 
                  <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
-                  <div class="col-md-9 col-sm-9 col-xs-12">
+                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
+                   <div class="col-md-9 col-sm-9 col-xs-12">
                     <select class="select2_single form-control"
                     name="proveedor"
                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
@@ -321,7 +321,13 @@
            </form>
          </div>
        </div>
-
+  <div class="ln_solid"></div>
+      <div class="form-group">
+        <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px; ">
+          <button type="submit" class="btn btn-primary">Cancelar</button>
+          <button id="send" type="submit" class="btn btn-success">Enviar</button>
+        </div>
+      </div>
      </div>
 
 

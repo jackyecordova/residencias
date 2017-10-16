@@ -15,20 +15,20 @@
   <!-- NProgress -->
   <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- Datatables -->
-    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
-   <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -65,17 +65,7 @@
             <h3>Cuentas Registradas</h3>
           </div>
 
-          <div class="title_right">
-            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         <div class="clearfix"></div>
 
@@ -91,31 +81,7 @@
                 <p class="text-muted font-13 m-b-30">
 
                 </p>
-                <div id="datatable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="datatable_length">
-                  <label>Mostrar
-                    <select name="datatable_length" aria-controls="datatable" class="form-control input-sm">
-                      <option value="10">
-                        10
-                      </option>
-                      <option value="25">
-                        25
-                      </option>
-                      <option value="50">
-                        50
-                      </option>
-                      <option value="100">
-                        100
-                      </option>
-                    </select> entries</label>
-                  </div></div>
-                  <div class="col-sm-6">
-                    <div id="datatable_filter" class="dataTables_filter">
-                      <label>Search:
-                        <input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable">
-                      </label>
-                    </div>
-                  </div>
-                </div>
+              
                 <div class="row">
                   <div class="col-sm-12">
                     <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
@@ -229,10 +195,10 @@
                   <div class="modal-header">
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Eliminar información</h4>
-                    <input type="hidden" id="idcuenta" name="idcuenta">
+                    <h4 class="modal-title">Editar información</h4>
+                    <input type="hidden" id="idcuentaeditar" name="idcuenta">
 
-                  </div>
+                  </div>  <div class="clearfix"></div>
                   <div class="modal-body" style="text-align: center">
 
                     <div class="item form-group" style="width:100%;margin-bottom: 20px;">
@@ -242,12 +208,13 @@
                      <div class="col-md-6 col-sm-6 col-xs-12">
                       <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
                       data-inputmask="'mask' : '*-*-*-*-***-****-***'"
-                      name="numero" 
+                      name="cuenta" 
                       id="cuentaeditar"
                       placeholder="Número de la Cuenta" maxlength="20" minlength="20"
                       type="text">
                     </div>
                   </div>
+                    <div class="clearfix"></div>
 
                   <div class="item form-group" style="width:100%;margin-bottom: 20px;">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre 
@@ -260,6 +227,7 @@
                     id="nombreeditar" type="text">
                   </div>
                 </div>
+  <div class="clearfix"></div>
 
                 <div class="item form-group" style="width:100%;margin-bottom: 20px;">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  
@@ -303,49 +271,8 @@
   </table>
 </div>
 </div>
-<div class="row">
- <div class="col-sm-5">
-   <div class="dataTables_info" 
-   id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries
- </div>
-</div>
-<div class="col-sm-7">
-  <div class="dataTables_paginate paging_simple_numbers" id="datatable_paginate">
-    <ul class="pagination">
-      <li class="paginate_button previous disabled" id="datatable_previous">
-       <a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0">Previous
-       </a>
-     </li>
-     <li class="paginate_button active">
-      <a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0">1
-      </a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0">2
-      </a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0">3</a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0">4
-      </a>
-    </li>
-    <li class="paginate_button ">
-      <a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0">5
-      </a>
-    </li>
-    <li class="paginate_button ">
-     <a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0">6
-     </a>
-   </li>
-   <li class="paginate_button next" id="datatable_next">
-    <a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0">Next
-    </a>
-  </li>
-</ul>
-</div>
-</div>
+
+
 </div>
 </div>
 </div>
@@ -379,21 +306,21 @@
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.min.js"></script>
 <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../vendors/jszip/dist/jszip.min.js"></script>
+<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
 
 <script type="text/javascript">
@@ -409,7 +336,7 @@
    var cuenta=$(this).data('cuenta');
    var nombre=$(this).data('nombre');
    var cantidad=$(this).data('cantidad');
-   $("#idcuenta").val(id);
+   $("#idcuentaeditar").val(id);
    $("#cuentaeditar").val(cuenta) ;   
    $("#nombreeditar").val(nombre) ;   
    $("#cantidadeditar").val(cantidad) ;   

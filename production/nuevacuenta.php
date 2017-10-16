@@ -35,7 +35,8 @@
   <link href="../vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
 
   <link href="../vendors/cropper/dist/cropper.min.css" rel="stylesheet">
-
+<!-- estilomenoney 
+<link rel="stylesheet" type="text/css" href="./css/estilomoney.css">-->
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
   
@@ -181,28 +182,37 @@
                   <input  class="form-control col-md-7 col-xs-12" 
                   name="cantidad"
                   placeholder="Cantidad de la Cuenta" type="text">
+
+
+<!--
+                  <div class="form-row">
+                    <label for="c2">Currency w bootstrap</label>
+                    <div class="input-group"> 
+                      <span class="input-group-addon">$</span>
+                      <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+                    </div> 
+                  </div>
                 </div>
-              </div>
+
+
+-->
 
 
 
-
-
-
-              <div class="ln_solid"></div>
-              <div class="form-group">
-                <div class="col-md-6 col-md-offset-3">
-                 <a href="./vercuenta.php"> <button type="buton" class="btn btn-primary">Cancelar</button></a>
-                 <button id="send" type="submit" class="btn btn-success">Guardar</button>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                  <div class="col-md-6 col-md-offset-3">
+                   <a href="./vercuenta.php"> <button type="buton" class="btn btn-primary">Cancelar</button></a>
+                   <button id="send" type="submit" class="btn btn-success">Guardar</button>
+                 </div>
                </div>
              </div>
-           </div>
-         </form>
+           </form>
+         </div>
        </div>
      </div>
    </div>
  </div>
-</div>
 </div>
 <!-- /page content -->
 
@@ -279,6 +289,6 @@
 <!--  <script type="./js/the-basics.js"></script>-->
 <!-- jquery.inputmask -->
 <script src="../vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-
+<script type="./js/currency.js"></script>
 </body>
 </html>

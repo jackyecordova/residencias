@@ -73,10 +73,10 @@
                  <div class="col-md-8 col-sm-5 col-xs-12 form-group pull-right top_search">
 
                   <div class="input-group">
-                    <input type="text" class="form-control" name="busqueda" id="busqueda"  placeholder="Buscar Registros...">
+                    <input type="text" class="form-control" name="busqueda" id="busqueda"  placeholder="">
                     <?php //include 'search.php'; ?>
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Buscar</button>
+                      <button class="btn btn-default" type="button" >Buscar</button>
                     </span>
                   </div>           
                 </div>
