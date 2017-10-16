@@ -119,221 +119,221 @@
                       
 
                       <div class="stepContainer" style="height: 300px;"><div id="step-1" class="content" style="display: block;">
-                        <form class="form-horizontal form-label-left" action="./codigos.orden.php" method="post">
-                          <div class="clearfix"></div>
-                          <!--formulario-->
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
-                            <div class="col-md-9 col-sm-9 col-xs-12">
-                              <select class="select2_single form-control"
-                              name="departamento"
-                              class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
-                              <option></option>
 
-
-                              <?php 
-                              include './conexion.php';
-                              $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
-                              while ( $fila=mysqli_fetch_array($consulta)) {
-
-                               ?>
-                               <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
-                               <?php } ?>
-                             </select>
-                           </div>
-                         </div>
-                         <div class="clearfix"></div>
-                         <div class="item form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
-                          </label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="obra" class="form-control col-md-7 col-xs-12" 
-                            name="nofactura" placeholder="Número de factura"  type="text">
-                          </div>
-                        </div>
                         <div class="clearfix"></div>
+                        <!--formulario-->
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                            <select class="select2_single form-control"
+                            name="departamento"
+                            class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                            <option></option>
 
 
+                            <?php 
+                            include './conexion.php';
+                            $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                            while ( $fila=mysqli_fetch_array($consulta)) {
 
-
-                        <div class="col-xs-12 col-md-12" style="display:none;">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-                          for="fecha"
-                          name ="fecha"
-                          >Fecha  <span class="required">*</span>
-                        </label>
-                        <fieldset>
-                          <div class="control-group">
-                            <div class="controls">
-
-                              <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-                                <input type="text" class="form-control has-feedback-left" id="single_cal4" 
-                                placeholder="First Name" aria-describedby="inputSuccess2Status4">
-                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-                              </div>
-
-                            </div>
-                          </div>
-                        </fieldset>
-
-                      </div>
-
-
-
-
-
-
-                      <div class="clearfix"></div>
-
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
+                             ?>
+                             <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                             <?php } ?>
+                           </select>
+                         </div>
+                       </div>
+                       <div class="clearfix"></div>
+                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12"  
-                          name="obra"
-                          placeholder="Nombre de la Obra"  type="text">
+                          <input id="obra" class="form-control col-md-7 col-xs-12" 
+                          name="nofactura" placeholder="Número de factura"  type="text">
                         </div>
                       </div>
-
-
-                      <!--Option para las cuentas existentes-->
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="select2_single form-control"
-                          name="cuenta"
-                          class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
-                          <option></option>
-
-
-                          <?php 
-                          include './conexion.php';
-                          $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
-                          while ( $fila=mysqli_fetch_array($consulta)) {
-
-
-                           ?> <!--Concatenar el nombre de la cuenta-->
-                           <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta']  ?></option>
-                           <?php } ?>
-                         </select>
-                       </div>
-                     </div>
+                      <div class="clearfix"></div>
 
 
 
 
-
-
-
-
-                     <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
+                      <div class="col-xs-12 col-md-12" style="display:blick;">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" 
+                        for="fecha"
+                        
+                        >Fecha  <span class="required">*</span>
                       </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="observaciones" class="form-control col-md-7 col-xs-12" 
-                        name="observaciones"
-                        placeholder="Observaciones dentro de la obra" type="text">
-                      </div>
+                      <fieldset>
+                        <div class="control-group">
+                          <div class="controls">
+
+                            <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
+                              <input type="text" class="form-control has-feedback-left" id="single_cal4"  name ="fecha"
+                              placeholder="First Name" aria-describedby="inputSuccess2Status4">
+                              <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                              <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </fieldset>
+
                     </div>
+
+
+
+
+
+
+                    <div class="clearfix"></div>
 
                     <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="vehiculo" class="form-control col-md-7 col-xs-12" 
-                        name="vehiculo"
-                        placeholder="Vehículo usado"
-                        type="text">
+                        <input id="obra" class="form-control col-md-7 col-xs-12"  
+                        name="obra"
+                        required
+                        placeholder="Nombre de la Obra"  type="text">
                       </div>
                     </div>
 
 
+                    <!--Option para las cuentas existentes-->
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
+                      <div class="col-md-9 col-sm-9 col-xs-12">
+                        <select class="select2_single form-control"
+                        name="cuenta"
+                        class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
+                        <option></option>
+
+
+                        <?php 
+                        include './conexion.php';
+                        $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+
+
+                         ?> <!--Concatenar el nombre de la cuenta-->
+                         <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta']  ?></option>
+                         <?php } ?>
+                       </select>
+                     </div>
+                   </div>
 
 
 
 
 
 
-                  </form>
+
+
+                   <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="observaciones" class="form-control col-md-7 col-xs-12" 
+                      name="observaciones"
+                      placeholder="Observaciones dentro de la obra" type="text">
+                    </div>
+                  </div>
+
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <input id="vehiculo" class="form-control col-md-7 col-xs-12" 
+                      name="vehiculo"
+                      placeholder="Vehículo usado"
+                      type="text">
+                    </div>
+                  </div>
+
+
 
 
 
 
                 </div><div id="step-2" class="content" style="display: none;">
                 <h2 class="StepTitle">Paso 2 </h2>
-                <form action="./codigos/orden.php" method="post">
 
 
-                 <div class="form-group">
-                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
-                   <div class="col-md-9 col-sm-9 col-xs-12">
-                    <select class="select2_single form-control"
-                    name="proveedor"
-                    class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
-                    <option></option>
+                <div class="form-group">
+                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
+                 <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="select2_single form-control"
+                  name="proveedor"
+                  class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                  <option></option>
 
 
-                    <?php 
-                    include './conexion.php';
-                    $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
-                    while ( $fila=mysqli_fetch_array($consulta)) {
+                  <?php 
+                  include './conexion.php';
+                  $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
+                  while ( $fila=mysqli_fetch_array($consulta)) {
 
-                     ?>
-                     <option value="<?php echo $fila['id_proveedor'] ?>"><?php echo $fila['nombre'] ?></option>
-                     <?php } ?>
-                   </select>
-                 </div>
+                   ?>
+                   <option value="<?php echo $fila['id_proveedor'] ?>"><?php echo $fila['nombre'] ?></option>
+                   <?php } ?>
+                 </select>
                </div>
-
-
-
-
-
-               <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Material  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input id="material" class="form-control col-md-7 col-xs-12" 
-                  name="material" placeholder="Material a comprar"  type="text">
-                </div>
-              </div>
-              <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad  <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input id="cantidad" class="form-control col-md-7 col-xs-12" 
-                  name="cantidad" placeholder="Unidades a comprar"  type="text">
-                </div>
-              </div>
-              <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Precio unitario <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input id="precio" class="form-control col-md-7 col-xs-12" 
-                  name="precio" placeholder="Precio unitario"  type="text">
-                </div>
-              </div>
-              <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
-               <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
-               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
              </div>
-           </form>
+
+
+
+
+
+
+
+
+
+
+
+             <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Material  <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="material" class="form-control col-md-7 col-xs-12" 
+                name="material" placeholder="Material a comprar"  type="text">
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad  <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="cantidad" class="form-control col-md-7 col-xs-12" 
+                name="cantidad" placeholder="Unidades a comprar"  type="text">
+              </div>
+            </div>
+            <div class="item form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Precio unitario <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <input id="precio" class="form-control col-md-7 col-xs-12" 
+                name="precio" placeholder="Precio unitario"  type="text">
+              </div>
+            </div>
+            <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
+             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
+             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
+           </div>
+
+
          </div>
        </div>
-  <div class="ln_solid"></div>
-      <div class="form-group">
+       <div class="ln_solid"></div>
+    <!--   <div class="form-group">
         <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px; ">
           <button type="submit" class="btn btn-primary">Cancelar</button>
           <button id="send" type="submit" class="btn btn-success">Enviar</button>
         </div>
       </div>
-     </div>
+    </div>
 
 
 
-     <!--Ventana gris-->
-     <div class="well" style="overflow: auto">
+    Ventana gris
+    <div class="well" style="overflow: auto">
 
 
 
@@ -343,7 +343,7 @@
           <button type="submit" class="btn btn-primary">Cancelar</button>
           <button id="send" type="submit" class="btn btn-success">Enviar</button>
         </div>
-      </div>
+      </div>-->
     </div>
   </form>
 </div>
@@ -556,5 +556,14 @@
 <!--  <script type="./js/the-basics.js"></script>-->
 <!-- jQuery Smart Wizard -->
 <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+<script type="text/javascript">
+  $(document).on('ready',function(){
+    $(".buttonFinish").on('click',function  (e) {
+      alert("sdasd");
+      // e.preventDefault();
+    });
+   
+  })
+</script>
 </body>
 </html>
