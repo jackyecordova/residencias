@@ -334,6 +334,11 @@
             <div class="x_title">
               <h2>Reporte <small>Detalles de la orden</small></h2>
               <ul class="nav navbar-right panel_toolbox">
+              <div class="btn-group" class="pull-rigth" style="margin-left">
+               <button class="btn btn-info"type="button">
+                <i class="fa fa-print"></i>
+              </button>
+            </div>
               </ul>
               <div class="clearfix"></div>
             </div>
@@ -371,26 +376,21 @@
 <div id="editar" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-       <form action="./codigos/actualizarorden.php" method="post">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Información</h4>
-      </div>
-      <div class="modal-body" style="text-align: center">
-        <form class="form-horizontal form-label-left" action="./codigos/actualizarorden.php" method="post">
+      <form action="./codigos/actualizarorden.php" method="post">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Editar Información</h4>
+        </div>
+        <div class="modal-body" style="text-align: center">
 
           <p>Detalles de la orden  <!--<code></code> -->
           </p>
-          <!--Ventana gris-->
-          <div class="well" style="overflow: auto">
-
-
-           <input type="hidden" id="idOrdena" name="idOrdena">
+          <input type="hidden" id="idOrdena" name="idOrdena">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Departamento </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" name="dpto">
-                <option ></option>
+                <option value="1">Departamentos</option>
                  <?php 
                  include './conexion.php';
                                             $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
@@ -403,29 +403,18 @@
             </div>
           </div>
 
-            <div class="clearfix"></div>
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="obra" class="form-control col-md-7 col-xs-12"  name="name" placeholder="Nombre de la Obra"  type="text">
-              </div>
-            </div>
-            <div class="clearfix"></div>
-
-
-            <div class="clearfix"></div>
+          <div class="clearfix"></div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" margin-top="2px">No Factura  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="obra" class="form-control col-md-7 col-xs-12" name="name" placeholder="Numero de la Factura"  type="text">
+              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Numero de la Factura" required="required" type="text">
             </div>
           </div>
           <div class="clearfix"></div>
 
 
-          <div class="item form-group">
+          <div class="item form-group" >
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  
             </label>
             <fieldset>
@@ -446,12 +435,12 @@
          
           <div class="clearfix"></div>
 
-          <div class="item form-group">
+          <div class="item form-group" >
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Obras" name="ob">
-              <option ></option>
+              <option value="1">Obras</option>
                 <?php 
                  include './conexion.php';
                                             $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
@@ -469,7 +458,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12" >
              <select class="form-control col-md-3 col-sm-3 col-xs-1" placeholder="Cuentas" name="cu">
-             <option ></option>
+             <option value="1">Cuentas</option>
                <?php 
                                             include './conexion.php';
                                             $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
@@ -486,32 +475,33 @@
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="observaciones" class="form-control col-md-7 col-xs-12"  name="observaciones" placeholder="Observaciones dentro de la obra"  type="text">
+            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
           </div>
         </div>
         <div class="clearfix"></div>
+
         <div class="item form-group">
           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
           </label>
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="observaciones" class="form-control col-md-7 col-xs-12"  name="vehiculo" placeholder="Vehiculo" type="text">
+            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
           </div>
         </div>
-          </div>
-        </form>
+        <div class="clearfix"></div>
+
       </div>
 
 
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>
+        <button type="submit" class="btn btn-warning" >Editar</button>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 </div>
 </div>
-
+</div>
 
 <!-- eliminar-->
 <div id="eliminar" class="modal fade" role="dialog">
