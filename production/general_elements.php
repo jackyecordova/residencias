@@ -1,13 +1,13 @@
  <?php 
-                       include './conexion.php';
-                        $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
-                        
-                        while ( $fila=mysqli_fetch_array($consulta)) {
-                          $nombre=$fila['departamento'];
-                        }
-                        if (isset($nombre)) { }else{
-                          header("Location: ./index.php");
-                        }
+    //                   include './conexion.php';
+    //                    $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
+     //                   
+     //                   while ( $fila=mysqli_fetch_array($consulta)) {
+     //                     $nombre=$fila['departamento'];
+      //                  }
+      //                  if (isset($nombre)) { }else{
+       //                   header("Location: ./index.php");
+        //                }
                                 
 
                                           ?>
