@@ -300,7 +300,11 @@
                    $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
                    $cont=0;
                    while ( $fila=mysqli_fetch_array($consulta)) {
+
                     ++$cont;
+
+                    $res= $mysqli->query("SELECT SUM(monto) AS total FROM presupuesto_depa WHERE id_cuenta = ". echo $fila['id_cuenta'].)or die($mysqli->error);
+                 //  = $fila['cantidad'] 
                     ?>
 
 
@@ -310,7 +314,7 @@
                       <a class="panel-heading" role="tab" id="headingOne1" data-toggle="collapse"
                       data-parent="#accordion " href="#collapseOne<?php echo $cont?>" aria-expanded="false" aria-controls="collapseOne<?php echo $cont?>">
                       <h4 class="panel-title"><?php echo $fila['nombre']?> <small>   <?php echo $fila['cuenta']?> </small>.  
-                        Total de presupuesto: <?php echo $fila['cantidad']?> <small></small></h4>
+                        Total de presupuesto: <?php echo $res?> <small></small></h4>
                       </a>
                       <div id="collapseOne<?php echo $cont?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
