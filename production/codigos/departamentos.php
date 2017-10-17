@@ -8,10 +8,10 @@
 		
 		
 		$nombre=$_POST['nombre'];
-		//$presupuesto=$_POST['presupuesto'];
+		$presupuesto=$_POST['presupuesto'];
 
 		$consulta="INSERT INTO departamentos 
-			values(0,'$nombre'
+			values(0,'$nombre','$presupuesto'
 				
 						
 							)";

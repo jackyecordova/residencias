@@ -314,89 +314,99 @@
 
                       <a class="panel-heading" role="tab" id="headingOne1" data-toggle="collapse"
                       data-parent="#accordion " href="#collapseOne<?php echo $cont?>" aria-expanded="false" aria-controls="collapseOne<?php echo $cont?>">
-                      <h4 class="panel-title"><?php echo $fila['nombre']?> <small>   <?php echo $fila['cuenta']?> </small>.  
-                        Total de presupuesto: <?php echo $row['total']?> <small></small></h4>
-                      </a>
-                      <div id="collapseOne<?php echo $cont?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                          <table class="table table-striped">
-                            <thead>
-                              <tr>
-                                <th>Id</th>
-                                <th>Departamento</th>
-                                <th>Presupuesto</th>
+                      <h4 class="panel-title"  >
+                        <?php echo $fila['nombre']?> 
+                        <small style="margin-right: 20px;margin-left: 10px;">  
+                         <?php echo $fila['cuenta']?> 
+                       </small> 
 
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <?php   $con=$mysqli->query("
-                               SELECT presupuesto_depa.*, departamentos.departamento
-                               FROM presupuesto_depa 
+                       Total de presupuesto:   $
+                       <?php echo $row['total']?>.00</h4>
+                       <small>
 
-                               INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento
+                       </small>
+                    
+                   </a>
+                   <div id="collapseOne<?php echo $cont?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>Id</th>
+                            <th>Departamento</th>
+                            <th>Presupuesto</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php   $con=$mysqli->query("
+                           SELECT presupuesto_depa.*, departamentos.departamento
+                           FROM presupuesto_depa 
+
+                           INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento
 
 
-                               where id_cuenta=". $fila['id_cuenta'].";"
+                           where id_cuenta=". $fila['id_cuenta'].";"
 
 
-                               )or die($mysqli->error);
-                               while ( $fi=mysqli_fetch_array($con)) {?>
-                               <tr>
-                                <th scope="row">
-                                  <?php echo $fi['id_departamento'] ?></th>
-                                  <td><?php echo $fi['departamento'] ?></td>
-                                  <td><?php echo $fi['monto'] ?></td>
-                                  <?php $res=+ $fi['monto'];
-                                  echo $res ?> 
-                                </tr>
-                                <?php } 
+                           )or die($mysqli->error);
+                           while ( $fi=mysqli_fetch_array($con)) {?>
+                           <tr>
+                            <th scope="row">
+                              <?php echo $fi['id_departamento'] ?></th>
+                              <td><?php echo $fi['departamento'] ?></td>
+                              <td><?php echo $fi['monto'] ?></td>
+                              <?php $res=+ $fi['monto'];
+                              echo $res ?> 
+                            </tr>
+                            <?php } 
 
-                                ?>
+                            ?>
 
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
+                          </tbody>
+                        </table>
                       </div>
-
-                      <?php } ?>
                     </div>
-                    <!-- end of accordion -->
-
-
                   </div>
+
+                  <?php } ?>
                 </div>
+                <!-- end of accordion -->
+
+
               </div>
-
-
-
-              <!-- /top tiles -->
-
-
-
             </div>
-            <br />
-
-
-
-            <!-- End to do list -->
-
-
           </div>
+
+
+
+          <!-- /top tiles -->
+
+
+
         </div>
+        <br />
+
+
+
+        <!-- End to do list -->
+
+
       </div>
     </div>
-    <!-- /page content -->
-
-    <!-- footer content -->
-    <footer>
-      <div class="pull-right">
-        <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
-      </div>
-      <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
   </div>
+</div>
+<!-- /page content -->
+
+<!-- footer content -->
+<footer>
+  <div class="pull-right">
+    <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
+  </div>
+  <div class="clearfix"></div>
+</footer>
+<!-- /footer content -->
+</div>
 </div>
 
 <!-- jQuery -->

@@ -1,13 +1,37 @@
  <?php 
-    //                   include './conexion.php';
-    //                    $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
-     //                   
-     //                   while ( $fila=mysqli_fetch_array($consulta)) {
-     //                     $nombre=$fila['departamento'];
-      //                  }
-      //                  if (isset($nombre)) { }else{
-       //                   header("Location: ./index.php");
-        //                }
+                       include './conexion.php';
+                        $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
+                          $presu=$mysqli->query("SELECT sum(total_compromet) as comprometido, 
+                            sum(ppto_dev) as devengado, 
+                            sum(ppto_pag) as pagado 
+                            FROM orden where id_departamento=".$_GET['id'])or die($mysqli->error);
+                        
+                        //departamento y su presupeusto
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+                          $nombre=$fila['departamento'];
+                          $presupuesto=$fila['presupuesto'];
+                        }
+                        if (isset($nombre)) { }else{
+                          header("Location: ./index.php");
+                        }
+                        //total comprometido
+                        
+                        while ( $fila=mysqli_fetch_array($presu)) {
+                          $comprometido=$fila['comprometido'];
+                          $devengado=$fila['devengado'];
+                          $pagado=$fila['pagado'];
+                           $porcentajecomprometido =$comprometido * 100 / $presupuesto;
+                            $porcentajedevengado =$comprometido * 100 / $presupuesto;
+                             $porcentajepagado =$comprometido * 100 / $presupuesto;
+
+                          
+                        }
+                        if (isset($nombre)) { }else{
+                          header("Location: ./index.php");
+                        }
+                        //devengado
+                        
+                        //pagado
                                 
 
                                           ?>
@@ -82,30 +106,30 @@
 
  <div class="clearfix"></div>
 
-           <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"    >
+           <div class="row tile_count" >
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"  style="margin-right:30px;"  >
               <span class="count_top"><i class="fa fa-user"></i>Presupuesto</span>
-              <div class="count" style="font-size: 25px;margin-bottom: -10px;">$2500</div>
+              <div class="count" style="font-size: 25px;margin-bottom: -10px;">$ <?php echo $presupuesto .".00";?></div>
               <span class="count_bottom"><i class="green">100% </i> Total</span>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top" ><i class="fa fa-clock-o"></i>Comprometido</span>
-              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$123.50</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>15% </i> Completado</span>
+              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo  $comprometido .".00"; ?></div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><?php echo $porcentajecomprometido ?>% </i> Completado</span>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top"><i class="fa fa-user"></i> Devengado</span>
-              <div class="count green" style="font-size: 25px;    margin-bottom: -10px;">$2,500</div>
+              <div class="count green" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo  $devengado .".00"; ?></div>
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>25% </i>Completado</span>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top"><i class="fa fa-user"></i> Pagado</span>
-              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$4,567</div>
+              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo  $pagado .".00"; ?></div>
               <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>20% </i> Completado</span>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top"><i class="fa fa-user"></i>Restante</span>
-              <div class="count" style="font-size: 25px;    margin-bottom: -10px;">$2,315</div>
+              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$2,315</div>
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>30% </i> Coompletado</span>
             </div>
            <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">

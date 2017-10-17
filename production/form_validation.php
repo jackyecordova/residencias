@@ -559,7 +559,7 @@
 <script type="text/javascript">
   $(document).on('ready',function(){
     $(".buttonFinish").on('click',function  (e) {
-      alert("sdasd");
+    //  alert("sdasd");
       // e.preventDefault();
     });
    
