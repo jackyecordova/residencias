@@ -59,7 +59,7 @@
             
             <div class="clearfix"></div>
 
-            <div class="row">
+            <div class="row" style="margin-bottom:50px;">
               <div class="col-md-12">
                 <div class="x_panel">
 
@@ -87,142 +87,142 @@
                <button class="btn btn-info"type="button">
                 <i class="fa fa-print"></i>
               </button>
+
+              <div class="btn-group" class="pull-rigth">
+               <button class="btn btn-success"type="button">
+                <i class="fa fa-floppy-o"></i>
+              </button>
             </div>
-            <div class="btn-group" class="pull-rigth">
-             <button class="btn btn-success"type="button">
-              <i class="fa fa-floppy-o"></i>
-            </button>
+            <div class="col-md-2 col-sm-2 col-xs-12 ">
+            </div>
+
+
+            <div class="clearfix"></div>
+
+
           </div>
-          <div class="col-md-2 col-sm-2 col-xs-12 ">
-          </div>
+
+          <div class="x_content" id="result">
+
+            <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
 
 
-          <div class="clearfix"></div>
+            <!-- start project list -->
+            <table class="table table-striped projects">
+              <thead>
+                <tr>
+                  <th style="width: 1%">Id</th>
+                  <th style="width: 25%">Obra</th>
+                  <th style="width: 32%">Observaciones</th>
+                  <th class="status">Status</th>
+                  <th> 
+                    <div class="btn-group" class="pull-rigth" style="margin-left">
+                     <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                     id="filtrardev">
+                     <i class="fa fa-filter" style="font-size: 10px;"></i>
+                   </button>
+                 </div>
+               </th>
+               <th>
+                <div class="btn-group" class="pull-rigth" style="margin-left;">
+                 <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                 id="filtrardpag">
+                 <i class="fa fa-filter" style="font-size: 10px;"></i>
+               </button>
+             </div>
+           </th>
+           <th style="width: 20%"></th>
+         </tr>
+       </thead>
+       <tbody>
 
-
-        </div>
-
-        <div class="x_content" id="result">
-
-          <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
-
-
-          <!-- start project list -->
-          <table class="table table-striped projects">
-            <thead>
-              <tr>
-                <th style="width: 1%">Id</th>
-                <th style="width: 25%">Obra</th>
-                <th style="width: 32%">Observaciones</th>
-                <th class="status">Status</th>
-                <th> 
-                  <div class="btn-group" class="pull-rigth" style="margin-left">
-                   <button class="btn btn-info" type="button" style="margin-left: 30%;"
-                   id="filtrardev">
-                   <i class="fa fa-filter" style="font-size: 10px;"></i>
-                 </button>
-               </div>
-             </th>
-             <th>
-              <div class="btn-group" class="pull-rigth" style="margin-left;">
-               <button class="btn btn-info" type="button" style="margin-left: 30%;"
-               id="filtrardpag">
-               <i class="fa fa-filter" style="font-size: 10px;"></i>
-             </button>
-           </div>
-         </th>
-         <th style="width: 20%"></th>
-       </tr>
-     </thead>
-     <tbody>
-
-       <?php 
-       include './conexion.php';
+         <?php 
+         include './conexion.php';
         //where orden.activo='no'
-        $consulta=$mysqli->query("
-        SELECT orden.*,obras.*,departamentos.departamento
+         $consulta=$mysqli->query("
+          SELECT orden.*,obras.*,departamentos.departamento
 
-        FROM ((orden
-          INNER JOIN obras ON orden.id_obra = obras.id_obra)
+          FROM ((orden
+            INNER JOIN obras ON orden.id_obra = obras.id_obra)
 
-       INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
-        where orden.activo='si';
+         INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
+         where orden.activo='si';
 
 
 
-       ")or die($mysqli->error);
-       while ( $fila=mysqli_fetch_array($consulta)) {
+         ")or die($mysqli->error);
+         while ( $fila=mysqli_fetch_array($consulta)) {
 
-        ?>  <?php 
-        $todo=$fila['total_compromet'];
-        $dev=$fila['ppto_dev'];
-        $pag=$fila['ppto_pag'];
-        if ($dev<$todo) {
-          $res=$dev * 100 / $todo;
-          echo $res;
-        }else {
-          $res =$pag * 100 / $todo;
+          ?>  <?php 
+          $todo=$fila['total_compromet'];
+          $dev=$fila['ppto_dev'];
+          $pag=$fila['ppto_pag'];
+          if ($dev<$todo) {
+            $res=$dev * 100 / $todo;
+            echo $res;
+          }else {
+            $res =$pag * 100 / $todo;
 
-        }
-        if ($dev<$todo) {
+          }
+          if ($dev<$todo) {
                                     //blanco
-         $pagado='background-color:rgba(194, 47, 47, 0.08)';
+           $pagado='background-color:rgba(194, 47, 47, 0.08)';
 
 
-       }else if ($pag==$todo) {
-        $pagado='background-color:rgba(24, 139, 26, 0.17)';
-      }else{
+         }else if ($pag==$todo) {
+          $pagado='background-color:rgba(24, 139, 26, 0.17)';
+        }else{
                                     //rojo
 
-       $pagado='background-color:rgba(00, 00, 00, 0.0)';
-     }
-     ?>
-     <tr style="<?php  echo $pagado?>">
-      <td><?php echo $fila['ord_id'] ?></td>
-      <td>
-        <a><?php echo $fila['descripcion'] ?></a>
+         $pagado='background-color:rgba(00, 00, 00, 0.0)';
+       }
+       ?>
+       <tr style="<?php  echo $pagado?>">
+        <td><?php echo $fila['ord_id'] ?></td>
+        <td>
+          <a><?php echo $fila['descripcion'] ?></a>
 
-        <small><?php echo $fila['departamento'] ?></small>
+          <small><?php echo $fila['departamento'] ?></small>
+        </td>
+        <td>
+
+         <a> <?php echo $fila['observaciones'] ?></a>
+
+       </td>
+       <td class="project_progress ">
+
+
+
+
+        <div class="progress progress_sm">
+          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
+        </div>
+        <small><?php  echo $res?>% COMPLETADO</small>
       </td>
       <td>
-
-       <a> <?php echo $fila['observaciones'] ?></a>
-
-     </td>
-     <td class="project_progress ">
-
-
-
-
-      <div class="progress progress_sm">
-        <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
-      </div>
-      <small><?php  echo $res?>% COMPLETADO</small>
+        <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
+        data-toggle="modal" data-target="#Devengada">
+        Devengado
+      </button>
+    </td>
+    <td> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
+      Pagado</button>
     </td>
     <td>
-      <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
-      data-toggle="modal" data-target="#Devengada">
-      Devengado
-    </button>
-  </td>
-  <td> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
-    Pagado</button>
-  </td>
-  <td>
-   <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
-   <a href="#" class="btn btn-info btn-xs btnEditar"
-   data-id="<?php echo $fila['ord_id'] ?>"
-   data-toggle="modal" data-target="#editar">
-   <i class="fa fa-pencil"></i> Editar</a>
-   <a href="#" class="btn btn-danger btn-xs btnEliminar" 
-   data-id="<?php echo $fila['ord_id'] ?>"
-   data-toggle="modal" data-target="#eliminar">
-   <i class="fa fa-trash-o"></i> Eliminar</a>
+     <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
+     <a href="#" class="btn btn-info btn-xs btnEditar"
+     data-id="<?php echo $fila['ord_id'] ?>"
+     data-toggle="modal" data-target="#editar">
+     <i class="fa fa-pencil"></i> Editar</a>
+     <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+     data-id="<?php echo $fila['ord_id'] ?>"
+     data-toggle="modal" data-target="#eliminar">
+     <i class="fa fa-trash-o"></i> Eliminar</a>
 
-</td>
-</tr>
+   </td>
+ </tr>
 
-<?php 
+ <?php 
 
 } ?>
 
@@ -233,6 +233,7 @@
 
 <div class="clearfix"></div>
 <!-- end project list -->
+</div>
 </div>
 </div>
 </div>
@@ -296,7 +297,7 @@
        <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
        <div class="col-sm-8">  </div>
 
- <div class="input-group"> 
+       <div class="input-group"> 
 
         <input type="text" placeholder="000,000,000.00" class="form-control" name="price" data-fv-field="price">
         
@@ -334,43 +335,43 @@
             <div class="x_title">
               <h2>Reporte <small>Detalles de la orden</small></h2>
               <ul class="nav navbar-right panel_toolbox">
-              <div class="btn-group" class="pull-rigth" style="margin-left">
-               <button class="btn btn-info"type="button">
-                <i class="fa fa-print"></i>
-              </button>
-            </div>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-
-              <table class="table" >
-                <thead>
-                  <tr >
-                    <td class="col-md-3">Departamento de</td><td class="col-md-3">Oficialia Mayor</td>
-
-                    <td class="col-md-3">Orden Numero de Factura</td><td class="col-md-3">RECIBO 1621016598</td>
-                  </tr>
-                  <tr >
-                    <td class="col-md-3">Fecha</td><td class="col-md-3">12/09/2017</td>
-
-                    <td class="col-md-3">Cuenta</td><td class="col-md-3">01280413955</td>
-                  </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-              </table>
-            </div>
+                <div class="btn-group" class="pull-rigth" style="margin-left">
+                 <button class="btn btn-info"type="button">
+                  <i class="fa fa-print"></i>
+                </button>
+              </div>
+            </ul>
+            <div class="clearfix"></div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Cancelar</button>
-          </div>  
+          <div class="x_content">
 
-        </div>                                                                                
-      </div>
+            <table class="table" >
+              <thead>
+                <tr >
+                  <td class="col-md-3">Departamento de</td><td class="col-md-3">Oficialia Mayor</td>
+
+                  <td class="col-md-3">Orden Numero de Factura</td><td class="col-md-3">RECIBO 1621016598</td>
+                </tr>
+                <tr >
+                  <td class="col-md-3">Fecha</td><td class="col-md-3">12/09/2017</td>
+
+                  <td class="col-md-3">Cuenta</td><td class="col-md-3">01280413955</td>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Cancelar</button>
+        </div>  
+
+      </div>                                                                                
     </div>
   </div>
+</div>
 </div>
 <!-- editar-->
 <div id="editar" class="modal fade" role="dialog">
@@ -391,20 +392,20 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" name="dpto">
                 <option value="1">Departamentos</option>
-                 <?php 
-                 include './conexion.php';
-                                            $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
-                                            while ( $fila=mysqli_fetch_array($consulta)) {
-                                              
-                                             ?>
-                                                <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
-                                                <?php } ?>
-              </select>
-            </div>
-          </div>
+                <?php 
+                include './conexion.php';
+                $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                while ( $fila=mysqli_fetch_array($consulta)) {
 
-          <div class="clearfix"></div>
-          <div class="item form-group">
+                 ?>
+                 <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                 <?php } ?>
+               </select>
+             </div>
+           </div>
+
+           <div class="clearfix"></div>
+           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" margin-top="2px">No Factura  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -432,7 +433,7 @@
             </fieldset>
 
           </div>
-         
+
           <div class="clearfix"></div>
 
           <div class="item form-group" >
@@ -440,65 +441,65 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Obras" name="ob">
-              <option value="1">Obras</option>
+                <option value="1">Obras</option>
                 <?php 
-                 include './conexion.php';
-                                            $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
-                                            while ( $fila=mysqli_fetch_array($consulta)) {
-                                              
-                                             ?>
-                                                <option value="<?php echo $fila['id_obra'] ?>"><?php echo $fila['descripcion'] ?></option>
-                                                <?php } ?>
-              </select>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <div class="item form-group">
+                include './conexion.php';
+                $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+                while ( $fila=mysqli_fetch_array($consulta)) {
+
+                 ?>
+                 <option value="<?php echo $fila['id_obra'] ?>"><?php echo $fila['descripcion'] ?></option>
+                 <?php } ?>
+               </select>
+             </div>
+           </div>
+           <div class="clearfix"></div>
+           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12" >
              <select class="form-control col-md-3 col-sm-3 col-xs-1" placeholder="Cuentas" name="cu">
-             <option value="1">Cuentas</option>
+               <option value="1">Cuentas</option>
                <?php 
-                                            include './conexion.php';
-                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
-                                            while ( $fila=mysqli_fetch_array($consulta)) {
-                                              
-                                             ?>
-                                                <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
-                                                <?php } ?>
-            </select>
-          </div>
-        </div>
+               include './conexion.php';
+               $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+               while ( $fila=mysqli_fetch_array($consulta)) {
+
+                 ?>
+                 <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
+                 <?php } ?>
+               </select>
+             </div>
+           </div>
            <div class="clearfix"></div>
-        <div class="item form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  
-          </label>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
+           <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
+            </div>
           </div>
-        </div>
-        <div class="clearfix"></div>
+          <div class="clearfix"></div>
 
-        <div class="item form-group">
-          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
-          </label>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
+            </div>
           </div>
+          <div class="clearfix"></div>
+
         </div>
-        <div class="clearfix"></div>
-
-      </div>
 
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-warning" >Editar</button>
-      </div>
-    </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-warning" >Editar</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 </div>
 </div>
 </div>

@@ -20,10 +20,11 @@
                 $comprometido=$fila['comprometido'];
                 $devengado=$fila['devengado'];
                 $pagado=$fila['pagado'];
+                $restante=$presupuesto - ($comprometido + $pagado + $comprometido);
                 $porcentajecomprometido =$comprometido * 100 / $presupuesto;
                 $porcentajedevengado =$devengado * 100 / $presupuesto;
                 $porcentajepagado =$pagado * 100 / $presupuesto;
-                $porcentarestante =($comprometido + $pagado + $comprometido) * 100 / $presupuesto;
+                $porcentajerestante = $restante * 100 / $presupuesto;
 
 
               }
@@ -63,6 +64,34 @@
   <!-- bootstrap-datetimepicker -->
   <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
   <!-- PNotify -->
+
+<!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+  
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+ 
+   
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- PNotify -->
+    <script src="../vendors/pnotify/dist/pnotify.js"></script>
+    <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="../vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
@@ -130,7 +159,7 @@
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top"><i class="fa fa-user"></i>Restante</span>
-              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$2,315</div>
+              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo " " .  $restante .".00"; ?></div>
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><?php echo $porcentajerestante ?>% </i> Coompletado</span>
             </div>
            <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
@@ -207,7 +236,7 @@
                       include './conexion.php';
                       $consulta=$mysqli->query("select * from orden order by ord_id ASC")or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
-                                       # code...
+                                    ++$cont;    # code...
                         ?>
                         <li>
                           <div class="block">

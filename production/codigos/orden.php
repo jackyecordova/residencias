@@ -83,7 +83,7 @@ if (isset($_POST["departamento"])
 		$mysqli->query($consulta)or die($mysqli->error);
 
 		echo "listo";
-		//header("Location:../project.php");
+		header("Location:../project.php");
 }else
 {
 	echo "algunos campos no fueron completados";

@@ -134,7 +134,7 @@
                 FROM (( presupuesto_depa 
 
                   INNER JOIN departamentos ON presupuesto_depa.id_departamento = departamentos.id_departamento)
-                  INNER JOIN cuentas ON presupuesto_depa.id_cuenta = cuentas.id_cuenta);
+               INNER JOIN cuentas ON presupuesto_depa.id_cuenta = cuentas.id_cuenta);
 
 
 
@@ -161,25 +161,169 @@
                   </td>
 
                   <td>
-                    <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#editar"><i class="fa fa-pencil"></i> Editar </a></td>
-                    <td> <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#eliminar"><i class="fa fa-trash-o"></i> Eliminar </a>
-                    </td>
-                  </tr>
+                  <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
+                    data-target="#editar"
+                    data-id="<?php echo $fila['id_obra'] ?>"
+                    data-descripcion="<?php echo $fila['descripcion'] ?>"
+                    data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
+                    data-costo="<?php echo $fila['costo'] ?>">
+                    <i class="fa fa-pencil">
 
-                  <?php 
+                    </i>
+                  </a>
+                </td>
+                <td>
+                 <a href="#" class="btn btn-danger btn-xs btnEliminar" data-toggle="modal" 
+                 data-target="#eliminar"
+                 data-toggle="modal" 
+                 data-target="#eliminar"                                       
+                 data-id="<?php echo $fila['id_obra'] ?>"
+                 data-descripcion="<?php echo $fila['descripcion'] ?>" >
+                 <i class="fa fa-trash-o">
 
-                } ?>
+                 </i> 
+               </a>
+             </td>
+           </tr>
+
+           <?php 
+
+         } ?>
 
 
 
-              </tbody>
-            </table>
-            <!-- end project list -->
+
+         <!-- eliminar-->
+         <div id="eliminar" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form action="./codigos/eliminarobra.php" method="post">
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Eliminar información</h4>
+                  <input type="text" id="idobra" name="idobra">
+
+                </div>
+                <div class="modal-body" style="text-align: center">
+                  <p>Estas seguro de eliminar la cuenta del departamento? <br>
+                   <span style="font-size:20px;" 
+                   id="descripcioneliminar"></span> </p>
+                 </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+
+                  >Eliminar</button>
+                </div>
+              </form>
+
+            </div>
           </div>
         </div>
+        <!-- eliminar-->
+        <!-- editar-->
+        <div id="editar" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <form action="./codigos/editarobra.php" method="post">
+                <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Editar información de la obra</h4>
+                  <input type="hidden" id="idobraedi" name="idobraedi">
+                  <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
+
+                </div>
+                <div class="modal-body" style="text-align: center">
+
+                  <div class="item form-group"  style=" margin-bottom: 40px;width:100%;">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                    style="width:20%" for="name"
+                    id="descripcion">Descripcion <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input class="form-control col-md-7 col-xs-12" 
+                    name="descripcion" 
+                    id="descripcioneditar" 
+                    placeholder="Descripcion de la obra" type="text">
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- data-inputmask="'mask' : '*-*-*-*-***-****-***'"-->
+                <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" 
+                  style="width:20%">No de cuenta 
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input  class="form-control col-md-7 col-xs-12" 
+                  name="cuenta" 
+                  placeholder="Número de la Cuenta" 
+                  id="cuentaeditar"
+                  type="text">
+                </div>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
+                style="width:20%">Costo  <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 col-xs-12" >
+                <input class="form-control col-md-7 col-xs-12" 
+                name="costo"
+                id="costoeditar"
+                placeholder="Costo de la obra"  type="text">
+
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
+
+            >Guardar</button>
+          </div>
+        </form>
+
       </div>
     </div>
   </div>
+  <!-- editar-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</tbody>
+</table>
+<!-- end project list -->
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -241,6 +385,35 @@
 <script src="../vendors/jszip/dist/jszip.min.js"></script>
 <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+<script type="text/javascript">
+
+  $(".btnEliminar").on('click',function(){
+   var id=$(this).data('id');
+   var descripcion=$(this).data('descripcion');
+   $("#idobra").val(id);
+   $("#descripcioneliminar").text(descripcion) ;   
+ });
+  $(".btnEditar").on('click',function(){
+   var id=$(this).data('id');
+   var descripcion=$(this).data('descripcion');
+   var costo=$(this).data('costo');
+   var cuenta=$(this).data('cuenta');
+   $("#idobraedi").val(id);
+   $("#descripcioneditar").val(descripcion) ;  
+   $("#cuentaeditar").val(cuenta) ;    
+   $("#costoeditar").val(costo) ;
+
+
+
+ });
+
+</script>
+
+
+
+
+
 
 </body>
 </html>

@@ -306,6 +306,7 @@
                     $res= $mysqli->query("SELECT SUM(monto) AS total FROM presupuesto_depa WHERE id_cuenta = ". $fila['id_cuenta'])or die($mysqli->error);
                     $row=$res->fetch_assoc();
                  //  = $fila['cantidad'] 
+
                     ?>
 
 
@@ -316,15 +317,16 @@
                       data-parent="#accordion " href="#collapseOne<?php echo $cont?>" aria-expanded="false" aria-controls="collapseOne<?php echo $cont?>">
                       <h4 class="panel-title"  >
                         <?php echo $fila['nombre']?> 
-                        <small style="margin-right: 20px;margin-left: 10px;">  
+                        <small style="margin-right: 30px;margin-left: 10px;">  
                          <?php echo $fila['cuenta']?> 
-                       </small> 
+                        Presupuesto Total:   $
+                       <?php echo $fila['cantidad']?>.00
 
-                       Total de presupuesto:   $
-                       <?php echo $row['total']?>.00</h4>
-                       <small>
-
+                     
                        </small>
+                          Presupuesto usado:   $
+                       <?php echo $row['total']?>.00
+                      </h4>
                     
                    </a>
                    <div id="collapseOne<?php echo $cont?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
