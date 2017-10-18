@@ -7,30 +7,30 @@
   FROM orden where id_departamento=".$_GET['id'])or die($mysqli->error);
 
                         //departamento y su presupeusto
-               while ( $fila=mysqli_fetch_array($consulta)) {
-                $nombre=$fila['departamento'];
-                $presupuesto=$fila['presupuesto'];
-              }
-              if (isset($nombre)) { }else{
-                header("Location: ./index.php");
-              }
+ while ( $fila=mysqli_fetch_array($consulta)) {
+  $nombre=$fila['departamento'];
+  $presupuesto=$fila['presupuesto'];
+}
+if (isset($nombre)) { }else{
+  header("Location: ./index.php");
+}
                         //total comprometido
 
-              while ( $fila=mysqli_fetch_array($presu)) {
-                $comprometido=$fila['comprometido'];
-                $devengado=$fila['devengado'];
-                $pagado=$fila['pagado'];
-                $restante=$presupuesto - ($comprometido + $pagado + $comprometido);
-                $porcentajecomprometido =$comprometido * 100 / $presupuesto;
-                $porcentajedevengado =$devengado * 100 / $presupuesto;
-                $porcentajepagado =$pagado * 100 / $presupuesto;
-                $porcentajerestante = $restante * 100 / $presupuesto;
+while ( $fila=mysqli_fetch_array($presu)) {
+  $comprometido=$fila['comprometido'];
+  $devengado=$fila['devengado'];
+  $pagado=$fila['pagado'];
+  $restante=$presupuesto - ($comprometido + $pagado + $comprometido);
+  $porcentajecomprometido =$comprometido * 100 / $presupuesto;
+  $porcentajedevengado =$devengado * 100 / $presupuesto;
+  $porcentajepagado =$pagado * 100 / $presupuesto;
+  $porcentajerestante = $restante * 100 / $presupuesto;
 
 
-              }
-              if (isset($nombre)) { }else{
-                header("Location: ./index.php");
-              }
+}
+if (isset($nombre)) { }else{
+  header("Location: ./index.php");
+}
                                       //devengado
 
                         //pagado
@@ -65,19 +65,19 @@
   <link href="../vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
   <!-- PNotify -->
 
-<!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script src="../vendors/jquery/dist/jquery.min.js"></script>
   
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
- 
-   
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- PNotify -->
-    <script src="../vendors/pnotify/dist/pnotify.js"></script>
-    <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
-    <script src="../vendors/pnotify/dist/pnotify.nonblock.js"></script>
+  <!-- FastClick -->
+  <script src="../vendors/fastclick/lib/fastclick.js"></script>
+
+
+  <!-- iCheck -->
+  <script src="../vendors/iCheck/icheck.min.js"></script>
+  <!-- PNotify -->
+  <script src="../vendors/pnotify/dist/pnotify.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
+  <script src="../vendors/pnotify/dist/pnotify.nonblock.js"></script>
 
 
 
@@ -174,7 +174,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12" style="width:100%;">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2><i class="fa fa-bars"></i> Ordenes <small>Registradas</small></h2>
+                  <h2><i class="fa fa-bars"></i> Ordenes <small>Registradas dentro de este departamento</small></h2>
 
 
                   <div class="title_right" style=" margin-left: 20px;">
@@ -236,7 +236,7 @@
                       include './conexion.php';
                       $consulta=$mysqli->query("select * from orden order by ord_id ASC")or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
-                                    ++$cont;    # code...
+                                        # code...
                         ?>
                         <li>
                           <div class="block">
@@ -265,29 +265,28 @@
                     </div>
 
                   </div>
-                </div>   
+
+                </div> 
+
               </div>
+
             </div>
+
           </div>
 
         </div>
       </div>
     </div>
 
-
-
-    <div class="clearfix"></div>
-
-
+<!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
 
     <div class="clearfix"></div>
 
 
 
-
-
-
+    <div class="clearfix"></div>
   </div>
+
   <div class="clearfix"></div>
 
 

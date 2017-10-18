@@ -113,6 +113,7 @@
                          placeholder="Número de la Cuenta" 
                          type="text">
                        </div>
+                         <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
                      </div>
 
 

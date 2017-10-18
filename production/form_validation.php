@@ -195,16 +195,17 @@
                         required
                         placeholder="Nombre de la Obra"  type="text">
                       </div>
+                        <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
 
 
                     <!--Option para las cuentas existentes-->
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
-                      <div class="col-md-9 col-sm-9 col-xs-12">
+                      <div class="col-md-6 col-sm-9 col-xs-12">
                         <select class="select2_single form-control"
                         name="cuenta"
-                        class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
+                        class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;" >
                         <option></option>
 
 
@@ -219,6 +220,7 @@
                          <?php } ?>
                        </select>
                      </div>
+                       <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
                    </div>
 
 
@@ -255,15 +257,15 @@
 
 
                 </div><div id="step-2" class="content" style="display: none;">
-                <h2 class="StepTitle">Paso 2 </h2>
+                <h2 class="StepTitle"> </h2>
 
 
                 <div class="form-group">
                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
-                 <div class="col-md-9 col-sm-9 col-xs-12">
+                 <div class="col-md-6 col-sm-9 col-xs-12">
                   <select class="select2_single form-control"
                   name="proveedor"
-                  class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                  class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;">
                   <option></option>
 
 
@@ -277,6 +279,7 @@
                    <?php } ?>
                  </select>
                </div>
+                 <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
              </div>
 
 

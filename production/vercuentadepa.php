@@ -161,12 +161,13 @@
                   </td>
 
                   <td>
-                  <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
+                    <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                     data-target="#editar"
-                    data-id="<?php echo $fila['id_obra'] ?>"
-                    data-descripcion="<?php echo $fila['descripcion'] ?>"
+                    data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
+                    data-descripcion="<?php echo $fila['id_departamento'] ?>"
                     data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
-                    data-costo="<?php echo $fila['costo'] ?>">
+                    data-anio="<?php echo $fila['anio'] ?>"
+                    data-monto="<?php echo $fila['monto'] ?>">
                     <i class="fa fa-pencil">
 
                     </i>
@@ -177,8 +178,9 @@
                  data-target="#eliminar"
                  data-toggle="modal" 
                  data-target="#eliminar"                                       
-                 data-id="<?php echo $fila['id_obra'] ?>"
-                 data-descripcion="<?php echo $fila['descripcion'] ?>" >
+                 data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
+                 data-departamento="<?php echo $fila['departamento'] ?>"
+                 >
                  <i class="fa fa-trash-o">
 
                  </i> 
@@ -197,18 +199,18 @@
          <div id="eliminar" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form action="./codigos/eliminarobra.php" method="post">
+              <form action="./codigos/eliminarcuentadepa.php" method="post">
                 <div class="modal-header">
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Eliminar información</h4>
-                  <input type="text" id="idobra" name="idobra">
+                  <input type="text" id="idcuentadepa" name="idcuentadepa">
 
                 </div>
                 <div class="modal-body" style="text-align: center">
                   <p>Estas seguro de eliminar la cuenta del departamento? <br>
                    <span style="font-size:20px;" 
-                   id="descripcioneliminar"></span> </p>
+                   id="departamentoeliminar"></span> </p>
                  </div>
                  <div class="modal-footer">
                   <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
@@ -226,75 +228,99 @@
         <div id="editar" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form action="./codigos/editarobra.php" method="post">
+              <form action="./codigos/editarcuentadepa.php" method="post">
                 <div class="modal-header">
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Editar información de la obra</h4>
-                  <input type="hidden" id="idobraedi" name="idobraedi">
+                  <input type="text" id="idcuentadepaedi" name="idcuentadepaedi">
                   <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
 
                 </div>
                 <div class="modal-body" style="text-align: center">
 
-                  <div class="item form-group"  style=" margin-bottom: 40px;width:100%;">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                    style="width:20%" for="name"
-                    id="descripcion">Descripcion <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input class="form-control col-md-7 col-xs-12" 
-                    name="descripcion" 
-                    id="descripcioneditar" 
-                    placeholder="Descripcion de la obra" type="text">
-                  </div>
-                </div>
 
-                <div class="clearfix"></div>
 
-                <!-- data-inputmask="'mask' : '*-*-*-*-***-****-***'"-->
-                <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-                  style="width:20%">No de cuenta 
-                  <span class="required">*</span>
+
+
+
+
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <select class="select2_single form-control"
+                      name="departamento"
+                      id="departamentoeditar" 
+                      class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                      <option></option>
+                      <?php 
+                      include './conexion.php';
+                      $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                      while ( $fila=mysqli_fetch_array($consulta)) {
+
+                       ?>
+                       <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                       <?php } ?>
+                     </select>
+                   </div>
+                 </div>
+                    <div class="clearfix"></div><br>
+                 <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta</label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <select class="select2_single form-control"
+                    name="cuenta"
+                     id="cuentaeditar" 
+                    class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
+                    <option></option>
+                    <?php 
+                    include './conexion.php';
+                    $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                    while ( $fila=mysqli_fetch_array($consulta)) {
+                     ?>
+                     <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
+                     <?php } ?>
+                   </select>
+                 </div>
+               </div>
+                  <div class="clearfix"></div><br>
+               <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" > Año <span class="required">*</span>
                 </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input  class="form-control col-md-7 col-xs-12" 
-                  name="cuenta" 
-                  placeholder="Número de la Cuenta" 
-                  id="cuentaeditar"
-                  type="text">
+                <div class="col-md-6 col-sm-6 col-xs-12" >
+                  <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                  name="anio"
+                   id="anioeditar" 
+                  placeholder="Año de carga"  type="text">
+                </div>
+              </div>
+                 <div class="clearfix"></div><br>
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" > Monto <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12" >
+                  <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                  name="monto"
+                   id="montoeditar" 
+                  placeholder="Cantidad de la cuenta"  type="text">
                 </div>
               </div>
 
-              <div class="clearfix"></div>
-
-              <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
-                style="width:20%">Costo  <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12" >
-                <input class="form-control col-md-7 col-xs-12" 
-                name="costo"
-                id="costoeditar"
-                placeholder="Costo de la obra"  type="text">
 
 
-              </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
 
-            >Guardar</button>
-          </div>
-        </form>
+              >Guardar</button>
+            </div>
+          </form>
 
+        </div>
       </div>
     </div>
-  </div>
-  <!-- editar-->
+    <!-- editar-->
 
 
 
@@ -316,7 +342,7 @@
 
 
 
-</tbody>
+  </tbody>
 </table>
 <!-- end project list -->
 </div>
@@ -389,20 +415,22 @@
 <script type="text/javascript">
 
   $(".btnEliminar").on('click',function(){
-   var id=$(this).data('id');
-   var descripcion=$(this).data('descripcion');
-   $("#idobra").val(id);
-   $("#descripcioneliminar").text(descripcion) ;   
+   var id=$(this).data('idcuentadepa');
+   var departamento=$(this).data('departamento');
+   $("#idcuentadepa").val(id);
+   $("#departamentoeliminar").text(departamento) ;   
  });
   $(".btnEditar").on('click',function(){
-   var id=$(this).data('id');
-   var descripcion=$(this).data('descripcion');
-   var costo=$(this).data('costo');
+   var id=$(this).data('idcuentadepaedi');
+   var departamento=$(this).data('departamento');
    var cuenta=$(this).data('cuenta');
+   var anio=$(this).data('anio');
+   var monto=$(this).data('monto');
    $("#idobraedi").val(id);
-   $("#descripcioneditar").val(descripcion) ;  
+   $("#departamentoeditar").val(departamento) ;  
    $("#cuentaeditar").val(cuenta) ;    
-   $("#costoeditar").val(costo) ;
+   $("#anioeditar").val(anio) ;
+  $("#montoeditar").val(monto) ;
 
 
 

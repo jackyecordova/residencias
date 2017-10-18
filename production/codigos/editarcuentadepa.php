@@ -1,8 +1,8 @@
 <?php 
 
 include '../conexion.php';
-$mysqli->query("UPDATE presupuesto_depa SET
-	id_presupuesto_depa='".$_POST['cuenta']."',
+$mysqli->query("UPDATE cuentas SET
+	cuenta='".$_POST['cuenta']."',
 	nombre='".$_POST['nombre']."',
 	cantidad='".$_POST['cantidad']."'
 	WHERE id_cuenta=".$_POST['idcuenta']
