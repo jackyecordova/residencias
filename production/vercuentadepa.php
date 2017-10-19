@@ -164,7 +164,7 @@
                     <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                     data-target="#editar"
                     data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
-                    data-descripcion="<?php echo $fila['id_departamento'] ?>"
+                    data-departamento="<?php echo $fila['departamento'] ?>"
                     data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
                     data-anio="<?php echo $fila['anio'] ?>"
                     data-monto="<?php echo $fila['monto'] ?>">
@@ -176,8 +176,7 @@
                 <td>
                  <a href="#" class="btn btn-danger btn-xs btnEliminar" data-toggle="modal" 
                  data-target="#eliminar"
-                 data-toggle="modal" 
-                 data-target="#eliminar"                                       
+                 data-toggle="modal"                                   
                  data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
                  data-departamento="<?php echo $fila['departamento'] ?>"
                  >
@@ -426,7 +425,7 @@
    var cuenta=$(this).data('cuenta');
    var anio=$(this).data('anio');
    var monto=$(this).data('monto');
-   $("#idobraedi").val(id);
+   $("#idcuentadepaedi").val(id);
    $("#departamentoeditar").val(departamento) ;  
    $("#cuentaeditar").val(cuenta) ;    
    $("#anioeditar").val(anio) ;

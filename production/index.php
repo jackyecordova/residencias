@@ -326,6 +326,16 @@
                        </small>
                           Presupuesto usado:   $
                        <?php echo $row['total']?>.00
+                       <?php $res=$fila['cantidad']-$row['total'];
+                       if ($res<=0) {
+                         $color="#FF0000";
+                       }else
+                       {$color="#7e8c9f";
+                       }
+                         ?>
+                       
+                       <small style="color:#FF0000;">Restante: <?php echo $res ?>.00 </small>
+                       
                       </h4>
                     
                    </a>
