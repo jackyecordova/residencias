@@ -1,24 +1,30 @@
 <?php
 	include '../conexion.php';
-	if (isset($_POST["numero"]) && isset($_POST["nombre"]) && isset($_POST["cantidad"])
+	if (isset($_POST["nombre"]) && isset($_POST["correo"]) && isset($_POST["contrasena"])&& isset($_POST["nivel"]) && isset($_POST["puesto"])
 	 //&& isset($_POST["presupuesto"])
 		){
 		# code...
-		$numero=$_POST['numero'];
 		$nombre=$_POST['nombre'];
-		$cantidad=$_POST['cantidad'];
+		$correo	=$_POST['correo'];
+		$contrasena=$_POST['contrasena'];
+		$nivel=$_POST['nivel'];
+		$puesto=$_POST['puesto'];
 
-		$consulta="INSERT INTO cuentas 
+		$consulta="INSERT INTO usuarios 
 			values(0,'$numero',
 				'$nombre',
-				'$cantidad'
+				'$cantidad',
+				'foto.jpg',
+				'$nivel',
+				'$puesto'
+
 						)";
 
 
 		$mysqli->query($consulta)or die($mysqli->error);
 
 		//echo "listo";
-		header("Location:../vercuenta.php");
+		header("Location:../login.php");
 	}else
 	{
 		echo "algunos campos no fueron completados";
