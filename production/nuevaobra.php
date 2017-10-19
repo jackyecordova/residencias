@@ -1,4 +1,15 @@
 
+<!--<?php 
+
+//session_start();
+//if (isset($_SESSION['miSesion']{
+//      $arreglo=$_SESSION['miSesion'];
+//      }else{
+//        header("Location: ./login.html");  
+
+//}
+ ?>-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,21 +112,47 @@
 
 
 
-                      <div class="item form-group">
+                     <!-- <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta 
                          <span class="required">*</span>
                        </label>
-                       <!--data-inputmask="'mask' : '*-*-*-*-***-****-***'"-->
+                      
                        <div class="col-md-6 col-sm-6 col-xs-12">
                          <input  class="form-control col-md-7 col-xs-12" 
-                         
+                          data-inputmask="'mask' : '*-*-*-*-***-****-***'"
                          name="cuenta" 
                          placeholder="Número de la Cuenta" 
                          type="text">
                        </div>
                          <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                     </div>-->
+
+   <!--Option para las cuentas existentes-->
+                    <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-9 col-xs-12">
+                        <select class="select2_single form-control"
+                        name="cuenta"
+                        class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;" >
+                        <option></option>
+
+
+                        <?php 
+                        include './conexion.php';
+                        $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                        while ( $fila=mysqli_fetch_array($consulta)) {
+
+
+                         ?> <!--Concatenar el nombre de la cuenta-->
+                         <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta']  ?></option>
+                         <?php } ?>
+                       </select>
                      </div>
 
+
+
+                       <button type="button" class="btn btn-primary"  ><i class="fa fa-plus" data-target="#nuevacuenta" aria-hidden="true"></i></button>
+                   </div>
 
 
                      <div class="item form-group">
@@ -151,6 +188,86 @@
       </div>
     </div>
     <!-- /page content -->
+
+
+
+
+
+
+          <!-- editar-->
+          <div id="nuevacuenta" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form action="./codigos/cuentas.php" method="post">
+                  <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Editar información</h4>
+                    <input type="hidden" id="idcuentaeditar" name="idcuentaeditar">
+
+                  </div>  <div class="clearfix"></div>
+                  <div class="modal-body" style="text-align: center">
+
+           
+
+
+
+
+                  <div class="item form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta 
+                     <span class="required">*</span>
+                   </label>
+                   <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
+                    name="numero" 
+                    placeholder="Número de la Cuenta" 
+                    type="text">
+                  </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre 
+                   <span class="required">*</span>
+                 </label>
+                 <div class="col-md-6 col-sm-6 col-xs-12" >
+                  <input  class="form-control col-md-7 col-xs-12" 
+                  name="nombre"
+                  placeholder="Nombre de la Cuenta"  type="text">
+
+
+                </div>
+              </div>
+
+
+
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12" >
+                  <input  class="form-control col-md-7 col-xs-12" 
+                  name="cantidad"
+                  placeholder="Cantidad de la Cuenta" type="text">
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Guardar</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <!-- editar-->
+
 
 
 

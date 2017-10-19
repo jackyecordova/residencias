@@ -1,19 +1,24 @@
 <?php
 	include '../conexion.php';
-	if (isset($_POST["nombre"]) && isset($_POST["correo"]) && isset($_POST["contrasena"])&& isset($_POST["nivel"]) && isset($_POST["puesto"])
+	if (isset($_POST["nombre"]) 
+		&& isset($_POST["correo"]) 
+		&& isset($_POST["contrasena"])
+		&& isset($_POST["nivel"]) 
+		&& isset($_POST["puesto"])
 	 //&& isset($_POST["presupuesto"])
 		){
 		# code...
 		$nombre=$_POST['nombre'];
 		$correo	=$_POST['correo'];
-		$contrasena=$_POST['contrasena'];
+		$contrasena=sha1($_POST['contrasena']);
 		$nivel=$_POST['nivel'];
+		
 		$puesto=$_POST['puesto'];
 
 		$consulta="INSERT INTO usuarios 
-			values(0,'$numero',
-				'$nombre',
-				'$cantidad',
+			values(0,'$nombre',
+				'$correo',
+				'$contrasena',
 				'foto.jpg',
 				'$nivel',
 				'$puesto'

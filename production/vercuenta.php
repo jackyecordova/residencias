@@ -1,3 +1,14 @@
+
+<!--<?php 
+
+//session_start();
+//if (isset($_SESSION['miSesion']{
+//      $arreglo=$_SESSION['miSesion'];
+//      }else{
+//        header("Location: ./login.html");  
+
+//}
+ ?>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,7 +207,7 @@
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Editar información</h4>
-                    <input type="hidden" id="idcuentaeditar" name="idcuenta">
+                    <input type="hidden" id="idcuentaeditar" name="idcuentaeditar">
 
                   </div>  <div class="clearfix"></div>
                   <div class="modal-body" style="text-align: center">

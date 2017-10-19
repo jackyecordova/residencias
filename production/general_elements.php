@@ -1,3 +1,14 @@
+
+<!--<?php 
+
+//session_start();
+//if (isset($_SESSION['miSesion']{
+//      $arreglo=$_SESSION['miSesion'];
+//      }else{
+//        header("Location: ./login.html");  
+
+//}
+ ?>-->
  <?php 
  include './conexion.php';
  $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);

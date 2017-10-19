@@ -1,3 +1,14 @@
+
+<!--<?php 
+
+//session_start();
+//if (isset($_SESSION['miSesion']{
+//      $arreglo=$_SESSION['miSesion'];
+//      }else{
+//        header("Location: ./login.html");  
+
+//}
+ ?>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -409,7 +420,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" margin-top="2px">No Factura  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="obra" class="form-control col-md-7 col-xs-12" data-validate-length-range="40" data-validate-words="2" name="name" placeholder="Numero de la Factura" required="required" type="text">
+              <input id="obra" class="form-control col-md-7 col-xs-12"  name="name" placeholder="Numero de la Factura" required="required" type="text">
             </div>
           </div>
           <div class="clearfix"></div>
@@ -476,7 +487,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
+              <input id="observaciones" class="form-control col-md-7 col-xs-12"  name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
             </div>
           </div>
           <div class="clearfix"></div>
@@ -485,7 +496,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="observaciones" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
+              <input id="observaciones" class="form-control col-md-7 col-xs-12" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
             </div>
           </div>
           <div class="clearfix"></div>
