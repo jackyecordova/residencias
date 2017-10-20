@@ -262,11 +262,27 @@
                       <?php 
                       include './conexion.php';
                       $consulta=$mysqli->query(
-                        "SELECT orden.*, departamentos.*, cuentas.*
-                        FROM ((orden
-                          INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
-                      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta)
-                      where orden.id_departamento=".$_GET['id'])or die($mysqli->error);
+                        "SELECT orden.*, departamentos.*, cuentas.*, proveedores.*,obras.*
+                        FROM orden
+                            INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                            INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                            INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
+                            INNER JOIN obras ON orden.id_obra= obras.id_obra
+                        where orden.id_departamento=".$_GET['id']
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        )or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
                                         # code...
                         ?>
@@ -279,53 +295,53 @@
                             </div>
                             <div class="block_content">
                               <h2 class="title">
-                                <a><?php echo $fila['id_obra'] ?></a>
+                                <a><?php echo $fila['descripcion'] ?></a>
                               </h2>
                               <div class="byline">
-                              <h4       style="
-                                        width: 30%;
-                                        " >
-                                      <?php echo $fila['nombre'] ?>
-                                  <small> <?php echo $fila['cuenta'] ?>  </small>
-                                </h4>  
-                                <a> <?php echo $fila['id_departamento'] ?>   $<?php echo $fila['total_compromet'] ?></a> 
-                                <small><?php echo $fila['fecha'] ?></small>
-                              </div>
-                              <p class="excerpt"><?php echo $fila['observaciones'] ?>
-                                <br><a>Leer más...</a>
-                              </p>
+                                <h4       style="
+                                width: 30%;
+                                " >
+                                <?php echo $fila['nombre'] ?>
+                                <small> <?php echo $fila['cuenta'] ?>  </small>
+                              </h4>  
+                              <a> <?php echo $fila['id_departamento'] ?>   $<?php echo $fila['total_compromet'] ?></a> 
+                              <small><?php echo $fila['fecha'] ?></small>
                             </div>
+                            <p class="excerpt"><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
+                              <br><a>Leer más...</a>
+                            </p>
                           </div>
-                        </li>
-                        <?php  } ?>
-                      </ul>
-
-                    </div>
+                        </div>
+                      </li>
+                      <?php  } ?>
+                    </ul>
 
                   </div>
 
-                </div> 
+                </div>
 
-              </div>
+              </div> 
 
             </div>
 
           </div>
 
         </div>
+
       </div>
     </div>
-
-    <!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
-
-    <div class="clearfix"></div>
-
-
-
-    <div class="clearfix"></div>
   </div>
 
+  <!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
+
   <div class="clearfix"></div>
+
+
+
+  <div class="clearfix"></div>
+</div>
+
+<div class="clearfix"></div>
 
 
 
