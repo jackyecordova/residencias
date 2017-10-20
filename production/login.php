@@ -48,7 +48,8 @@
 
           </div>
 
-          <div class="alert alert-danger" role="alert" style="background-color: rgba(210, 20, 0, 0.19);     text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+          <div class="alert alert-danger" role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+              text-shadow: 0px 0px rgba(153, 153, 153, 0);  
           color: rgb(241, 83, 68);;">Usuario o contraseña inválida
         </div>
         <div class="clearfix"></div>

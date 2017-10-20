@@ -20,7 +20,7 @@
 		$mysqli->query($consulta)or die($mysqli->error);
 
 		echo "listo";
-		header("Location:../general_elements.php");
+		header("Location:../index.php");
 	}else
 	{
 		echo "algunos campos no fueron completados";

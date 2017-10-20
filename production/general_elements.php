@@ -11,37 +11,53 @@
  ?>-->
  <?php 
  include './conexion.php';
- $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
- $presu=$mysqli->query("SELECT sum(total_compromet) as comprometido, 
-  sum(ppto_dev) as devengado, 
-  sum(ppto_pag) as pagado 
-  FROM orden where id_departamento=".$_GET['id'])or die($mysqli->error);
+ if ($_GET['id']=="") {
+   header("Location: ./index.php");
+
+ }else{
+
+
+
+
+
+
+
+   $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
+
+   $presu=$mysqli->query("SELECT sum(total_compromet) as comprometido, 
+    sum(ppto_dev) as devengado, 
+    sum(ppto_pag) as pagado 
+    FROM orden where id_departamento=".$_GET['id'])or die($mysqli->error);
 
                         //departamento y su presupeusto
- while ( $fila=mysqli_fetch_array($consulta)) {
-  $nombre=$fila['departamento'];
-  $presupuesto=$fila['presupuesto'];
-}
-if (isset($nombre)) { }else{
-  header("Location: ./index.php");
-}
+   while ( $fila=mysqli_fetch_array($consulta)) {
+    $nombre=$fila['departamento'];
+    $presupuesto=$fila['presupuesto'];
+  }
+  if (isset($nombre)) { }else{
+    header("Location: ./index.php");
+  }
                         //total comprometido
 
-while ( $fila=mysqli_fetch_array($presu)) {
-  $comprometido=$fila['comprometido'];
-  $devengado=$fila['devengado'];
-  $pagado=$fila['pagado'];
-  $restante=$presupuesto - ($comprometido + $pagado + $comprometido);
-  $porcentajecomprometido =$comprometido * 100 / $presupuesto;
-  $porcentajedevengado =$devengado * 100 / $presupuesto;
-  $porcentajepagado =$pagado * 100 / $presupuesto;
-  $porcentajerestante = $restante * 100 / $presupuesto;
+  while ( $fila=mysqli_fetch_array($presu)) {
+    $comprometido=$fila['comprometido'];
+    $devengado=$fila['devengado'];
+    $pagado=$fila['pagado'];
+    $restante=$presupuesto - ($comprometido + $pagado + $comprometido);
+    $porcentajecomprometido =$comprometido * 100 / $presupuesto;
+    $porcentajedevengado =$devengado * 100 / $presupuesto;
+    $porcentajepagado =$pagado * 100 / $presupuesto;
+    $porcentajerestante = $restante * 100 / $presupuesto;
 
 
-}
-if (isset($nombre)) { }else{
-  header("Location: ./index.php");
-}
+  }
+  if (isset($nombre)) { }else{
+    header("Location: ./index.php");
+  }
+
+
+
+}//if de si el id esta vacio
                                       //devengado
 
                         //pagado
@@ -245,7 +261,12 @@ if (isset($nombre)) { }else{
                     <ul class="list-unstyled timeline"> 
                       <?php 
                       include './conexion.php';
-                      $consulta=$mysqli->query("select * from orden order by ord_id ASC")or die($mysqli->error);
+                      $consulta=$mysqli->query(
+                        "SELECT orden.*, departamentos.*, cuentas.*
+                        FROM ((orden
+                          INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
+                      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta)
+                      where orden.id_departamento=".$_GET['id'])or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
                                         # code...
                         ?>
@@ -261,7 +282,13 @@ if (isset($nombre)) { }else{
                                 <a><?php echo $fila['id_obra'] ?></a>
                               </h2>
                               <div class="byline">
-                                <span><?php echo $fila['id_cuenta'] ?> </span>    <a> <?php echo $fila['id_departamento'] ?>   $<?php echo $fila['total_compromet'] ?></a> 
+                              <h4       style="
+                                        width: 30%;
+                                        " >
+                                      <?php echo $fila['nombre'] ?>
+                                  <small> <?php echo $fila['cuenta'] ?>  </small>
+                                </h4>  
+                                <a> <?php echo $fila['id_departamento'] ?>   $<?php echo $fila['total_compromet'] ?></a> 
                                 <small><?php echo $fila['fecha'] ?></small>
                               </div>
                               <p class="excerpt"><?php echo $fila['observaciones'] ?>
@@ -289,7 +316,7 @@ if (isset($nombre)) { }else{
       </div>
     </div>
 
-<!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
+    <!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
 
     <div class="clearfix"></div>
 
