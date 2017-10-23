@@ -43,8 +43,14 @@ if (isset($_POST["departamento"])
 			//si estan llenos los de devnegado y pagado , sino se manda vacío
 			if (isset($_POST["poldev"]) && isset($_POST["dev"])) {
 				# code...
-				$poldev=$_POST['poldev'];
-				$dev=$_POST['dev'];
+				if ($_POST["poldev"]<=$total) {
+					# code...
+					$poldev=$_POST['poldev'];
+					$dev=$_POST['dev'];
+				}else{
+					echo "Se exedió del dinero comprometido";
+				}
+				
 			}
 
 

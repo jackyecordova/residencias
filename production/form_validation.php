@@ -396,6 +396,7 @@
         >Fecha  <span class="required">*</span>
       </label>
       <fieldset>
+      <form action="" method="post">
         <div class="control-group">
           <div class="controls">
 
@@ -408,6 +409,7 @@
 
           </div>
         </div>
+        </form>
       </fieldset>
 
     </div>
@@ -441,7 +443,7 @@
 <!--poliza -->
 <div class="col-sm-1"></div>
 <div class="modal-footer" style="padding-top:35px;">
- <button type="button"  class="btn btn-success" >Devengar</button>
+ <button type="submit"  class="btn btn-success" >Devengar</button>
  <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
 </div>
 </div>

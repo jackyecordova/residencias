@@ -265,64 +265,228 @@
                   </ul>
 
                   <div class="x_content">
-  <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                    <ul class="list-unstyled timeline"> 
-                      <?php 
-                      include './conexion.php';
-                      $consulta=$mysqli->query(
-                        "SELECT orden.*, departamentos.*, cuentas.*, proveedores.*,obras.*
-                        FROM orden
-                        INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
-                        INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
-                        INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
-                        INNER JOIN obras ON orden.id_obra= obras.id_obra
-                        where orden.id_departamento=".$_GET['id']
+                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                <ul class="list-unstyled timeline"> 
+                                  <?php 
+                                  include './conexion.php';
+                                  $consulta=$mysqli->query(
+                                    "SELECT orden.*, departamentos.*, cuentas.*, proveedores.*,obras.*
+                                    FROM orden
+                                    INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                                    INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                                    INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
+                                    INNER JOIN obras ON orden.id_obra= obras.id_obra
+                                    where orden.id_departamento=".$_GET['id']
 
 
-                        )or die($mysqli->error);
-                      while ( $fila=mysqli_fetch_array($consulta)) {
-                                        # code...
-                        ?>
-                        <li>
-                          <div class="block">
-                            <div class="tags">
-                              <a href="" class="tag">
-                                <span><?php echo $fila['ord_id'] ?></span>
-                              </a>
-                            </div>
-                            <div class="block_content">
-                              <h2 class="title">
-                                <a><?php echo $fila['descripcion'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
-                                <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
+                                    )or die($mysqli->error);
+                                  while ( $fila=mysqli_fetch_array($consulta)) {
+                                                  # code...
+                                    ?>
+                                    <li>
+                                      <div class="block">
+                                        <div class="tags">
+                                          <a href="" class="tag">
+                                            <span><?php echo $fila['ord_id'] ?></span>
+                                          </a>
+                                        </div>
+                                        <div class="block_content">
+                                          <h2 class="title">
+                                            <a><?php echo $fila['descripcion'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
+                                            <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
 
 
-                                 ?> </p>
-                              </h2>
-                              <div class="byline">
-                                <h4       style="
-                                width: 100%;
-                                " >
-                                <?php echo $fila['nombre'] ?>
-                                <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
-                              </h4>  
-                              <a class="pull-right">   $<?php echo
-                                number_format($fila['total_compromet'] ,2);
-                                ?></a> 
-                                <small><?php echo $fila['fecha'] ?></small>
-                              </div>
-                              <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
-                                <a  style="width: 10%;" class="pull-right">Leer más...</a>
-                              </p>
-                            </div>
-                          </div>
-                        </li>
-                        <?php  } ?>
-                    </ul>
-</div>
- <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
- </div>
-  <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-  </div>
+                                             ?> </p>
+                                           </h2>
+                                           <div class="byline">
+                                            <h4       style="
+                                            width: 100%;
+                                            " >
+                                            <?php echo $fila['nombre'] ?>
+                                            <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
+                                          </h4>  
+                                          <a class="pull-right">   $<?php echo
+                                            number_format($fila['total_compromet'] ,2);
+                                            ?></a> 
+                                            <small><?php echo $fila['fecha'] ?></small>
+                                          </div>
+                                          <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
+                                            <a  style="width: 10%;" class="pull-right">Leer más...</a>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <?php  } ?>
+                                  </ul>
+                      </div>
+
+
+                      <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                     <ul class="list-unstyled timeline"> 
+                                      <?php 
+                                      include './conexion.php';
+                                      $consulta=$mysqli->query(
+                                        "SELECT orden.*, departamentos.*, cuentas.*, proveedores.*,obras.*
+                                        FROM orden
+                                        INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                                        INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                                        INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
+                                        INNER JOIN obras ON orden.id_obra= obras.id_obra
+                                        where orden.id_departamento=".$_GET['id']." and orden.status='Emitido'"
+
+
+                                        )or die($mysqli->error);
+                                      while ( $fila=mysqli_fetch_array($consulta)) {
+                                                      # code...
+                                        ?>
+                                        <li>
+                                          <div class="block">
+                                            <div class="tags">
+                                              <a href="" class="tag">
+                                                <span><?php echo $fila['ord_id'] ?></span>
+                                              </a>
+                                            </div>
+                                            <div class="block_content">
+                                              <h2 class="title">
+                                                <a><?php echo $fila['descripcion'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
+                                                <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
+
+
+                                                 ?> </p>
+                                               </h2>
+                                               <div class="byline">
+                                                <h4       style="
+                                                width: 100%;
+                                                " >
+                                                <?php echo $fila['nombre'] ?>
+                                                <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
+                                              </h4>  
+                                              <a class="pull-right">   $<?php echo
+                                                number_format($fila['total_compromet'] ,2);
+                                                ?></a> 
+                                                <small><?php echo $fila['fecha'] ?></small>
+                                              </div>
+                                              <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
+                                                <a  style="width: 10%;" class="pull-right">Leer más...</a>
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <?php  } ?>
+                                      </ul>
+                      </div>
+
+
+                   <div role="tabpanel" class="tab-pane fade active in" id="tab_content3" aria-labelledby="home-tab">
+                                <ul class="list-unstyled timeline"> 
+                                  <?php 
+                                  include './conexion.php';
+                                  $consulta=$mysqli->query(
+                                    "SELECT orden.*, departamentos.*, cuentas.*, proveedores.*,obras.*
+                                    FROM orden
+                                    INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                                    INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                                    INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
+                                    INNER JOIN obras ON orden.id_obra= obras.id_obra
+                                    where orden.id_departamento=".$_GET['id']." and orden.status='Devengado'"
+
+
+                                    )or die($mysqli->error);
+                                  while ( $fila=mysqli_fetch_array($consulta)) {
+                                                  # code...
+                                    ?>
+                                    <li>
+                                      <div class="block">
+                                        <div class="tags">
+                                          <a href="" class="tag">
+                                            <span><?php echo $fila['ord_id'] ?></span>
+                                          </a>
+                                        </div>
+                                        <div class="block_content">
+                                          <h2 class="title">
+                                            <a><?php echo $fila['descripcion'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
+                                            <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
+
+
+                                             ?> </p>
+                                           </h2>
+                                           <div class="byline">
+                                            <h4       style="
+                                            width: 100%;
+                                            " >
+                                            <?php echo $fila['nombre'] ?>
+                                            <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
+                                          </h4>  
+                                          <a class="pull-right">   $<?php echo
+                                            number_format($fila['total_compromet'] ,2);
+                                            ?></a> 
+                                            <small><?php echo $fila['fecha'] ?></small>
+                                          </div>
+                                          <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
+                                            <a  style="width: 10%;" class="pull-right">Leer más...</a>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <?php  } ?>
+                                  </ul>
+                      </div>
+                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content4" aria-labelledby="home-tab">
+                                <ul class="list-unstyled timeline"> 
+                                  <?php 
+                                  include './conexion.php';
+                                  $consulta=$mysqli->query(
+                                    "SELECT orden.*, departamentos.*, cuentas.*, proveedores.*,obras.*
+                                    FROM orden
+                                    INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                                    INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                                    INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
+                                    INNER JOIN obras ON orden.id_obra= obras.id_obra
+                                    where orden.id_departamento=".$_GET['id']."and orden.status='Pagado'"
+
+
+                                    )or die($mysqli->error);
+                                  while ( $fila=mysqli_fetch_array($consulta)) {
+                                                  # code...
+                                    ?>
+                                    <li>
+                                      <div class="block">
+                                        <div class="tags">
+                                          <a href="" class="tag">
+                                            <span><?php echo $fila['ord_id'] ?></span>
+                                          </a>
+                                        </div>
+                                        <div class="block_content">
+                                          <h2 class="title">
+                                            <a><?php echo $fila['descripcion'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
+                                            <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
+
+
+                                             ?> </p>
+                                           </h2>
+                                           <div class="byline">
+                                            <h4       style="
+                                            width: 100%;
+                                            " >
+                                            <?php echo $fila['nombre'] ?>
+                                            <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
+                                          </h4>  
+                                          <a class="pull-right">   $<?php echo
+                                            number_format($fila['total_compromet'] ,2);
+                                            ?></a> 
+                                            <small><?php echo $fila['fecha'] ?></small>
+                                          </div>
+                                          <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
+                                            <a  style="width: 10%;" class="pull-right">Leer más...</a>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </li>
+                                    <?php  } ?>
+                                  </ul>
+                      </div>
+
+                    
 
                     </div>
 
