@@ -4,7 +4,7 @@ include '../conexion.php';
 if (isset($_POST["departamento"]) 
 	&& isset($_POST["nofactura"])
 	&& isset($_POST["obra"])
-	&& isset($_POST["cuenta"])
+	//&& isset($_POST["cuenta"])
 	&& isset($_POST["observaciones"])
 
 	&& isset($_POST["proveedor"])
@@ -43,13 +43,13 @@ if (isset($_POST["departamento"])
 			//si estan llenos los de devnegado y pagado , sino se manda vacío
 			if (isset($_POST["poldev"]) && isset($_POST["dev"])) {
 				# code...
-				if ($_POST["poldev"]<=$total) {
+				//if ($_POST["poldev"]<=$total) {
 					# code...
 					$poldev=$_POST['poldev'];
 					$dev=$_POST['dev'];
-				}else{
-					echo "Se exedió del dinero comprometido";
-				}
+			//	}else{
+				//	echo "Se exedió del dinero comprometido";
+				//}
 				
 			}
 
@@ -64,7 +64,6 @@ if (isset($_POST["departamento"])
 			'$fechadev',
 			'$fechapago',
 			'$obra',
-			'$cuenta',
 			'$total',
 			'$poldev',
 			'$dev',

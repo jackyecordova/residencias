@@ -62,7 +62,7 @@
                             
                                </ul>
                   </li>
-                  <!--dos niveles-->
+                  <!--dos niveles
                    <li ><a><i class="fa fa-server"></i>Obras<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">
                           
@@ -72,7 +72,7 @@
                              <li><a href="nuevaobra.php">Crear</a>
                              </li>
                           </ul>
-                      </li>
+                      </li>-->
 
                    <li><a><i class="fa fa-credit-card-alt"></i>Cuentas<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">

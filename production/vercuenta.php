@@ -110,7 +110,7 @@
                     <th class="sorting" tabindex="0" 
                     aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
                     style="width:350px;">
-                    Nombre
+                    Obra
                   </th>
                   <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
                   colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
@@ -141,7 +141,7 @@
               <td class="sorting_1"><?php echo $fila['id_cuenta'] ?></td>
               <td><?php echo $fila['cuenta'] ?></td>
               <td><?php echo $fila['nombre'] ?></td>
-              <td><?php echo  number_format($fila['cantidad']  ,2) ?></td>
+              <td>$ <?php echo  number_format($fila['cantidad']  ,2) ?></td>
               <td>               
                <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                data-target="#editar"

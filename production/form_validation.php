@@ -208,10 +208,10 @@
                       <option></option>
                       <?php 
                       include './conexion.php';
-                      $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+                      $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
                        ?> <!--Concatenar el nombre de la cuenta-->
-                       <option value="<?php echo $fila['id_obra'] ?>"><?php echo $fila['descripcion']  ?></option>
+                       <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre']  ?><small ><?php // echo $fila['cuenta']  ?></small></option>
                        <?php } ?>
                      </select>
                    </div>
@@ -227,7 +227,7 @@
                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;" >
                   
                                 <?php 
-                                include './conexion.php';
+                               // include './conexion.php';
                               //  $consulta=$mysqli->query("SELECT obras.*, cuentas.*
                                 // from obras
                                  //INNER JOIN cuentas ON obras.id_cuenta= cuentas.id_cuenta
@@ -334,10 +334,10 @@
               name="precio" placeholder="Precio unitario"  type="text">
             </div>
           </div>
-          <div class="col-md-4 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
+         <!-- <div class="col-md-4 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
            <button type="button" class="btn btn-warning" style="margin-left: 25%;" data-toggle="modal" data-target="#Devengada">Devengar</button>
-          <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>-->
-         </div>
+          <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
+         </div>-->
 
 
        </div>
