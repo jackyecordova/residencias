@@ -141,7 +141,7 @@
               <td class="sorting_1"><?php echo $fila['id_cuenta'] ?></td>
               <td><?php echo $fila['cuenta'] ?></td>
               <td><?php echo $fila['nombre'] ?></td>
-              <td><?php echo $fila['cantidad'] ?></td>
+              <td><?php echo  number_format($fila['cantidad']  ,2) ?></td>
               <td>               
                <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                data-target="#editar"

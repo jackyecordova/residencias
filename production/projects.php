@@ -175,18 +175,18 @@
             $res =$pag * 100 / $todo;
 
           }
-          if ($dev<$todo) {
-                                    //blanco
-           $pagado='background-color:rgba(194, 47, 47, 0.08)';
+                    if ($dev<$todo) {
+                                                            //rojo
+                     $pagado='background-color:rgba(194, 47, 47, 0.08)';
 
 
-         }else if ($pag==$todo) {
-          $pagado='background-color:rgba(24, 139, 26, 0.17)';
-        }else{
-                                    //rojo
+                       }else if ($pag==$todo) {//verde
+                        $pagado='background-color:rgba(24, 139, 26, 0.17)';
+                      }else{
+                                                  //blanco
 
-         $pagado='background-color:rgba(00, 00, 00, 0.0)';
-       }
+                       $pagado='background-color:rgba(00, 00, 00, 0.0)';
+                     }
        ?>
        <tr style="<?php  echo $pagado?>">
         <td><?php echo $fila['ord_id'] ?></td>
@@ -208,7 +208,7 @@
         <div class="progress progress_sm">
           <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
         </div>
-        <small><?php  echo $res?>% COMPLETADO</small>
+        <small><?php  echo  number_format($res ,2);?>% COMPLETADO</small>
       </td>
       <td>
         <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"

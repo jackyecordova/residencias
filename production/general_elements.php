@@ -49,19 +49,19 @@
     $porcentajepagado =$pagado * 100 / $presupuesto;
     $porcentajerestante = $restante * 100 / $presupuesto;
 
-if ($porcentajerestante<=0) {
-  $color="red";
-  $asc="desc";
+    if ($porcentajerestante<=0) {
+      $color="red";
+      $asc="desc";
   # code...
-}else{
-   $color="green";
-  $asc="asc";
+    }else{
+     $color="green";
+     $asc="asc";
 
+   }
+ }
+ if (isset($nombre)) { }else{
+  header("Location: ./index.php");
 }
-  }
-  if (isset($nombre)) { }else{
-    header("Location: ./index.php");
-  }
 
 
 
@@ -174,28 +174,28 @@ if ($porcentajerestante<=0) {
           <div class="row tile_count" >
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count"  style="margin-right:30px;"  >
               <span class="count_top"><i class="fa fa-user"></i>Presupuesto</span>
-              <div class="count green" style="font-size: 25px;margin-bottom: -10px;">$ <?php echo $presupuesto .".00";?></div>
-              <span class="count_bottom"><i class="green">100% </i> Total</span>
+              <div class="count green" style="font-size: 25px;margin-bottom: -10px;">$ <?php echo number_format($presupuesto,2);?></div>
+              <span class="count_bottom"><i class=<?php echo $color; ?>>100% </i> Total</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top" ><i class="fa fa-clock-o"></i>Comprometido</span>
-              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo  " "  .$comprometido .".00"; ?></div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajecomprometido,2); ?>% </i> Completado</span>
+              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo  " "  .number_format($comprometido,2); ?></div>
+              <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajecomprometido,2); ?>% </i> Completado</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top"><i class="fa fa-user"></i> Devengado</span>
-              <div class="count " style="font-size: 18px;    margin-bottom: -10px;">$ <?php echo " ". $devengado .".00"; ?></div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajedevengado,2); ?>% </i>Completado</span>
+              <div class="count " style="font-size: 18px;    margin-bottom: -10px;">$ <?php echo " ".number_format( $devengado,2); ?></div>
+              <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajedevengado,2); ?>% </i>Completado</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top"><i class="fa fa-user"></i> Pagado</span>
-              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo " " .  $pagado .".00"; ?></div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajepagado,2); ?>% </i> Completado</span>
+              <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo " " .  number_format($pagado,2); ?></div>
+              <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajepagado,2); ?>% </i> Completado</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
               <span class="count_top"><i class="fa fa-user"></i>Restante</span>
-              <div class="count green" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo " " .  $restante .".00"; ?></div>
-              <span class="count_bottom"><i class=""<?php echo $color; ?>""><i class="fa fa-sort-"<?php echo $asc; ?>""></i><?php  echo number_format($porcentajerestante,2);?>% </i> Coompletado</span>
+              <div class="count green" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo " " . number_format( $restante,2); ?></div>
+              <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-"<?php echo $asc; ?>""></i><?php  echo number_format($porcentajerestante,2);?>% </i> Coompletado</span>
             </div>
            <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -30px;">
               <span class="count_top"><i class="fa fa-user"></i> bla bla</span>
@@ -265,17 +265,17 @@ if ($porcentajerestante<=0) {
                   </ul>
 
                   <div class="x_content">
-
+  <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                     <ul class="list-unstyled timeline"> 
                       <?php 
                       include './conexion.php';
                       $consulta=$mysqli->query(
                         "SELECT orden.*, departamentos.*, cuentas.*, proveedores.*,obras.*
                         FROM orden
-                            INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
-                            INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
-                            INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
-                            INNER JOIN obras ON orden.id_obra= obras.id_obra
+                        INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                        INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                        INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
+                        INNER JOIN obras ON orden.id_obra= obras.id_obra
                         where orden.id_departamento=".$_GET['id']
 
 
@@ -292,53 +292,64 @@ if ($porcentajerestante<=0) {
                             </div>
                             <div class="block_content">
                               <h2 class="title">
-                                <a><?php echo $fila['descripcion'] ?></a>
+                                <a><?php echo $fila['descripcion'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
+                                <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
+
+
+                                 ?> </p>
                               </h2>
                               <div class="byline">
                                 <h4       style="
-                                width: 30%;
+                                width: 100%;
                                 " >
                                 <?php echo $fila['nombre'] ?>
-                                <small> <?php echo $fila['cuenta'] ?>  </small>
+                                <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
                               </h4>  
-                              <a> <?php echo $fila['id_departamento'] ?>   $<?php echo $fila['total_compromet'] ?></a> 
-                              <small><?php echo $fila['fecha'] ?></small>
+                              <a class="pull-right">   $<?php echo
+                                number_format($fila['total_compromet'] ,2);
+                                ?></a> 
+                                <small><?php echo $fila['fecha'] ?></small>
+                              </div>
+                              <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
+                                <a  style="width: 10%;" class="pull-right">Leer más...</a>
+                              </p>
                             </div>
-                            <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
-                              <a  style="width: 30%;" class="pull-right">Leer más...</a>
-                            </p>
                           </div>
-                        </div>
-                      </li>
-                      <?php  } ?>
+                        </li>
+                        <?php  } ?>
                     </ul>
+</div>
+ <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+ </div>
+  <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+  </div>
+
+                    </div>
 
                   </div>
 
-                </div>
+                </div> 
 
-              </div> 
+              </div>
 
             </div>
 
           </div>
 
         </div>
-
       </div>
     </div>
+
+    <!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
+
+    <div class="clearfix"></div>
+
+
+
+    <div class="clearfix"></div>
   </div>
 
-  <!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
-
   <div class="clearfix"></div>
-
-
-
-  <div class="clearfix"></div>
-</div>
-
-<div class="clearfix"></div>
 
 
 

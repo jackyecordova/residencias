@@ -9,9 +9,9 @@
 
 //}
  ?>-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
@@ -167,7 +167,7 @@
 
 
 
-                      <div class="col-xs-12 col-md-12" style="display:blick;">
+                     <!-- <div class="col-xs-12 col-md-12" style="display:blick;">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" 
                         for="fecha"
                         
@@ -189,153 +189,160 @@
                       </fieldset>
 
                     </div>
+                  -->
 
 
 
 
 
-
-                    <div class="clearfix"></div>
-
-                    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
-                      </label>
-                      <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="obra" class="form-control col-md-7 col-xs-12"  
-                        name="obra"
-                        required
-                        placeholder="Nombre de la Obra"  type="text">
-                      </div>
-                        <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    </div>
-
-
-                    <!--Option para las cuentas existentes-->
-                    <div class="form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
-                      <div class="col-md-6 col-sm-9 col-xs-12">
-                        <select class="select2_single form-control"
-                        name="cuenta"
-                        class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;" >
-                        <option></option>
-
-
-                        <?php 
-                        include './conexion.php';
-                        $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
-                        while ( $fila=mysqli_fetch_array($consulta)) {
-
-
-                         ?> <!--Concatenar el nombre de la cuenta-->
-                         <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta']  ?></option>
-                         <?php } ?>
-                       </select>
-                     </div>
-                       <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                   </div>
-
-
-
-
-
-
-
-
-                   <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="observaciones" class="form-control col-md-7 col-xs-12" 
-                      name="observaciones"
-                      placeholder="Observaciones dentro de la obra" type="text">
-                    </div>
-                  </div>
+                  <div class="clearfix"></div>
 
                   <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input id="vehiculo" class="form-control col-md-7 col-xs-12" 
-                      name="vehiculo"
-                      placeholder="Vehículo usado"
-                      type="text">
-                    </div>
+                      <select class="select2_single form-control" id="obra" class="form-control col-md-7 col-xs-12"  
+                      name="obra"
+                      required
+                      placeholder="Nombre de la Obra"  type="text">
+                      <option></option>
+                      <?php 
+                      include './conexion.php';
+                      $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+                      while ( $fila=mysqli_fetch_array($consulta)) {
+                       ?> <!--Concatenar el nombre de la cuenta-->
+                       <option value="<?php echo $fila['id_obra'] ?>"><?php echo $fila['descripcion']  ?></option>
+                       <?php } ?>
+                     </select>
+                   </div>
+                   <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                 </div>
+
+                 <!--Option para las cuentas existentes del departamento seleccionado
+                 <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
+                  <div class="col-md-6 col-sm-9 col-xs-12">
+                    <input class="select2_single form-control"
+                    name="cuenta"
+                    class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;" >
+                  
+                                <?php 
+                                include './conexion.php';
+                              //  $consulta=$mysqli->query("SELECT obras.*, cuentas.*
+                                // from obras
+                                 //INNER JOIN cuentas ON obras.id_cuenta= cuentas.id_cuenta
+                                // where obras.id_cuenta= cuenta.id_cuenta
+                               //  ")or die($mysqli->error);
+                                
+                                 ?>
+                     >
+
+                   </div>
+                   <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                 </div>
+-->
+
+
+
+
+
+
+
+                 <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="observaciones" class="form-control col-md-7 col-xs-12" 
+                    name="observaciones"
+                    placeholder="Observaciones dentro de la obra" type="text">
                   </div>
+                </div>
+
+                <div class="item form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input id="vehiculo" class="form-control col-md-7 col-xs-12" 
+                    name="vehiculo"
+                    placeholder="Vehículo usado"
+                    type="text">
+                  </div>
+                </div>
 
 
 
 
 
 
-                </div><div id="step-2" class="content" style="display: none;">
-                <h2 class="StepTitle"> </h2>
+              </div><div id="step-2" class="content" style="display: none;">
+              <h2 class="StepTitle"> </h2>
 
 
-                <div class="form-group">
-                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
-                 <div class="col-md-6 col-sm-9 col-xs-12">
-                  <select class="select2_single form-control"
-                  name="proveedor"
-                  class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;">
-                  <option></option>
+              <div class="form-group">
+               <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
+               <div class="col-md-6 col-sm-9 col-xs-12">
+                <select class="select2_single form-control"
+                name="proveedor"
+                class="form-control col-md-8 col-xs-12" tabindex="-1" style="width:100%;">
+                <option></option>
 
 
-                  <?php 
-                  include './conexion.php';
-                  $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
-                  while ( $fila=mysqli_fetch_array($consulta)) {
+                <?php 
+                include './conexion.php';
+                $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
+                while ( $fila=mysqli_fetch_array($consulta)) {
 
-                   ?>
-                   <option value="<?php echo $fila['id_proveedor'] ?>"><?php echo $fila['nombre'] ?></option>
-                   <?php } ?>
-                 </select>
-               </div>
-                 <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                 ?>
+                 <option value="<?php echo $fila['id_proveedor'] ?>"><?php echo $fila['nombre'] ?></option>
+                 <?php } ?>
+               </select>
              </div>
-
-
-
-
-
-
-
-
-
-
-
-             <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Material  <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="material" class="form-control col-md-7 col-xs-12" 
-                name="material" placeholder="Material a comprar"  type="text">
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad  <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="cantidad" class="form-control col-md-7 col-xs-12" 
-                name="cantidad" placeholder="Unidades a comprar"  type="text">
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Precio unitario <span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <input id="precio" class="form-control col-md-7 col-xs-12" 
-                name="precio" placeholder="Precio unitario"  type="text">
-              </div>
-            </div>
-            <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
-             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Devengada">Devengado</button>
-             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
+             <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
            </div>
 
 
+
+
+
+
+
+
+
+
+
+           <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Material  <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="material" class="form-control col-md-7 col-xs-12" 
+              name="material" placeholder="Material a comprar"  type="text">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad  <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="cantidad" class="form-control col-md-7 col-xs-12" 
+              name="cantidad" placeholder="Unidades a comprar"  type="text">
+            </div>
+          </div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Precio unitario <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="precio" class="form-control col-md-7 col-xs-12" 
+              name="precio" placeholder="Precio unitario"  type="text">
+            </div>
+          </div>
+          <div class="col-md-4 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
+           <button type="button" class="btn btn-warning" style="margin-left: 25%;" data-toggle="modal" data-target="#Devengada">Devengar</button>
+          <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>-->
          </div>
+
+
        </div>
-       <div class="ln_solid"></div>
+     </div>
+     <div class="ln_solid"></div>
     <!--   <div class="form-group">
         <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px; ">
           <button type="submit" class="btn btn-primary">Cancelar</button>
@@ -451,91 +458,6 @@
 
 
 
-<!-- Cantidad Pagado-->
-<!-- Cantidad Pagado-->
-<!-- Cantidad Pagado-->
-<!-- Cantidad Pagado-->
-
-<div id="Pagado" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-        <h4 class="modal-title" >Cantidad Pagada</h4>
-      </div>
-      <div class="col-xs-12 col-md-12" style="display:none;">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-        for="fecha"
-        name ="fechapago"
-        >Fecha  <span class="required">*</span>
-      </label>
-      <fieldset>
-        <div class="control-group">
-          <div class="controls">
-
-            <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-              <input type="text" class="form-control has-feedback-left" id="single_cal4" 
-              placeholder="First Name" aria-describedby="inputSuccess2Status4">
-              <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-              <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-            </div>
-
-          </div>
-        </div>
-      </fieldset>
-
-    </div>
-    <div class="modal-body" style="text-align: left; ">
-
-     <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-     <div class="col-sm-8">  </div>
-     <div class="input-group"> 
-      <input type="numeric" class="form-control" placeholder="000,000,000.00" 
-      name="pag"
-      data-fv-field="price">
-      <span class="input-group-addon">
-       $
-     </span> 
-   </div>
- </div>
- <!--poliza -->
- <div class="modal-body" style="text-align: left;margin-top: -20px;text-align: left; ">
-
-   <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza de Pagado </h5> </div>
-   <div class="col-sm-8">  </div>
-   <div class="input-group"> 
-    <input type="number"  max="<?php echo $_POST["dev"] ?>" class="form-control" 
-    name="polpag"
-    data-fv-field="price">
-    <span class="input-group-addon">
-    </span> 
-  </div>
-
-</div>
-<!--poliza -->
-<div class="col-sm-1"></div>
-
-
-
-<div class="modal-footer" style="padding-top:35px;">
- <button type="button"  class="btn btn-success" >Pagar</button>
- <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-</div>
-</div>
-
-
-
-
-</div>
-</div>
-
-
-<!-- Cantidad Pagado-->
-<!-- Cantidad Pagado-->
-<!-- Cantidad Pagado-->
-<!-- Cantidad Pagado-->
-<!-- Cantidad Pagado-->
-<!--end Cantidad Pagado-->
 
 
 <!-- footer content -->
@@ -576,7 +498,7 @@
     //  alert("sdasd");
       // e.preventDefault();
     });
-   
+
   })
 </script>
 </body>

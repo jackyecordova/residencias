@@ -154,20 +154,20 @@
                        <button type="button" class="btn btn-primary"  ><i class="fa fa-plus" data-target="#nuevacuenta" aria-hidden="true"></i></button>
                    </div>
 
-
+<!--
                      <div class="item form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo">Costo  <span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12" >
                         <input class="form-control col-md-7 col-xs-12" 
                         name="costo"
-                        placeholder="Costo de la obra"  type="text">
+                        placeholder="Costo de la obra"  type="number">
 
 
                       </div>
                     </div>
                     
-
+-->
                     
 
                     

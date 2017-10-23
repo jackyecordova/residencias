@@ -113,11 +113,11 @@
                   style="width: 250px;">
                   Cuenta
                 </th>
-                <th class="sorting" tabindex="0" 
+               <!-- <th class="sorting" tabindex="0" 
                 aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
                 style="width: 100px;">
                 Costo
-              </th>
+              </th>-->
               <th class="sorting" tabindex="0" 
               aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
               style="width: 80px;">
@@ -142,7 +142,7 @@
             <td class="sorting_1"><?php echo $fila['id_obra'] ?></td>
             <td><?php echo $fila['descripcion'] ?></td>
             <td><?php echo $fila['id_cuenta'] ?></td>
-            <td><?php echo $fila['costo'] ?></td>
+           <!-- <td><?php// echo   number_format($fila['costo']  ,2);?></td>-->
             <td>               
               <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
               data-target="#editar"
@@ -150,7 +150,8 @@
               data-id="<?php echo $fila['id_obra'] ?>"
               data-descripcion="<?php echo $fila['descripcion'] ?>"
               data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
-              data-costo="<?php echo $fila['costo'] ?>" ><i class="fa fa-pencil">
+             
+              ><!-- data-costo="<?php //echo $fila['costo'] ?>"--> <i class="fa fa-pencil">
 
             </i>  </a>
             <a href="#" class="btn btn-danger btn-xs btnEliminar" 
@@ -242,7 +243,7 @@
 
               <div class="clearfix"></div>
 
-              <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
+             <!-- <div class="item form-group" style=" margin-bottom: 40px;width:100%;">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="costo"
                 style="width:20%">Costo  <span class="required">*</span>
               </label>
@@ -254,7 +255,7 @@
 
 
               </div>
-            </div>
+            </div>-->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
@@ -343,7 +344,7 @@
    $("#idobraedi").val(id);
    $("#descripcioneditar").val(descripcion) ;  
    $("#cuentaeditar").val(cuenta) ;    
-   $("#costoeditar").val(costo) ;
+  // $("#costoeditar").val(costo) ;
 
 
 

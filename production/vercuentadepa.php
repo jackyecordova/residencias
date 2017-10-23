@@ -9,9 +9,9 @@
 
 //}
  ?>-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
@@ -25,6 +25,13 @@
   <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
   <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
+  <!-- Datatables -->
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 
   <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -97,7 +104,7 @@
                     <button class="btn btn-default" type="button">Buscar</button>
                   </span>
                 </div>           
-              </div>
+                                                     
 
 
             </div>
@@ -115,8 +122,10 @@
 
             <p>REGISTRO DE LAS CUENTAS POR DEPARTAMENTO</p>
 
-            <!-- start project list -->
+            <!-- start project list 
+            id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info"-->
             <table class="table table-striped projects">
+
               <thead>
                 <tr>
                   <th style="width:8%">Id</th>
@@ -160,7 +169,7 @@
 
                   <td>
                    <?php echo $fila['departamento'] ?></td> 
-                   <td>    <?php echo $fila['monto'] ?></td>
+                   <td>    <?php echo number_format($fila['monto']  ,2) ; ?></td>
 
                    <td>      <?php echo $fila['cuenta'] ?></td>
                    <td>      <?php echo $fila['nombre'] ?></td>
@@ -201,6 +210,13 @@
            <?php 
 
          } ?>
+
+
+
+
+
+
+
 
 
 
@@ -274,13 +290,13 @@
                      </select>
                    </div>
                  </div>
-                    <div class="clearfix"></div><br>
+                 <div class="clearfix"></div><br>
                  <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta</label>
                   <div class="col-md-9 col-sm-9 col-xs-12">
                     <select class="select2_single form-control"
                     name="cuenta"
-                     id="cuentaeditar" 
+                    id="cuentaeditar" 
                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
                     <option></option>
                     <?php 
@@ -293,25 +309,25 @@
                    </select>
                  </div>
                </div>
-                  <div class="clearfix"></div><br>
+               <div class="clearfix"></div><br>
                <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" > Año <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12" >
                   <input id="cuenta" class="form-control col-md-7 col-xs-12" 
                   name="anio"
-                   id="anioeditar" 
+                  id="anioeditar" 
                   placeholder="Año de carga"  type="text">
                 </div>
               </div>
-                 <div class="clearfix"></div><br>
+              <div class="clearfix"></div><br>
               <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" > Monto <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12" >
                   <input id="cuenta" class="form-control col-md-7 col-xs-12" 
                   name="monto"
-                   id="montoeditar" 
+                  id="montoeditar" 
                   placeholder="Cantidad de la cuenta"  type="text">
                 </div>
               </div>
@@ -354,6 +370,7 @@
 
   </tbody>
 </table>
+</div>
 <!-- end project list -->
 </div>
 </div>
@@ -379,7 +396,7 @@
 <!-- footer content -->
 <footer>
   <div class="pull-right">
-    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+    <a href="http://www.itsncg.edu.mx/"> Instituto Tecnológico Superior </a>de Nuevo Casas Grandes
   </div>
   <div class="clearfix"></div>
 </footer>
@@ -422,6 +439,23 @@
 <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
+<!-- Datatables -->
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../vendors/jszip/dist/jszip.min.js"></script>
+<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
 <script type="text/javascript">
 
   $(".btnEliminar").on('click',function(){
@@ -440,7 +474,7 @@
    $("#departamentoeditar").val(departamento) ;  
    $("#cuentaeditar").val(cuenta) ;    
    $("#anioeditar").val(anio) ;
-  $("#montoeditar").val(monto) ;
+   $("#montoeditar").val(monto) ;
 
 
 

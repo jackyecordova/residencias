@@ -89,10 +89,11 @@
               <h1>Control Presupuestal<small></small></h1>
               <h2>$  <?php 
                 include './conexion.php';
-                $consulta=$mysqli->query("select * from presupuestos ")or die($mysqli->error);
+                $consulta=$mysqli->query("select * from presupuestos
+                WHERE anio = '".date("Y")."' ")or die($mysqli->error);
                        //Imprimir si es de este año
                 while ( $fila=mysqli_fetch_array($consulta)) {
-                 echo $fila['monto'];}
+                 echo  number_format($fila['monto'],2);}
                  ?></h2>
                  <br>
                  <h3><small>Presupuesto otorgado para el año 2017</small> </h3>
@@ -321,12 +322,12 @@
                         <small style="margin-right: 30px;margin-left: 10px;">  
                          <?php echo $fila['cuenta']?> 
                         Presupuesto Total:   $
-                       <?php echo $fila['cantidad']?>.00
+                       <?php echo   number_format($fila['cantidad']  ,2)?>
 
                      
                        </small>
                           Presupuesto usado:   $
-                       <?php echo $row['total']?>.00
+                       <?php echo number_format($row['total'] ,2);?>
                        <?php $res=$fila['cantidad']-$row['total'];
                        if ($res<=0) {
                          $color="#FF0000";
@@ -335,7 +336,7 @@
                        }
                          ?>
                        
-                       <small style="color:#FF0000;">Restante: <?php echo $res ?>.00 </small>
+                       <small style="color:<?php echo $color; ?>;">Restante: $  <?php echo  number_format($res ,2) ?></small>
                        
                       </h4>
                     
@@ -368,7 +369,7 @@
                             <th scope="row">
                               <?php echo $fi['id_departamento'] ?></th>
                               <td><?php echo $fi['departamento'] ?></td>
-                              <td><?php echo $fi['monto'] ?></td>
+                              <td>$ <?php echo number_format($fi['monto']  ,2); ?></td>
                               <?php $res=+ $fi['monto'];
                               echo $res ?> 
                             </tr>

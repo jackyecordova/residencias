@@ -192,7 +192,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12" >
                   <input  class="form-control col-md-7 col-xs-12" 
                   name="cantidad"
-                  placeholder="Cantidad de la Cuenta" type="text">
+                  placeholder="Cantidad de la Cuenta" type="number">
 
 
 <!--
