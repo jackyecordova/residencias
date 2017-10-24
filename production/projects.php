@@ -108,16 +108,16 @@
  <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
-              <div class="x_title">
+            <!--  <div class="x_title">
                 <h2>Cuentas Registradas </h2>
 
                 <div class="clearfix"></div>
-              </div>
+              </div>-->
               <div class="x_content">
                 <p class="text-muted font-13 m-b-30">
 
                 </p>
-              
+              <!--
             <div class="row" style="margin-bottom:50px;">
               <div class="col-md-12">
                 <div class="x_panel">
@@ -160,76 +160,43 @@
 
 
           </div>
-
+-->
           <div class="x_content" id="result">
 
-            <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
+        <!--   <p>REGISTRO DE LAS ORDENES EMITIDAS</p>--> 
 
 
             <!-- TABLA-->
            
-  <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Cuentas Registradas </h2>
+ <table class="table table-striped projects">
+              <thead>
+                <tr>
+                  <th style="width: 1%">Id</th>
+                  <th style="width: 25%">Obra</th>
+                  <th style="width: 32%">Observaciones</th>
+                  <th class="status">Status</th>
+                  <th> 
+                    <div class="btn-group" class="pull-rigth" style="margin-left">
+                     <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                     id="filtrardev">
+                     <i class="fa fa-filter" style="font-size: 10px;"></i>
+                   </button>
+                 </div>
+               </th>
+               <th>
+                <div class="btn-group" class="pull-rigth" style="margin-left;">
+                 <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                 id="filtrardpag">
+                 <i class="fa fa-filter" style="font-size: 10px;"></i>
+               </button>
+             </div>
+                                                     </th>
+                                                     <th style="width: 20%"></th>
+                                                   </tr>
+                                                 </thead>
+                                                 <tbody>
 
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <p class="text-muted font-13 m-b-30">
-
-                </p>
-              
-                <div class="row">
-                  <div class="col-sm-12">
-                    <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info"
-                          style="border:0px;">
-                      <thead>
-                                       <tr role="row">
-                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 1%;border:0px;">
-                                        id 
-                                      </th>
-                                      <th class="sorting" tabindex="0" aria-controls="datatable"
-                                      rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                                      style="width: 35%;border:0px;">
-                                      Obra
-                                    </th>
-                                    <th class="sorting" tabindex="0" 
-                                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                                    style="width:39%;border:0px;">
-                                    Observaciones
-                                  </th>
-                                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;border:0px;">
-                                  Status
-                                </th>
-                               
-                              <th  style="border:0px;"> 
-                                            <div class="btn-group" class="pull-rigth" style="margin-left">
-                                             <button class="btn btn-info" type="button" style="margin-left: 30%;"
-                                             id="filtrardev">
-                                             <i class="fa fa-filter" style="font-size: 10px;"></i>
-                                           </button>
-                                         </div>
-                              </th>
-                              <th  style="border:0px;">
-                                          <div class="btn-group" class="pull-rigth" style="margin-left;">
-                                           <button class="btn btn-info" type="button" style="margin-left: 30%;"
-                                           id="filtrardpag">
-                                           <i class="fa fa-filter" style="font-size: 10px;"></i>
-                                         </button>
-                                         </div>
-                              </th>
-                               <th style="width: 50%;border:0px;"></th>
-
-                            </tr>
-                </thead>
-
-
-          <tbody>
-             <?php 
+                                                   <?php 
                                                    include './conexion.php';
                                                   //where orden.activo='no'
                                                    $consulta=$mysqli->query("
@@ -270,20 +237,19 @@
                                                                  $pagado='background-color:rgba(00, 00, 00, 0.0)';
                                                                }
                                                  ?>
-
-             <tr style="<?php  echo $pagado?>;order:0px;">
-                                  <td  style="border:0px;"><?php echo $fila['ord_id'] ?></td>
-                                                  <td  style="border:0px;">
+                                                 <tr style="<?php  echo $pagado?>">
+                                                  <td><?php echo $fila['ord_id'] ?></td>
+                                                  <td>
                                                     <a><?php echo $fila['nombre'] ?></a><!--cuenta nombre-->
 
                                                     <small><?php echo $fila['departamento'] ?></small>
-                                                  </td  style="border:0px;">
-                                                  <td style="border:0px;">
+                                                  </td>
+                                                  <td>
 
                                                    <a> <?php echo $fila['observaciones'] ?></a>
 
-                                                 </td  style="border:0px;">
-                                                 <td class="project_progress "  style="border:0px;">
+                                                 </td>
+                                                 <td class="project_progress ">
 
 
 
@@ -292,17 +258,17 @@
                                                     <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
                                                   </div>
                                                   <small><?php  echo  number_format($res ,2);?>% COMPLETADO</small>
-                                                </td >
-                                                <td  style="border:0px;"> 
+                                                </td>
+                                                <td>
                                                   <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
                                                   data-toggle="modal" data-target="#Devengada">
                                                   Devengado
                                                 </button>
                                               </td>
-                                              <td  style="border:0px;"> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
+                                              <td> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
                                                 Pagado</button>
                                               </td>
-                                              <td  style="border:0px;">
+                                              <td>
                                                <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
                                                <a href="#" class="btn btn-info btn-xs btnEditar"
                                                data-id="<?php echo $fila['ord_id'] ?>"
@@ -314,76 +280,16 @@
                                                <i class="fa fa-trash-o"></i> Eliminar</a>
 
                                              </td>
+                                           </tr>
 
-         </tr>
-         <?php  }?>
+                                           <?php 
 
-         <!-- eliminar-->
-      
-          <!-- eliminar-->
+                                          } ?>
 
 
 
-
-
-
-          <!-- editar-->
-         
-      <!-- editar-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                          </tbody>
+            </table>
 
 
           <!-- TABLA-->

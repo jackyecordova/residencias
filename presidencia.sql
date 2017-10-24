@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2017 at 08:20 PM
+-- Generation Time: Oct 24, 2017 at 04:03 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `cuentas` (
   `cuenta` varchar(20) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `cantidad` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cuentas`
@@ -51,7 +51,11 @@ CREATE TABLE IF NOT EXISTS `cuentas` (
 
 INSERT INTO `cuentas` (`id_cuenta`, `cuenta`, `nombre`, `cantidad`) VALUES
 (1, '1-2-4-0-000-0000-000', 'CUENTA11', '1000000.00'),
-(2, '1-2-4-1-000-0000-000', 'CUENTA 2', '1000000.00');
+(2, '1-2-4-1-000-0000-000', 'CUENTA 2', '1000000.00'),
+(3, '1-1-1-1-111-1111-111', 'Nueva Cuenta1', '15000'),
+(5, '5-3-2-2-004-0031-000', 'MANTENIMIENTO VEHICULOS SERVICIOS PUBLICOS', '550000.00'),
+(6, '5-1-2-2-001-0000-000', 'ALIMENTOS', '241724.24'),
+(7, '5-1-2-1-004-0006-000', 'MATERIALES Y SUMINISTROS VARIOS', '310599.41');
 
 -- --------------------------------------------------------
 
@@ -61,19 +65,22 @@ INSERT INTO `cuentas` (`id_cuenta`, `cuenta`, `nombre`, `cantidad`) VALUES
 
 CREATE TABLE IF NOT EXISTS `departamentos` (
   `id_departamento` int(8) NOT NULL,
-  `departamento` char(25) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `departamento` char(25) DEFAULT NULL,
+  `presupuesto` varchar(10000) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `departamentos`
 --
 
-INSERT INTO `departamentos` (`id_departamento`, `departamento`) VALUES
-(1, 'OFICIALIA MAYOR'),
-(2, 'CATASTRO'),
-(3, 'SINDICATURA'),
-(4, 'NUEVO DEPA'),
-(5, 'SINDICATURA');
+INSERT INTO `departamentos` (`id_departamento`, `departamento`, `presupuesto`) VALUES
+(1, 'OFICIALIA MAYOR', '1500000'),
+(2, 'CATASTRO', '16420'),
+(3, 'SINDICATURA', '187520'),
+(4, 'NUEVO DEPA', '1522222'),
+(5, 'SINDICATURA', '14479920'),
+(6, 'DEPA SAUL', '500000'),
+(7, 'Itzel', '500');
 
 -- --------------------------------------------------------
 
@@ -84,18 +91,19 @@ INSERT INTO `departamentos` (`id_departamento`, `departamento`) VALUES
 CREATE TABLE IF NOT EXISTS `obras` (
   `id_obra` int(8) NOT NULL,
   `descripcion` varchar(50) DEFAULT NULL,
-  `id_cuenta` varchar(8) NOT NULL,
-  `costo` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `id_cuenta` varchar(8) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `obras`
 --
 
-INSERT INTO `obras` (`id_obra`, `descripcion`, `id_cuenta`, `costo`) VALUES
-(1, 'AVISOS OFICIALES', '1', ' 1740.00 '),
-(4, 'OBRA1', '2', '100'),
-(6, 'GRATIFICACIONES', '1', '1110123');
+INSERT INTO `obras` (`id_obra`, `descripcion`, `id_cuenta`) VALUES
+(1, 'AVISOS OFICIALES', '1'),
+(4, 'OBRA1', '2'),
+(6, 'GRATIFICACIONES', '1'),
+(8, 'NUEVA OBRA POBRAAAA', '3'),
+(10, 'obras', '2');
 
 -- --------------------------------------------------------
 
@@ -108,7 +116,6 @@ CREATE TABLE IF NOT EXISTS `orden` (
   `fecha` date DEFAULT NULL,
   `fecha_deveng` date DEFAULT NULL,
   `fecha_pago` date DEFAULT NULL,
-  `id_obra` varchar(8) DEFAULT NULL,
   `id_cuenta` varchar(8) DEFAULT NULL,
   `total_compromet` varchar(8) DEFAULT NULL,
   `poliza_dev` varchar(8) DEFAULT NULL,
@@ -125,27 +132,15 @@ CREATE TABLE IF NOT EXISTS `orden` (
   `cantidad` varchar(5) NOT NULL,
   `precio` varchar(10) NOT NULL,
   `activo` varchar(2) NOT NULL DEFAULT 'si'
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orden`
 --
 
-INSERT INTO `orden` (`ord_id`, `fecha`, `fecha_deveng`, `fecha_pago`, `id_obra`, `id_cuenta`, `total_compromet`, `poliza_dev`, `ppto_dev`, `poliza_pag`, `ppto_pag`, `observaciones`, `ord_numfactura`, `ord_vehiculo`, `status`, `id_departamento`, `id_proveedor`, `material`, `cantidad`, `precio`, `activo`) VALUES
-(1, '2017-09-01', '2017-09-19', '2017-09-26', '1', '1', '100', 'PD345', '100', 'Pd234', '70', 'wwn', 'wwryntu', 'ryum', 'pagada', '1', 2, 'Lámina', '2', '100', 'si'),
-(2, '2017-10-06', '2017-10-06', '2017-10-06', '1', '1', '1500', 'POOL', '1', 'POL', '1', 'JOSE ALONSO GONZALEZ RASCON COMANDANTE', '466', 'VIAJE A CHIHUAHUA', 'PAGADA', '1', 0, '', '', '', 'si'),
-(3, '2017-10-06', '2017-10-06', '2017-10-06', '1', '1', '500', 'POOL', '500', 'POL', '500', 'JOSE ALONSO GONZALEZ RASCON COMANDANTE', '466', 'VIAJE A CHIHUAHUA', 'PAGADA', '1', 0, '', '', '', 'si'),
-(4, '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0', '', '0', '', '0', '', '', '', '', '', 0, '', '', '', ''),
-(5, '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0', '', '0', '', '0', '', '', '', '', '', 0, '', '', '', ''),
-(6, '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0', '', '0', '', '0', '', '', '', '', '', 0, '', '', '', ''),
-(7, '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0', '', '0', '', '0', '', '', '', '', '', 0, '', '', '', ''),
-(8, '0000-00-00', '0000-00-00', '0000-00-00', '', '', '0', '', '0', '', '0', '', '', '', '', '1', 0, '', '', '', ''),
-(9, '0000-00-00', '0000-00-00', '0000-00-00', 'adsd', '1', '12', '', '0', '', '0', 'asdsd', '12312', 'nissna', '', '1', 3, 'asd', '1,000', '12', ''),
-(14, '0000-00-00', '0000-00-00', '0000-00-00', '1', '1', '204', '', '0', '', '0', 'observaciones', '41', 'vei', '', '1', 3, 'mat', '12', '17', 'si'),
-(15, '0000-00-00', '0000-00-00', '0000-00-00', '1', '1', '18660', '', '0', '', '0', 'casa', '', 'otro', '', '1', 2, 'chescos', '12', '1555', 'si'),
-(16, '2017-10-16', '0000-00-00', '0000-00-00', '1', '1', '18660', '', '0', '', '0', 'casa', '', 'otro', '', '1', 2, 'chescos', '12', '1555', 'si'),
-(17, '2017-10-16', '0000-00-00', '0000-00-00', '1', '1', '0', '', '0', '', '0', '', '', '', '', '1', 2, '', '', '', 'no'),
-(18, '2017-10-16', '0000-00-00', '0000-00-00', '1', '1', '0', '', '0', '', '0', '', '', '', '', '1', 2, '', '', '', 'no');
+INSERT INTO `orden` (`ord_id`, `fecha`, `fecha_deveng`, `fecha_pago`, `id_cuenta`, `total_compromet`, `poliza_dev`, `ppto_dev`, `poliza_pag`, `ppto_pag`, `observaciones`, `ord_numfactura`, `ord_vehiculo`, `status`, `id_departamento`, `id_proveedor`, `material`, `cantidad`, `precio`, `activo`) VALUES
+(29, '2017-10-24', '0000-00-00', '0000-00-00', '6', '250', '', '0', '', '0', 'ALIEMTOS PERSONAL DE OFICIALIA', '271', '', '', '1', 3, 'Papitas y sodas', '10', '25', 'si'),
+(30, '2017-10-24', '0000-00-00', '0000-00-00', '5', '143', '', '0', '', '0', 'CHAPA DE BOLA PARA BAÃ‘O', '24130', '', '', '1', 3, 'Chapa para baÃ±o', '1', ' 143.00 ', 'si');
 
 -- --------------------------------------------------------
 
@@ -165,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `presupuestos` (
 --
 
 INSERT INTO `presupuestos` (`id_presupuesto`, `id_cuenta`, `anio`, `monto`) VALUES
-('1', '1', '2017', '193050187.51 ');
+('1', '1', '2017', '193050187.51');
 
 -- --------------------------------------------------------
 
@@ -179,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `presupuesto_depa` (
   `id_cuenta` varchar(8) DEFAULT NULL,
   `anio` varchar(4) DEFAULT NULL,
   `monto` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `presupuesto_depa`
@@ -188,7 +183,11 @@ CREATE TABLE IF NOT EXISTS `presupuesto_depa` (
 INSERT INTO `presupuesto_depa` (`id_presupuesto_depa`, `id_departamento`, `id_cuenta`, `anio`, `monto`) VALUES
 (1, '1', '1', '2017', '1000000'),
 (3, '2', '2', '2017', '10000000'),
-(4, '2', '1', '2017', '500');
+(4, '2', '1', '2017', '500'),
+(5, '5', '2', '1132', '1111111'),
+(6, '1', '1', '2017', '3600'),
+(7, '4', '3', '2017', '10'),
+(8, '7', '1', '2017', '40');
 
 -- --------------------------------------------------------
 
@@ -201,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `proveedores` (
   `nombre` char(30) DEFAULT NULL,
   `direccion` varchar(40) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `proveedores`
@@ -209,7 +208,8 @@ CREATE TABLE IF NOT EXISTS `proveedores` (
 
 INSERT INTO `proveedores` (`id_proveedor`, `nombre`, `direccion`, `telefono`) VALUES
 (2, 'CAM', 'Provedor 1', '569851561'),
-(3, 'Saul', 'Provedor 2', '6361024875');
+(3, 'Saul', 'Provedor 2', '6361024875'),
+(4, 'Proveedor', 'papas Fritas', '(636)-789-52-41');
 
 -- --------------------------------------------------------
 
@@ -230,21 +230,22 @@ CREATE TABLE IF NOT EXISTS `reportes` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id_usuario` varchar(8) NOT NULL,
-  `nombre` char(20) DEFAULT NULL,
+  `id_usuario` int(8) NOT NULL,
+  `nombre` char(20) NOT NULL DEFAULT '',
   `correo` varchar(35) DEFAULT NULL,
   `password` varchar(8) DEFAULT NULL,
   `foto` text NOT NULL,
   `nivel` char(15) DEFAULT NULL,
   `puesto` char(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `correo`, `password`, `foto`, `nivel`, `puesto`) VALUES
-('1', 'Admin', 'admin@gmail.com', '1234', 'img.jpg', 'Admin', 'Admin');
+(3, 'Jacky', 'jackye@gmail.com', '7110eda4', 'foto.jpg', 'Admin', 'Admin'),
+(4, 'Saul', 'saul@hotmail.com', '7110eda4', 'foto.jpg', 'Admin', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -323,32 +324,37 @@ ALTER TABLE `control_presupuesto`
 -- AUTO_INCREMENT for table `cuentas`
 --
 ALTER TABLE `cuentas`
-  MODIFY `id_cuenta` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_cuenta` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `departamentos`
 --
 ALTER TABLE `departamentos`
-  MODIFY `id_departamento` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id_departamento` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id_obra` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_obra` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `ord_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `ord_id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `presupuesto_depa`
 --
 ALTER TABLE `presupuesto_depa`
-  MODIFY `id_presupuesto_depa` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_presupuesto_depa` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id_proveedor` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_proveedor` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
