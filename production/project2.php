@@ -85,22 +85,37 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Obras Registradas <small></small></h2>
-                   
+                  
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                                      <div class="panel panel-default col-xs-2 pull-right" style="    height: 32.4px;">
+                                            <div class="panel-heading col-xs-4 " style="background-color:rgba(00, 00, 00, 0.0)">
+                                              <h3 class="panel-title" style="font-size:9px;">Emitido</h3>
+                                            </div>
+                                           <div class="panel-heading col-xs-4 " style="background-color:rgba(194, 47, 47, 0.08);margin-right:0%;">
+                                              <h3 class="panel-title" style="font-size: 9px;">Devengado</h3>
+                                            </div>
+                                            <div class="panel-heading col-xs-4 " style="background-color:rgba(24, 139, 26, 0.17);">
+                                              <h3 class="panel-title" style="font-size:9px;">Pagado</h3>
+                                            </div>
+                                          </div>
+                                          
                     
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
-                      <thead>
-                        <tr>
-                          <th style="width: 1%">Id</th>
-                          <th style="width: 25%">Obra</th>
-                          <th style="width: 32%">Descripcion</th>
-                          <th class="status">
+                    
+
+                    
+                    <table id="datatable-buttons" class="table table-striped table-bordered" style="border-collapse: collapse">
+                      <thead >
+                        <tr >
+                          <th style="width: 1% ;border:0px;">Id</th>
+                          <th style="width: 25%;border:0px;">Obra</th>
+                          <th style="width: 25%;border:0px;">Descripcion</th>
+                          <th class="status" style="border:0px;">
                                         
-                          </th>
-                          <th></th>
-                          <th></th>
+                          </th style="border:0px;">
+                          <th style="border:0px;"></th>
+                          <th style="border:0px;"></th>
                         </tr>
                       </thead>
 
@@ -130,59 +145,73 @@
                                                     $todo=$fila['total_compromet'];
                                                     $dev=$fila['ppto_dev'];
                                                     $pag=$fila['ppto_pag'];
+                                                    $status=$fila['status'];
                                                     if ($dev<$todo) {
                                                       $res=$dev * 100 / $todo;
                                                       echo $res;
                                                     }else {
                                                       $res =$pag * 100 / $todo;
-
                                                     }
-                                                              if ($dev<$todo) {
-                                                                                                      //rojo
+                                                    // if ($dev<$todo) {
+
+                                                           if ($status=='Devengado') {
+                                                                //rojo
                                                                $pagado='background-color:rgba(194, 47, 47, 0.08)';
 
-
-                                                                 }else if ($pag==$todo) {//verde
+                                                               // }else if ($pag==$todo) {//verde
+                                                                 }else if ($status=='Pagado') {//verde
                                                                   $pagado='background-color:rgba(24, 139, 26, 0.17)';
                                                                 }else{
                                                                                             //blanco
 
                                                                  $pagado='background-color:rgba(00, 00, 00, 0.0)';
-                                                               }
+                                                               } 
+                                                            
                                                  ?>
 
 
 
 
-                        <tr style="<?php  echo $pagado?>">
-                          <td><?php echo $fila['ord_id'] ?></td>
-                          <td><a><?php echo $fila['nombre'] ?></a><!--cuenta nombre-->
+                        <tr style="<?php  echo $pagado?>;">
+                          <td style="border:0px;"><?php echo $fila['ord_id'] ?></td>
+                          <td style="border:0px;"><a><?php echo $fila['nombre'] ?></a><!--cuenta nombre-->
 
                                                     <small>
                                                     <?php echo $fila['departamento'] ?>
                                                     </small>
                           </td>
-                          <td>
+                          <td style="border:0px;">
                            <a> <?php echo $fila['observaciones'] ?></a>
                           </td>
-                          <td class="project_progress ">
+                          <td class="project_progress " style="border:0px;">
                               <!-- <div class="progress progress_sm">
-                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php//  echo $res?>" ></div>
                                                   </div>
                                                   <small>
-                                                  <?php  echo  number_format($res ,2);?>% COMPLETADO
+                                                  <?php // echo  number_format($res ,2);?>% COMPLETADO
                                                   </small>
 
-                                                  <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
+                                                 -->
+
+                                                  <small><?php  echo  number_format($res ,2);?>% COMPLETADO</small>
+                          </td>
+                          <td style="border:0px;">
+                           <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
                                                   data-toggle="modal" data-target="#Devengada">
                                                   Devengado
                                                 </button>
-                                                <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
-                                                Pagado
-                                                </button>-->
-                          </td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
+                          <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
+                                                Pagado</button>
+                                                </td>
+                          <td style="border:0px;">  <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
+                                               <a href="#" class="btn btn-info btn-xs btnEditar"
+                                               data-id="<?php echo $fila['ord_id'] ?>"
+                                               data-toggle="modal" data-target="#editar">
+                                               <i class="fa fa-pencil"></i> Editar</a>
+                                               <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+                                               data-id="<?php echo $fila['ord_id'] ?>"
+                                               data-toggle="modal" data-target="#eliminar">
+                                               <i class="fa fa-trash-o"></i> Eliminar</a></td>
                         </tr>
                         <?php } ?>
                       

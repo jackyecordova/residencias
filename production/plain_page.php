@@ -144,7 +144,10 @@
   <tbody>
     <?php 
     include './conexion.php';
-    $consulta=$mysqli->query("select * from orden  order by ord_id DESC")or die($mysqli->error);
+    $consulta=$mysqli->query("select orden.*,cuentas.* 
+      from orden
+      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+      order by orden.ord_id DESC")or die($mysqli->error);
     while ( $fila=mysqli_fetch_array($consulta)) {
      if ($fila['activo']== "si" ) {
                                     //blanco
@@ -157,9 +160,9 @@
                     # code...
     ?>
 
-    <tr role="row" class="odd"  style="<?php echo$activado ?>">
+    <tr role="row" class="odd"  style="<?php echo $activado ?>">
       <td > <?php echo $fila['ord_id'] ?></td>
-      <td><?php echo $fila['id_obra'] ?></td>
+      <td><?php echo $fila['nombre'] ?></td>
       <td><?php echo $fila['observaciones'] ?></td>
       <td><?php echo $fila['id_cuenta'] ?></td>
       <td><?php echo $fila['fecha'] ?></td>
