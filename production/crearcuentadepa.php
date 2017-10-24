@@ -156,7 +156,7 @@
                                             while ( $fila=mysqli_fetch_array($consulta)) {
                                               
                                              ?>
-                                                <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
+                                                <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre'] ?><?php echo $fila['cuenta'] ?></option>
                                                 <?php } ?>
                                     </select>
                               </div>

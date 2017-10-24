@@ -27,6 +27,12 @@
   <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
   <!-- iCheck -->
   <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <!-- Datatables -->
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
@@ -67,9 +73,51 @@
             </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <div class="clearfix"></div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Cuentas Registradas </h2>
+
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <p class="text-muted font-13 m-b-30">
+
+                </p>
+              
             <div class="row" style="margin-bottom:50px;">
               <div class="col-md-12">
                 <div class="x_panel">
@@ -118,130 +166,227 @@
             <p>REGISTRO DE LAS ORDENES EMITIDAS</p>
 
 
-            <!-- start project list -->
-            <table class="table table-striped projects">
-              <thead>
-                <tr>
-                  <th style="width: 1%">Id</th>
-                  <th style="width: 25%">Obra</th>
-                  <th style="width: 32%">Observaciones</th>
-                  <th class="status">Status</th>
-                  <th> 
-                    <div class="btn-group" class="pull-rigth" style="margin-left">
-                     <button class="btn btn-info" type="button" style="margin-left: 30%;"
-                     id="filtrardev">
-                     <i class="fa fa-filter" style="font-size: 10px;"></i>
-                   </button>
-                 </div>
-               </th>
-               <th>
-                <div class="btn-group" class="pull-rigth" style="margin-left;">
-                 <button class="btn btn-info" type="button" style="margin-left: 30%;"
-                 id="filtrardpag">
-                 <i class="fa fa-filter" style="font-size: 10px;"></i>
-               </button>
-             </div>
-           </th>
-           <th style="width: 20%"></th>
+            <!-- TABLA-->
+           
+  <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Cuentas Registradas </h2>
+
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <p class="text-muted font-13 m-b-30">
+
+                </p>
+              
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info"
+                          style="border:0px;">
+                      <thead>
+                                       <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
+                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 1%;border:0px;">
+                                        id 
+                                      </th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable"
+                                      rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
+                                      style="width: 35%;border:0px;">
+                                      Obra
+                                    </th>
+                                    <th class="sorting" tabindex="0" 
+                                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                                    style="width:39%;border:0px;">
+                                    Observaciones
+                                  </th>
+                                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;border:0px;">
+                                  Status
+                                </th>
+                               
+                              <th  style="border:0px;"> 
+                                            <div class="btn-group" class="pull-rigth" style="margin-left">
+                                             <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                                             id="filtrardev">
+                                             <i class="fa fa-filter" style="font-size: 10px;"></i>
+                                           </button>
+                                         </div>
+                              </th>
+                              <th  style="border:0px;">
+                                          <div class="btn-group" class="pull-rigth" style="margin-left;">
+                                           <button class="btn btn-info" type="button" style="margin-left: 30%;"
+                                           id="filtrardpag">
+                                           <i class="fa fa-filter" style="font-size: 10px;"></i>
+                                         </button>
+                                         </div>
+                              </th>
+                               <th style="width: 50%;border:0px;"></th>
+
+                            </tr>
+                </thead>
+
+
+          <tbody>
+             <?php 
+                                                   include './conexion.php';
+                                                  //where orden.activo='no'
+                                                   $consulta=$mysqli->query("
+                                                    SELECT orden.*,cuentas.*,departamentos.departamento
+
+                                                    FROM ((orden
+                                                      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta)
+
+                                                   INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
+                                                   where orden.activo='si';
+
+
+
+                                                   ")or die($mysqli->error);
+                                                   while ( $fila=mysqli_fetch_array($consulta)) {
+
+                                                    ?>  <?php 
+                                                    $todo=$fila['total_compromet'];
+                                                    $dev=$fila['ppto_dev'];
+                                                    $pag=$fila['ppto_pag'];
+                                                    if ($dev<$todo) {
+                                                      $res=$dev * 100 / $todo;
+                                                      echo $res;
+                                                    }else {
+                                                      $res =$pag * 100 / $todo;
+
+                                                    }
+                                                              if ($dev<$todo) {
+                                                                                                      //rojo
+                                                               $pagado='background-color:rgba(194, 47, 47, 0.08)';
+
+
+                                                                 }else if ($pag==$todo) {//verde
+                                                                  $pagado='background-color:rgba(24, 139, 26, 0.17)';
+                                                                }else{
+                                                                                            //blanco
+
+                                                                 $pagado='background-color:rgba(00, 00, 00, 0.0)';
+                                                               }
+                                                 ?>
+
+             <tr style="<?php  echo $pagado?>;order:0px;">
+                                  <td  style="border:0px;"><?php echo $fila['ord_id'] ?></td>
+                                                  <td  style="border:0px;">
+                                                    <a><?php echo $fila['nombre'] ?></a><!--cuenta nombre-->
+
+                                                    <small><?php echo $fila['departamento'] ?></small>
+                                                  </td  style="border:0px;">
+                                                  <td style="border:0px;">
+
+                                                   <a> <?php echo $fila['observaciones'] ?></a>
+
+                                                 </td  style="border:0px;">
+                                                 <td class="project_progress "  style="border:0px;">
+
+
+
+
+                                                  <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
+                                                  </div>
+                                                  <small><?php  echo  number_format($res ,2);?>% COMPLETADO</small>
+                                                </td >
+                                                <td  style="border:0px;"> 
+                                                  <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
+                                                  data-toggle="modal" data-target="#Devengada">
+                                                  Devengado
+                                                </button>
+                                              </td>
+                                              <td  style="border:0px;"> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
+                                                Pagado</button>
+                                              </td>
+                                              <td  style="border:0px;">
+                                               <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
+                                               <a href="#" class="btn btn-info btn-xs btnEditar"
+                                               data-id="<?php echo $fila['ord_id'] ?>"
+                                               data-toggle="modal" data-target="#editar">
+                                               <i class="fa fa-pencil"></i> Editar</a>
+                                               <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+                                               data-id="<?php echo $fila['ord_id'] ?>"
+                                               data-toggle="modal" data-target="#eliminar">
+                                               <i class="fa fa-trash-o"></i> Eliminar</a>
+
+                                             </td>
+
          </tr>
-       </thead>
-       <tbody>
+         <?php  }?>
 
-         <?php 
-         include './conexion.php';
-        //where orden.activo='no'
-         $consulta=$mysqli->query("
-          SELECT orden.*,cuentas.*,departamentos.departamento
-
-          FROM ((orden
-            INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta)
-
-         INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
-         where orden.activo='si';
-
-
-
-         ")or die($mysqli->error);
-         while ( $fila=mysqli_fetch_array($consulta)) {
-
-          ?>  <?php 
-          $todo=$fila['total_compromet'];
-          $dev=$fila['ppto_dev'];
-          $pag=$fila['ppto_pag'];
-          if ($dev<$todo) {
-            $res=$dev * 100 / $todo;
-            echo $res;
-          }else {
-            $res =$pag * 100 / $todo;
-
-          }
-                    if ($dev<$todo) {
-                                                            //rojo
-                     $pagado='background-color:rgba(194, 47, 47, 0.08)';
-
-
-                       }else if ($pag==$todo) {//verde
-                        $pagado='background-color:rgba(24, 139, 26, 0.17)';
-                      }else{
-                                                  //blanco
-
-                       $pagado='background-color:rgba(00, 00, 00, 0.0)';
-                     }
-       ?>
-       <tr style="<?php  echo $pagado?>">
-        <td><?php echo $fila['ord_id'] ?></td>
-        <td>
-          <a><?php echo $fila['nombre'] ?></a><!--cuenta nombre-->
-
-          <small><?php echo $fila['departamento'] ?></small>
-        </td>
-        <td>
-
-         <a> <?php echo $fila['observaciones'] ?></a>
-
-       </td>
-       <td class="project_progress ">
+         <!-- eliminar-->
+      
+          <!-- eliminar-->
 
 
 
 
-        <div class="progress progress_sm">
-          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<?php  echo $res?>" ></div>
-        </div>
-        <small><?php  echo  number_format($res ,2);?>% COMPLETADO</small>
-      </td>
-      <td>
-        <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
-        data-toggle="modal" data-target="#Devengada">
-        Devengado
-      </button>
-    </td>
-    <td> <button type="button" class="btn btn-success btn-xs"  data-toggle="modal" data-target="#Pagada">
-      Pagado</button>
-    </td>
-    <td>
-     <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
-     <a href="#" class="btn btn-info btn-xs btnEditar"
-     data-id="<?php echo $fila['ord_id'] ?>"
-     data-toggle="modal" data-target="#editar">
-     <i class="fa fa-pencil"></i> Editar</a>
-     <a href="#" class="btn btn-danger btn-xs btnEliminar" 
-     data-id="<?php echo $fila['ord_id'] ?>"
-     data-toggle="modal" data-target="#eliminar">
-     <i class="fa fa-trash-o"></i> Eliminar</a>
 
-   </td>
- </tr>
 
- <?php 
-
-} ?>
+          <!-- editar-->
+         
+      <!-- editar-->
 
 
 
-</tbody>
-</table>
 
+
+
+
+
+
+
+
+
+
+
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- TABLA-->
 <div class="clearfix"></div>
 <!-- end project list -->
 </div>
@@ -566,6 +711,23 @@
 <!-- Cropper -->
 <script src="../vendors/cropper/dist/cropper.min.js"></script>
 <script type="./index.js"></script>
+<!-- Datatables -->
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="../vendors/jszip/dist/jszip.min.js"></script>
+<script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
 
 <!-- Custom Theme Scripts -->
 <script src="../build/js/custom.min.js"></script>

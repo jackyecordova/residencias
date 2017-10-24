@@ -97,34 +97,34 @@
                   <div class="col-sm-12">
                     <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
                       <thead>
-                       <tr role="row">
-                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
-                        id Cuenta
-                      </th>
-                      <th class="sorting" tabindex="0" aria-controls="datatable"
-                      rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                      style="width: 200px;">
-                      Cuenta
-                    </th>
-                    <th class="sorting" tabindex="0" 
-                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                    style="width:350px;">
-                    Obra
-                  </th>
-                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
-                  Cantidad
-                </th>
-                <th class="sorting" tabindex="0" 
-                aria-controls="datatable" rowspan="1" colspan="1"
-                aria-label="Office: activate to sort column ascending" 
-                style="width: 80px;">
+                                       <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
+                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
+                                        id Cuenta
+                                      </th>
+                                      <th class="sorting" tabindex="0" aria-controls="datatable"
+                                      rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
+                                      style="width: 200px;">
+                                      Cuenta
+                                    </th>
+                                    <th class="sorting" tabindex="0" 
+                                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                                    style="width:350px;">
+                                    Obra
+                                  </th>
+                                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
+                                  Cantidad
+                                </th>
+                                <th class="sorting" tabindex="0" 
+                                aria-controls="datatable" rowspan="1" colspan="1"
+                                aria-label="Office: activate to sort column ascending" 
+                                style="width: 80px;">
 
-              </th>
+                              </th>
 
-            </tr>
-          </thead>
+                            </tr>
+                </thead>
 
 
           <tbody>

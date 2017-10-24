@@ -281,33 +281,38 @@
                                                     <li>
                                                       <div class="block">
                                                         <div class="tags">
-                                                          <a href="" class="tag">
+                                                          <a href="" class="tag ">
                                                             <span><?php echo $fila['ord_id'] ?></span>
                                                           </a>
                                                         </div>
                                                         <div class="block_content">
 
+                                                        <div class="row">
+                                                         <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                  <small> Cuenta</small> 
+                                                                </div>
+                                                        </div>
 
                                                         <div class="row">
-                                                                <div class="col-md-2 col-sm-3 col-xs-12">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
                                                                     <a><?php echo $fila['nombre'] ?></a> 
                                                                       <small>  <?php echo $fila['departamento'] ?> </small>
                                                                 </div>
                                                                 
-                                                                <div class="col-sm-2 pull-right" >
+                                                                <div class="col-md-2 col-sm-2 col-xs-12 pull-right" >
                                                                     <p class="pull-right"> <small>Fecha:  </small> <?php echo $fila['fecha'];?> </p>
                                                                 </div>
-                                                                <div class="col-sm-4" style="text-align: right;">
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
                                                                     
                                                                 </div>
                                                         </div>
 
                                                         <div class="row">
-                                                                <div class="col-md-2 col-sm-3 col-xs-12">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
                                                                               <h4       style=" width: 100%;" >
                                                                       <?php echo $fila['material'] ?> </h4>  
                                                                 </div>
-                                                                <div class="col-sm-3">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
                                                                                <small>  <a class="" style="">
                                                                         <?php echo $fila['cuenta'] ?> </a></small>
                                                                 </div>
@@ -315,14 +320,20 @@
                                                                                
                                                                         
                                                                 </div>
-                                                                <div class="col-md-2 col-sm-4 col-xs-12" style="text-align: right;">
-                                                                                    <a class=""> Total:</a>
-                                                                                    <a class="">   $<?php echo
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
+                                                                                    <a > Total:   $<?php echo
                                                                         number_format($fila['total_compromet'] ,2);
                                                                         ?></a> 
-                                                                                       <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
-                                                                            <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
+                                                                                     
                                                                 </div>
+                                                        </div>
+                                                         <div class="row">
+                                                                 <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                       <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
+                                                                  </div>
+                                                                  <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                            <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
+                                                                  </div>
                                                         </div>
 
                                                         </div>
@@ -351,37 +362,65 @@
                                                                     # code...
                                                       ?>
                                                       <li>
-                                                        <div class="block">
-                                                          <div class="tags">
-                                                            <a href="" class="tag">
-                                                              <span><?php echo $fila['ord_id'] ?></span>
-                                                            </a>
-                                                          </div>
-                                                          <div class="block_content">
-                                                            <h2 class="title">
-                                                              <a><?php echo $fila['nombre'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
-                                                              <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
-
-
-                                                               ?> </p>
-                                                             </h2>
-                                                             <div class="byline">
-                                                              <h4       style="
-                                                              width: 100%;
-                                                              " >
-                                                              <?php echo $fila['nombre'] ?>
-                                                              <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
-                                                            </h4>  
-                                                            <a class="pull-right">   $<?php echo
-                                                              number_format($fila['total_compromet'] ,2);
-                                                              ?></a> 
-                                                              <small><?php echo $fila['fecha'] ?></small>
-                                                            </div>
-                                                            <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
-                                                              <a  style="width: 10%;" class="pull-right">Leer más...</a>
-                                                            </p>
-                                                          </div>
+                                                           <div class="block">
+                                                        <div class="tags">
+                                                          <a href="" class="tag ">
+                                                            <span><?php echo $fila['ord_id'] ?></span>
+                                                          </a>
                                                         </div>
+                                                        <div class="block_content">
+
+                                                        <div class="row">
+                                                         <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                  <small> Cuenta</small> 
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                    <a><?php echo $fila['nombre'] ?></a> 
+                                                                      <small>  <?php echo $fila['departamento'] ?> </small>
+                                                                </div>
+                                                                
+                                                                <div class="col-md-2 col-sm-2 col-xs-12 pull-right" >
+                                                                    <p class="pull-right"> <small>Fecha:  </small> <?php echo $fila['fecha'];?> </p>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
+                                                                    
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                              <h4       style=" width: 100%;" >
+                                                                      <?php echo $fila['material'] ?> </h4>  
+                                                                </div>
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                               <small>  <a class="" style="">
+                                                                        <?php echo $fila['cuenta'] ?> </a></small>
+                                                                </div>
+                                                                <div class="col-md-2 col-sm-2 col-xs-12" >
+                                                                               
+                                                                        
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
+                                                                                    <a > Total:   $<?php echo
+                                                                        number_format($fila['total_compromet'] ,2);
+                                                                        ?></a> 
+                                                                                     
+                                                                </div>
+                                                        </div>
+                                                         <div class="row">
+                                                                 <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                       <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
+                                                                  </div>
+                                                                  <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                            <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
+                                                                  </div>
+                                                        </div>
+
+                                                        </div>
+                                                      </div>
                                                       </li>
                                                       <?php  } ?>
                                                     </ul>
@@ -406,37 +445,65 @@
                                                           # code...
                                             ?>
                                             <li>
-                                              <div class="block">
-                                                <div class="tags">
-                                                  <a href="" class="tag">
-                                                    <span><?php echo $fila['ord_id'] ?></span>
-                                                  </a>
-                                                </div>
-                                                <div class="block_content">
-                                                  <h2 class="title">
-                                                    <a><?php echo $fila['nombre'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
-                                                    <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
+                                                <div class="block">
+                                                        <div class="tags">
+                                                          <a href="" class="tag ">
+                                                            <span><?php echo $fila['ord_id'] ?></span>
+                                                          </a>
+                                                        </div>
+                                                        <div class="block_content">
 
+                                                        <div class="row">
+                                                         <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                  <small> Cuenta</small> 
+                                                                </div>
+                                                        </div>
 
-                                                     ?> </p>
-                                                   </h2>
-                                                   <div class="byline">
-                                                    <h4       style="
-                                                    width: 100%;
-                                                    " >
-                                                    <?php echo $fila['nombre'] ?>
-                                                    <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
-                                                  </h4>  
-                                                  <a class="pull-right">   $<?php echo
-                                                    number_format($fila['total_compromet'] ,2);
-                                                    ?></a> 
-                                                    <small><?php echo $fila['fecha'] ?></small>
-                                                  </div>
-                                                  <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
-                                                    <a  style="width: 10%;" class="pull-right">Leer más...</a>
-                                                  </p>
-                                                </div>
-                                              </div>
+                                                        <div class="row">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                    <a><?php echo $fila['nombre'] ?></a> 
+                                                                      <small>  <?php echo $fila['departamento'] ?> </small>
+                                                                </div>
+                                                                
+                                                                <div class="col-md-2 col-sm-2 col-xs-12 pull-right" >
+                                                                    <p class="pull-right"> <small>Fecha:  </small> <?php echo $fila['fecha'];?> </p>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
+                                                                    
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                              <h4       style=" width: 100%;" >
+                                                                      <?php echo $fila['material'] ?> </h4>  
+                                                                </div>
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                               <small>  <a class="" style="">
+                                                                        <?php echo $fila['cuenta'] ?> </a></small>
+                                                                </div>
+                                                                <div class="col-md-2 col-sm-2 col-xs-12" >
+                                                                               
+                                                                        
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
+                                                                                    <a > Total:   $<?php echo
+                                                                        number_format($fila['total_compromet'] ,2);
+                                                                        ?></a> 
+                                                                                     
+                                                                </div>
+                                                        </div>
+                                                         <div class="row">
+                                                                 <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                       <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
+                                                                  </div>
+                                                                  <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                            <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
+                                                                  </div>
+                                                        </div>
+
+                                                        </div>
+                                                      </div>
                                             </li>
                                             <?php  } ?>
                                           </ul>
@@ -459,37 +526,65 @@
                                                           # code...
                                             ?>
                                             <li>
-                                              <div class="block">
-                                                <div class="tags">
-                                                  <a href="" class="tag">
-                                                    <span><?php echo $fila['ord_id'] ?></span>
-                                                  </a>
-                                                </div>
-                                                <div class="block_content">
-                                                  <h2 class="title">
-                                                    <a><?php echo $fila['nombre'] ?></a>   <small>  <?php echo $fila['departamento'] ?> </small>
-                                                    <p class="pull-right"> <small>Fecha:  </small><?php echo date_format($fila['fecha'], 'j F Y');
+                                                 <div class="block">
+                                                        <div class="tags">
+                                                          <a href="" class="tag ">
+                                                            <span><?php echo $fila['ord_id'] ?></span>
+                                                          </a>
+                                                        </div>
+                                                        <div class="block_content">
 
+                                                        <div class="row">
+                                                         <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                  <small> Cuenta</small> 
+                                                                </div>
+                                                        </div>
 
-                                                     ?> </p>
-                                                   </h2>
-                                                   <div class="byline">
-                                                    <h4       style="
-                                                    width: 100%;
-                                                    " >
-                                                    <?php echo $fila['nombre'] ?>
-                                                    <small> <?php echo $fila['cuenta'] ?>  </small><a class="pull-right"> Total:</a>
-                                                  </h4>  
-                                                  <a class="pull-right">   $<?php echo
-                                                    number_format($fila['total_compromet'] ,2);
-                                                    ?></a> 
-                                                    <small><?php echo $fila['fecha'] ?></small>
-                                                  </div>
-                                                  <p class="excerpt" ><?php echo $fila['observaciones'] ?><?php echo $fila['nombre'] ?>
-                                                    <a  style="width: 10%;" class="pull-right">Leer más...</a>
-                                                  </p>
-                                                </div>
-                                              </div>
+                                                        <div class="row">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                    <a><?php echo $fila['nombre'] ?></a> 
+                                                                      <small>  <?php echo $fila['departamento'] ?> </small>
+                                                                </div>
+                                                                
+                                                                <div class="col-md-2 col-sm-2 col-xs-12 pull-right" >
+                                                                    <p class="pull-right"> <small>Fecha:  </small> <?php echo $fila['fecha'];?> </p>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
+                                                                    
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                              <h4       style=" width: 100%;" >
+                                                                      <?php echo $fila['material'] ?> </h4>  
+                                                                </div>
+                                                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                               <small>  <a class="" style="">
+                                                                        <?php echo $fila['cuenta'] ?> </a></small>
+                                                                </div>
+                                                                <div class="col-md-2 col-sm-2 col-xs-12" >
+                                                                               
+                                                                        
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: right;">
+                                                                                    <a > Total:   $<?php echo
+                                                                        number_format($fila['total_compromet'] ,2);
+                                                                        ?></a> 
+                                                                                     
+                                                                </div>
+                                                        </div>
+                                                         <div class="row">
+                                                                 <div class="col-md-8 col-sm-8 col-xs-12">
+                                                                       <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
+                                                                  </div>
+                                                                  <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                            <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
+                                                                  </div>
+                                                        </div>
+
+                                                        </div>
+                                                      </div>
                                             </li>
                                             <?php  } ?>
                                           </ul>
