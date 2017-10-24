@@ -4,8 +4,7 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
-                <h2><?php echo "Usuario"
-                // $arreglo['nombre'] ?></h2>
+                <h2><?php echo $arreglo['nombre'] ?></h2>
               </div>
             </div>
             

@@ -1,14 +1,14 @@
 
-<!--<?php 
+<?php 
 
-//session_start();
-//if (isset($_SESSION['miSesion']{
-//      $arreglo=$_SESSION['miSesion'];
-//      }else{
-//        header("Location: ./login.html");  
+session_start();
+if (isset($_SESSION['miSesion'])){
+      $arreglo=$_SESSION['miSesion'];
+      }else{
+        header("Location: ./login.html");  
 
-//}
- ?>-->
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,7 +100,7 @@
                                        <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
                                         colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
-                                        id Cuenta
+                                        Id Cuenta
                                       </th>
                                       <th class="sorting" tabindex="0" aria-controls="datatable"
                                       rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"

@@ -1,17 +1,17 @@
 
-<!--<?php 
+<?php 
 
-//session_start();
-//if (isset($_SESSION['miSesion']{
-//      $arreglo=$_SESSION['miSesion'];
-//      }else{
-//        header("Location: ./login.html");  
+    session_start();
+    if (isset($_SESSION['miSesion'])){
+          $arreglo=$_SESSION['miSesion'];
+          }else{
+            header("Location: ./login.html");  
 
-//}
- ?>-->
+    }
+ ?>
 
- <!DOCTYPE php>
- <php lang="en">
+ <!DOCTYPE html>
+ <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/php; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -317,7 +317,11 @@
 
                       <a class="panel-heading" role="tab" id="headingOne1" data-toggle="collapse"
                       data-parent="#accordion " href="#collapseOne<?php echo $cont?>" aria-expanded="false" aria-controls="collapseOne<?php echo $cont?>">
+
                       <h4 class="panel-title"  >
+
+
+
                         <?php echo $fila['nombre']?> 
                         <small style="margin-right: 30px;margin-left: 10px;">  
                          <?php echo $fila['cuenta']?> 
@@ -465,4 +469,4 @@
 <script src="../build/js/custom.min.js"></script>
 
 </body>
-</php>
+</ht    >
