@@ -526,8 +526,6 @@ if (isset($_SESSION['miSesion'])){
     var vehiculo=$(this).data('vehiculo');
     $("#veh").val(vehiculo);
  });
-
-
   $(".btnDevengado").on('click',function(){
     var id=$(this).data('id');
      $("#idDevengado").val(id);
