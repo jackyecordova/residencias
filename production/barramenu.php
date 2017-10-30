@@ -24,9 +24,8 @@
                     </ul>
                   </li>
                   <li><a><i class="fa fa-qrcode"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu" style="display: none;">
-                                <li><a href="nuevodepartamento.php">Nuevo Departamento</a>
-                                 </li>
+                              <ul class="nav child_menu">
+                                <li><a href="nuevodepartamento.php">Nuevo Departamento</a> </li>
                                  <li><a>Cuentas<span class="fa fa-chevron-down"></span></a>
                                        <ul class="nav child_menu" style="display: block;">
                                          <li>
@@ -40,7 +39,7 @@
                                        </ul>
                                  </li>
                                <li class="active"><a>Departamentos<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu" style="display: block;">
+                          <ul class="nav child_menu" >
                                    <?php 
                         include './conexion.php';
                         $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);

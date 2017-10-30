@@ -11,7 +11,14 @@
                                               
                                               and 
                                                  ( orden.observaciones like '%".$_POST['texto']."%' or 
-                                                  orden.material like '%".$_POST['texto']."%'
+                                                  orden.material like '%".$_POST['texto']."%' or
+                                                  orden.ord_id like '%".$_POST['texto']."%' or
+                                                  orden.ord_numfactura like '%".$_POST['texto']."%' or
+                                                  proveedores.nombre like '%".$_POST['texto']."%' or
+                                                  cuentas.cuenta like '%".$_POST['texto']."%' or
+                                                  cuentas.nombre like '%".$_POST['texto']."%' or
+                                                  orden.ord_vehiculo like '%".$_POST['texto']."%'
+
                                                   )
 
                                               ";

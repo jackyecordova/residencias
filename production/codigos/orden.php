@@ -23,7 +23,7 @@ if (isset($_POST["departamento"])
 			$departamento=$_POST['departamento'];
 			$nofactura=$_POST['nofactura'];
 			$obra=$_POST['obra'];
-			$cuenta=$_POST['cuenta'];
+			
 			$observaciones=$_POST['observaciones'];
 			$proveedor=$_POST['proveedor'];
 			$material=$_POST['material'];
@@ -31,7 +31,7 @@ if (isset($_POST["departamento"])
 
 					//$cuenta=$_POST['cuenta'];
 			$precio=$_POST['precio'];
-			$total=$cantidad*$precio;
+			$total=$cantidad * $precio;
 			$activos="si";
 			
 			$polpag="";
@@ -53,6 +53,23 @@ if (isset($_POST["departamento"])
 				
 			}
 
+	$sumacuenta= "SELECT SUM(monto) AS totalmonto FROM presupuesto_depa WHERE id_cuenta = ".$obra=$_POST['obra'] ;
+	$re=$mysqli->query($sumacuenta);
+	$scuenta=$re->fetch_assoc();
+	$totalmonto=$scuenta['totalmonto'];
+
+		$restante= $cantidadcuenta-$sumacuenta;
+		if ($total>$cantidadsuma) {
+		 	echo "Estas gastando mas de lo que se tiene";
+		 } else{
+		 	echo "Ahora si ";
+		 }
+
+
+
+
+
+
 
 
 
@@ -72,7 +89,7 @@ if (isset($_POST["departamento"])
 			'$observaciones',
 			'$nofactura',
 			'$vehiculo',
-			'',
+			'Emitido',
 			'$departamento',
 			'$proveedor',
 			'$material',

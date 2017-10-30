@@ -81,106 +81,109 @@ if (isset($_SESSION['miSesion'])){
 
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Historial de ordenes registradas </h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Button Example <small>Users</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li><a href="#">Settings 2</a>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <table id="datatable" class="table table-striped table-bordered dataTable no-footer" 
-                role="grid" aria-describedby="datatable_info">
-                <?php  ?>
-                <thead>
-                 <tr role="row">
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                   
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                      <thead>
+                         <tr role="row">
                   <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 35px;">
+                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 1%;">
                   Id orden
                 </th>
                 <th class="sorting" tabindex="0" aria-controls="datatable"
                 rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                style="width: 270px;">
+                style="width: 20%;">
                 Obra
               </th>
               <th class="sorting" tabindex="0" 
               aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-              style="width: 200px;">
+              style="width: 20%;">
               Descripcion
             </th>
             <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-            colspan="1" aria-label="Age: activate to sort column ascending" style="width:120px;">
-            Cuenta
+            colspan="1" aria-label="Age: activate to sort column ascending" style="width:12%;">
+            Departamento
           </th>
           <th class="sorting" tabindex="0" aria-controls="datatable" 
           rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" 
-          style="width: 120px;">
-          Fecha
+          style="width: 15%;">
+          Cuenta
         </th>
         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
-        aria-label="Salary: activate to sort column ascending" style="width: 120px;">
-        Cantidad
+        aria-label="Salary: activate to sort column ascending" style="width: 8%;">
+        Fecha
       </th>
     </tr>
-  </thead>
+                      </thead>
 
 
-  <tbody>
-    <?php 
-    include './conexion.php';
-    $consulta=$mysqli->query("select orden.*,cuentas.* ,departamentos.*
-      from orden
-      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
-      INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
-      order by orden.ord_id DESC")or die($mysqli->error);
-    while ( $fila=mysqli_fetch_array($consulta)) {
-     if ($fila['activo']== "si" ) {
-                                    //blanco
-       $activado='background-color:rgba(0, 0,0, 0)';
+                      <tbody>
+                        
+
+                                      <?php 
+                                        include './conexion.php';
+                                        $consulta=$mysqli->query("select orden.*,cuentas.* ,departamentos.*
+                                          from orden
+                                          INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                                          INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                                          order by orden.ord_id DESC")or die($mysqli->error);
+                                        while ( $fila=mysqli_fetch_array($consulta)) {
+                                        if ($fila['activo']== "si" ) {
+                                                                       //blanco
+                                           $activado='background-color:rgba(0, 0,0, 0)';
+                                
+                                
+                                         }else {
+                                          $activado='background-color:rgba(194, 47, 47, 0.08)';
+                                        }
+                                                        # code...
+                                       ?>
+                                
+                                       <tr role="row" class="odd"  style="<?php echo $activado ?>">
+                                         <td > <?php echo $fila['ord_id'] ?>
+                                         <br> <a ><small> <a style="margin-top:3px;">No Factura</a><br> <?php echo $fila['ord_numfactura'] ?></small></a> 
+                                         
+                                         </td>
+                                         <td><?php echo $fila['nombre'] ?><br> <a ><small> <?php echo $fila['status'] ?></small></a> </td>
+                                         <td><?php echo $fila['observaciones'] ?>
+                                         <br> <a ><small> <?php echo $fila['material'] ?></small></a></td>
+                                         
+                                         <td><?php echo $fila['departamento'] ?></td>
+                                         <td><?php echo $fila['nombre'] ?><br><?php  echo $fila['cuenta']; ?></td>
+                                         <td><?php echo $fila['fecha'] ?></td>
+                                       </tr>
+                                       <?php  }?>    
 
 
-     }else {
-      $activado='background-color:rgba(194, 47, 47, 0.08)';
-    }
-                    # code...
-    ?>
 
-    <tr role="row" class="odd"  style="<?php echo $activado ?>">
-      <td > <?php echo $fila['ord_id'] ?></td>
-      <td><?php echo $fila['nombre'] ?></td>
-      <td><?php echo $fila['observaciones'] ?></td>
-      
-      <td><?php echo $fila['departamento'] ?></td>
-      <td><?php echo $fila['nombre'] ?><br><?php  echo $fila['cuenta']; ?></td>
-      <td><?php echo $fila['fecha'] ?></td>
-    </tr>
-    <?php  }?>
-  </tbody>
-</table>
-</div>
-</div>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
 
 
-</div>
-</div>
-</div>
-</div>
+
 </div>
 </div>
 </div>

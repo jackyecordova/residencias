@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['miSesion'])){
       $arreglo=$_SESSION['miSesion'];
       }else{
-        header("Location: ./login.html");  
+        header("Location: ./login.php");  
 
 }
  ?>
@@ -95,12 +95,15 @@ if (isset($_SESSION['miSesion'])){
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate action="./codigos/cuentadepa.php" method="post">
+                    <form class="form-horizontal form-label-left" novalidate action="./codigos/cuentadepa.php" method="post" id="miForm">
 
                       <p>Registro del nuevo departamento <!--<code></code> -->
                       </p>
                       <span class="section">Información</span>
-
+                       <div class="alert alert-danger " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+              text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+          color: rgb(241, 83, 68);display:none" id="alerta">Has excedido el presupuesto
+        </div>
 
 
                           <!--Ventana gris-->
@@ -119,6 +122,7 @@ if (isset($_SESSION['miSesion'])){
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="select2_single form-control"
                             name="departamento"
+                            id="departamento" 
                            class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
                             <option></option>
 
@@ -146,6 +150,7 @@ if (isset($_SESSION['miSesion'])){
                               <div class="col-md-6 col-sm-9 col-xs-12">
                                     <select class="select2_single form-control"
                                       name="cuenta"
+                                      id="cuenta" 
                                      class="form-control col-md-9 col-xs-12" tabindex="-1" style="width:100%;" >
                                                 <option></option>
 
@@ -169,8 +174,9 @@ if (isset($_SESSION['miSesion'])){
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" > Año <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                          <input id="anio" class="form-control col-md-7 col-xs-12" 
                           name="anio"
+                          value="<?php echo date('Y')?>" 
                            placeholder="Año de carga"  type="text">
                       
 
@@ -182,14 +188,16 @@ if (isset($_SESSION['miSesion'])){
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" > Monto <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12" >
-                          <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                          <input id="monto" class="form-control col-md-7 col-xs-12" 
                           name="monto"
                            placeholder="Cantidad de la cuenta"  type="text">
                       
 
                         </div>
                       </div>
-                     
+                    
+
+
                     
                    
                     
@@ -213,43 +221,6 @@ if (isset($_SESSION['miSesion'])){
 
 
 
-
-
-
-    
- <!-- Cantidad Pagado-->
-              <div id="Pagado" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-                        <h4 class="modal-title" >Cantidad Pagada</h4>
-                      </div>
-                      <div class="modal-body" style="text-align: left; ">
-                       
-                         <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-                           <div class="col-sm-8">  </div>
-                              <div class="input-group"> 
-                                                  <input type="text" class="form-control" placeholder="000,000,000.00" name="price" data-fv-field="price">
-                                                     
-                                </div>
-                            </div>
-                          <div class="col-sm-1"></div>
-
-                        
-                     
-                      <div class="modal-footer" style="padding-top:35px;">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-                       <button type="button"  class="btn btn-success" >Guardar</button>
-                      
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-
-
-       <!--end Cantidad Pagado-->
 
 
       <!-- footer content -->
@@ -282,6 +253,34 @@ if (isset($_SESSION['miSesion'])){
     <!-- bootstrap-datetimepicker -->    
     <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
   <!--  <script type="./js/the-basics.js"></script>-->
-	
+	 <script type="text/javascript">
+    $(document).ready(function  (argument) {
+      $("#alerta").hide();
+        
+        $("#send").on("click",function  (e) {
+           e.preventDefault();//para que no se vaya
+          $.ajax({
+            method:'POST',
+            url:'./codigos/validardepa.php',
+            data:{
+              departamento:$("#departamento").val(),
+              cuenta:$("#cuenta").val(),
+              anio:$("#anio").val(),
+              monto:$("#monto").val()
+            }
+          }).done(function(e2){
+            if(e2=="no"){
+               $("#alerta").show();
+                alert(e2); 
+                
+            }else{
+              $("#miForm").submit();
+            }
+           
+          });
+
+        });
+    });
+   </script>
   </body>
 </html>

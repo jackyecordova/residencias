@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['miSesion'])){
       $arreglo=$_SESSION['miSesion'];
       }else{
-        header("Location: ./login.html");  
+        header("Location: ./login.php");  
 
 }
  ?>
@@ -184,7 +184,7 @@ if (isset($_SESSION['miSesion'])){
                     <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                     data-target="#editar"
                     data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
-                    data-departamento="<?php echo $fila['departamento'] ?>"
+                    data-departamento="<?php echo $fila['id_departamento'] ?>"
                     data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
                     data-anio="<?php echo $fila['anio'] ?>"
                     data-monto="<?php echo $fila['monto'] ?>">
@@ -261,16 +261,8 @@ if (isset($_SESSION['miSesion'])){
                   <h4 class="modal-title">Editar información de la obra</h4>
                   <input type="text" id="idcuentadepaedi" name="idcuentadepaedi">
                   <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
-
                 </div>
                 <div class="modal-body" style="text-align: center">
-
-
-
-
-
-
-
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -314,7 +306,7 @@ if (isset($_SESSION['miSesion'])){
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" > Año <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12" >
-                  <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                  <input  class="form-control col-md-7 col-xs-12" 
                   name="anio"
                   id="anioeditar" 
                   placeholder="Año de carga"  type="text">
@@ -325,7 +317,7 @@ if (isset($_SESSION['miSesion'])){
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" > Monto <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12" >
-                  <input id="cuenta" class="form-control col-md-7 col-xs-12" 
+                  <input  class="form-control col-md-7 col-xs-12" 
                   name="monto"
                   id="montoeditar" 
                   placeholder="Cantidad de la cuenta"  type="text">
@@ -459,13 +451,13 @@ if (isset($_SESSION['miSesion'])){
 <script type="text/javascript">
 
   $(".btnEliminar").on('click',function(){
-   var id=$(this).data('idcuentadepa');
+   var id=$(this).data('id');
    var departamento=$(this).data('departamento');
    $("#idcuentadepa").val(id);
    $("#departamentoeliminar").text(departamento) ;   
  });
   $(".btnEditar").on('click',function(){
-   var id=$(this).data('idcuentadepaedi');
+   var id=$(this).data('id');
    var departamento=$(this).data('departamento');
    var cuenta=$(this).data('cuenta');
    var anio=$(this).data('anio');

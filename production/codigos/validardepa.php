@@ -10,7 +10,7 @@
 		$monto=$_POST['monto'];
 
 		//	die($cuenta);
-	$presupuesto=$mysqli->query("SELECT SUM(cantidad) AS presupuestocuenta FROM cuentas WHERE id_cuenta = ".$cuenta ) or die($mysqli->error);
+	$presupuesto=$mysqli->query("SELECT cantidad FROM cuentas WHERE id_cuenta = ".$cuenta ) or die($mysqli->error);
 	$fila=$presupuesto->fetch_assoc();
 	$presupuestototal=$fila['presupuestocuenta'];
 
@@ -22,25 +22,17 @@
 		$restante= $presupuestototal-$totalmonto;
 
 		if ($monto>$restante) {
-		 	echo "Estas gastando mas de lo que se tiene";
+		 	echo "no";
 		 	//header("Location:../crearcuentadepa.php?error=excedido");
 		 } else{
-		 	echo "Ahora si ";
-		 	$consulta="INSERT INTO presupuesto_depa 
-			values(0,'$departamento','$cuenta',
-				'$ano',
-				'$monto'
-						)";
-
-
-			$mysqli->query($consulta)or die($mysqli->error);
-		 	header("Location:../vercuentadepa.php");
+		 	echo "si ";
+		 	
 		 }
 
 		
 	}else
 	{
-		echo "algunos campos no fueron completados";
+		echo "no";
 	}
 
   ?>

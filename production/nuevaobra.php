@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['miSesion'])){
       $arreglo=$_SESSION['miSesion'];
       }else{
-        header("Location: ./login.html");  
+        header("Location: ./login.php");  
 
 }
  ?>

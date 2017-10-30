@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['miSesion'])){
       $arreglo=$_SESSION['miSesion'];
       }else{
-        header("Location: ./login.html");  
+        header("Location: ./login.php");  
 
 }
  ?>
@@ -167,9 +167,9 @@ if (isset($_SESSION['miSesion'])){
 
 
 
-                     <!-- <div class="col-xs-12 col-md-12" style="display:blick;">
+                     <div class="col-xs-12 col-md-12" style="display:none;">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-                        for="fecha"
+                        for="fecha" 
                         
                         >Fecha  <span class="required">*</span>
                       </label>
@@ -178,7 +178,7 @@ if (isset($_SESSION['miSesion'])){
                           <div class="controls">
 
                             <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-                              <input type="text" class="form-control has-feedback-left" id="single_cal4"  name ="fecha"
+                              <input type="hidden" class="form-control has-feedback-left" id="single_cal4"  name ="fecha"
                               placeholder="First Name" aria-describedby="inputSuccess2Status4">
                               <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                               <span id="inputSuccess2Status4" class="sr-only">(success)</span>
@@ -189,7 +189,6 @@ if (isset($_SESSION['miSesion'])){
                       </fieldset>
 
                     </div>
-                  -->
 
 
 
