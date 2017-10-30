@@ -393,11 +393,11 @@ if (isset($_SESSION['miSesion'])){
                 <option value="1">Obras</option>
                 <?php 
                 include './conexion.php';
-                $consulta=$mysqli->query("select * from obras order by id_obra ASC")or die($mysqli->error);
+                $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
                 while ( $fila=mysqli_fetch_array($consulta)) {
 
                  ?>
-                 <option value="<?php echo $fila['id_obra'] ?>"><?php echo $fila['descripcion'] ?></option>
+                 <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre'] ?></option>
                  <?php } ?>
                </select>
              </div>
