@@ -7,5 +7,5 @@
 	if(isset($_POST['devpo'])){
 		$mysqli->query("update orden set poliza_dev='".$_POST['devpo']."' where ord_id=".$_POST['idDevengado']);
 	}
-	header("Location: ../projects.php");
+	header("Location: ../project2.php");
  ?>
