@@ -114,20 +114,7 @@ if (isset($_SESSION['miSesion'])){
             <div class="x_panel">
               <div class="x_title">
                 <h2>Cuenta<small></small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Cancelar</a>
-                      </li>
-
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
+              
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
@@ -157,8 +144,10 @@ if (isset($_SESSION['miSesion'])){
                    </label>
                    <div class="col-md-6 col-sm-6 col-xs-12">
                     <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
+                    minlength="20"
                     name="numero" 
                     placeholder="Número de la Cuenta" 
+                    required="required" 
                     type="text">
                   </div>
                 </div>
@@ -176,6 +165,7 @@ if (isset($_SESSION['miSesion'])){
                  <div class="col-md-6 col-sm-6 col-xs-12" >
                   <input  class="form-control col-md-7 col-xs-12" 
                   name="nombre"
+                  required="required" 
                   placeholder="Nombre de la Cuenta"  type="text">
 
 
@@ -191,6 +181,7 @@ if (isset($_SESSION['miSesion'])){
                 <div class="col-md-6 col-sm-6 col-xs-12" >
                   <input  class="form-control col-md-7 col-xs-12" 
                   name="cantidad"
+                  required="required" 
                   placeholder="Cantidad de la Cuenta" type="number">
 
 
@@ -265,6 +256,8 @@ if (isset($_SESSION['miSesion'])){
 
 
 <!--end Cantidad Pagado-->
+</div>
+</div>
 
 
 <!-- footer content -->
@@ -275,8 +268,6 @@ if (isset($_SESSION['miSesion'])){
   <div class="clearfix"></div>
 </footer>
 <!-- /footer content -->
-</div>
-</div>
 
 <!-- jQuery -->
 <script src="../vendors/jquery/dist/jquery.min.js"></script>

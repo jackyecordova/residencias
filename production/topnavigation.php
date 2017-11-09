@@ -14,6 +14,8 @@
               </a>
               <ul class="dropdown-menu dropdown-usermenu pull-right">
                 <li><a href="javascript:;">Nuevo Presupuesto</a></li>
+                 <li><a href="./nuevousuario.php">Nuevo Usuario</a></li>
+                 <li><a href="./verusuarios.php">Usuarios</a></li>
 
 
                 <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>

@@ -105,7 +105,6 @@ if (isset($_SESSION['miSesion'])){
             </div>
 
             <div class="col-md-2 col-sm-2 col-xs-12 ">
-
             </div>
 
 
@@ -114,21 +113,9 @@ if (isset($_SESSION['miSesion'])){
             
           </div>
 
-
           <div class="x_content">
-<div class="col-md-6 col-sm-5 col-xs-12 form-group  top_search" style="margin-left: 20px;">
+
             <p>REGISTRO DE LAS CUENTAS POR DEPARTAMENTO</p>
-
-
- 
-
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar Registros de las cuentas por departaento" id="buscar">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">Buscar</button>
-                        </span>
-                      </div>           
-                    </div>
 
             <!-- start project list 
             id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info"-->
@@ -479,41 +466,6 @@ if (isset($_SESSION['miSesion'])){
 
 
  });
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function(){
-                  $("#buscar").on('keyup',function(){
-                        var div="";
-                  };
-                   
-                          $.ajax({
-                                  url: "./codigos/buscarcuentadepa.php",
-                                  method:"POST",
-                                  data:{ 
-                                    texto:$("#buscar").val(),
-                                    id:<?php  echo $_GET['id']; ?>
-                                  }
-                          }).done(function(respuesta){
-                                  $(div).find("tr").append(respuesta); 
-                                  alert ("texto");
-                          });
-                  });
-          });
-
-
-
-
-
-
-
 
 </script>
 

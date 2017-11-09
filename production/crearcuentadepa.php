@@ -65,7 +65,7 @@ if (isset($_SESSION['miSesion'])){
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Generar una nueva cuenta</h3>
+                <h3>Cuentas</h3>
               </div>
 
              
@@ -76,29 +76,15 @@ if (isset($_SESSION['miSesion'])){
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Cuenta<small></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Cancelar</a>
-                          </li>
-                         
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    <h2>Generar una nueva cuenta<small> para cada departamento</small></h2>
+                   
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
 
                     <form class="form-horizontal form-label-left" novalidate action="./codigos/cuentadepa.php" method="post" id="miForm">
 
-                      <p>Registro del nuevo departamento <!--<code></code> -->
-                      </p>
+                     
                       <span class="section">Información</span>
                        <div class="alert alert-danger " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
               text-shadow: 0px 0px rgba(153, 153, 153, 0);  
@@ -123,10 +109,9 @@ if (isset($_SESSION['miSesion'])){
                           <select class="select2_single form-control"
                             name="departamento"
                             id="departamento" 
+                            required="required"
                            class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
-                            <option></option>
-
-
+                          
                             <?php 
                         include './conexion.php';
                         $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
@@ -152,12 +137,10 @@ if (isset($_SESSION['miSesion'])){
                                       name="cuenta"
                                       id="cuenta" 
                                      class="form-control col-md-9 col-xs-12" tabindex="-1" style="width:100%;" >
-                                                <option></option>
-
-
+                                               
                                                 <?php 
                                             include './conexion.php';
-                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                                            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC ")or die($mysqli->error);
                                             while ( $fila=mysqli_fetch_array($consulta)) {
                                               
                                              ?>
@@ -165,7 +148,7 @@ if (isset($_SESSION['miSesion'])){
                                                 <?php } ?>
                                     </select>
                               </div>
-                              <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                              <button type="button" class="btn btn-primary" ><a href="./nuevacuenta.php" style="color:white;"><i class="fa fa-plus" aria-hidden="true"></i></a></button>
                       </div>
 
 
@@ -176,6 +159,7 @@ if (isset($_SESSION['miSesion'])){
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="anio" class="form-control col-md-7 col-xs-12" 
                           name="anio"
+                          required="required"
                           value="<?php echo date('Y')?>" 
                            placeholder="Año de carga"  type="text">
                       
@@ -190,6 +174,7 @@ if (isset($_SESSION['miSesion'])){
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="monto" class="form-control col-md-7 col-xs-12" 
                           name="monto"
+                          required="required"
                            placeholder="Cantidad de la cuenta"  type="text">
                       
 
@@ -221,7 +206,8 @@ if (isset($_SESSION['miSesion'])){
 
 
 
-
+   </div>
+    </div>
 
       <!-- footer content -->
         <footer>
@@ -231,8 +217,7 @@ if (isset($_SESSION['miSesion'])){
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
-      </div>
-    </div>
+   
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -271,10 +256,11 @@ if (isset($_SESSION['miSesion'])){
           }).done(function(e2){
             if(e2=="no"){
                $("#alerta").show();
-                alert(e2); 
+               // alert(e2); 
                 
             }else{
-              $("#miForm").submit();
+              $("#miForm").submit();//envio de formulario ya no se va al ajax
+                //alert(e2);
             }
            
           });

@@ -75,20 +75,7 @@ if (isset($_SESSION['miSesion'])){
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Proveedores<small></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Cancelar</a>
-                          </li>
-                         
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                   
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -117,7 +104,7 @@ if (isset($_SESSION['miSesion'])){
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="obra" class="form-control col-md-7 col-xs-12" 
                           name="nombre" 
-
+                          required="required"  
                           placeholder="Nombre del Proveedor o Empresa" type="text">
                         </div>
                       </div>
@@ -134,7 +121,7 @@ if (isset($_SESSION['miSesion'])){
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="cuenta" class="form-control col-md-7 col-xs-12" 
                           name="direccion"
-
+                          
                            placeholder="Direccion del Proveedor"  type="text">
                       
 
@@ -150,7 +137,7 @@ if (isset($_SESSION['miSesion'])){
                           <input id="cuenta" class="form-control col-md-7 col-xs-12"  
                           data-inputmask="'mask' : '(***)-***-**-**'"
                           name="telefono"
-
+                           required="required" 
                            placeholder="Teléfono del Proveedor"  type="text">
                       
 

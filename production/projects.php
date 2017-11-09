@@ -260,7 +260,8 @@ if (isset($_SESSION['miSesion'])){
                                                   <small><?php  echo  number_format($res ,2);?>% COMPLETADO</small>
                                                 </td>
                                                 <td>
-                                                  <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary"  data-method="getCroppedCanvas"
+                                                  <button type="button" class="btn btn-success btn-xs"  class="btn btn-primary" 
+                                                   data-method="getCroppedCanvas"
                                                   data-toggle="modal" data-target="#Devengada">
                                                   Devengado
                                                 </button>
@@ -269,11 +270,15 @@ if (isset($_SESSION['miSesion'])){
                                                 Pagado</button>
                                               </td>
                                               <td>
-                                               <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver"><i class="fa fa-folder"></i> Ver </a>
+                                               <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#ver">
+                                               <i class="fa fa-folder">
+                                                 </i> Ver </a>
+
                                                <a href="#" class="btn btn-info btn-xs btnEditar"
                                                data-id="<?php echo $fila['ord_id'] ?>"
                                                data-toggle="modal" data-target="#editar">
                                                <i class="fa fa-pencil"></i> Editar</a>
+
                                                <a href="#" class="btn btn-danger btn-xs btnEliminar" 
                                                data-id="<?php echo $fila['ord_id'] ?>"
                                                data-toggle="modal" data-target="#eliminar">
@@ -453,7 +458,7 @@ if (isset($_SESSION['miSesion'])){
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Departamento </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" name="dpto">
-                <option value="1">Departamentos</option>
+                <option >Departamentos</option>
                 <?php 
                 include './conexion.php';
                 $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);

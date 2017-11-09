@@ -148,7 +148,7 @@ if (isset($_SESSION['miSesion'])){
                                                     $status=$fila['status'];
                                                     if ($dev<$todo) {
                                                       $res=$dev * 100 / $todo;
-                                                      echo $res;
+                                                      
                                                     }else {
                                                       $res =$pag * 100 / $todo;
                                                     }
@@ -193,7 +193,8 @@ if (isset($_SESSION['miSesion'])){
 
                                                  -->
 
-                                                  <small><?php  echo  number_format($res ,2);?>% COMPLETADO</small>
+                                                  <small><?php  echo  number_format($res ,2);?>% COMPLETADO
+                                                  <br> <?php echo $fila['status']; ?></small>
                           </td>
                           <td style="border:0px;">
                            <button type="button" class="btn btn-success btn-xs btnDevengado"  data-method="getCroppedCanvas"
@@ -201,14 +202,14 @@ if (isset($_SESSION['miSesion'])){
                                     data-toggle="modal" data-target="#Devengada"
                                     data-cantidad="<?php echo $fila['ppto_dev'] ?>"
                                     data-poliza="<?php echo $fila['poliza_dev'] ?>">
-                                    Devengado
+                                    Devengar
                                   </button>
                         <button type="button" class="btn btn-success btn-xs btnPagado"
                               data-id="<?php echo $fila['ord_id'] ?>"
                               data-toggle="modal" 
                               data-target="#Pagada"
                               data-pagado="<?php echo $fila['ppto_pag'] ?>">
-                              Pagado</button>
+                              Pagar</button>
                                                 </td>
                           <td style="border:0px;">  <a href="#" class="btn btn-primary btn-xs"
                                                    data-toggle="modal" data-target="#ver">

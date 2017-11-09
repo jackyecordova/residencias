@@ -31,32 +31,37 @@
    <div class="login_wrapper">
     <div class="animate form login_form">
       <section class="login_content">
-        <form class="entrar" method="post" action="./codigos/verificarlogin.php">
+        <form class="entrar" method="post" action="./codigos/verificarlogin.php" id="entrar">
           <h1>Inicio de sesión</h1>
           <div>
             <input type="text" class="form-control" placeholder="Nombre de Usuario"
             name="nombre"
-            id="nombre" required="" />
+            id="nombre" required="required" />
           </div>
           <div>
             <input type="password" class="form-control" placeholder="Contraseña"
             name="contrasena"
-            id="contrasena" required="" />
+            id="contrasena" required="required"  />
           </div>
           <div>
             <button class="btn btn-default" type="submit" >Iniciar Sesión</button> 
 
           </div>
 
-          <div class="alert alert-danger" role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+          <div class="alert alert-danger" role="alert" 
+          style="background-color: rgba(210, 20, 0, 0.19); 
               text-shadow: 0px 0px rgba(153, 153, 153, 0);  
-          color: rgb(241, 83, 68);;">Usuario o contraseña inválida
+          color: rgb(241, 83, 68);
+              display: none;"
+          id="error"
+          >Usuario o contraseña inválida
         </div>
+
         <div class="clearfix"></div>
 
         <div class="separator">
           <p class="change_link">
-            <a href="#signup" class="to_register"> Crear una cuenta </a>
+            <a href="#signup" class="register"> Crear una cuenta </a>
           </p>
 
           <div class="clearfix"></div>
@@ -95,48 +100,66 @@
 
   <div id="register" class="animate form registration_form">
     <section class="login_content">
+      <form >
+        <h1>Crear Cuenta</h1>
+       <br>
+      <br>
+      <div>
+        <label> Asiste con el Oficial Mayor Para Tu Registro</label>
+      </div>
+
+
+     <!-- <div>
+        <button class="btn btn-default" type="submit" >Registrar</button> 
+      </div>-->
+      
+
+<br>
+<br>
+
+
+      <div class="clearfix"></div>
+
+      <div class="separator">
+       <p class="change_link">
+         <a href="#signin" class="to_register"> Iniciar Sesión</a>
+       </p>
+
+
+       <div class="clearfix"></div>
+       <br />
+
+       <div>
+        <h1><i class="fa fa-university"></i> Presidencia Municipal</h1>
+        <p>de Nuevo Casas Grandes</p>
+      </div>
+    </div>
+  </form>
+</section>
+</div>
+
+
+
+<!--...........................................................................................
+
+
+
+ <div id="confirmar" class="animate form registration_form">
+    <section class="login_content">
       <form action="./codigos/nuevousuario.php" method="post">
         <h1>Crear Cuenta</h1>
-        <div>
-          <input type="text" class="form-control" placeholder="Nombre de Usuario" required=""
-          id="nombre"
-          name="nombre" />
-        </div>
-        <div>
-          <input type="email" class="form-control" placeholder="Email" required=""
-          id="correo"
-          name="correo" />
-        </div>
+       
         <div>
           <input type="password" class="form-control" placeholder="Contraseña" required="" 
           id="contrasena"
-          name="contrasena" />
+          name="contrasena"
+          required="required"  />
         </div>
 
 
-        <div>
-          <select type="text" class="form-control" placeholder="Nivel" style="margin-bottom:20px;" required="" 
-          id="nivel" 
-          name="nivel" >
-          <option value="Admin">Admin</option>
-          <option value="Oficial Mayor">Oficial Mayor</option>
-          <option value="Obras Públicas">Obras Públicas</option>
-          <option value="Tesorero">Tesorero</option>
-        </select>
-      </div>
+       
       <div>
-        <input type="text" class="form-control" placeholder="Puesto" required="" 
-        id="puesto"
-        name="puesto" />
-      </div>
-
-
-
-
-
-
-      <div>
-        <button class="btn btn-default" type="submit" >Registrar</button> 
+        <button class="btn btn-default" type="submit" >Confirmar </button> 
       </div>
 
       <div class="clearfix"></div>
@@ -158,7 +181,47 @@
   </form>
 </section>
 </div>
+
+
+
+
+
+-->
+
+
+
+
 </div>
 </div>
+<script>
+   // var formulariologin=document.getElementById("entrar");
+   // var txtusuario=document.getElementById("nombre");
+   // var txcontrasenia=document.getElementById("contrasena");
+//
+   // var divEr=document.getElementById("error");
+   // 
+   // formulariologin.addEventListener("submit",function(evt){
+   //   
+   //   if(txtusuario.value !="" && txcontrasenia.value!=""){
+      
+
+   //   }else {
+   //     evt.preventDefault();
+   //     divEr.style.display="block";
+    //    divEr.innerHTML="<b>Error:</b> Llenar campos";
+   //   }
+      
+  //  });
+   // txtusuario.addEventListener("keypress",function(evt){
+   //   divEr.style.display="none";
+    });
+   // txcontrasenia.addEventListener("keypress",function(evt){
+  //    divEr.style.display="none";
+   // });
+ //   function ocultar(evt){
+ //     divEr.style.display="none";
+ //   }
+
+  </script>
 </body>
 </html>

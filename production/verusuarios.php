@@ -73,7 +73,7 @@ if (isset($_SESSION['miSesion'])){
       <div class="">
         <div class="page-title">
           <div class="title_left">
-            <h3>Cuentas Registradas</h3>
+            <h3>Usuarios</h3>
           </div>
 
         
@@ -84,7 +84,7 @@ if (isset($_SESSION['miSesion'])){
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Cuentas Registradas </h2>
+                <h2>Registrados </h2>
 
                 <div class="clearfix"></div>
               </div>
@@ -99,27 +99,28 @@ if (isset($_SESSION['miSesion'])){
                       <thead>
                                        <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
-                                        Id Cuenta
+                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 2%;">
+                                        Nombre
                                       </th>
                                       <th class="sorting" tabindex="0" aria-controls="datatable"
                                       rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                                      style="width: 200px;">
-                                      Cuenta
+                                      style="width: 10%;">
+                                      Correo
+
                                     </th>
                                     <th class="sorting" tabindex="0" 
-                                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                                    style="width:350px;">
-                                    Obra
+                                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" type="password"
+                                    style="width:10%;">
+                                    contraseña
                                   </th>
                                   <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
-                                  Cantidad
+                                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 10%;">
+                                  Puesto
                                 </th>
                                 <th class="sorting" tabindex="0" 
                                 aria-controls="datatable" rowspan="1" colspan="1"
                                 aria-label="Office: activate to sort column ascending" 
-                                style="width: 80px;">
+                                style="width: 10%;">
 
                               </th>
 
@@ -130,7 +131,7 @@ if (isset($_SESSION['miSesion'])){
           <tbody>
             <?php 
             include './conexion.php';
-            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+            $consulta=$mysqli->query("select * from usuarios order by id_usuario ASC")or die($mysqli->error);
             while ( $fila=mysqli_fetch_array($consulta)) {
                            # code...
 
@@ -138,33 +139,28 @@ if (isset($_SESSION['miSesion'])){
              ?>
 
              <tr role="row" class="odd">
-              <td class="sorting_1"><?php echo $fila['id_cuenta'] ?></td>
-              <td><?php echo $fila['cuenta'] ?></td>
-              <td><?php echo $fila['nombre'] ?></td>
-              <td>$ <?php echo  number_format($fila['cantidad']  ,2) ?>
-              <br><?php 
-                  $consulta2=$mysqli->query("select SUM(monto) as total from presupuesto_depa where id_cuenta=".$fila['id_cuenta'])or die($mysqli->error);
-                  
-                  $scuenta=$consulta2->fetch_assoc();
-                  $totalmonto=$scuenta['total'];
-                   ?>Usado $ 
-                  <?php echo  number_format($totalmonto  ,2) ;
-               ?>
-              </td>
+              <td class="sorting_1"><?php echo $fila['nombre'] ?></td>
+              <td><?php echo $fila['correo'] ?></td>
+              <td><?php echo $fila['password'] ?></td>
+              <td>
+              <?php echo  $fila['puesto'] ?><br>
+              <?php echo  $fila['nivel'] ?></td>
               <td>               
                <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                data-target="#editar"
-               data-id="<?php echo $fila['id_cuenta'] ?>"
-               data-cuenta="<?php echo $fila['cuenta'] ?>"
+               data-id="<?php echo $fila['id_usuario'] ?>"
                data-nombre="<?php echo $fila['nombre'] ?>"
-               data-cantidad="<?php echo $fila['cantidad'] ?>">
+               data-correo="<?php echo $fila['correo'] ?>"
+               data-password="<?php echo $fila['password'] ?>"
+                data-nivel="<?php echo $fila['nivel'] ?>"
+                 data-puesto="<?php echo $fila['puesto'] ?>">
                <i class="fa fa-pencil">
 
                </i>  </a>
                <a href="#" class="btn btn-danger btn-xs btnEliminar" 
                data-toggle="modal"
                data-target="#eliminar"
-               data-id="<?php echo $fila['id_cuenta'] ?>"
+               data-id="<?php echo $fila['id_usuario'] ?>"
                data-nombre="<?php echo $fila['nombre'] ?>">
                <i class="fa fa-trash-o"></i>  
              </a>
@@ -177,16 +173,16 @@ if (isset($_SESSION['miSesion'])){
          <div id="eliminar" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form action="./codigos/eliminarcuenta.php" method="post">
+              <form action="./codigos/eliminarusuarios.php" method="post">
                 <div class="modal-header">
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Eliminar información</h4>
-                  <input type="hidden" id="idcuenta" name="idcuenta">
+                  <input type="hidden" id="idusuario" name="idusuario">
 
                 </div>
                 <div class="modal-body" style="text-align: center">
-                  <p>Estas seguro de eliminar esta cuenta
+                  <p>Estas seguro de eliminar este usuario
                     <br>
                     <span  style="font-size:20px;" 
                     id="nombreeliminar"></span> </p>
@@ -211,62 +207,65 @@ if (isset($_SESSION['miSesion'])){
           <div id="editar" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form action="./codigos/editarcuenta.php" method="post">
-                  <div class="modal-header">
+                <form action="./codigos/editarusuarios.php" method="post">
+                                    <div class="modal-header">
 
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Editar información</h4>
-                    <input type="hidden" id="idcuentaeditar" name="idcuentaeditar">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Editar información</h4>
+                                      <input type="hidden" id="idusuarioeditar" name="idusuarioeditar">
 
-                  </div>  <div class="clearfix"></div>
-                  <div class="modal-body" style="text-align: center">
+                                    </div>  <div class="clearfix"></div>
+                                    <div class="modal-body" style="text-align: center">
 
-                    <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta 
-                       <span class="required">*</span>
-                     </label>
-                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
-                      data-inputmask="'mask' : '*-*-*-*-***-****-***'"
-                      name="cuenta" 
-                      id="cuentaeditar"
-                      placeholder="Número de la Cuenta" maxlength="20" minlength="20"
-                      type="text">
-                    </div>
-                  </div>
-                    <div class="clearfix"></div>
+                                      <div>
+                                       <label class="pull-left">Nombre</label>
+                                      <input type="text" class="form-control" placeholder="Nombre de Usuario" required=""
+                                      id="nombreeditar"
+                                      name="nombreeditar"
+                                      required="required"  />
+                                    </div>
+                                    <br>
+                                    <div>
+                                     <label class="pull-left">Correo</label>
+                                      <input type="email" class="form-control" placeholder="Email" required=""
+                                      id="correoeditar"
+                                      name="correoeditar" />
+                                    </div>
+                                    <br>
+                                    <div>
+                                      <label class="pull-left">Contraseña</label>
+                                      <input type="password" class="form-control" placeholder="Contraseña" required="" 
+                                      id="contrasenaeditar"
+                                      name="contrasenaeditar"
+                                      required="required"  />
+                                    </div>
+                                  <br>
 
-                  <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre 
-                     <span class="required">*</span>
-                   </label>
-                   <div class="col-md-6 col-sm-6 col-xs-12"  >
-                    <input  class="form-control col-md-7 col-xs-12" style="width:100%;"
-                    name="nombre"
-                    placeholder="Nombre de la Cuenta"
-                    id="nombreeditar" type="text">
-                  </div>
-                </div>
-  <div class="clearfix"></div>
+                                    <div>
+                                     <label class="pull-left">Nivel</label>
+                                      <select type="text" class="form-control" placeholder="Nivel" style="margin-bottom:20px;" required="required" 
+                                      id="niveleditar" 
+                                      name="niveleditar" >
+                                      <option value="Admin">Admin</option>
+                                      <option value="Oficial Mayor">Oficial Mayor</option>
+                                      <option value="Obras Públicas">Obras Públicas</option>
+                                      <option value="Tesorero">Tesorero</option>
+                                    </select>
+                                  </div>
 
-                <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12" >
-                    <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
-                    name="cantidad"
-                    id="cantidadeditar" 
-                    placeholder="Cantidad de la Cuenta" type="text">
-                  </div>
-                </div>
+                                  <div>
+                                   <label class="pull-left">Puesto</label>
+                                    <input type="text" class="form-control" placeholder="Puesto" required="required" 
+                                    id="puestoeditar"
+                                    name="puestoeditar" />
+                                  </div>
 
 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Guardar</button>
-              </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Guardar</button>
+                                          </div>
             </form>
 
           </div>
@@ -348,18 +347,22 @@ if (isset($_SESSION['miSesion'])){
   $(".btnEliminar").on('click',function(){
    var id=$(this).data('id');
    var nombre=$(this).data('nombre');
-   $("#idcuenta").val(id);
+   $("#idusuario").val(id);
    $("#nombreeliminar").text(nombre) ;   
  });
   $(".btnEditar").on('click',function(){
    var id=$(this).data('id');
-   var cuenta=$(this).data('cuenta');
    var nombre=$(this).data('nombre');
-   var cantidad=$(this).data('cantidad');
-   $("#idcuentaeditar").val(id);
-   $("#cuentaeditar").val(cuenta) ;   
+   var correo=$(this).data('correo');
+   var contrasena=$(this).data('password');
+    var nivel=$(this).data('nivel');
+     var puesto=$(this).data('puesto');
+   $("#idusuarioeditar").val(id);
    $("#nombreeditar").val(nombre) ;   
-   $("#cantidadeditar").val(cantidad) ;   
+   $("#correoeditar").val(correo) ;   
+   $("#contrasenaeditar").val(contrasena) ;
+   $("#niveleditar").val(nivel) ;   
+   $("#puestoeditar").val(puesto) ;      
 
  });
 

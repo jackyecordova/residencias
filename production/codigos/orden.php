@@ -58,12 +58,12 @@ if (isset($_POST["departamento"])
 	$scuenta=$re->fetch_assoc();
 	$totalmonto=$scuenta['totalmonto'];
 
-		$restante= $cantidadcuenta-$sumacuenta;
-		if ($total>$cantidadsuma) {
-		 	echo "Estas gastando mas de lo que se tiene";
-		 } else{
-		 	echo "Ahora si ";
-		 }
+		//$restante= $cantidadcuenta-$sumacuenta;
+		//if ($total>$cantidadsuma) {
+		// 	echo "Estas gastando mas de lo que se tiene";
+		// } else{
+		 //	echo "Ahora si ";
+		 //}
 
 
 
@@ -104,8 +104,8 @@ if (isset($_POST["departamento"])
 
 		$mysqli->query($consulta)or die($mysqli->error);
 
-		echo "listo";
-		header("Location:../projects.php");
+		//echo "listo";
+		header("Location:../project2.php");
 }else
 {
 	echo "algunos campos no fueron completados";

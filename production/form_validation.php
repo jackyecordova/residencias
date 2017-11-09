@@ -76,25 +76,19 @@ if (isset($_SESSION['miSesion'])){
               <div class="x_panel">
                 <div class="x_title">
                   <h2>Generar una nueva orden<small></small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Cancelar</a>
-                        </li>
-
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
+                  
                   <div class="clearfix"></div>
+                  <div class="alert alert-danger alert-dismissible " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+              text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+          color: rgb(241, 83, 68);display:none;" id="alerta">Has excedido el presupuesto
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+        </div>
                 </div>
                 <div class="x_content">
 
-                  <form class="form-horizontal form-label-left" novalidate action="./codigos/orden.php" method="post">
+                  <form class="form-horizontal form-label-left" novalidate action="./codigos/orden.php" method="post" id="miForm">
 
                     <p>Detalles de la orden  <!--<code></code> -->
                     </p>
@@ -138,8 +132,9 @@ if (isset($_SESSION['miSesion'])){
                           <div class="col-md-9 col-sm-9 col-xs-12">
                             <select class="select2_single form-control"
                             name="departamento"
+                            id="departamento" 
                             class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
-                            <option></option>
+                           
 
 
                             <?php 
@@ -158,8 +153,9 @@ if (isset($_SESSION['miSesion'])){
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="obra" class="form-control col-md-7 col-xs-12" 
-                          name="nofactura" placeholder="Número de factura"  type="text">
+                          <input  class="form-control col-md-7 col-xs-12" 
+                          name="nofactura" placeholder="Número de factura"  type="text"
+                          required="required">
                         </div>
                       </div>
                       <div class="clearfix"></div>
@@ -200,44 +196,46 @@ if (isset($_SESSION['miSesion'])){
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                      <select class="select2_single form-control" id="obra" class="form-control col-md-7 col-xs-12"  
+                      <select class="select2_single form-control" 
+                      id="obra" 
+                      class="form-control col-md-7 col-xs-12"  
                       name="obra"
                       required
                       placeholder="Nombre de la Obra"  type="text">
-                      <option></option>
+                      
                       <?php 
                       include './conexion.php';
-                      $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+                      $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC ")or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
                        ?> <!--Concatenar el nombre de la cuenta-->
                        <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre']  ?><small ><?php // echo $fila['cuenta']  ?></small></option>
                        <?php } ?>
                      </select>
                    </div>
-                   <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                   <button type="button" class="btn btn-primary"><a href="./nuevacuenta.php" style="color:white;"><i class="fa fa-plus" aria-hidden="true"></a></i></button>
                  </div>
 
                  <!--Option para las cuentas existentes del departamento seleccionado
                  <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
-                  <div class="col-md-6 col-sm-9 col-xs-12">
-                    <input class="select2_single form-control"
-                    name="cuenta"
-                    class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;" >
-                  
-                                <?php 
-                               // include './conexion.php';
-                              //  $consulta=$mysqli->query("SELECT obras.*, cuentas.*
-                                // from obras
-                                 //INNER JOIN cuentas ON obras.id_cuenta= cuentas.id_cuenta
-                                // where obras.id_cuenta= cuenta.id_cuenta
-                               //  ")or die($mysqli->error);
-                                
-                                 ?>
-                     >
+                                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta <span class="required">*</span></label>
+                                          <div class="col-md-6 col-sm-9 col-xs-12">
+                                            <input class="select2_single form-control"
+                                            name="cuenta"
+                                            class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:100%;" >
+                                          
+                                                        <?php 
+                                                       // include './conexion.php';
+                                                      //  $consulta=$mysqli->query("SELECT obras.*, cuentas.*
+                                                        // from obras
+                                                         //INNER JOIN cuentas ON obras.id_cuenta= cuentas.id_cuenta
+                                                        // where obras.id_cuenta= cuenta.id_cuenta
+                                                       //  ")or die($mysqli->error);
+                                                        
+                                                         ?>
+                                             >
 
-                   </div>
-                   <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                           </div>
+                                           <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
                  </div>
 -->
 
@@ -253,7 +251,8 @@ if (isset($_SESSION['miSesion'])){
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <input id="observaciones" class="form-control col-md-7 col-xs-12" 
                     name="observaciones"
-                    placeholder="Observaciones dentro de la obra" type="text">
+                    placeholder="Observaciones dentro de la obra" type="text"
+                      required="required" >
                   </div>
                 </div>
 
@@ -264,12 +263,13 @@ if (isset($_SESSION['miSesion'])){
                     <input id="vehiculo" class="form-control col-md-7 col-xs-12" 
                     name="vehiculo"
                     placeholder="Vehículo usado"
-                    type="text">
+                    type="text"
+                    >
                   </div>
                 </div>
 
 
-
+<!--.........................................................................................................................................-->
 
 
 
@@ -283,9 +283,7 @@ if (isset($_SESSION['miSesion'])){
                 <select class="select2_single form-control"
                 name="proveedor"
                 class="form-control col-md-8 col-xs-12" tabindex="-1" style="width:100%;">
-                <option></option>
-
-
+               
                 <?php 
                 include './conexion.php';
                 $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
@@ -296,16 +294,9 @@ if (isset($_SESSION['miSesion'])){
                  <?php } ?>
                </select>
              </div>
-             <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
+             <button type="button" class="btn btn-primary"><a href="./nuevoproveedor.php" style="color:white;">
+             <i class="fa fa-plus" aria-hidden="true"></i></a></button>
            </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -314,7 +305,8 @@ if (isset($_SESSION['miSesion'])){
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="material" class="form-control col-md-7 col-xs-12" 
-              name="material" placeholder="Material a comprar"  type="text">
+              name="material" placeholder="Material a comprar"  type="text"
+                 required="required" >
             </div>
           </div>
           <div class="item form-group">
@@ -322,7 +314,9 @@ if (isset($_SESSION['miSesion'])){
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="cantidad" class="form-control col-md-7 col-xs-12" 
-              name="cantidad" placeholder="Unidades a comprar"  type="text">
+              name="cantidad" placeholder="Unidades a comprar"  type="text"
+            
+               required="required" >
             </div>
           </div>
           <div class="item form-group">
@@ -330,132 +324,28 @@ if (isset($_SESSION['miSesion'])){
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="precio" class="form-control col-md-7 col-xs-12" 
-              name="precio" placeholder="Precio unitario"  type="text">
+
+              name="precio" placeholder="Precio unitario"  type="text"
+                required="required" >
             </div>
           </div>
-         <!-- <div class="col-md-4 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px;  ">
-           <button type="button" class="btn btn-warning" style="margin-left: 25%;" data-toggle="modal" data-target="#Devengada">Devengar</button>
-          <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Pagado">Pagado</button>
-         </div>-->
+        
 
 
        </div>
-     </div>
+     </div> 
      <div class="ln_solid"></div>
-    <!--   <div class="form-group">
-        <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px; ">
-          <button type="submit" class="btn btn-primary">Cancelar</button>
-          <button id="send" type="submit" class="btn btn-success">Enviar</button>
-        </div>
-      </div>
-    </div>
-
-
-
-    Ventana gris
-    <div class="well" style="overflow: auto">
-
-
-
-      <div class="ln_solid"></div>
-      <div class="form-group">
-        <div class="col-md-6 col-md-offset-3" style="margin-left: 35%;padding-bottom:20px;padding-top:20px; ">
-          <button type="submit" class="btn btn-primary">Cancelar</button>
-          <button id="send" type="submit" class="btn btn-success">Enviar</button>
-        </div>
-      </div>-->
+  
     </div>
   </form>
 </div>
 </div>
 </div>
 </div>
+
 </div>
 </div>
 <!-- /page content -->
-
-
-
-
-<!-- Cantidad Devengado-->
-<!-- Cantidad Devengado-->
-<!-- Cantidad Devengado-->
-<!-- Cantidad Devengado-->
-<div id="Devengada" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-        <h4 class="modal-title" >Cantidad Devengada</h4>
-      </div>
-      <div class="col-xs-12 col-md-12" style="display:none;">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" 
-        for="fecha"
-        name ="fechadev"
-        >Fecha  <span class="required">*</span>
-      </label>
-      <fieldset>
-      <form action="" method="post">
-        <div class="control-group">
-          <div class="controls">
-
-            <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-              <input type="text" class="form-control has-feedback-left" id="single_cal4" 
-              placeholder="First Name" aria-describedby="inputSuccess2Status4">
-              <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-              <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-            </div>
-
-          </div>
-        </div>
-        </form>
-      </fieldset>
-
-    </div>
-    <div class="modal-body" style="text-align: left; ">                     
-     <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-     <div class="col-sm-8">  </div>
-     <div class="input-group"> 
-      <input type="number" placeholder="000,000,000.00" class="form-control"
-      name="dev" 
-      data-fv-field="price">
-      <span class="input-group-addon">
-       $
-     </span> 
-   </div>
- </div>
- <!--poliza -->
- <div class="modal-body" style="text-align: left;margin-top: -20px;text-align: left; ">
-
-   <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
-   <div class="col-sm-8">  </div>
-   <div class="input-group"> 
-    <input type="text"  class="form-control"
-    name="poldev"
-    data-fv-field="price">
-    <span class="input-group-addon">
-
-    </span> 
-  </div>
-
-</div>
-<!--poliza -->
-<div class="col-sm-1"></div>
-<div class="modal-footer" style="padding-top:35px;">
- <button type="submit"  class="btn btn-success" >Devengar</button>
- <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- Cantidad Devengado-->
-<!-- Cantidad Devengado-->
-<!-- Cantidad Devengado-->
-<!-- Cantidad Devengado-->
-
-
 
 
 
@@ -492,15 +382,30 @@ if (isset($_SESSION['miSesion'])){
 <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <!--  <script type="./js/the-basics.js"></script>-->
 <!-- jQuery Smart Wizard -->
-<script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
-<script type="text/javascript">
-  $(document).on('ready',function(){
-    $(".buttonFinish").on('click',function  (e) {
-    //  alert("sdasd");
-      // e.preventDefault();
-    });
+<script src="./js/jquery.smartWizard.js"></script>
 
-  })
-</script>
+ <script type="text/javascript">
+      $(document).ready(function  (argument) {
+      $("#alerta").hide();
+        
+        $("#send").on("click",function  (e) {
+           e.preventDefault();//para que no se vaya
+         
+            }
+          }).done(function(e2){
+            if(e2=="no"){
+               $("#alerta").show();
+               // alert(e2); 
+                
+            }else{
+              $("#miForm").submit();//envio de formulario ya no se va al ajax
+                //alert(e2);
+            }
+           
+          });
+
+        });
+    });
+   </script>
 </body>
 </html>

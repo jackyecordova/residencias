@@ -65,16 +65,7 @@ if (isset($_SESSION['miSesion'])){
             <h3>Obras Registradas</h3>
           </div>
 
-          <div class="title_right">
-            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
-          </div>
+         
         </div>
 
         <div class="clearfix"></div>
@@ -83,22 +74,8 @@ if (isset($_SESSION['miSesion'])){
           <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Button Example <small>Users</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    <h2>Historial de todas Obras Registradas</h2>
+                    
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -107,7 +84,7 @@ if (isset($_SESSION['miSesion'])){
                       <thead>
                          <tr role="row">
                   <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 1%;">
+                  colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 5%;">
                   Id orden
                 </th>
                 <th class="sorting" tabindex="0" aria-controls="datatable"
@@ -130,7 +107,7 @@ if (isset($_SESSION['miSesion'])){
           Cuenta
         </th>
         <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"
-        aria-label="Salary: activate to sort column ascending" style="width: 8%;">
+        aria-label="Salary: activate to sort column ascending" style="width: 5%;">
         Fecha
       </th>
     </tr>
@@ -156,17 +133,20 @@ if (isset($_SESSION['miSesion'])){
                                          }else {
                                           $activado='background-color:rgba(194, 47, 47, 0.08)';
                                         }
-                                                        # code...
+                                                       if ($fila['status']=="Cancelado") {
+                                                         $letracancelado="red";
+                                                       }else{$letracancelado="#7a8c9f";}
+
                                        ?>
                                 
-                                       <tr role="row" class="odd"  style="<?php echo $activado ?>">
+                                       <tr role="row" class="odd"  style="<?php echo $activado ?>;color:<?php echo $letracancelado?>;">
                                          <td > <?php echo $fila['ord_id'] ?>
-                                         <br> <a ><small> <a style="margin-top:3px;">No Factura</a><br> <?php echo $fila['ord_numfactura'] ?></small></a> 
+                                         <br> <a ><small> <a style="margin-top:3px;color:<?php echo $letracancelado?>;">No Fac</a><br> <?php echo $fila['ord_numfactura'] ?></small></a> 
                                          
                                          </td>
-                                         <td><?php echo $fila['nombre'] ?><br> <a ><small> <?php echo $fila['status'] ?></small></a> </td>
+                                         <td><?php echo $fila['nombre'] ?><br> <a style="color:<?php echo $letracancelado?>;"><small > <?php echo $fila['status'] ?></small></a> </td>
                                          <td><?php echo $fila['observaciones'] ?>
-                                         <br> <a ><small> <?php echo $fila['material'] ?></small></a></td>
+                                         <br> <a style="color:<?php echo $letracancelado?>;"><small> <?php echo $fila['material'] ?></small></a></td>
                                          
                                          <td><?php echo $fila['departamento'] ?></td>
                                          <td><?php echo $fila['nombre'] ?><br><?php  echo $fila['cuenta']; ?></td>

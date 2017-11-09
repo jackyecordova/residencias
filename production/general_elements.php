@@ -27,6 +27,8 @@ if (isset($_SESSION['miSesion'])){
     sum(ppto_dev) as devengado, 
     sum(ppto_pag) as pagado 
     FROM orden where id_departamento=".$_GET['id'])or die($mysqli->error);
+   //cuentas usadas en este departamento
+ //  $cuentaspresupuesto=$mysqli->query(" SELECT SUM(monto) as montos from presupuesto_depa where id_departamento=".$GET['id'])or die ($mysqli->error);
 
                         //departamento y su presupeusto
    while ( $fila=mysqli_fetch_array($consulta)) {
@@ -38,6 +40,11 @@ if (isset($_SESSION['miSesion'])){
     header("Location: ./index.php");
   }
                         //total comprometido
+//total de las cuentas usadas
+ // while ($fila=mysqli_fetch_array($cuentaspresupuesto)) {
+   //  $cuentapresu=$fila['montos'];
+    # code...
+ // }
 
   while ( $fila=mysqli_fetch_array($presu)) {
     $comprometido=$fila['comprometido'];
@@ -48,7 +55,7 @@ if (isset($_SESSION['miSesion'])){
     $porcentajedevengado =$devengado * 100 / $presupuesto;
     $porcentajepagado =$pagado * 100 / $presupuesto;
     $porcentajerestante = $restante * 100 / $presupuesto;
-
+   
     if ($porcentajerestante<=0) {
       $color="red";
       $asc="desc";
@@ -173,27 +180,27 @@ if (isset($_SESSION['miSesion'])){
 
           <div class="row tile_count" >
             <div class="col-md-2 col-sm-4 col-xs-12 tile_stats_count"  style="margin-right:30px;"  >
-              <span class="count_top"><i class="fa fa-user"></i>Presupuesto</span>
+              <span class="count_top"><i class="fa fa-money"></i>Presupuesto</span>
               <div class="count green" style="font-size: 25px;margin-bottom: -10px;">$ <?php echo number_format($presupuesto,2);?></div>
               <span class="count_bottom"><i class=<?php echo $color; ?>>100% </i> Total</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
-              <span class="count_top" ><i class="fa fa-clock-o"></i>Comprometido</span>
+              <span class="count_top" ><i class="fa fa-credit-card"></i>Comprometido</span>
               <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo  " "  .number_format($comprometido,2); ?></div>
               <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajecomprometido,2); ?>% </i> Completado</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
-              <span class="count_top"><i class="fa fa-user"></i> Devengado</span>
+              <span class="count_top"><i class="fa fa-money"></i> Devengado</span>
               <div class="count " style="font-size: 18px;    margin-bottom: -10px;">$ <?php echo " ".number_format( $devengado,2); ?></div>
               <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajedevengado,2); ?>% </i>Completado</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
-              <span class="count_top"><i class="fa fa-user"></i> Pagado</span>
+              <span class="count_top"><i class="fa fa-money"></i> Pagado</span>
               <div class="count" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo " " .  number_format($pagado,2); ?></div>
               <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-asc"></i><?php echo number_format($porcentajepagado,2); ?>% </i> Completado</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style=" margin-right: -20px;">
-              <span class="count_top"><i class="fa fa-user"></i>Restante</span>
+              <span class="count_top"><i class="fa fa-bar-chart"></i>Restante</span>
               <div class="count green" style="font-size: 18px;    margin-bottom: -10px;">$<?php echo " " . number_format( $restante,2); ?></div>
               <span class="count_bottom"><i class=<?php echo $color; ?>><i class="fa fa-sort-"<?php echo $asc; ?>""></i><?php  echo number_format($porcentajerestante,2);?>% </i> Completado</span>
             </div>
@@ -346,13 +353,34 @@ if (isset($_SESSION['miSesion'])){
                                                                   </div>
                                                                 
                                                                   <div class="col-md-3 col-sm-3 col-xs-12" style="text-align: right;">
-                                                                             <button type="button" class="btn btn-success"
-                                                                             style="  
-                                                                                 width: 30%;
-                                                                                 height: 32px;
-                                                                                 font-size: 12px;
-                                                                             "  >  <?php // echo $elstatus; ?></button>
-                                                                            <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
+
+
+
+                                                                
+                                                                             <button type="button" class="btn btn-success btnstatus" 
+                                                                                    data-method="getCroppedCanvas"
+                                                                                    data-toggle="modal" 
+                                                                                    data-target="#devengaropagar"
+                                                                                    data-nombre="<?php echo $fila['nombre'] ?>"
+                                                                                    data-status="<?php echo $fila['status'] ?>"
+                                                                                     data-id="<?php echo $fila['ord_id'] ?>"
+                                                                                     style="  
+                                                                                         width: 30%;
+                                                                                         height: 32px;
+                                                                                         font-size: 12px;
+                                                                                         margin-right: 20%;
+                                                                                     "  >
+
+                                                                               <?php 
+                                                                               if ($fila['status']=="Emitido") {
+                                                                                 $st="Dev";
+                                                                               }else if ($fila['status']=="Devengado") {
+                                                                                  $st="Pag";
+                                                                               }
+                                                                               
+
+                                                                               echo $st?></button>
+                                                                            <a  style="width: 10%;color:black; margin-right: 20%;" class="pull-right"><?php echo $fila['status']; ?></a>
 
                                                                   </div>
                                                         </div>
@@ -609,11 +637,12 @@ if (isset($_SESSION['miSesion'])){
                                               </li>
                                               <?php  } ?>
                                             </ul>
+
                                 </div>
 
                               
-
                             </div>
+
 
                   </div>
 
@@ -624,6 +653,60 @@ if (isset($_SESSION['miSesion'])){
             </div>
 
           </div>
+
+
+
+
+                <div class="col-md-2 pull-right">
+                                    <div class="x_panel">
+                                      <div class="x_title">
+                                        <h2>Cuentas</h2>
+
+
+                                              <div class="btn-group" class="pull-rigth">
+                                                         <button class="btn btn-success"type="button" id="crear"   
+                                                          data-target="#crearcuenta"
+                                                           data-method="getCroppedCanvas"
+                                                          data-toggle="modal" 
+                                                          >
+                                                           Crear 
+                                                        </button>
+                                            </div>
+                                        <?php  
+                                        
+
+                                       // echo $cuentapresu;
+                                         ?>
+                                      
+                                        <div class="clearfix"></div>
+                                      </div>
+                                      <div class="x_content bs-example-popovers">
+                                          <?php 
+                                           include './conexion.php';
+                                                  $consulta=$mysqli->query(
+                                                    "SELECT cuentas.*, presupuesto_depa.*
+                                                    FROM presupuesto_depa
+                                                    INNER JOIN cuentas ON presupuesto_depa.id_cuenta = cuentas.id_cuenta
+                                                   
+                                                    where presupuesto_depa.id_departamento=".$_GET['id']
+
+
+                                                    )or die($mysqli->error);
+                                                  while ( $fila=mysqli_fetch_array($consulta)) {
+
+
+                                           ?>
+                                        <div class="alert alert-info alert-dismissible fade in" role="alert">
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                          </button>
+                                          <strong><?php echo $fila['nombre']; ?><br><small> <?php echo $fila['cuenta']; ?></small></strong> 
+                                          Presupuesto <br><?php echo $fila['cantidad']; ?>
+                                        </div>
+                                       
+                                        <?php } ?>
+                                      </div>
+                                    </div>
+                    </div>
 
         </div>
       </div>
@@ -646,6 +729,182 @@ if (isset($_SESSION['miSesion'])){
 </div>
 <div class="clearfix"></div>
 </div>
+<!-- Crear cuenta para el departamento-->
+<!-- Crear cuenta para el departamento-->
+<!-- Crear cuenta para el departamento-->
+<!-- Crear cuenta para el departamento-->
+<div id="crearcuenta" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+                         
+
+     
+                    <form class="form-horizontal form-label-left" novalidate action="./codigos/cuentadepa2.php" method="post" id="miForm">
+                          <input type="hidden" 
+                    name="departamento" id="departamento" value="<?php echo $_GET['id'] ?>" >
+                     
+                      <span class="section" style="margin-left:5%;">Información</span>
+                      <div class="alert alert-danger alert-dismissible " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+                       text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+                              color: rgb(241, 83, 68);display:none;" id="alerta">Has excedido el presupuesto
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                       <span aria-hidden="true">&times;</span>
+                                 </button>
+                                 </div>
+                       <div class="alert alert-danger alert-dismissible" role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+                      text-shadow: 0px 0px rgba(153, 153, 153, 0);text-align:center;  
+                        color: rgb(241, 83, 68);display:block" id="alerta2">No has indicado la cantidad de presupuesto
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                       <span aria-hidden="true">&times;</span>
+                                 </button>
+                       </div>   
+
+                      <div class="form-group">
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta</label>
+                              <div class="col-md-6 col-sm-9 col-xs-12">
+                                    <select class="select2_single form-control"
+                                      name="cuenta"
+                                      id="cuenta" 
+                                     class="form-control col-md-9 col-xs-12" tabindex="-1" style="width:100%;" >
+                                               
+                                                <?php 
+                                            include './conexion.php';
+                                            $consulta=$mysqli->query("select cuentas.*,presupuesto_depa.*
+                                             from cuentas 
+                                            INNER JOIN presupuesto_depa where cuentas.id_cuenta= presupuesto_depa.id_cuenta
+                                            and presupuesto_depa.id_departamento<>".$_GET['id']
+                                            )or die($mysqli->error);
+                                            //where 
+                                            while ( $fila=mysqli_fetch_array($consulta)) {
+                                              
+                                             ?>
+                                                <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre'] ?><?php echo $fila['cuenta'] ?></option>
+                                                <?php } ?>
+                                    </select>
+                              </div>
+                              <button type="button" class="btn btn-primary" ><a href="./nuevacuenta.php" style="color:white;"><i class="fa fa-plus" aria-hidden="true"></i></a></button>
+                      </div>
+
+
+
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" > Año <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12" >
+                          <input id="anio" class="form-control col-md-7 col-xs-12" 
+                          name="anio"
+                          required="required"
+                          value="<?php echo date('Y')?>" 
+                           placeholder="Año de carga"  type="text">
+                      
+
+                        </div>
+                      </div>
+                    
+
+                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" > Monto <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12" >
+                          <input id="monto" class="form-control col-md-7 col-xs-12" 
+                          name="monto"
+                          required="true"
+                           placeholder="Cantidad de la cuenta"  type="text">
+                      
+
+                        </div>
+                      </div>
+                    
+
+
+                    
+                   
+                    
+                   
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="modal-footer" style="padding-top:35px;">
+                                 <button type="submit" id="send" class="btn btn-success" >Guardar</button>
+                                 <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+                               </div>
+                      </div>
+                         
+                    </form>
+ </div>
+
+</div>
+</div>
+<!-- Crear cuenta para el departamento-->
+<!-- Crear cuenta para el departamento-->
+<!-- Crear cuenta para el departamento-->
+
+
+<!-- Cantidad Pagada o devengar-->
+<div id="devengaropagar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <input type="text" id="idorden" name="idorden">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+        <h4 class="modal-title" >Cantidad</h4>
+        
+      </div>
+      <div class="modal-body" style="text-align: left; ">
+
+       <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
+       <div class="col-sm-8">  </div>
+
+       <div class="input-group"> 
+
+        <input type="text" placeholder="000,000,000.00" class="form-control"
+         name="cantidad"
+         id="cantidad" 
+          data-fv-field="price">
+        
+        <span class="input-group-addon">
+         $
+       </span> 
+
+     </div>
+   </div>
+    <div class="modal-body" style="text-align: left; ">
+
+       <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Poliza</h5> </div>
+       <div class="col-sm-8">  </div>
+
+       <div class="input-group"> 
+
+        <input type="text" placeholder="Número de Poliza" class="form-control" 
+        name="poliza"
+        id="poliza" data-fv-field="price">
+        
+        <span class="input-group-addon">
+         $
+       </span> 
+
+     </div>
+   </div>
+   <div class="col-sm-1"></div>
+
+
+
+   <div class="modal-footer" style="padding-top:35px;">
+     <button type="button"  class="btn btn-success" >Pagar</button>
+     <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+   </div>
+ </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
 <!-- /page content -->
 
 <!-- footer content -->
@@ -720,7 +979,43 @@ if (isset($_SESSION['miSesion'])){
                           });
                   });
           });
+
+ $(".btnstatus").on('click',function(){
+   var id=$(this).data('id');
+   var nombre=$(this).data('nombre');
+   
+   $("#idorden").val(id);
+   $("#nombrest").text(nombre) ;   
+
+
+
+
 </script>
+ <script type="text/javascript">
+      $(document).ready(function  (argument) {
+      $("#alerta").hide();
+      $("#alerta2").hide();
+        
+        $("#send").on("click",function  (e) {
+           e.preventDefault();//para que no se vaya
+         
+            
+          }).done(function(e2){
+            if($("#monto").val==""){
+               $("#alerta2").show();
+               // alert(e2); 
+                
+            }else{
+
+              $("#miForm").submit();//envio de formulario ya no se va al ajax
+                //alert(e2);
+            }
+           
+          });
+
+       
+    });
+   </script>
 
 </body>
 </html>

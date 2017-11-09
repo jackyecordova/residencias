@@ -9,12 +9,12 @@
                         <!-- Dos niveles-->
                       <li class="active"><a>Ordenes<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: block;">
-                            <li class="sub_menu current-page"><a href="projects.php">Consultar</a>
+                            <li class="sub_menu current-page"><a href="project2.php">Consultar</a>
                             </li>
                            
                             <li><a href="form_validation.php">Generar</a>
                             </li>
-                             <li><a href="plain_page.php">Historial</a>
+                             <li><a href="plain_page2.php">Historial</a>
                             </li>
                           </ul>
                       </li>

@@ -318,20 +318,21 @@
                       <a class="panel-heading" role="tab" id="headingOne1" data-toggle="collapse"
                       data-parent="#accordion " href="#collapseOne<?php echo $cont?>" aria-expanded="false" aria-controls="collapseOne<?php echo $cont?>">
 
-                      <h4 class="panel-title"  >
+                      <h4 class="panel-title" style="padding-bottom:10px;height:25px;" >
 
 
-
+                      <div class="col-lg-6">
                         <?php echo $fila['nombre']?> 
                         <small style="margin-right: 30px;margin-left: 10px;">  
                          <?php echo $fila['cuenta']?> 
-                        Presupuesto Total:   $
+                      
+                      </small>
+                     </div>
+                     <div class="col-lg-6">
+                      <small>   Presupuesto Total:   $
                        <?php echo   number_format($fila['cantidad']  ,2)?>
-
-                     
-                       </small>
                           Presupuesto usado:   $
-                       <?php echo number_format($row['total'] ,2);?>
+                      <?php echo number_format($row['total'] ,2);?></small>
                        <?php $res=$fila['cantidad']-$row['total'];
                        if ($res<=0) {
                          $color="#FF0000";
@@ -341,7 +342,7 @@
                          ?>
                        
                        <small style="color:<?php echo $color; ?>;">Restante: $  <?php echo  number_format($res ,2) ?></small>
-                       
+                       </div>
                       </h4>
                     
                    </a>
@@ -375,7 +376,7 @@
                               <td><?php echo $fi['departamento'] ?></td>
                               <td>$ <?php echo number_format($fi['monto']  ,2); ?></td>
                               <?php $res=+ $fi['monto'];
-                              echo $res ?> 
+                              ?> 
                             </tr>
                             <?php } 
 
