@@ -197,13 +197,24 @@ if (isset($_SESSION['miSesion'])){
                                                   <br> <?php echo $fila['status']; ?></small>
                           </td>
                           <td style="border:0px;">
-                           <button type="button" class="btn btn-success btn-xs btnDevengado"  data-method="getCroppedCanvas"
-                                    data-id="<?php echo $fila['ord_id'] ?>"
+                          <!-- <button type="button" class="btn btn-success btn-xs btnDevengado"  data-method="getCroppedCanvas"
+                                    data-id="<?php //echo $fila['ord_id'] ?>"
                                     data-toggle="modal" data-target="#Devengada"
-                                    data-cantidad="<?php echo $fila['ppto_dev'] ?>"
-                                    data-poliza="<?php echo $fila['poliza_dev'] ?>">
+                                    data-cantidad="<?php// echo $fila['ppto_dev'] ?>"
+                                    data-poliza="<?php //echo $fila['poliza_dev'] ?>">
                                     Devengar
-                                  </button>
+                                  </button>-->
+                                    <?php  if ($arreglo['nivel']=='Admin' || $arreglo['nivel']=='Tesorero'){
+
+                                 ?>
+                                  <button type="button" class="btn btn-success btn-xs btnDevengado"  data-method="getCroppedCanvas"
+                                  data-id="<?php echo $fila['ord_id'] ?>"
+                                  data-toggle="modal" data-target="#Devengada"
+                                  data-cantidad="<?php echo $fila['ppto_dev'] ?>"
+                                  data-poliza="<?php echo $fila['poliza_dev'] ?>">
+                                  Devengado
+                                  <?php } ?>
+                                </button>
                         <button type="button" class="btn btn-success btn-xs btnPagado"
                               data-id="<?php echo $fila['ord_id'] ?>"
                               data-toggle="modal" 
@@ -212,12 +223,14 @@ if (isset($_SESSION['miSesion'])){
                               Pagar</button>
                                                 </td>
                           <td style="border:0px;">  <a href="#" class="btn btn-primary btn-xs"
+                          data-method="getCroppedCanvas"
                                                    data-toggle="modal" data-target="#ver">
                                                    <i class="fa fa-folder"></i> Ver </a>
                                               <a href="#" class="btn btn-info btn-xs btnEditar"
                                                  data-id="<?php echo $fila['ord_id'] ?>"
                                                  data-toggle="modal" 
                                                  data-target="#editar"
+                                                 data-method="getCroppedCanvas"
                                                  data-departamento="<?php echo $fila['departamento']?>"
                                                   data-factura="<?php echo $fila['ord_numfactura'] ?>"
                                                    data-fecha="<?php echo $fila['fecha'] ?>"
@@ -226,17 +239,43 @@ if (isset($_SESSION['miSesion'])){
                                                       data-observaciones="<?php echo $fila['observaciones'] ?>"
                                                        data-vehiculo="<?php echo $fila['ord_vehiculo'] ?>">
                                                  <i class="fa fa-pencil"></i> Editar</a>
+
                                                <a href="#" class="btn btn-danger btn-xs btnEliminar" 
                                                    data-id="<?php echo $fila['ord_id'] ?>"
                                                    data-toggle="modal" 
-                                                   data-target="#eliminar">
+                                                   data-target="#eliminar"
+                                                   data-method="getCroppedCanvas">
                                                    <i class="fa fa-trash-o"></i> Eliminar</a>
      </td>
                         </tr>
                         <?php } ?>
 
 
+<!-- eliminar-->
+<div id="eliminar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="./codigos/eliminarorden.php" method="post">
+        <div class="modal-header">
 
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Eliminar información</h4>
+          <input type="hidden" id="idOrdene" name="idOrdene">
+
+        </div>
+        <div class="modal-body" style="text-align: center">
+          <p>Estas seguro de ELIMINAR la información</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+<!-- eliminar-->
 
                         <!--Cantidad devengada-->
                         <!-- Cantidad Devengado-->
@@ -336,12 +375,15 @@ if (isset($_SESSION['miSesion'])){
 
           <p>Detalles de la orden  <!--<code></code> -->
           </p>
-          <input type="hidden" id="idOrdena" name="idOrdena">
+          <input type="hidden" 
+          id="idOrdena" 
+          name="idOrdena">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Departamento </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" name="dpto" >
-                <option value="1">Departamentos</option>
+              <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" 
+              name="deparatmento" 
+              id="departamentoeditar">
                 <?php 
                 include './conexion.php';
                 $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
@@ -353,19 +395,22 @@ if (isset($_SESSION['miSesion'])){
                </select>
              </div>
            </div>
-
+                  <br>
            <div class="clearfix"></div>
            <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" margin-top="2px">No Factura  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input  class="form-control col-md-7 col-xs-12"  name="factura" placeholder="Numero de la Factura" required="required" type="text" id="fac">
+              <input  class="form-control col-md-7 col-xs-12"  
+              name="factura" 
+              id="facturaeditar"
+              placeholder="Numero de la Factura" required="required" type="text" >
             </div>
           </div>
           <div class="clearfix"></div>
+                    <br>
 
-
-          <div class="item form-group" >
+          <div class="item form-group" style="display:none;">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  
             </label>
             <fieldset>
@@ -373,7 +418,9 @@ if (isset($_SESSION['miSesion'])){
                 <div class="controls">
 
                   <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-                    <input type="date" class="form-control has-feedback-left" id="fech" placeholder="Fecha" aria-describedby="inputSuccess2Status4" name="fecha">
+                    <input type="date" class="form-control has-feedback-left" 
+                    id="fecha" placeholder="Fecha" aria-describedby="inputSuccess2Status4"
+                     name="fechaeditar">
                     <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                     <span id="inputSuccess2Status4" class="sr-only">(success)</span>
                   </div>
@@ -383,14 +430,17 @@ if (isset($_SESSION['miSesion'])){
             </fieldset>
 
           </div>
-
+                  <br>
           <div class="clearfix"></div>
 
           <div class="item form-group" >
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Obras" name="ob">
+              <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Obras"
+               name="obras"
+               id="obraseditar" 
+               >
                 <option value="1">Obras</option>
                 <?php 
                 include './conexion.php';
@@ -408,8 +458,10 @@ if (isset($_SESSION['miSesion'])){
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12" >
-             <select class="form-control col-md-3 col-sm-3 col-xs-1" placeholder="Cuentas" name="cu">
-               <option value="1">Cuentas</option>
+             <select class="form-control col-md-3 col-sm-3 col-xs-1" placeholder="Cuentas" 
+             id="cuentas" 
+             name="cuentaseditar">
+               
                <?php 
                include './conexion.php';
                $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
@@ -426,7 +478,10 @@ if (isset($_SESSION['miSesion'])){
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="observaciones" class="form-control col-md-7 col-xs-12"  name="observaciones" placeholder="Observaciones dentro de la obra" required="required" type="text">
+              <input  class="form-control col-md-7 col-xs-12" 
+               name="observaciones"
+               id="observacioneseditar"
+                placeholder="Observaciones dentro de la obra" required="required" type="text">
             </div>
           </div>
           <div class="clearfix"></div>
@@ -435,9 +490,76 @@ if (isset($_SESSION['miSesion'])){
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="veh" class="form-control col-md-7 col-xs-12" name="vehiculo" placeholder="Vehiculo" required="required" type="text">
+              <input  class="form-control col-md-7 col-xs-12" 
+              name="vehiculo" 
+              id="vehiculoeditar"
+              placeholder="Vehiculo" required="required" type="text">
             </div>
           </div>
+
+ <div class="clearfix"></div>
+<div class="form-group">
+               <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
+               <div class="col-md-6 col-sm-6 col-xs-12">
+                <select class="form-control col-md-3 col-sm-3 col-xs-1"
+                name="proveedor"
+                class="form-control col-md-8 col-xs-12" tabindex="-1" style="width:100%;">
+               
+                <?php 
+                include './conexion.php';
+                $consulta=$mysqli->query("select * from proveedores order by id_proveedor ASC")or die($mysqli->error);
+                while ( $fila=mysqli_fetch_array($consulta)) {
+
+                 ?>
+                 <option value="<?php echo $fila['id_proveedor'] ?>"><?php echo $fila['nombre'] ?></option>
+                 <?php } ?>
+               </select>
+             </div>
+             
+           </div>
+
+
+ <div class="clearfix"></div>
+           <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Material  <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="material" class="form-control col-md-7 col-xs-12" 
+              name="material" placeholder="Material a comprar"  type="text"
+                 required="required" >
+            </div>
+          </div>
+           <div class="clearfix"></div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad  <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="cantidad" class="form-control col-md-7 col-xs-12" 
+              name="cantidad" placeholder="Unidades a comprar"  type="text"
+            
+               required="required" >
+            </div>
+          </div>
+           <div class="clearfix"></div>
+          <div class="item form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Precio unitario <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input id="precio" class="form-control col-md-7 col-xs-12" 
+
+              name="precio" placeholder="Precio unitario"  type="text"
+                required="required" >
+            </div>
+          </div>
+        
+
+
+
+
+
+
+
+
           <div class="clearfix"></div>
 
         </div>
@@ -518,10 +640,12 @@ if (isset($_SESSION['miSesion'])){
   $(".btnEditar").on('click',function(){
     var id=$(this).data('id');
      $("#idOrdena").val(id);
+             var departamento=$(this).data('departamento');
+           $("#departento").val(departamento);
     var factura=$(this).data('factura');
     $("#fac").val(factura);
     var fecha=$(this).data('fecha');
-    $("#fech").val(fecha);
+    $("#fecha").val(fecha);
     var observaciones=$(this).data('observaciones');
     $("#observaciones").val(observaciones);
     var vehiculo=$(this).data('vehiculo');
@@ -530,6 +654,7 @@ if (isset($_SESSION['miSesion'])){
   $(".btnDevengado").on('click',function(){
     var id=$(this).data('id');
      $("#idDevengado").val(id);
+   
     var c1=$(this).data('cantidad');
     $("#editarCantidad").val(c1);
      var p1=$(this).data('poliza');

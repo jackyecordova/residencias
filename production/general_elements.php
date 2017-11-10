@@ -769,17 +769,41 @@ if (isset($_SESSION['miSesion'])){
                                                
                                                 <?php 
                                             include './conexion.php';
-                                            $consulta=$mysqli->query("select cuentas.*,presupuesto_depa.*
+                                           /* $consulta=$mysqli->query("select cuentas.*,presupuesto_depa.*
                                              from cuentas 
-                                            INNER JOIN presupuesto_depa where cuentas.id_cuenta= presupuesto_depa.id_cuenta
-                                            and presupuesto_depa.id_departamento<>".$_GET['id']
+                                            INNER JOIN presupuesto_depa on cuentas.id_cuenta= presupuesto_depa.id_cuenta
+                                            where presupuesto_depa.id_departamento!=".
+                                            )or die($mysqli->error);*/
+                                            $consulta2=$mysqli->query("select presupuesto_depa.*, cuentas.* from presupuesto_depa 
+                                              inner join cuentas on presupuesto_depa.id_cuenta= cuentas.id_cuenta
+                                              where presupuesto_depa.id_departamento=".$_GET['id'])or die($mysqli->error);
+                                            //where 
+                                            while ( $fila2=mysqli_fetch_array($consulta2)) {
+                                                  $array[] = array('id_cuenta' =>$fila2['id_cuenta'] );
+
+                                            }
+                                        //REcorrer todas las cuentas, vverificacndo 
+                                        //si no existe un id de la tabla de presupuesto depa
+                                        //y asi eliminarlo y que solo salgan las que no existen en pres_depa  
+                                      $consulta=$mysqli->query("select * from cuentas;"
                                             )or die($mysqli->error);
                                             //where 
                                             while ( $fila=mysqli_fetch_array($consulta)) {
-                                              
-                                             ?>
+                                              $encontro=false;
+                                              for($i=0;$i<count($array);$i++){
+                                                // echo "ID " .$array[$i]['id_cuenta']."  -  " .$fila['id_cuenta']."<br>";
+                                                if($array[$i]['id_cuenta']==$fila['id_cuenta']){
+                                                  $encontro=true;
+                                                }
+                                              }
+                                              if($encontro==false){
+
+
+                                             ?> 
                                                 <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre'] ?><?php echo $fila['cuenta'] ?></option>
-                                                <?php } ?>
+                                                <?php 
+                                                }//llave if 
+                                                } ?>
                                     </select>
                               </div>
                               <button type="button" class="btn btn-primary" ><a href="./nuevacuenta.php" style="color:white;"><i class="fa fa-plus" aria-hidden="true"></i></a></button>
@@ -793,6 +817,7 @@ if (isset($_SESSION['miSesion'])){
                         <div class="col-md-6 col-sm-6 col-xs-12" >
                           <input id="anio" class="form-control col-md-7 col-xs-12" 
                           name="anio"
+                          id="anio"
                           required="required"
                           value="<?php echo date('Y')?>" 
                            placeholder="Año de carga"  type="text">
@@ -979,36 +1004,44 @@ if (isset($_SESSION['miSesion'])){
                                   $(div).find("ul").append(respuesta);
                           });
                   });
+               $(".btnstatus").on('click',function(){
+                 var id=$(this).data('id');
+                 var nombre=$(this).data('nombre');
+                 
+                 $("#idorden").val(id);
+                 $("#nombrest").text(nombre) ;  });
           });
-
- $(".btnstatus").on('click',function(){
-   var id=$(this).data('id');
-   var nombre=$(this).data('nombre');
-   
-   $("#idorden").val(id);
-   $("#nombrest").text(nombre) ;   
+  
 </script>
  <script type="text/javascript">
       $(document).ready(function  (argument) {
       $("#alerta").hide();
       $("#alerta2").hide();
         
-        $("#send").on("click",function  (e) {
+  $("#send").on("click",function  (e) {
            e.preventDefault();//para que no se vaya
-         
-            
+          $.ajax({
+            method:'POST',
+            url:'./codigos/validardepa.php',
+            data:{
+              departamento:$("#departamento").val(),
+              cuenta:$("#cuenta").val(),
+              anio:$("#anio").val(),
+              monto:$("#monto").val()
+            }
           }).done(function(e2){
-            if($("#monto").val==""){
-               $("#alerta2").show();
+            if(e2=="no"){
+               $("#alerta").show();
                // alert(e2); 
                 
             }else{
-
               $("#miForm").submit();//envio de formulario ya no se va al ajax
                 //alert(e2);
             }
            
           });
+
+        });
 
        
     });

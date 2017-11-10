@@ -103,9 +103,9 @@ if (isset($_POST["departamento"])
 
 
 		$mysqli->query($consulta)or die($mysqli->error);
-
+		$idultimo=$mysqli->insert_id;
 		//echo "listo";
-		header("Location:../project2.php");
+		header("Location:../reportes/orden_depto.php?id=".$idultimo);
 }else
 {
 	echo "algunos campos no fueron completados";

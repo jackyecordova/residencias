@@ -140,8 +140,11 @@ if (isset($_SESSION['miSesion'])){
                             <?php 
                             include './conexion.php';
                             $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                            $id="";
                             while ( $fila=mysqli_fetch_array($consulta)) {
-
+                              if($id==""){
+                                $id=$fila['id_departamento'];
+                              }
                              ?>
                              <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
                              <?php } ?>
@@ -200,16 +203,17 @@ if (isset($_SESSION['miSesion'])){
                       id="obra" 
                       class="form-control col-md-7 col-xs-12"  
                       name="obra"
-                      required
                       placeholder="Nombre de la Obra"  type="text">
-                      
-                      <?php 
-                      include './conexion.php';
-                      $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC ")or die($mysqli->error);
+                        <?php 
+                     
+                      $consulta=$mysqli->query("select presupuesto_depa.*, cuentas.* from presupuesto_depa 
+inner join cuentas on presupuesto_depa.id_cuenta= cuentas.id_cuenta
+where presupuesto_depa.id_departamento=".$id)or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
                        ?> <!--Concatenar el nombre de la cuenta-->
                        <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre']  ?><small ><?php // echo $fila['cuenta']  ?></small></option>
                        <?php } ?>
+                    
                      </select>
                    </div>
                    <button type="button" class="btn btn-primary"><a href="./nuevacuenta.php" style="color:white;"><i class="fa fa-plus" aria-hidden="true"></a></i></button>
@@ -387,8 +391,15 @@ if (isset($_SESSION['miSesion'])){
  <script type="text/javascript">
       $(document).ready(function  (argument) {
       $("#alerta").hide();
-        
-        $("#send").on("click",function  (e) {
+        $("#departamento").on('change',function(){
+            $.post('./codigos/cambioobras.php',{
+              id:$(this).val()
+            },function  (e) {
+              $("#obra").find('option').remove();
+             $("#obra").append(e);
+            });
+        });
+        /*$("#send").on("click",function  (e) {
            e.preventDefault();//para que no se vaya
          
             }
@@ -404,7 +415,7 @@ if (isset($_SESSION['miSesion'])){
            
           });
 
-        });
+        });*/
     });
    </script>
 </body>

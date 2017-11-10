@@ -180,6 +180,7 @@ if (isset($_SESSION['miSesion'])){
                     <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                     data-target="#editar"
                     data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
+
                     data-departamento="<?php echo $fila['id_departamento'] ?>"
                     data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
                     data-anio="<?php echo $fila['anio'] ?>"
@@ -268,7 +269,7 @@ if (isset($_SESSION['miSesion'])){
                       id="departamentoeditar" 
                       class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
                      <?php   $consultadepa=$mysqli->query("select * from departamentos order by id_departamento ASC
-                                            where id_departamento=".)or die($mysqli->error);?>
+                                            ")or die($mysqli->error);?>
 
                      <option  value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
                       <?php 
