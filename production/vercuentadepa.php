@@ -105,7 +105,6 @@ if (isset($_SESSION['miSesion'])){
             </div>
 
             <div class="col-md-2 col-sm-2 col-xs-12 ">
-
             </div>
 
 
@@ -114,21 +113,9 @@ if (isset($_SESSION['miSesion'])){
             
           </div>
 
-
           <div class="x_content">
-<div class="col-md-6 col-sm-5 col-xs-12 form-group  top_search" style="margin-left: 20px;">
+
             <p>REGISTRO DE LAS CUENTAS POR DEPARTAMENTO</p>
-
-
- 
-
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar Registros de las cuentas por departaento" id="buscar">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">Buscar</button>
-                        </span>
-                      </div>           
-                    </div>
 
             <!-- start project list 
             id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info"-->
@@ -154,6 +141,7 @@ if (isset($_SESSION['miSesion'])){
 
                <?php 
                include './conexion.php';
+               $depa="";
                $consulta=$mysqli->query("
 
 
@@ -238,7 +226,7 @@ if (isset($_SESSION['miSesion'])){
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Eliminar información</h4>
-                  <input type="text" id="idcuentadepa" name="idcuentadepa">
+                  <input type="hidden" id="idcuentadepa" name="idcuentadepa">
 
                 </div>
                 <div class="modal-body" style="text-align: center">
@@ -267,10 +255,11 @@ if (isset($_SESSION['miSesion'])){
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Editar información de la obra</h4>
-                  <input type="text" id="idcuentadepaedi" name="idcuentadepaedi">
+                  <input type="hidden" id="idcuentadepaedi" name="idcuentadepaedi">
                   <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
                 </div>
                 <div class="modal-body" style="text-align: center">
+
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -278,18 +267,22 @@ if (isset($_SESSION['miSesion'])){
                       name="departamento"
                       id="departamentoeditar" 
                       class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
-                      <option></option>
+                     <?php   $consultadepa=$mysqli->query("select * from departamentos order by id_departamento ASC
+                                            where id_departamento=".)or die($mysqli->error);?>
+
+                     <option  value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
                       <?php 
-                      include './conexion.php';
-                      $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
-                      while ( $fila=mysqli_fetch_array($consulta)) {
+                     // include './conexion.php';
+                    //  $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                     // while ( $fila=mysqli_fetch_array($consulta)) {
 
                        ?>
-                       <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
-                       <?php } ?>
+                      <!-- <option value="<?php //echo $fila['id_departamento'] ?>"><?php //echo $fila['departamento'] ?></option>-->
+                       <?php //} ?>
                      </select>
                    </div>
                  </div>
+
                  <div class="clearfix"></div><br>
                  <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Cuenta</label>
@@ -298,7 +291,7 @@ if (isset($_SESSION['miSesion'])){
                     name="cuenta"
                     id="cuentaeditar" 
                     class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;" >
-                    <option></option>
+                 
                     <?php 
                     include './conexion.php';
                     $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
@@ -479,41 +472,6 @@ if (isset($_SESSION['miSesion'])){
 
 
  });
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function(){
-                  $("#buscar").on('keyup',function(){
-                        var div="";
-                  };
-                   
-                          $.ajax({
-                                  url: "./codigos/buscarcuentadepa.php",
-                                  method:"POST",
-                                  data:{ 
-                                    texto:$("#buscar").val(),
-                                    id:<?php  echo $_GET['id']; ?>
-                                  }
-                          }).done(function(respuesta){
-                                  $(div).find("tr").append(respuesta); 
-                                  alert ("texto");
-                          });
-                  });
-          });
-
-
-
-
-
-
-
 
 </script>
 

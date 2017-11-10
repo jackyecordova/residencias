@@ -78,13 +78,13 @@ if (isset($_SESSION['miSesion'])){
                   <h2>Generar una nueva orden<small></small></h2>
                   
                   <div class="clearfix"></div>
-                  <div class="alert alert-danger alert-dismissible " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
-              text-shadow: 0px 0px rgba(153, 153, 153, 0);  
-          color: rgb(241, 83, 68);display:none;" id="alerta">Has excedido el presupuesto
-           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-        </div>
+                  <div class="alert alert-danger alert-dismissible " role="alert" style="background-color: rgba(210, 20, 0, 0.19); text-align:center;width:50%;margin-left:25%;
+                     text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+                     color: rgb(241, 83, 68);display:none;" id="alerta">Has excedido el presupuesto
+                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                  </div>
                 </div>
                 <div class="x_content">
 

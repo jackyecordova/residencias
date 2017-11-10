@@ -1,4 +1,4 @@
-   <!-- sidebar menu -->
+ <!-- sidebar menu -->
 
 
 
@@ -24,7 +24,7 @@
                       </li>
 
 
-                     <!-- <li><a href="index3.php">Tres</a></li>-->
+                     <!-- <li><a href="index3.php">Tres</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-qrcode"></i> Departamentos<span class="fa fa-chevron-down"></span></a>
@@ -64,7 +64,7 @@
                             </li>
                             
                                </ul>
-                  </li>
+                  </li>-->
                   <!--dos niveles
                    <li ><a><i class="fa fa-server"></i>Obras<span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu" style="display: none;">

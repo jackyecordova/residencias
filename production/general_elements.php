@@ -19,7 +19,8 @@ if (isset($_SESSION['miSesion'])){
 
 
 
-
+//suma de presupuesto por cuenta
+ // $cuentaspresu ==$mysqli->query("select SUM(monto) as cantidad from presupuesto_depa where id_departamento=".$_GET['id'] ."and id_cuenta =")or die($mysqli->error);
 //departamento y su presupeusto
    $consulta=$mysqli->query("select * from departamentos where id_departamento=".$_GET['id'])or die($mysqli->error);
    //total comprometido
@@ -700,7 +701,15 @@ if (isset($_SESSION['miSesion'])){
                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                                           </button>
                                           <strong><?php echo $fila['nombre']; ?><br><small> <?php echo $fila['cuenta']; ?></small></strong> 
-                                          Presupuesto <br><?php echo $fila['cantidad']; ?>
+                                          Presupuesto <br><small> Total:</small><br>$ <?php echo $fila['cantidad']; ?>
+                                          <br><small>Usado</small><br>
+                                          <?php //suma de presupuesto por cuenta
+                                              //  $cuentaspresu ==$mysqli->query("select SUM(monto) as cantidad from presupuesto_depa 
+                                                //  where id_departamento=".$_GET['id'] ."and id_cuenta =".$fila['cuenta'];)or die($mysqli->error);
+                                                 //$scuenta=$cuentaspresu->fetch_assoc();
+                                                //$totalmonto=$scuenta['cantidad'];
+                                           ?>
+                                          <?php //echo  $totalmonto;?>
                                         </div>
                                        
                                         <?php } ?>
@@ -712,16 +721,7 @@ if (isset($_SESSION['miSesion'])){
       </div>
     </div>
 
-    <!--  --><div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ertyuiop</div>
-
-    <div class="clearfix"></div>
-
-
-
-    <div class="clearfix"></div>
-  </div>
-
-  <div class="clearfix"></div>
+    <!--  <div style="width:10%;position:fixed;margin-left:70%;margin-top:70%;">ññññññññññññññññññññññññññññññññññ</div>-->
 
 
 
@@ -822,6 +822,7 @@ if (isset($_SESSION['miSesion'])){
                     
                    
                       <div class="ln_solid"></div>
+                       <div class="col-sm-1"></div>
                       <div class="form-group">
                         <div class="modal-footer" style="padding-top:35px;">
                                  <button type="submit" id="send" class="btn btn-success" >Guardar</button>
@@ -986,10 +987,6 @@ if (isset($_SESSION['miSesion'])){
    
    $("#idorden").val(id);
    $("#nombrest").text(nombre) ;   
-
-
-
-
 </script>
  <script type="text/javascript">
       $(document).ready(function  (argument) {

@@ -8,6 +8,25 @@
             header("Location: ./login.php");  
 
     }
+
+
+
+
+
+
+
+
+
+
+    // $puesto=$_SESSION['nivel'];
+    //  if ($puesto=="Oficial Mayor") {
+            //   $menu ='include "./barramenu.php"';
+            //  }elseif ($puesto=="Tesorero") {
+            //    $menu ='include "./barramenu.php"';
+             // } elseif ($puesto=="Obras Públicas") {
+             //  $menu ="include './barramenuobras.php'";
+             // }
+   
  ?>
 
  <!DOCTYPE html>
@@ -51,7 +70,7 @@
            <div class="clearfix"></div>
 
            <!-- menu profile quick info -->
-           <?php  include "./menuusuario.php";?>
+           <?php  include"./menuusuario.php" ?>
 
            <!-- /menu profile quick info -->
 

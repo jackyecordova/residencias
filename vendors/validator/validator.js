@@ -15,9 +15,9 @@ var validator = (function($){
     /* general text messages
     */
     message = {
-        invalid         : 'invalid input',
+        invalid         : 'Dato Inválido',
         checked         : 'must be checked',
-        empty           : 'FAvor de llenar este campo',
+        empty           : 'Favor de llenar este campo',
         min             : 'input is too short',
         max             : 'input is too long',
         number_min      : 'too low',
