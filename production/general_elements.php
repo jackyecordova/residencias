@@ -269,8 +269,9 @@ if (isset($_SESSION['miSesion'])){
                             </ul>
 
                          <div class="x_content">
-                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                                                <ul class="list-unstyled timeline"> 
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab" id="limpiar">
+                                                <ul class="list-unstyled timeline" > 
+
                                                   <?php 
                                                   include './conexion.php';
                                                   $consulta=$mysqli->query(
@@ -286,7 +287,7 @@ if (isset($_SESSION['miSesion'])){
                                                   while ( $fila=mysqli_fetch_array($consulta)) {
                                                                   # code...
                                                     ?>
-                                                    <li>
+                                                    <li >
                                                       <div class="block">
 
                                                         <div class="tags">
@@ -394,7 +395,7 @@ if (isset($_SESSION['miSesion'])){
                                     </div>
 
 
-                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab" >
                                                    <ul class="list-unstyled timeline"> 
                                                     <?php 
                                                     include './conexion.php';
@@ -411,7 +412,7 @@ if (isset($_SESSION['miSesion'])){
                                                     while ( $fila=mysqli_fetch_array($consulta)) {
                                                                     # code...
                                                       ?>
-                                                      <li>
+                                                      <li >
                                                            <div class="block">
                                                         <div class="tags">
                                                           <a href="" class="tag ">
@@ -477,7 +478,7 @@ if (isset($_SESSION['miSesion'])){
                                     </div>
 
 
-                                  <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                  <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab" id="limpiar">
                                           <ul class="list-unstyled timeline"> 
                                             <?php 
                                             include './conexion.php';
@@ -834,7 +835,7 @@ if (isset($_SESSION['miSesion'])){
                           <input id="monto" class="form-control col-md-7 col-xs-12" 
                           name="monto"
                           required="true"
-                           placeholder="Cantidad de la cuenta"  type="text">
+                           placeholder="Cantidad de la cuenta"  type="number">
                       
 
                         </div>
@@ -1012,6 +1013,14 @@ if (isset($_SESSION['miSesion'])){
                  $("#nombrest").text(nombre) ;  });
           });
   
+</script>
+<script>
+      
+function limpiars()
+{
+   //document.getElementById("limpiar").innerHTML="";
+  //  $( "limpiar" ).remove();
+}
 </script>
  <script type="text/javascript">
       $(document).ready(function  (argument) {

@@ -198,7 +198,7 @@ if (isset($_SESSION['miSesion'])){
 
                 placeholder="Nombre del Proveedor o Empresa"  type="text">
               </div>
-            </div>
+            </div><br>
   <div class="clearfix"></div>
             <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%" >Direccion  <span class="required">*</span>
@@ -211,7 +211,7 @@ if (isset($_SESSION['miSesion'])){
 
 
               </div>
-            </div>
+            </div><br>
               <div class="clearfix"></div>
             <div class="item form-group" style=" margin-bottom: 20px;width:100%;">
               <label class="control-label col-md-3 col-sm-3 col-xs-12" style="width:20%">Teléfono <span class="required">*</span>
@@ -222,7 +222,7 @@ if (isset($_SESSION['miSesion'])){
                 id="telefonoeditar" 
                 placeholder="Teléfono del Proveedor"  type="text">
               </div>
-            </div>
+            </div><br>
               <div class="clearfix"></div>
           </div>
           <div class="modal-footer">

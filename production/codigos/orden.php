@@ -18,6 +18,12 @@ if (isset($_POST["departamento"])
 					$vehiculo=" ";
 
 				}
+					if (isset($_POST["programa"])) {
+					$programa=$_POST['programa'];
+				}else{
+					$programa=" ";
+
+				}
 
 				$fecha=date("Y-m-d");
 			$departamento=$_POST['departamento'];
@@ -104,11 +110,38 @@ if (isset($_POST["departamento"])
 
 		$mysqli->query($consulta)or die($mysqli->error);
 		$idultimo=$mysqli->insert_id;
-		//echo "listo";
-		header("Location:../reportes/orden_depto.php?id=".$idultimo);
+		$prog="INSERT INTO programaorden values(0,'$idultimo','$progrma')";
+		$mysqli->query($prog)or die($mysqli->error);
+
+
+		
+		echo "listo";
+		//header("Location:../reportes/ordengenerada.php?id=".$idultimo);
+		
+		//header("Location:../project2.php");
 }else
 {
 	echo "algunos campos no fueron completados";
+	die();
 }
 
 ?>
+		
+
+		<!DOCTYPE html>
+		<html>
+		<head>
+			<title></title>
+		</head>
+		<body onload="">
+			<a href="../reportes/ordengenerada.php?id=<?php echo $idultimo ?>" id="aaa" target="_blank"></a>
+			<script type="text/javascript">
+				window.addEventListener('load',function(){
+					var a=document.getElementById('aaa');
+					a.click();
+					location.href="../project2.php";
+				});
+			</script>
+		</body>
+		</html>
+

@@ -127,6 +127,25 @@ if (isset($_SESSION['miSesion'])){
 
                         <div class="clearfix"></div>
                         <!--formulario-->
+
+                        <?php  //if ($arreglo['nivel']=='Obras Publicas'){ ?>
+
+                                <!--  <div class="form-group">
+                                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
+                                          <div class="col-md-9 col-sm-9 col-xs-12">
+                                           <input   class="select2_single form-control"
+                                            name="departamento" value="Obras Publicas" 
+                                            id="departamento"  disabled 
+                                            class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                                            
+                                         </div>
+                                       </div>-->
+
+                                            <!--.Mostrar departamento de obras p.-->
+
+
+                          
+                          <?php// }else{ ?>
                         <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
                           <div class="col-md-9 col-sm-9 col-xs-12">
@@ -136,7 +155,7 @@ if (isset($_SESSION['miSesion'])){
                             class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
                            
 
-
+                            <?php //} ?>
                             <?php 
                             include './conexion.php';
                             $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
@@ -145,12 +164,27 @@ if (isset($_SESSION['miSesion'])){
                               if($id==""){
                                 $id=$fila['id_departamento'];
                               }
-                             ?>
-                             <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
-                             <?php } ?>
+                                          if ($arreglo['nivel']=='Obras Publicas'){
+                                             ?>
+
+                                         <option value="7"><?php echo "Obras Publicas" ?></option>
+                                         <?php
+                                          }else{?>
+
+                                 <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+
+                                         
+
+                                        
+                                         <?php }
+                                        } ?>
                            </select>
                          </div>
                        </div>
+
+                <?php //} ?>
+
+
                        <div class="clearfix"></div>
                        <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">No Factura  <span class="required">*</span>
@@ -275,11 +309,35 @@ where presupuesto_depa.id_departamento=".$id)or die($mysqli->error);
 
 <!--.........................................................................................................................................-->
 
-
+                   
 
               </div><div id="step-2" class="content" style="display: none;">
               <h2 class="StepTitle"> </h2>
 
+              
+              <?php  if ($arreglo['nivel']=='Obras Publicas'){
+                          ?>
+                          <div class="form-group">
+                                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Programa</label>
+                                       <div class="col-md-6 col-sm-9 col-xs-12">
+                                        <select class="select2_single form-control"
+                                        name="programa"
+                                        class="form-control col-md-8 col-xs-12" tabindex="-1" style="width:100%;">
+                                       
+                                        <?php 
+                                        include './conexion.php';
+                                        $consulta=$mysqli->query("select * from programas order by id_programa ASC")or die($mysqli->error);
+                                        while ( $fila=mysqli_fetch_array($consulta)) {
+
+                                         ?>
+                                         <option value="<?php echo $fila['id_programa'] ?>"><?php echo $fila['programa'] ?></option>
+                                         <?php } ?>
+                                       </select>
+                                     </div>
+                                     </div>
+
+
+                          <?php } ?>
 
               <div class="form-group">
                <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>

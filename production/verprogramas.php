@@ -99,29 +99,25 @@ if (isset($_SESSION['miSesion'])){
                       <thead>
                                        <tr role="row">
                                         <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
-                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
-                                        Id Cuenta
+                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 10%;">
+                                        Id Programa
                                       </th>
                                       <th class="sorting" tabindex="0" aria-controls="datatable"
                                       rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
-                                      style="width: 200px;">
-                                      Cuenta
+                                      style="width: 80%;">
+                                      Programa
                                     </th>
-                                    <th class="sorting" tabindex="0" 
-                                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
-                                    style="width:350px;">
-                                    Obra
-                                  </th>
-                                  <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
-                                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
-                                  Cantidad
-                                </th>
-                                <th class="sorting" tabindex="0" 
-                                aria-controls="datatable" rowspan="1" colspan="1"
-                                aria-label="Office: activate to sort column ascending" 
-                                style="width: 80px;">
+                                    
+                                        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                        colspan="1" aria-label="Age: activate to sort column ascending" style="width: 5%;">
+                                        
+                                      </th>
+                                      <th class="sorting" tabindex="0" 
+                                      aria-controls="datatable" rowspan="1" colspan="1"
+                                      aria-label="Office: activate to sort column ascending" 
+                                      style="width: 5%;">
 
-                              </th>
+                                    </th>
 
                             </tr>
                 </thead>
@@ -130,7 +126,7 @@ if (isset($_SESSION['miSesion'])){
           <tbody>
             <?php 
             include './conexion.php';
-            $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
+            $consulta=$mysqli->query("select * from programas order by id_programa ASC")or die($mysqli->error);
             while ( $fila=mysqli_fetch_array($consulta)) {
                            # code...
 
@@ -138,34 +134,29 @@ if (isset($_SESSION['miSesion'])){
              ?>
 
              <tr role="row" class="odd">
-              <td class="sorting_1"><?php echo $fila['id_cuenta'] ?></td>
-              <td><?php echo $fila['cuenta'] ?></td>
-              <td><?php echo $fila['nombre'] ?></td>
-              <td>$ <?php echo  number_format($fila['cantidad']  ,2) ?>
-              <br><?php 
-                  $consulta2=$mysqli->query("select SUM(monto) as total from presupuesto_depa where id_cuenta=".$fila['id_cuenta'])or die($mysqli->error);
-                  
-                  $scuenta=$consulta2->fetch_assoc();
-                  $totalmonto=$scuenta['total'];
-                   ?>Usado $ 
-                  <?php echo  number_format($totalmonto  ,2) ;
-               ?>
-              </td>
-              <td>               
-               <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
+              <td class="sorting_1" style="border:0px;"><?php echo $fila['id_programa'] ?></td>
+              <td style="border:0px;"><?php echo $fila['programa'] ?></td>
+            
+              <td style="border:0px;">
+              
+                
+              
+                <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                data-target="#editar"
-               data-id="<?php echo $fila['id_cuenta'] ?>"
-               data-cuenta="<?php echo $fila['cuenta'] ?>"
-               data-nombre="<?php echo $fila['nombre'] ?>"
-               data-cantidad="<?php echo $fila['cantidad'] ?>">
+               data-id="<?php echo $fila['id_programa'] ?>"
+               data-programa="<?php echo $fila['programa'] ?>"
+              >
                <i class="fa fa-pencil">
 
                </i>  </a>
+              </td>
+              <td style="border:0px;">               
+              
                <a href="#" class="btn btn-danger btn-xs btnEliminar" 
                data-toggle="modal"
                data-target="#eliminar"
-               data-id="<?php echo $fila['id_cuenta'] ?>"
-               data-nombre="<?php echo $fila['nombre'] ?>">
+               data-id="<?php echo $fila['id_programa'] ?>"
+               data-programa="<?php echo $fila['programa'] ?>">
                <i class="fa fa-trash-o"></i>  
              </a>
            </td>
@@ -177,16 +168,16 @@ if (isset($_SESSION['miSesion'])){
          <div id="eliminar" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form action="./codigos/eliminarcuenta.php" method="post">
+              <form action="./codigos/eliminarprograma.php" method="post">
                 <div class="modal-header">
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Eliminar información</h4>
-                  <input type="hidden" id="idcuenta" name="idcuenta">
+                  <input type="hidden" id="id_programa" name="id_programa">
 
                 </div>
                 <div class="modal-body" style="text-align: center">
-                  <p>Estas seguro de eliminar esta cuenta
+                  <p>Estas seguro de eliminar este programa?
                     <br>
                     <span  style="font-size:20px;" 
                     id="nombreeliminar"></span> </p>
@@ -211,58 +202,33 @@ if (isset($_SESSION['miSesion'])){
           <div id="editar" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form action="./codigos/editarcuenta.php" method="post">
+                <form action="./codigos/editarprograma.php" method="post">
                   <div class="modal-header">
 
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Editar información</h4>
-                    <input type="hidden" id="idcuentaeditar" name="idcuentaeditar">
+                    <input type="text" id="idprogramaeditar" name="idprogramaeditar">
 
                   </div>  <div class="clearfix"></div>
                   <div class="modal-body" style="text-align: center">
 
                     <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta 
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" >Programa
                        <span class="required">*</span>
                      </label>
                      <div class="col-md-6 col-sm-6 col-xs-12">
                       <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
-                      data-inputmask="'mask' : '*-*-*-*-***-****-***'"
-                      name="cuenta" 
-                      id="cuentaeditar"
-                      placeholder="Número de la Cuenta" maxlength="20" minlength="20"
+                      
+                      name="programa" 
+                      id="programaeditar"
+                      placeholder="Nombre del programa" 
                       type="text">
                     </div>
-                  </div><br>
+                  </div>
                     <div class="clearfix"></div>
 
-                  <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" >Nombre 
-                     <span class="required">*</span>
-                   </label>
-                   <div class="col-md-6 col-sm-6 col-xs-12"  >
-                    <input  class="form-control col-md-7 col-xs-12" style="width:100%;"
-                    name="nombre"
-                    placeholder="Nombre de la Cuenta"
-                    id="nombreeditar" type="text">
-                  </div>
-                </div><br>
-  <div class="clearfix"></div>
 
-                <div class="item form-group" style="width:100%;margin-bottom: 20px;">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" >Cantidad  
-                    <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12" >
-                    <input  class="form-control col-md-7 col-xs-12" style="width:100%;" 
-                    name="cantidad"
-                    id="cantidadeditar" 
-                    placeholder="Cantidad de la Cuenta" type="number">
-                  </div>
-                </div>
-
-
-              </div><br>
+              </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
                 <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Guardar</button>
@@ -348,18 +314,16 @@ if (isset($_SESSION['miSesion'])){
   $(".btnEliminar").on('click',function(){
    var id=$(this).data('id');
    var nombre=$(this).data('nombre');
-   $("#idcuenta").val(id);
+   $("#id_programa").val(id);
    $("#nombreeliminar").text(nombre) ;   
  });
   $(".btnEditar").on('click',function(){
    var id=$(this).data('id');
-   var cuenta=$(this).data('cuenta');
-   var nombre=$(this).data('nombre');
-   var cantidad=$(this).data('cantidad');
-   $("#idcuentaeditar").val(id);
-   $("#cuentaeditar").val(cuenta) ;   
-   $("#nombreeditar").val(nombre) ;   
-   $("#cantidadeditar").val(cantidad) ;   
+   var programa=$(this).data('programa');
+  
+   $("#idprogramaeditar").val(id);
+   $("#programaeditar").val(programa) ;   
+    
 
  });
 

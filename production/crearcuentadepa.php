@@ -175,7 +175,7 @@ if (isset($_SESSION['miSesion'])){
                           <input id="monto" class="form-control col-md-7 col-xs-12" 
                           name="monto"
                           required="required"
-                           placeholder="Cantidad de la cuenta"  type="text">
+                           placeholder="Cantidad de la cuenta"  type="number">
                       
 
                         </div>

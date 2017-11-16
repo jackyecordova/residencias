@@ -165,7 +165,7 @@ if (isset($_SESSION['miSesion'])){
 
                   <td>
                    <?php echo $fila['departamento'] ?></td> 
-                   <td>    <?php echo number_format($fila['monto']  ,2) ; ?></td>
+                   <td>   $ <?php echo number_format($fila['monto'],2); ?></td>
 
                    <td>      <?php echo $fila['cuenta'] ?></td>
                    <td>      <?php echo $fila['nombre'] ?></td>
@@ -180,8 +180,8 @@ if (isset($_SESSION['miSesion'])){
                     <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                     data-target="#editar"
                     data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
-
-                    data-departamento="<?php echo $fila['id_departamento'] ?>"
+                    data-iddepa="<?php echo $fila['id_departamento'] ?>"
+                    data-departamento="<?php echo $fila['departamento'] ?>"
                     data-cuenta="<?php echo $fila['id_cuenta'] ?>" 
                     data-anio="<?php echo $fila['anio'] ?>"
                     data-monto="<?php echo $fila['monto'] ?>">
@@ -262,26 +262,25 @@ if (isset($_SESSION['miSesion'])){
                 <div class="modal-body" style="text-align: center">
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                      <select class="select2_single form-control"
-                      name="departamento"
-                      id="departamentoeditar" 
-                      class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
-                     <?php   $consultadepa=$mysqli->query("select * from departamentos order by id_departamento ASC
-                                            ")or die($mysqli->error);?>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                                 <input   class="select2_single form-control"
+                                  name="departamento"
+                                  id="departamentoeditar"  disabled
+                                  class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:66%;">
+                                 <!--   <span style="font-size:20px;" 
+                               id="departamentoeditar"></span> -->
+                                
+                                <!--  <?php 
+                                 // include './conexion.php';
+                                 // $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                                  //while ( $fila=mysqli_fetch_array($consulta)) {
 
-                     <option  value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
-                      <?php 
-                     // include './conexion.php';
-                    //  $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
-                     // while ( $fila=mysqli_fetch_array($consulta)) {
-
-                       ?>
-                      <!-- <option value="<?php //echo $fila['id_departamento'] ?>"><?php //echo $fila['departamento'] ?></option>-->
-                       <?php //} ?>
-                     </select>
-                   </div>
+                                   ?>
+                                   <option value="<?php// echo $fila['id_departamento'] ?>"><?php //echo $fila['departamento'] ?></option>-->
+                                   <?php// } ?>
+                                 
+                         </div>
                  </div>
 
                  <div class="clearfix"></div><br>
@@ -460,10 +459,18 @@ if (isset($_SESSION['miSesion'])){
  });
   $(".btnEditar").on('click',function(){
    var id=$(this).data('id');
+    var iddepa=$(this).data('iddepa');
    var departamento=$(this).data('departamento');
    var cuenta=$(this).data('cuenta');
    var anio=$(this).data('anio');
    var monto=$(this).data('monto');
+    $.post('./codigos/ajax/cuentadajax.php',{
+      id:iddepa
+    },function(r){
+      $("#cuentaeditar").find('option').remove();
+      $("#cuentaeditar").append(r);
+      //alert(r);
+    });
    $("#idcuentadepaedi").val(id);
    $("#departamentoeditar").val(departamento) ;  
    $("#cuentaeditar").val(cuenta) ;    
@@ -476,7 +483,16 @@ if (isset($_SESSION['miSesion'])){
 
 </script>
 
-
+<script >
+ /*  $("#departamento").on('change',function(){
+            $.post('./codigos/cambioobras.php',{
+              id:$(this).val()
+            },function  (e) {
+              $("#cuenta").find('option').remove();
+             $("#cuenta").append(e);
+            });
+        });*/
+</script>
 
 
 

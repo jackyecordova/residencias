@@ -124,7 +124,10 @@ if (isset($_SESSION['miSesion'])){
                                           INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
                                           INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
                                          
+                                          where departamentos.departamento='Obras Publicas'
                                           order by orden.ord_id DESC")or die($mysqli->error);
+
+                                          //INNER JOIN programaorden ON orden.id_orden = programaorden.id_orden
                                         while ( $fila=mysqli_fetch_array($consulta)) {
                                         if ($fila['activo']== "si" ) {
                                                                        //blanco
@@ -145,12 +148,19 @@ if (isset($_SESSION['miSesion'])){
                                          <br> <a ><small> <a style="margin-top:3px;color:<?php echo $letracancelado?>;">No Fac</a><br> <?php echo $fila['ord_numfactura'] ?></small></a> 
                                          
                                          </td>
-                                         <td><?php echo $fila['nombre'] ?><br> <a style="color:<?php echo $letracancelado?>;"><small > 
-                                                  <?php echo $fila['status'] ?><br> Total: $<?php echo $fila['total_compromet'] ?></small></a> </td>
+                                         <td><?php echo $fila['nombre'] ?><br> <a style="color:<?php echo $letracancelado?>;"><small > <?php echo $fila['status'] ?></small></a> </td>
                                          <td><?php echo $fila['observaciones'] ?>
                                          <br> <a style="color:<?php echo $letracancelado?>;"><small> <?php echo $fila['material'] ?></small></a></td>
                                          
-                                         <td><?php echo $fila['departamento'] ?></td>
+                                         <td><?php echo $fila['departamento'] ?>
+                                         <?php   
+                                        // $consulta2=$mysqli->query("SELECT * FROM programas 
+                                         // from orden  where id_programa=". echo $fila['id_programa'])or die($mysqli->error);
+                                          
+                                     //  while ( $fila2=mysqli_fetch_array($consulta)) {
+
+                                         // echo $fila2['prmgrama'];
+                                          //} ?></td>
                                          <td><?php echo $fila['nombre'] ?><br><?php  echo $fila['cuenta']; ?></td>
                                          <td><?php echo $fila['fecha'] ?></td>
                                        </tr>

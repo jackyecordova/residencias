@@ -1,3 +1,4 @@
+
 <?php 
 
 session_start();
@@ -133,7 +134,7 @@ if (isset($_SESSION['miSesion'])){
                                                       INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta)
 
                                                    INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
-                                                   where orden.activo='si';
+                                                   where orden.activo='si' and departamentos.departamento='Obras Publicas';
 
 
 
@@ -320,12 +321,12 @@ if (isset($_SESSION['miSesion'])){
 <div id="imprimir" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="./codigos/consultaimprimir.php" method="post">
+      <form action="./reportes/ordenconsultar.php" method="post">
         <div class="modal-header">
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Imprimir orden</h4>
-          <input type="hidden" id="idOrdenimp" name="idOrdenimp">
+          <input type="text" id="idOrdenimp" name="idOrdenimp">
 
         </div>
         <div class="modal-body" style="text-align: center">
