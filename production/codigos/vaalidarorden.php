@@ -1,6 +1,6 @@
 <?php
 include '../conexion.php';
-//die($_POST["departamento"]);
+
 if (isset($_POST["departamento"]) 
 	&& isset($_POST["obra"])
 	//&& isset($_POST["cuenta"])

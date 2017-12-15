@@ -66,7 +66,7 @@ if (isset($_SESSION['miSesion'])){
       <div class="">
         <div class="page-title">
           <div class="title_left">
-            <h3>Registrar un nuevo departamento</h3>
+            <h3>Registro de un nuevo presupuesto</h3>
           </div>
 
 
@@ -77,73 +77,29 @@ if (isset($_SESSION['miSesion'])){
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Departamento<small></small></h2>
+                <h2>Presupuesto<small></small></h2>
               
                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
 
-                <form class="form-horizontal form-label-left" action="./codigos/departamentos.php" method="post" id="formdepa">
+                <form class="form-horizontal form-label-left" action="./codigos/puntoback.php" method="post">
 
-                  <p>Registro del nuevo departamento <!--<code></code> -->
-                  </p>
+                 
                   <span class="section">Información</span>
 
 
 
                   <!--Ventana gris-->
                   <div class="well" style="overflow: auto">
-
-
-
-
-                  <div class="alert alert-danger alert-dismissible " role="alert" style="background-color: rgba(210, 20, 0, 0.19); text-align:center;width:50%;margin-left:25%;
-                     text-shadow: 0px 0px rgba(153, 153, 153, 0);  
-                     color: rgb(241, 83, 68);display:none;" id="alerta">Has excedido el presupuesto
-                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                  </div>
-
-
-
-                    <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"
-
-                      >Nombre <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <input class="form-control col-md-7 col-xs-12" 
-                      name="nombre" id="nombre" 
-                      placeholder="Nombre del departamento"  type="text"
-                      required="required">
-                    </div>
-                  </div>
-
-
-
-                  <div class="item form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta"
-
-                    >Presupuesto  <span class="required">*</span>
-                  </label>
-                  <div class="col-md-6 col-sm-6 col-xs-12" >
-                    <input class="form-control col-md-7 col-xs-12"
-                    name="presupuesto" id="presupuesto" 
-                    min="0"
-                    placeholder="Presupuesto otorgado" type="number"
-                     required="required">
-                  </div>
-                </div>             
-
-
+                  <p>Esta seguro de realizar una copia de seguridad?</p>
 
 
 
                 <div class="ln_solid"></div>
                 <div class="form-group">
                   <div class="col-md-6 col-md-offset-3">
-                   <button type="submit" class="btn btn-primary">Cancelar</button> <!--<a href="./index.php"></a>-->
+                    <a href="./index.php"><button type="button" class="btn btn-primary">Cancelar</button></a>
                     <button id="send" type="submit" class="btn btn-success">Guardar</button>
                   </div>
                 </div>
@@ -156,6 +112,7 @@ if (isset($_SESSION['miSesion'])){
   </div>
 </div>
 <!-- /page content -->
+
 
 
 
@@ -190,37 +147,6 @@ if (isset($_SESSION['miSesion'])){
 <!-- bootstrap-datetimepicker -->    
 <script src="../vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <!--  <script type="./js/the-basics.js"></script>-->
-<script >
-   $(document).ready(function  (argument) {
-      $("#alerta").hide();
-         
-        $("#send").on("click",function  (e) {
-           e.preventDefault();//para que no se vaya  
-          
-          $.ajax({
-            method:'POST',
-            url:'./codigos/validardepartamento.php',
-            data:{
-              nombre:$("#nombre").val(),
-              presupuesto:$("#presupuesto").val()
-              
-            }
-          }).done(function(e2){
-            //alert(e2);
-            if(e2=="no"){
-            
-               $("#alerta").show();
-               // alert(e2); 
-                
-            }else{
-              $("#formdepa").submit();//envio de formulario ya no se va al ajax
-                //alert(e2);
-            }
-           
-          });
 
-        });
-    });
-</script>
 </body>
 </html>

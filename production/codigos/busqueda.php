@@ -116,16 +116,12 @@
                                                                    <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
                                                               </div>
                                                             
-                                                              <div class="col-md-3 col-sm-3 col-xs-12" style="text-align: right;">
-                                                                         <button type="button" class="btn btn-success"
-                                                                         style="  
-                                                                             width: 30%;
-                                                                             height: 32px;
-                                                                             font-size: 12px;
-                                                                         "  >  <?php  echo $elstatus; ?></button>
-                                                                        <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
+                                                               <div class="col-md-3 col-sm-3 col-xs-12" style="text-align: right;">
 
-                                                              </div>
+
+                                                                            <a  style="width: 10%;color:black; margin-right: 20%;" class="pull-right"><?php echo $fila['status']; ?></a>
+
+                                                                  </div>
                                                     </div>
 
                                                     </div>

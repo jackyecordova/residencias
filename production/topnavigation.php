@@ -13,10 +13,13 @@
                 <span class=" fa fa-angle-down"></span>
               </a>
               <ul class="dropdown-menu dropdown-usermenu pull-right">
-                <li><a href="javascript:;">Nuevo Presupuesto</a></li>
+                      <?php  if ($arreglo['nivel']=='Oficial Mayor'   ||$arreglo['nivel']=='Tesorería'||$arreglo['nivel']=='Admin'  ){?>
+
+                <li><a href="./nuevopresupuesto.php">Nuevo Presupuesto</a></li>
                  <li><a href="./nuevousuario.php">Nuevo Usuario</a></li>
                  <li><a href="./verusuarios.php">Usuarios</a></li>
-
+                 <li><a href="./respaldo.php">Crear Respaldo</a></li>
+<?php } ?> 
 
                 <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
               </ul>

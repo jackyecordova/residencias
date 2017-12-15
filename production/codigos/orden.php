@@ -21,7 +21,7 @@ if (isset($_POST["departamento"])
 					if (isset($_POST["programa"])) {
 					$programa=$_POST['programa'];
 				}else{
-					$programa=" ";
+					$programa="";
 
 				}
 
@@ -110,7 +110,8 @@ if (isset($_POST["departamento"])
 
 		$mysqli->query($consulta)or die($mysqli->error);
 		$idultimo=$mysqli->insert_id;
-		$prog="INSERT INTO programaorden values(0,'$idultimo','$progrma')";
+
+		$prog="INSERT INTO programaorden values(0,'$idultimo','$programa')";
 		$mysqli->query($prog)or die($mysqli->error);
 
 

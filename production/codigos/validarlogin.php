@@ -16,38 +16,17 @@ session_start();
 		$respuesta=$mysqli->query($consulta)or die($mysqli->error);
 		//si no existe si no regreso ninguna consulta
 		if (mysqli_num_rows($respuesta)==0) {
-			//echo "no";
+			echo "no";
 		}else{
 
-			while($fila=mysqli_fetch_array($respuesta)){
-				$nombre=$fila['nombre'];
-				$correo=$fila['correo'];
-				$password=$fila['password'];
-				$foto=$fila['foto'];
-				$nivel=$fila['nivel'];
-				$puesto=$fila['puesto'];
-				$id=$fila['id_usuario'];
-				/*echo "hola".$nombre*/
-				$_SESSION['miSesion']=array(
-					'id_usuario'=> $id,
-					'nombre'=> $nombre,
-					'correo'=> $correo,
-					'nivel'=> $nivel,
-					'puesto'=> $puesto,
-					'foto'=>$foto
-					);
-				//echo "si";
-				header("Location: ../index.php");
+			
+				echo "si";
+			
 			}
-		}
+		
 
 		
 
 	}else{
-		//echo "no";
-	}
-
-
-
-
-?>
+		echo "no";
+	}?>

@@ -86,6 +86,7 @@ function SmartWizard(target, options) {
                                   precio:$("#precio").val()
                                 }
                               }).done(function(e2){
+                               
                                 if(e2=="si"){
                                   frm.submit();
 

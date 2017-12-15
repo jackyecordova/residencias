@@ -15,5 +15,24 @@
  	float: left !important;
  	}
  	.graficas{
- 		width: 
+ 
  	}
+#icnP {
+	text-align: center;
+    padding-top: 20px;
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+#icnP > i{
+	font-size: 8rem;
+}
+.daily-weather .wi{
+	font-size: 3rem;
+}
+.daily-weather h5{
+	font-size: 1.7rem;
+}
+.daily-weather h5 i{
+	font-size: 1.5rem;
+}

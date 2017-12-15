@@ -9,9 +9,9 @@ if (isset($_SESSION['miSesion'])){
 
 }
  ?>
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
@@ -25,7 +25,6 @@ if (isset($_SESSION['miSesion'])){
   <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <!-- NProgress -->
   <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-
   <!-- Datatables -->
   <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
   <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
@@ -33,20 +32,14 @@ if (isset($_SESSION['miSesion'])){
   <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
   <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
-
-  <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-  <!-- iCheck -->
-  <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
-  <!-- Datatables -->
-  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom Theme Style -->
   <link href="../build/css/custom.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -80,67 +73,63 @@ if (isset($_SESSION['miSesion'])){
       <div class="">
         <div class="page-title">
           <div class="title_left">
-            <h3>Cuentas <small>por cada departamento </small></h3>
+            <h3>Cuentas Registradas</h3>
           </div>
 
+        
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                  <p>REGISTRO DE LAS CUENTAS POR DEPARTAMENTO</p>
+
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <p class="text-muted font-13 m-b-30">
+
+                </p>
+              
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+                      <thead>
+                                       <tr role="row">
+                                        <th  style="border:0px;" class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" 
+                                        colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 80px;">
+                                        Id 
+                                      </th>
+                                      <th  style="border:0px;" class="sorting" tabindex="0" aria-controls="datatable"
+                                      rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending"
+                                      style="width: 200px;">
+                                     Departamento
+                                    </th>
+                                    <th  style="border:0px;" class="sorting" tabindex="0" 
+                                    aria-controls="datatable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" 
+                                    style="width:350px;">
+                                    Cuenta
+                                  </th>
+                                  <th style="border:0px;" class="sorting" tabindex="0" aria-controls="datatable" rowspan="1"
+                                  colspan="1" aria-label="Age: activate to sort column ascending" style="width: 150px;">
+                                  Cantidad
+                                </th>
+                                <th style="border:0px;" class="sorting" tabindex="0" 
+                                aria-controls="datatable" rowspan="1" colspan="1"
+                                aria-label="Office: activate to sort column ascending" 
+                                style="width: 80px;">
+
+                              </th>
+
+                            </tr>
+                </thead>
 
 
-          <div class="clearfix"></div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="x_panel">
-
-
-               <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;"></h5> </div>
-               <div class="col-sm-8">  </div>
-               <div class="title_right" 
-               style=" margin-left: -300px;">
-
-               <div class="col-md-8 col-sm-5 col-xs-12 form-group pull-right top_search">
-                         
-                                                     
-
-
-            </div>
-
-            <div class="col-md-2 col-sm-2 col-xs-12 ">
-            </div>
-
-
-            <div class="clearfix"></div>
-
-            
-          </div>
-
-          <div class="x_content">
-
-            <p>REGISTRO DE LAS CUENTAS POR DEPARTAMENTO</p>
-
-            <!-- start project list 
-            id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info"-->
-            <table class="table table-striped projects">
-
-              <thead>
-                <tr>
-                  <th style="width:8%">Id</th>
-                  <th style="width: 15%">Departamento</th>
-                  <th style="width: 15%">Presupuesto</th>
-                  <th style="width: 20%">Cuenta</th>
-                  <th style="width: 30%"></th>
-                  <th style="width: 15%">Año</th>
-
-                  <th style="width: 5%"></th>
-                  <th style="width: 5%"></th>
-                  <th></th>
-                  <th></th>
-                  <th style="width: 20%"></th>
-                </tr>
-              </thead>
-              <tbody>
-
-               <?php 
-               include './conexion.php';
+          <tbody>
+            <?php 
+           include './conexion.php';
                $depa="";
                $consulta=$mysqli->query("
 
@@ -160,24 +149,18 @@ if (isset($_SESSION['miSesion'])){
                while ( $fila=mysqli_fetch_array($consulta)) {
                            # code...
                 ?>
-                <tr>
-                  <td>    <?php echo $fila['id_presupuesto_depa'] ?></td>
+             <tr role="row" class="odd">
+              <td style="border:0px;" class="sorting_1"><?php echo $fila['id_presupuesto_depa'] ?></td>
+              <td style="border:0px;"> <?php echo $fila['departamento'] ?>
+              <a class="pull-right"> </a></td>
 
-                  <td>
-                   <?php echo $fila['departamento'] ?></td> 
-                   <td>   $ <?php echo number_format($fila['monto'],2); ?></td>
-
-                   <td>      <?php echo $fila['cuenta'] ?></td>
-                   <td>      <?php echo $fila['nombre'] ?></td>
-
-                   <td>
-
-                    <?php echo $fila['anio'] ?>
-
-                  </td>
-
-                  <td>
-                    <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
+              <td style="border:0px;"><?php echo $fila['nombre'] ?> <?php echo $fila['cuenta'] ?></td>
+              <td style="border:0px;">
+              <br>$ <?php echo number_format($fila['monto'],2); ?>
+              </td>
+              <td style="border:0px;"> 
+                 <?php echo $fila['anio'] ?>              
+                <a href="#" class="btn btn-info btn-xs btnEditar" data-toggle="modal"
                     data-target="#editar"
                     data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
                     data-iddepa="<?php echo $fila['id_departamento'] ?>"
@@ -188,10 +171,8 @@ if (isset($_SESSION['miSesion'])){
                     <i class="fa fa-pencil">
 
                     </i>
-                  </a>
-                </td>
-                <td>
-                 <a href="#" class="btn btn-danger btn-xs btnEliminar" data-toggle="modal" 
+                    </a>
+                     <a href="#" class="btn btn-danger btn-xs btnEliminar" data-toggle="modal" 
                  data-target="#eliminar"
                  data-toggle="modal"                                   
                  data-id="<?php echo $fila['id_presupuesto_depa'] ?>"
@@ -200,23 +181,13 @@ if (isset($_SESSION['miSesion'])){
 
                  </i> 
                </a>
-             </td>
-           </tr>
+              
+           </td>
 
-           <?php 
+         </tr>
+         <?php  }?>
 
-         } ?>
-
-
-
-
-
-
-
-
-
-
-
+      
          <!-- eliminar-->
          <div id="eliminar" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -236,7 +207,7 @@ if (isset($_SESSION['miSesion'])){
                  </div>
                  <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-succes" data-toggle="modal" data-target="#eliminar"
+                  <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#eliminar"
 
                   >Eliminar</button>
                 </div>
@@ -250,7 +221,7 @@ if (isset($_SESSION['miSesion'])){
         <div id="editar" class="modal fade" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form action="./codigos/editarcuentadepa.php" method="post" id="formEditar">
+              <form action="./codigos/editarcuentadepa.php" method="post">
                 <div class="modal-header">
 
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -258,11 +229,11 @@ if (isset($_SESSION['miSesion'])){
                   <input type="hidden" id="idcuentadepaedi" name="idcuentadepaedi">
                   <!-- <input type="hidden" id="idOrdene" name="idOrdene">-->
                 </div>
-                                    <div class="modal-body" style="text-align: center">
-                      <div class="alert alert-danger " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
-                                  text-shadow: 0px 0px rgba(153, 153, 153, 0);  
-                              color: rgb(241, 83, 68);display:none" id="alerta">Has excedido el presupuesto
-                            </div>
+                <div class="modal-body" style="text-align: center">
+  <div class="alert alert-danger " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+              text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+          color: rgb(241, 83, 68);display:none" id="alerta">Has excedido el presupuesto
+        </div>
                   <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
                           <div class="col-md-9 col-sm-9 col-xs-12">
@@ -332,7 +303,7 @@ if (isset($_SESSION['miSesion'])){
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-success" data-toggle="" data-target="#editar" id="send" 
+              <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#editar"
 
               >Guardar</button>
             </div>
@@ -355,18 +326,12 @@ if (isset($_SESSION['miSesion'])){
 
 
 
-
-
-
-
-
-
-
-
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
-<!-- end project list -->
+</div>
+
+
 </div>
 </div>
 </div>
@@ -374,18 +339,7 @@ if (isset($_SESSION['miSesion'])){
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 <!-- /page content -->
 
 <!-- footer content -->
@@ -408,16 +362,8 @@ if (isset($_SESSION['miSesion'])){
 <!-- NProgress -->
 <script src="../vendors/nprogress/nprogress.js"></script>
 
-
-
-<!-- bootstrap-progressbar -->
-<script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<!-- Cropper -->
-<script src="../vendors/cropper/dist/cropper.min.js"></script>
-
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.js"></script>
-
+<script src="../build/js/custom.min.js"></script>
 <!-- Datatables -->
 <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -435,38 +381,9 @@ if (isset($_SESSION['miSesion'])){
 <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
-<script type="text/javascript">
- $(document).ready(function  (argument) {
-      $("#alerta").hide();
-         
-        $("#send").on("click",function  (e) {
-           e.preventDefault();//para que no se vaya  
-          
-          $.ajax({
-            method:'POST',
-            url:'./codigos/validarcuentadepa.php',
-            data:{
-              departamento:$("#departamentoeditar").val(),
-              cuenta:$("#cuentaeditar").val(),
-              anio:$("#anioeditar").val(),
-              monto:$("#montoeditar").val()
-            }
-          }).done(function(e2){
-            
-            if(e2=="no"){
-            
-               $("#alerta").show();
-               // alert(e2); 
-                
-            }else{
-              $("#formEditar").submit();//envio de formulario ya no se va al ajax
-                //alert(e2);
-            }
-           
-          });
 
-        });
-    });
+<script type="text/javascript">
+
   $(".btnEliminar").on('click',function(){
    var id=$(this).data('id');
    var departamento=$(this).data('departamento');
@@ -500,11 +417,35 @@ if (isset($_SESSION['miSesion'])){
 </script>
 
  <script type="text/javascript">
-   
+    $(document).ready(function  (argument) {
+      $("#alerta").hide();
+        
+        $("#send").on("click",function  (e) {
+           e.preventDefault();//para que no se vaya
+          $.ajax({
+            method:'POST',
+            url:'./codigos/validarcuentasdepa.php',
+            data:{
+             // departamento:$("#departamento").val(),
+              cuenta:$("#cuentaeditar").val(),
+              anio:$("#anioeditar").val(),
+              monto:$("#montoeditar").val()
+            }
+          }).done(function(e2){
+            if(e2=="no"){
+               $("#alerta").show();
+               // alert(e2); 
+                
+            }else{
+              $("#miForm").submit();//envio de formulario ya no se va al ajax
+                //alert(e2);
+            }
+           
+          });
+
+        });
+    });
    </script>
-
-
-
 
 </body>
 </html>

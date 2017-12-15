@@ -161,13 +161,21 @@ if (isset($_SESSION['miSesion'])){
                <i class="fa fa-pencil">
 
                </i>  </a>
-               <a href="#" class="btn btn-danger btn-xs btnEliminar" 
-               data-toggle="modal"
-               data-target="#eliminar"
-               data-id="<?php echo $fila['id_cuenta'] ?>"
-               data-nombre="<?php echo $fila['nombre'] ?>">
-               <i class="fa fa-trash-o"></i>  
-             </a>
+               <?php  $cuenta=$mysqli->query("select *  from orden where id_cuenta=".$fila['id_cuenta'])or die($mysqli->error);
+                  
+                  $cuenta2=$cuenta->fetch_assoc();
+                  $cuenta3=$cuenta2['id_cuenta'];
+                  if (mysqli_num_rows($cuenta)==0) {?>
+                                      <a href="#" class="btn btn-danger btn-xs btnEliminar" 
+                                       data-toggle="modal"
+                                       data-target="#eliminar"
+                                       data-id="<?php echo $fila['id_cuenta'] ?>"
+                                       data-nombre="<?php echo $fila['nombre'] ?>">
+                                 <i class="fa fa-trash-o"></i>  
+                               </a>
+                 <?php} else{
+                                ?>
+              <?php } ?>
            </td>
 
          </tr>
@@ -192,8 +200,8 @@ if (isset($_SESSION['miSesion'])){
                     id="nombreeliminar"></span> </p>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#eliminar">Eliminar</button>
                   </div>
                 </form>
 
@@ -264,8 +272,8 @@ if (isset($_SESSION['miSesion'])){
 
               </div><br>
               <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Guardar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#editar">Guardar</button>
               </div>
             </form>
 

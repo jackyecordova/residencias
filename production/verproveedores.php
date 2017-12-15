@@ -226,8 +226,8 @@ if (isset($_SESSION['miSesion'])){
               <div class="clearfix"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar"
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#editar"
 
             >Guardar</button>
           </div>
@@ -260,8 +260,8 @@ if (isset($_SESSION['miSesion'])){
               id="nombreeliminar"></span> </p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar"
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#eliminar"
 
               >Eliminar</button>
             </div>

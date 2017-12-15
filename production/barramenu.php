@@ -19,7 +19,7 @@
                          <li class="active">
                          <a>Ordenes<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: block;">
-                                  <li class="sub_menu current-page"><a href="consultarobrasp.php">Consultar</a>
+                                  <li class="sub_menu current-page"><a href="project2.php">Consultar</a>
                                   </li>
                                  
                                   <li><a href="form_validation.php">Generar</a>
@@ -42,7 +42,7 @@
                         <?php } ?>
 
                         <!--..............................................................................-->
-                             <?php  if ($arreglo['nivel']=='Oficial Mayor'   ||$arreglo['nivel']=='Tesorería'||$arreglo['nivel']=='Admin'  ){
+                             <?php  if ($arreglo['nivel']=='Oficial Mayor'   ||$arreglo['nivel']=='Tesorero'||$arreglo['nivel']=='Admin'  ){
                           ?>
 
                                          <li class="active">

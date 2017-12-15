@@ -232,7 +232,7 @@ if (isset($_SESSION['miSesion'])){
                       </div>           
                     </div>
 
-                    <div class="btn-group" class="pull-rigth" style="margin-left">
+                   <!-- <div class="btn-group" class="pull-rigth" style="margin-left">
                      <button class="btn btn-info"type="button">
                       <i class="fa fa-print"></i>
                     </button>
@@ -241,7 +241,7 @@ if (isset($_SESSION['miSesion'])){
                    <button class="btn btn-success"type="button">
                     <i class="fa fa-floppy-o"></i>
                   </button>
-                </div>
+                </div>-->
 
 
 
@@ -357,31 +357,6 @@ if (isset($_SESSION['miSesion'])){
                                                                   <div class="col-md-3 col-sm-3 col-xs-12" style="text-align: right;">
 
 
-
-                                                                
-                                                                             <button type="button" class="btn btn-success btnstatus" 
-                                                                                    data-method="getCroppedCanvas"
-                                                                                    data-toggle="modal" 
-                                                                                    data-target="#devengaropagar"
-                                                                                    data-nombre="<?php echo $fila['nombre'] ?>"
-                                                                                    data-status="<?php echo $fila['status'] ?>"
-                                                                                     data-id="<?php echo $fila['ord_id'] ?>"
-                                                                                     style="  
-                                                                                         width: 30%;
-                                                                                         height: 32px;
-                                                                                         font-size: 12px;
-                                                                                         margin-right: 20%;
-                                                                                     "  >
-
-                                                                               <?php 
-                                                                               if ($fila['status']=="Emitido") {
-                                                                                 $st="Dev";
-                                                                               }else if ($fila['status']=="Devengado") {
-                                                                                  $st="Pag";
-                                                                               }
-                                                                               
-
-                                                                               echo $st?></button>
                                                                             <a  style="width: 10%;color:black; margin-right: 20%;" class="pull-right"><?php echo $fila['status']; ?></a>
 
                                                                   </div>
@@ -488,7 +463,7 @@ if (isset($_SESSION['miSesion'])){
                                               INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
                                               INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
                                               INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
-                                              where orden.id_departamento=".$_GET['id']#." and orden.status='Devengado'"
+                                              where orden.id_departamento=".$_GET['id']." and orden.status='Devengado'"
 
 
                                               )or die($mysqli->error);
@@ -548,9 +523,12 @@ if (isset($_SESSION['miSesion'])){
                                                                    <div class="col-md-8 col-sm-8 col-xs-12">
                                                                          <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
                                                                     </div>
-                                                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                              <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
-                                                                    </div>
+                                                                     <div class="col-md-3 col-sm-3 col-xs-12" style="text-align: right;">
+
+
+                                                                            <a  style="width: 10%;color:black; margin-right: 20%;" class="pull-right"><?php echo $fila['status']; ?></a>
+
+                                                                  </div>
                                                           </div>
 
                                                           </div>
@@ -569,7 +547,7 @@ if (isset($_SESSION['miSesion'])){
                                               INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
                                               INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
                                               INNER JOIN proveedores ON orden.id_proveedor = proveedores.id_proveedor
-                                              where orden.id_departamento=".$_GET['id']#."and orden.status='Pagado'"
+                                              where orden.id_departamento=".$_GET['id']." and orden.status='Pagado'"
 
 
                                               )or die($mysqli->error);
@@ -629,9 +607,12 @@ if (isset($_SESSION['miSesion'])){
                                                                    <div class="col-md-8 col-sm-8 col-xs-12">
                                                                          <p class="excerpt" ><?php echo $fila['observaciones'] ?>  </p>
                                                                     </div>
-                                                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                              <a  style="width: 10%;color:black;" class="pull-right"><?php echo $fila['status']; ?></a>
-                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-3 col-xs-12" style="text-align: right;">
+
+
+                                                                            <a  style="width: 10%;color:black; margin-right: 20%;" class="pull-right"><?php echo $fila['status']; ?></a>
+
+                                                                  </div>
                                                           </div>
 
                                                           </div>
@@ -701,19 +682,21 @@ if (isset($_SESSION['miSesion'])){
                                         <div class="alert alert-info alert-dismissible fade in" role="alert">
                                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                                           </button>
-                                          <strong><?php echo $fila['nombre']; ?><br><small> <?php echo $fila['cuenta']; ?></small></strong> 
-                                          Presupuesto <br><small> Total:</small><br>$ <?php echo $fila['cantidad']; ?>
-                                          <br><small>Usado</small><br>
-                                          <?php //suma de presupuesto por cuenta
-                                              //  $cuentaspresu ==$mysqli->query("select SUM(monto) as cantidad from presupuesto_depa 
-                                                //  where id_departamento=".$_GET['id'] ."and id_cuenta =".$fila['cuenta'];)or die($mysqli->error);
-                                                 //$scuenta=$cuentaspresu->fetch_assoc();
-                                                //$totalmonto=$scuenta['cantidad'];
-                                           ?>
-                                          <?php //echo  $totalmonto;?>
-                                        </div>
-                                       
-                                        <?php } ?>
+                                          <div>
+                                                              <p><?php echo $fila['nombre']; ?><br><small> <?php echo $fila['cuenta']; ?></small></p> 
+                                                              Presupuesto <br><small> Total:</small><br>$ <?php echo $fila['monto']; ?>
+                                                              <br><!--<small>Usado</small>--><br>
+                                                              <?php //suma de presupuesto por cuenta
+                                                                  //  $cuentaspresu ==$mysqli->query("select SUM(monto) as cantidad from presupuesto_depa 
+                                                                    //  where id_departamento=".$_GET['id'] ."and id_cuenta =".$fila['cuenta'];)or die($mysqli->error);
+                                                                     //$scuenta=$cuentaspresu->fetch_assoc();
+                                                                    //$totalmonto=$scuenta['cantidad'];
+                                                               ?>
+                                                              <?php //echo  $totalmonto;?>
+                                                            </div>
+                                                           </div>
+                                                            <?php } ?>
+
                                       </div>
                                     </div>
                     </div>
@@ -866,64 +849,7 @@ if (isset($_SESSION['miSesion'])){
 <!-- Crear cuenta para el departamento-->
 
 
-<!-- Cantidad Pagada o devengar-->
-<div id="devengaropagar" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-     <input type="text" id="idorden" name="idorden">
 
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" >&times;</button>
-        <h4 class="modal-title" >Cantidad</h4>
-        
-      </div>
-      <div class="modal-body" style="text-align: left; ">
-
-       <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-       <div class="col-sm-8">  </div>
-
-       <div class="input-group"> 
-
-        <input type="text" placeholder="000,000,000.00" class="form-control"
-         name="cantidad"
-         id="cantidad" 
-          data-fv-field="price">
-        
-        <span class="input-group-addon">
-         $
-       </span> 
-
-     </div>
-   </div>
-    <div class="modal-body" style="text-align: left; ">
-
-       <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Poliza</h5> </div>
-       <div class="col-sm-8">  </div>
-
-       <div class="input-group"> 
-
-        <input type="text" placeholder="Número de Poliza" class="form-control" 
-        name="poliza"
-        id="poliza" data-fv-field="price">
-        
-        <span class="input-group-addon">
-         $
-       </span> 
-
-     </div>
-   </div>
-   <div class="col-sm-1"></div>
-
-
-
-   <div class="modal-footer" style="padding-top:35px;">
-     <button type="button"  class="btn btn-success" >Pagar</button>
-     <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
-   </div>
- </div>
-
-</div>
-</div>
 
 
 
@@ -973,7 +899,7 @@ if (isset($_SESSION['miSesion'])){
 <script src="../build/js/custom.min.js"></script>
 <script >
           $(document).ready(function(){
-                  $("#buscar").on('keyup',function(){
+              $("#buscar").on('keyup',function(){
                     var op =$("#myTab").find(".active").find("a").text();
                     var div="";
                   if (  op=="General") {
@@ -1010,7 +936,32 @@ if (isset($_SESSION['miSesion'])){
                  var nombre=$(this).data('nombre');
                  
                  $("#idorden").val(id);
-                 $("#nombrest").text(nombre) ;  });
+                 $("#nombrest").text(nombre) ; 
+                });
+                $("#home-tab").on('click',function(){
+                    $("#tab_content1").show();
+                    $("#tab_content2").hide();
+                    $("#tab_content3").hide();
+                    $("#tab_content4").hide();
+                });
+                $("#profile-tab").on('click',function(){
+                  $("#tab_content2").show();
+                    $("#tab_content1").hide();
+                    $("#tab_content3").hide();
+                    $("#tab_content4").hide();
+                });
+                $("#profile-tab2").on('click',function(){
+                  $("#tab_content3").show();
+                    $("#tab_content2").hide();
+                    $("#tab_content1").hide();
+                    $("#tab_content4").hide();
+                });
+                $("#profile-tab3").on('click',function(){
+                  $("#tab_content4").show();
+                    $("#tab_content2").hide();
+                    $("#tab_content3").hide();
+                    $("#tab_content1").hide();
+                });
           });
   
 </script>

@@ -44,7 +44,7 @@
             id="contrasena" required="required"  />
           </div>
           <div>
-            <button class="btn btn-default" type="submit" >Iniciar Sesión</button> 
+            <button class="btn btn-default" type="submit" id="send" >Iniciar Sesión</button> 
 
           </div>
 
@@ -58,7 +58,13 @@
         </div>
 
         <div class="clearfix"></div>
-
+                        <div class="alert alert-danger alert-dismissible " role="alert" style="background-color: rgba(210, 20, 0, 0.19); 
+                                 text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+                              color: rgb(241, 83, 68);display:none;" id="alerta">La contraseña es incorrecta
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                       <span aria-hidden="true">&times;</span>
+                                 </button>
+                                 </div>
         <div class="separator">
           <p class="change_link">
             <a href="#signup" class="register"> Crear una cuenta </a>
@@ -122,7 +128,7 @@
 
       <div class="separator">
        <p class="change_link">
-         <a href="#signin" class="to_register"> Iniciar Sesión</a>
+         <a href="#signin" class="to_register" id=""> Iniciar Sesión</a>
        </p>
 
 
@@ -139,89 +145,41 @@
 </div>
 
 
+</div>
+</div>
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
 
-<!--...........................................................................................
+<script >
+      $(document).ready(function  (argument) {
+      $("#alerta").hide();
+      //alert("fg");
+        
+  $("#send").on("click",function  (e) {
+           e.preventDefault();//para que no se vaya
+          $.ajax({
+            method:'POST',
+            url:'./codigos/validarlogin.php',
+            data:{
+              nombre:$("#nombre").val(),
+              contrasena:$("#contrasena").val()
+            }
+          }).done(function(e2){
+            if(e2=="no"){
+               $("#alerta").show();
+                //alert(e2); 
+                
+            }else{
+              $("#entrar").submit();//envio de formulario ya no se va al ajax
+                //alert(e2);
+            }
+           
+          });
 
+        });
 
-
- <div id="confirmar" class="animate form registration_form">
-    <section class="login_content">
-      <form action="./codigos/nuevousuario.php" method="post">
-        <h1>Crear Cuenta</h1>
        
-        <div>
-          <input type="password" class="form-control" placeholder="Contraseña" required="" 
-          id="contrasena"
-          name="contrasena"
-          required="required"  />
-        </div>
-
-
-       
-      <div>
-        <button class="btn btn-default" type="submit" >Confirmar </button> 
-      </div>
-
-      <div class="clearfix"></div>
-
-      <div class="separator">
-       <p class="change_link">
-         <a href="#signin" class="to_register"> Iniciar Sesión</a>
-       </p>
-
-
-       <div class="clearfix"></div>
-       <br />
-
-       <div>
-        <h1><i class="fa fa-university"></i> Presidencia Municipal</h1>
-        <p>de Nuevo Casas Grandes</p>
-      </div>
-    </div>
-  </form>
-</section>
-</div>
-
-
-
-
-
--->
-
-
-
-
-</div>
-</div>
-<script>
-   // var formulariologin=document.getElementById("entrar");
-   // var txtusuario=document.getElementById("nombre");
-   // var txcontrasenia=document.getElementById("contrasena");
-//
-   // var divEr=document.getElementById("error");
-   // 
-   // formulariologin.addEventListener("submit",function(evt){
-   //   
-   //   if(txtusuario.value !="" && txcontrasenia.value!=""){
-      
-
-   //   }else {
-   //     evt.preventDefault();
-   //     divEr.style.display="block";
-    //    divEr.innerHTML="<b>Error:</b> Llenar campos";
-   //   }
-      
-  //  });
-   // txtusuario.addEventListener("keypress",function(evt){
-   //   divEr.style.display="none";
     });
-   // txcontrasenia.addEventListener("keypress",function(evt){
-  //    divEr.style.display="none";
-   // });
- //   function ocultar(evt){
- //     divEr.style.display="none";
- //   }
-
-  </script>
+   </script>
 </body>
 </html>

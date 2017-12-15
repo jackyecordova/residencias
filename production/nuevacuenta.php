@@ -108,7 +108,7 @@ if (isset($_SESSION['miSesion'])){
 
         </div>
         <div class="clearfix"></div>
-
+                 
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
@@ -120,7 +120,7 @@ if (isset($_SESSION['miSesion'])){
               <div class="x_content">
 
                 <form class="form-horizontal form-label-left" novalidate 
-                action="./codigos/cuentas.php" method="post">
+                action="./codigos/cuentas.php" method="post" id="formcuenta">
 
                 <p>Registro del nuevo departamento <!--<code></code> -->
                 </p>
@@ -135,10 +135,17 @@ if (isset($_SESSION['miSesion'])){
 
 
 
-
+              <div class="alert alert-danger alert-dismissible " role="alert" style="background-color: rgba(210, 20, 0, 0.19); text-align:center;width:50%;margin-left:25%;
+                     text-shadow: 0px 0px rgba(153, 153, 153, 0);  
+                     color: rgb(241, 83, 68);display:none;" id="alerta">Has excedido el presupuesto
+                                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                  </div>
 
 
                   <div class="item form-group">
+
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" >No de cuenta 
                      <span class="required">*</span>
                    </label>
@@ -146,6 +153,7 @@ if (isset($_SESSION['miSesion'])){
                     <input  class="form-control col-md-7 col-xs-12"  data-inputmask="'mask' : '*-*-*-*-***-****-***'"
                     minlength="20"
                     name="numero" 
+                    id="nocuenta" 
                     placeholder="Número de la Cuenta" 
                     required="required" 
                     type="text">
@@ -153,7 +161,7 @@ if (isset($_SESSION['miSesion'])){
                 </div>
 
 
-
+ 
 
 
 
@@ -165,6 +173,7 @@ if (isset($_SESSION['miSesion'])){
                  <div class="col-md-6 col-sm-6 col-xs-12" >
                   <input  class="form-control col-md-7 col-xs-12" 
                   name="nombre"
+
                   required="required" 
                   placeholder="Nombre de la Cuenta"  type="text">
 
@@ -181,6 +190,7 @@ if (isset($_SESSION['miSesion'])){
                 <div class="col-md-6 col-sm-6 col-xs-12" >
                   <input  class="form-control col-md-7 col-xs-12" 
                   name="cantidad"
+                  id="cantidad" 
                   required="required" 
                   placeholder="Cantidad de la Cuenta" type="number">
 
@@ -245,7 +255,7 @@ if (isset($_SESSION['miSesion'])){
 
 
     <div class="modal-footer" style="padding-top:35px;">
-      <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+      <!--<a href="./vercuenta.php"><button type="button" class="btn btn-primary"  >Cancelar</button></a>-->
       <button type="button"  class="btn btn-success" >Guardar</button>
 
     </div>
@@ -291,5 +301,37 @@ if (isset($_SESSION['miSesion'])){
 <!-- jquery.inputmask -->
 <script src="../vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
 <script type="./js/currency.js"></script>
+<script >
+   $(document).ready(function  (argument) {
+      $("#alerta").hide();
+         
+        $("#send").on("click",function  (e) {
+           e.preventDefault();//para que no se vaya  
+          
+          $.ajax({
+            method:'POST',
+            url:'./codigos/validarcuenta.php',
+            data:{
+              nocuenta:$("#nocuenta").val(),
+              cantidad:$("#cantidad").val()
+              
+            }
+          }).done(function(e2){
+            
+            if(e2=="no"){
+            
+               $("#alerta").show();
+               // alert(e2); 
+                
+            }else{
+              $("#formcuenta").submit();//envio de formulario ya no se va al ajax
+                //alert(e2);
+            }
+           
+          });
+
+        });
+    });
+</script>
 </body>
 </html>

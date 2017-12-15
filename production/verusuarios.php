@@ -188,8 +188,8 @@ if (isset($_SESSION['miSesion'])){
                     id="nombreeliminar"></span> </p>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eliminar">Eliminar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#eliminar">Eliminar</button>
                   </div>
                 </form>
 
@@ -263,8 +263,8 @@ if (isset($_SESSION['miSesion'])){
 
                                           </div>
                                           <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#editar">Guardar</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#editar">Guardar</button>
                                           </div>
             </form>
 

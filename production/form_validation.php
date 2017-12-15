@@ -158,25 +158,37 @@ if (isset($_SESSION['miSesion'])){
                             <?php //} ?>
                             <?php 
                             include './conexion.php';
-                            $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
-                            $id="";
-                            while ( $fila=mysqli_fetch_array($consulta)) {
-                              if($id==""){
-                                $id=$fila['id_departamento'];
-                              }
+                           
                                           if ($arreglo['nivel']=='Obras Publicas'){
-                                             ?>
+                                                           $consulta2=$mysqli->query("select * from departamentos where departamento='OBRAS PUBLICAS'||departamento='Obras Publicas'")
+                                                           or die($mysqli->error);
+                                                                $id="";
+                                                                while ( $fila2=mysqli_fetch_array($consulta2)) {
+                                                                  if($id==""){
+                                                                              $id=$fila2['id_departamento'];
+                                                                      }
+                                                                     ?>
+                                                                      <option value="<?php echo $fila2['id_departamento']; ?>"><?php echo "Obras Publicas" ?></option>
+                                                                      <?php
+                                                             }
+                                          }else{
+                                                          ?>
+                                                               <?php 
+                                                           
+                                                             $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
+                                                              $id="";
+                                                              while ( $fila=mysqli_fetch_array($consulta)) {
+                                                                             if($id==""){
+                                                                            $id=$fila['id_departamento'];
+                                                                           }?>
 
-                                         <option value="7"><?php echo "Obras Publicas" ?></option>
-                                         <?php
-                                          }else{?>
+                                                                           <option value="<?php echo $fila['id_departamento'] ?>">
+                                                                           <?php echo $fila['departamento'] ?></option>
 
-                                 <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
+                                                       
 
-                                         
-
-                                        
-                                         <?php }
+                                                      
+                                                       <?php }
                                         } ?>
                            </select>
                          </div>
@@ -241,8 +253,8 @@ if (isset($_SESSION['miSesion'])){
                         <?php 
                      
                       $consulta=$mysqli->query("select presupuesto_depa.*, cuentas.* from presupuesto_depa 
-inner join cuentas on presupuesto_depa.id_cuenta= cuentas.id_cuenta
-where presupuesto_depa.id_departamento=".$id)or die($mysqli->error);
+                                              inner join cuentas on presupuesto_depa.id_cuenta= cuentas.id_cuenta
+                                              where presupuesto_depa.id_departamento=".$id)or die($mysqli->error);
                       while ( $fila=mysqli_fetch_array($consulta)) {
                        ?> <!--Concatenar el nombre de la cuenta-->
                        <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre']  ?><small ><?php // echo $fila['cuenta']  ?></small></option>
@@ -315,7 +327,7 @@ where presupuesto_depa.id_departamento=".$id)or die($mysqli->error);
               <h2 class="StepTitle"> </h2>
 
               
-              <?php  if ($arreglo['nivel']=='Obras Publicas'){
+              <?php  if ($arreglo['nivel']=='Obras Publicas'  ){
                           ?>
                           <div class="form-group">
                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Programa</label>
@@ -324,20 +336,36 @@ where presupuesto_depa.id_departamento=".$id)or die($mysqli->error);
                                         name="programa"
                                         class="form-control col-md-8 col-xs-12" tabindex="-1" style="width:100%;">
                                        
-                                        <?php 
-                                        include './conexion.php';
-                                        $consulta=$mysqli->query("select * from programas order by id_programa ASC")or die($mysqli->error);
-                                        while ( $fila=mysqli_fetch_array($consulta)) {
-
-                                         ?>
-                                         <option value="<?php echo $fila['id_programa'] ?>"><?php echo $fila['programa'] ?></option>
-                                         <?php } ?>
+                                                  <?php 
+                                                      include './conexion.php';
+                                                      $consulta=$mysqli->query("select * from programas order by id_programa ASC")or die($mysqli->error);
+                                                      while ( $fila=mysqli_fetch_array($consulta)) {
+                                                       ?>
+                                                       <option value="<?php echo $fila['id_programa'] ?>"><?php echo $fila['programa'] ?></option>
+                                                   <?php } ?>
                                        </select>
                                      </div>
                                      </div>
 
 
                           <?php } ?>
+                           <div class="form-group" style="display:none;">
+                                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Programa</label>
+                                       <div class="col-md-6 col-sm-9 col-xs-12">
+                                        <select class="select2_single form-control"
+                                        name="programa"
+                                        class="form-control col-md-8 col-xs-12" tabindex="-1" style="width:100%;">
+                                       
+                                                  <?php 
+                                                      include './conexion.php';
+                                                      $consulta=$mysqli->query("select * from programas order by id_programa ASC")or die($mysqli->error);
+                                                      while ( $fila=mysqli_fetch_array($consulta)) {
+                                                       ?>
+                                                       <option value="<?php echo $fila['id_programa'] ?>"><?php echo $fila['programa'] ?></option>
+                                                   <?php } ?>
+                                       </select>
+                                     </div>
+                                     </div>
 
               <div class="form-group">
                <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
@@ -453,6 +481,7 @@ where presupuesto_depa.id_departamento=".$id)or die($mysqli->error);
             $.post('./codigos/cambioobras.php',{
               id:$(this).val()
             },function  (e) {
+
               $("#obra").find('option').remove();
              $("#obra").append(e);
             });

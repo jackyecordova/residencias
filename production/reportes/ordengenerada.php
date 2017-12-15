@@ -16,16 +16,28 @@ $idultimo=$mysqli->insert_id;
     $observaciones=$fila['observaciones'];
     $no_factura=$fila['ord_numfactura'];
     $id_proveedor=$fila['id_proveedor'];
+    $proveedor=$fila['nombre'];
     $direccion=$fila['direccion'];
     $telefono=$fila['telefono'];
     $obra=$fila['nombre'];
-    $cantidad=$fila['cantidad'];
+    $cantidad=$fila['cantidad_mate'];
     $precio=$fila['precio'];
     $material=$fila['material'];
     $total=$fila['total_compromet'];
 
 
    }
+    $prog=$mysqli->query("select programaorden.*,orden.*,programas.*
+  from programaorden
+  inner join orden on orden.ord_id=programaorden.id_orden
+  inner join programas on programas.id_programa=programaorden.id_programa
+  
+   where orden.ord_id=".$_GET['id'])or die($mysqli->error);
+// inner join programaorden on orden.ord_id= programaorden.id_orden
+  while ( $fila2=mysqli_fetch_array($prog)) {
+  	$programa=$fila2['programa'];
+  }
+
  ?>
 
  <!DOCTYPE html>
@@ -33,10 +45,14 @@ $idultimo=$mysqli->insert_id;
 <head>
 	<title></title>
 	<link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		
+	</style>
 </head>
 <body onload="imprimir()">
 <div id="todo">
 	<?php include '../conexion.php'; ?>
+
 	<div class="col-lg-5" style="margin-top:0px;">
 	<?php // $departamento=$_POST['departamento'];?>
 		<h3>Departamento de <?php echo $departamento; ?></h3>
@@ -56,6 +72,13 @@ $idultimo=$mysqli->insert_id;
 							<div class="col-lg-1" >
 								<small>Observaciones</small>
 							</div>
+
+							<?php if ($departamento=='Obras Publicas' || $departamento=='OBRAS PUBLICAS') { ?>
+
+							<div class="pull-right">
+								Programa:	<?php echo $programa?>
+							</div>
+							<?php }  ?>
 							<div class="col-lg-3">
 								 <?php echo $observaciones ?>
 							</div>
@@ -68,7 +91,7 @@ $idultimo=$mysqli->insert_id;
 						    border: 1px solid #000;
 						    padding: 10px; ">
 						<div class="col-lg-5">
-							Proveedor <?php //echo $proveeedor ?> <a style="margin-left:10px;"> id del prov<?php echo $id_proveedor ?></a>
+							<small>Proveedor:</small> <?php echo $proveedor ?> <a style="margin-left:10px;"> <?php echo $id_proveedor ?></a>
 						</div>
 						<div class="col-lg-5">
 							 <?php echo $direccion ?> 
@@ -85,23 +108,25 @@ $idultimo=$mysqli->insert_id;
 							Número  <?php echo $cuenta;?> 
 			</div>
 		</div>
-		<hr>
-		<div class="col-lg-5" style="width:100%;heigth:100%;">
+		<hr style="margin-top:00px;">
+		<div class="col-lg-5" style="width:100%;heigth:100%;margin-top:-20px;">
 			<div>
 				<a style="width:10px">Cantidad</a>
-				<a style="width:10px">Unidad</a>
-				<a style="width:50px">Material</a>
-				<a style="width:10px">P. Unitario</a>
-				<a style="width:10px">Subtotal</a>
+				
+				<a style="width:50px;margin-left:60px;">Material</a>
+					<div class="pull-right" style="margin-right:50px;"><a style="width:20px">Subtotal</a></div>
+				<div class="pull-right" ><a style="width:10px;margin-right:50px;">P. Unitario</a></div>
+			
 
 			</div>
 			<hr>
 			<div>
-				<a>cantidad<?php echo $cantidad ?></a>
-				<a>Ltrs</a>
-				<a>material<?php $material ?></a>
-				<a>precio<?php $precio ?></a>
-				<a>total<?php $total ?></a>
+				<a style="width:10px"><?php echo $cantidad ?></a>
+				
+				<a style="width:50px;margin-left:60px;"><?php echo $material ?></a>
+				<div class="pull-right" style="margin-right:50px;"><a style="width:20px"> $ <?php echo number_format( $total,2) ?></a></div>
+				<div class="pull-right"><a style="width:10px;margin-right:50px;">$ <?php echo number_format( $precio,2) ?></a></div>
+				
 
 			</div>
 
@@ -128,8 +153,9 @@ $idultimo=$mysqli->insert_id;
 			<div class="col-lg-5" style="width:20%;margin-left:13px;margin-top:20px;">
 			
 			Oficial Mayor
-		</div>
 
+		</div>
+<div class="pull-right" style="margin-right:10px;"><a style="width:10px"> $ <?php echo number_format( $total,2) ?></a></div>
 		
 	
 </div>

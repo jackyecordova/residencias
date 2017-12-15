@@ -11,21 +11,6 @@
 
 
 
-
-
-
-
-
-
-
-    // $puesto=$_SESSION['nivel'];
-    //  if ($puesto=="Oficial Mayor") {
-            //   $menu ='include "./barramenu.php"';
-            //  }elseif ($puesto=="Tesorero") {
-            //    $menu ='include "./barramenu.php"';
-             // } elseif ($puesto=="Obras Públicas") {
-             //  $menu ="include './barramenuobras.php'";
-             // }
    
  ?>
 
@@ -48,7 +33,7 @@
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    
+        <link rel="stylesheet" type="text/css" href="./css/weather-icons.min.css">
     <!-- bootstrap-progressbar -->
     <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -112,13 +97,33 @@
                 WHERE anio = '".date("Y")."' ")or die($mysqli->error);
                        //Imprimir si es de este año
                 while ( $fila=mysqli_fetch_array($consulta)) {
-                 echo  number_format($fila['monto'],2);}
+                 echo  number_format($fila['monto'],2);
                  ?></h2>
                  <br>
-                 <h3><small>Presupuesto otorgado para el año 2017</small> </h3>
+                 <?php  
+                 // $monto=$mysqli->query("select SUM(monto) as total from presupuesto_depa")or die($mysqli->error);
+                 // $monto2=$monto->fetch_assoc();
+                 // $total=$monto2['total'];
+                $todo=$fila['monto'];
+                 
+
+                   $comprometido=$mysqli->query("select SUM(total_compromet) as comprom from orden")or die($mysqli->error);
+                   $comprom=$comprometido->fetch_assoc();
+                  $com=$comprom['comprom'];
+                   
+                  $res= $todo-$com;
+                
+                 ?>Presupuesto Usado: <?php echo "  $".number_format($com,2); ?>
+                 <?php
+                
+                  ?><br>
+                 Presupuesto Restante: <?php echo "  $".number_format($res,2);} ?>
+                 <br><hr>
+                 <h3><small>Presupuesto otorgado para el año <?php $fecha=date('Y');
+                 echo $fecha; ?></small> </h3>
 
                </div>
-               <!-- start of weather widget -->
+    <!-- start of weather widget -->
                
                <div class="col-md-4 col-sm-4 col-xs-12  pull-right" class="clima"  > 
 
@@ -131,8 +136,11 @@
                   <div class="x_content">
                     <div class="row">
                       <div class="col-sm-12">
-                        <div class="temperature"><b>Lunes</b>, 07:30 AM
-
+                      <?php $hora=date("h");
+                            $minutos=date("i");
+                            $am=date("A");
+                       ?>
+                        <div class="temperature"><b id="dia">Lunes</b>, <?php echo $hora; ?>:<?php echo $minutos;  echo "  ".$am ?>
 
                         </div>
                       </div>
@@ -140,7 +148,10 @@
                     <div class="row">
                       <div class="col-sm-4">
                         <div class="weather-icon">
-                          <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
+                         <!-- <canvas height="84" width="84" id="partly-cloudy-day"></canvas>-->
+                        <div id="icnP">
+                          
+                        </div>
                         </div>
                       </div>
                       <div class="col-sm-8">
@@ -161,8 +172,9 @@
                       <div class="col-sm-2">
                         <div class="daily-weather">
                           <h2 class="day">Lun</h2>
-                          <h3 class="degrees">25</h3>
-                          <canvas id="clear-day" width="32" height="32"></canvas>
+                          <h3 class="degrees">25</h3><i class="icono"></i>
+                          <!--<canvas id="clear-day" width="32" height="32"></canvas>-->
+                          
                           <h5>15 <i>km/h</i></h5>
                         </div>
                       </div>
@@ -170,7 +182,8 @@
                         <div class="daily-weather">
                           <h2 class="day">Mar</h2>
                           <h3 class="degrees">25</h3>
-                          <canvas height="32" width="32" id="rain"></canvas>
+                          <!--<canvas height="32" width="32" id="rain"></canvas>-->
+                           <i class="icono"></i>
                           <h5>12 <i>km/h</i></h5>
                         </div>
                       </div>
@@ -178,7 +191,8 @@
                         <div class="daily-weather">
                           <h2 class="day">Mier</h2>
                           <h3 class="degrees">27</h3>
-                          <canvas height="32" width="32" id="snow"></canvas>
+                          <!--<canvas height="32" width="32" id="snow"></canvas>-->
+                           <i class="icono"></i>
                           <h5>14 <i>km/h</i></h5>
                         </div>
                       </div>
@@ -186,7 +200,8 @@
                         <div class="daily-weather">
                           <h2 class="day">Jue</h2>
                           <h3 class="degrees">28</h3>
-                          <canvas height="32" width="32" id="sleet"></canvas>
+                          <!--<canvas height="32" width="32" id="sleet"></canvas>-->
+                           <i class="icono"></i>
                           <h5>15 <i>km/h</i></h5>
                         </div>
                       </div>
@@ -194,7 +209,8 @@
                         <div class="daily-weather">
                           <h2 class="day">Vie</h2>
                           <h3 class="degrees">28</h3>
-                          <canvas height="32" width="32" id="wind"></canvas>
+                          <!--<canvas height="32" width="32" id="wind"></canvas>-->
+                           <i class="icono"></i>
                           <h5>11 <i>km/h</i></h5>
                         </div>
                       </div>
@@ -202,7 +218,8 @@
                         <div class="daily-weather">
                           <h2 class="day">Sab</h2>
                           <h3 class="degrees">26</h3>
-                          <canvas height="32" width="32" id="cloudy"></canvas>
+                          <!--<canvas height="32" width="32" id="cloudy"></canvas>-->
+                           <i class="icono"></i>
                           <h5>10 <i>km/h</i></h5>
                         </div>
                       </div>
@@ -223,10 +240,36 @@
 
               </div>
               <?php 
-              include './conexion.php';
+              
               $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
               while ( $fila=mysqli_fetch_array($consulta)) {
-                    # code...
+                     $presu=$mysqli->query("SELECT sum(total_compromet) as comprometido, 
+                              sum(ppto_dev) as devengado, 
+                              sum(ppto_pag) as pagado 
+                              FROM orden where id_departamento=".$fila['id_departamento'])or die($mysqli->error);
+                              $presur=$presu->fetch_assoc();
+
+                              $presupuesto=$fila['presupuesto'];
+                             $comprometido=$presur['comprometido'];
+                              $devengado=$presur['devengado'];
+                              $pagado=$presur['pagado'];
+                              $restante=$presupuesto - ($devengado + $pagado + $comprometido);
+                              $porcentajecomprometido =$comprometido * 100 / $presupuesto;
+                              $porcentajedevengado =$devengado * 100 / $presupuesto;
+                              $porcentajepagado =$pagado * 100 / $presupuesto;
+                              $porcentajerestante = $restante * 100 / $presupuesto;
+                              $arregloPorcentajes[]=array(
+                                  number_format($porcentajerestante,2),
+                                  number_format($porcentajepagado,2),
+                                  number_format($porcentajedevengado,2),
+                                  number_format($porcentajecomprometido,2),
+                                  
+                                  
+                              
+                              );
+
+
+
                ?>
 
                <!-- <div class="clearfix"></div>-->
@@ -236,7 +279,8 @@
                <div class="col-md-4 col-sm-4 col-xs-12" >
                 <div class="x_panel tile fixed_height_320 overflow_hidden" class="graficas">
                   <div class="x_title">
-                    <h2><?php echo $fila['departamento'] ?></h2>
+                    <h2>  <a href="general_elements.php?id=<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?><small> 
+                    $ <?php echo number_format($restante,2); ?></small></a></h2>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -253,25 +297,25 @@
                               <td>
                                 <p><i class="fa fa-square blue"></i>Comprometido </p>
                               </td>
-                              <td>30%</td>
+                              <td><?php echo number_format($porcentajecomprometido,2); ?>%</td>
                             </tr>
                             <tr>
                               <td>
                                 <p><i class="fa fa-square green"></i>Devengado</p>
                               </td>
-                              <td>10%</td>
+                              <td><?php echo number_format($porcentajedevengado,2); ?>%</td>
                             </tr>
                             <tr>
                               <td>
                                 <p><i class="fa fa-square purple"></i>Pagado </p>
                               </td>
-                              <td>20%</td>
+                              <td><?php echo number_format($porcentajepagado,2); ?>%</td>
                             </tr>
                             <tr>
                               <td>
                                 <p><i class="fa fa-square aero"></i>Restante </p>
                               </td>
-                              <td>15%</td>
+                              <td><?php echo number_format($porcentajerestante,2); ?>%</td>
                             </tr>
                             
                           </table>
@@ -281,8 +325,9 @@
                   </div>
                 </div>
               </div>
-              <?php  } ?>
 
+              <?php  } ?>
+<!--....................................................................................................-->
 
             </div>
             <br>
@@ -293,7 +338,11 @@
             <div class="alert alert-success">
               <ul class="margin-bottom-none padding-left-lg">
                 <i class="fa fa-info-circle fa-lg fa-li"></i>
-                <h2>Datos generales de las cuentas de cada departamento.</h2>
+                <h2>Datos generales de las cuentas de cada departamento.</h2><small class="pull-right">Cuentas:<?php 
+                 $consulta3=$mysqli->query("select SUM(cantidad) as todo from cuentas ")or die($mysqli->error);
+                  $consul2=$consulta3->fetch_assoc();
+                  $con2=$consul2['todo'];
+                echo "$ "; echo number_format($con2,2); ?></small>
               </ul>
 
             </div>
@@ -464,7 +513,6 @@
 <!-- iCheck -->
 <script src="../vendors/iCheck/icheck.min.js"></script>
 <!-- Skycons -->
-<script src="../vendors/skycons/skycons.js"></script>
 <!-- Flot -->
 <script src="../vendors/Flot/jquery.flot.js"></script>
 <script src="../vendors/Flot/jquery.flot.pie.js"></script>
@@ -484,9 +532,93 @@
 <!-- bootstrap-daterangepicker -->
 <script src="../vendors/moment/min/moment.min.js"></script>
 <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+<script src="./js/jquery.simpleWeather.js"></script>
 <!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
+<script src="../build/js/custom.js"></script>
 
+<script type="text/javascript">
+  var datos=<?php echo json_encode($arregloPorcentajes); ?>;
+  //console.log(datos);
+  $(document).ready(function() {
+  
+    
+    if ($('.canvasDoughnut').length){
+      
+      
+     var cont=0;
+      $('.canvasDoughnut').each(function(){
+        var chart_doughnut_settings = {
+          type: 'doughnut',
+          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+          data: {
+            labels: [
+              "Restante",
+              "Pagado",
+              //"Other",
+              "Devengado",
+              "Comprometido"
+            ],
+            datasets: [{
+              data: [datos[cont][0], datos[cont][1],  datos[cont][2], datos[cont][3]],
+              backgroundColor: [
+                "#BDC3C7",
+                "#9B59B6",
+                //"#E74C3C",
+                "#26B99A",
+                "#3498DB"
+              ],
+              hoverBackgroundColor: [
+                "#CFD4D8",
+                "#B370CF",
+                //"#E95E4F",
+                "#36CAAB",
+                "#49A9EA"
+              ]
+            }]
+          },
+          options: { 
+            legend: false, 
+            responsive: false 
+          }
+        }
+        
+        var chart_element = $(this);
+        var chart_doughnut = new Chart( chart_element, chart_doughnut_settings);
+        cont++;
+      });     
+    
+    }
+    //TIEMPOOOOOOOOOO
+   $.simpleWeather({
+      zipcode: '31700',
+      unit: 'f',
+      success: function(weather) {
+        //console.log(weather);
+        $("#dia").text(weather.day);
+        $(".degrees").text(weather.alt.temp);
+        $("#icnP").append(getIcono(weather.code));
+        $( ".day" ).each(function( index ) {
+          $(this).text(weather.forecast[index+1].day.slice(0,3));
+        });
+        $(".degrees" ).each(function( index ) {
+          if(index!=0){
+            $(this).text(weather.forecast[index].alt.high); 
+          }
+        });
+        $(".daily-weather" ).each(function( index ) {
+            
+            $(this).find('.icono').replaceWith(getIcono(weather.forecast[index+1].code)); 
+            $(this).find('h5').html(weather.forecast[index+1].alt.low+' <br><i>min</i>'); 
+        });
+       
+      
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+   });
+
+</script>
 </body>
-</ht    >
+</html>

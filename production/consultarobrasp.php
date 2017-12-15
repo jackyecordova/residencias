@@ -326,7 +326,7 @@ if (isset($_SESSION['miSesion'])){
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Imprimir orden</h4>
-          <input type="text" id="idOrdenimp" name="idOrdenimp">
+          <input type="hidden" id="idOrdenimp" name="idOrdenimp">
 
         </div>
         <div class="modal-body" style="text-align: center">

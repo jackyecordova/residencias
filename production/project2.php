@@ -109,12 +109,12 @@ if (isset($_SESSION['miSesion'])){
                         <tr >
                           <th style="width: 1% ;border:0px;">Id</th>
                           <th style="width: 25%;border:0px;">Obra</th>
-                          <th style="width: 25%;border:0px;">Descripcion</th>
-                          <th class="status" style="border:0px;">
+                          <th style="width: 20%;border:0px;">Descripcion</th>
+                          <th class="status" style="width: 10%;border:0px;">
                                         
-                          </th style="border:0px;">
-                          <th style="border:0px;"></th>
-                          <th style="border:0px;"></th>
+                          </th style="width: 18%;border:0px;">
+                          <th style="width: 8%;border:0px;"></th>
+                          <th style="width: 20%;border:0px;"></th>
                         </tr>
                       </thead>
 
@@ -125,19 +125,32 @@ if (isset($_SESSION['miSesion'])){
 
   <?php 
                                                    include './conexion.php';
-                                                  //where orden.activo='no'
+                                                   if ($arreglo['nivel']=='Obras Publicas' || $arreglo['nivel']=='OBRAS PUBLICAS') {
+                                                               $consulta=$mysqli->query("
+                                                                    SELECT orden.*,cuentas.*,departamentos.departamento,proveedores.*
+                                                                    FROM orden
+                                                                      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                                                                      INNER JOIN proveedores on orden.id_proveedor= proveedores.id_proveedor
+                                                                      INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
+                                                                      where orden.activo='si' and departamentos.departamento='Obras publicas' 
+                                                                      || departamentos.departamento='OBRAS PUBLICAS';
+
+
+
+                                                                   ")or die($mysqli->error);
+                                                  }else{
                                                    $consulta=$mysqli->query("
-                                                    SELECT orden.*,cuentas.*,departamentos.departamento
+                                                    SELECT orden.*,cuentas.*,departamentos.departamento,proveedores.*
 
-                                                    FROM ((orden
-                                                      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta)
-
-                                                   INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento)
+                                                    FROM orden
+                                                      INNER JOIN cuentas ON orden.id_cuenta = cuentas.id_cuenta
+                                                       inner join proveedores on orden.id_proveedor= proveedores.id_proveedor
+                                                   INNER JOIN departamentos ON orden.id_departamento = departamentos.id_departamento
                                                    where orden.activo='si';
 
 
 
-                                                   ")or die($mysqli->error);
+                                                   ")or die($mysqli->error);}
                                                    while ( $fila=mysqli_fetch_array($consulta)) {
 
                                                     ?>  <?php 
@@ -194,12 +207,12 @@ if (isset($_SESSION['miSesion'])){
                                                  -->
 
                                                   <small>
-                                                  <?php if ($fila['status']== "Emimtido" ||$fila['status']== "Devengado"  ) {
+                                                  <?php if ($fila['status']== "Emitido" ||$fila['status']== "Devengado"  ) {
                                                         echo  number_format($res ,2);?>% COMPLETADO  
                                                         <?php
 
                                                                  } elseif ($fila['status']== "Pagado")  {
-                                                                    # code...
+                                                                    
                                                                    
                                                               echo "100% COMPLETADO";
                                                                  }?>
@@ -217,29 +230,56 @@ if (isset($_SESSION['miSesion'])){
                                     data-poliza="<?php //echo $fila['poliza_dev'] ?>">
                                     Devengar
                                   </button>-->
-                                    <?php  if ($arreglo['nivel']=='Admin' || $arreglo['nivel']=='Tesorero'){
-
+                                    <?php  if ($arreglo['nivel']=='Admin' || $arreglo['nivel']=='Oficial Mayor'||$arreglo['nivel']=='Obras Publicas' || $arreglo['nivel']=='OBRAS PUBLICAS' ){
+                                            if ($fila['status']== "Emitido" ){
+                                             ?>
+                                             <button type="button" class="btn btn-success btn-xs btnDevengado" 
+                                                 data-method="getCroppedCanvas"
+                                                data-id="<?php echo $fila['ord_id'] ?>"
+                                                data-toggle="modal" data-target="#Devengada"
+                                                data-cantidad="<?php echo $fila['total_compromet'] ?>"
+                                                data-poliza="<?php echo $fila['poliza_dev'] ?>">
+                                             Devengar
+                                  <?php
+                                            }else{
                                  ?>
-                                  <button type="button" class="btn btn-success btn-xs btnDevengado" 
-                                   data-method="getCroppedCanvas"
-                                  data-id="<?php echo $fila['ord_id'] ?>"
-                                  data-toggle="modal" data-target="#Devengada"
-                                  data-cantidad="<?php echo $fila['ppto_dev'] ?>"
-                                  data-poliza="<?php echo $fila['poliza_dev'] ?>">
-                                  Devengado
-                                  <?php } ?>
+                                           
+                                  <?php } }?>
                                 </button>
-                        <button type="button" class="btn btn-success btn-xs btnPagado" 
-                        data-method="getCroppedCanvas"
-                              data-id="<?php echo $fila['ord_id'] ?>"
-                              data-toggle="modal" 
-                              data-target="#Pagada"
-                              data-pagado="<?php echo $fila['ppto_pag'] ?>">
-                              Pagar</button>
+                                 <?php  if ($arreglo['nivel']=='Tesorero'|| $arreglo['nivel']=='Admin'){ ?>
+                                                     <?php  
+                                                       if ($fila['status']== "Devengado" ){?>
+                                       <button type="button" class="btn btn-success btn-xs btnPagado" 
+                                                  data-method="getCroppedCanvas"
+                                                        data-id="<?php echo $fila['ord_id'] ?>"
+                                                        data-toggle="modal" 
+                                                        data-target="#Pagada"
+                                                        data-cantidaadd="<?php echo $fila['total_compromet'] ?>"
+                                                        data-polizaa="<?php echo $fila['poliza_pag'] ?>">
+                                                        Pagar</button>
+                                               <?php }} ?>
                                                 </td>
-                          <td style="border:0px;">  <a href="#" class="btn btn-primary btn-xs"
-                          data-method="getCroppedCanvas"
-                                                   data-toggle="modal" data-target="#ver">
+
+                        <td style="border:0px;"> <a href="#" class="btn btn-primary btn-xs btnVer"
+                                                  data-method="getCroppedCanvas"
+                                                   data-toggle="modal" 
+                                                   data-target="#ver"
+                                                   data-mat="<?php echo $fila['material'] ?>"
+                                                   data-ob="<?php echo $fila['observaciones'] ?>"
+                                                    data-ve="<?php echo $fila['ord_vehiculo'] ?>"
+                                                   data-to="<?php echo $fila['total_compromet'] ?>"
+                                                   data-poli="<?php echo $fila['poliza_pag'] ?>"
+                                                   data-pol="<?php echo $fila['poliza_dev'] ?>"
+                                                   data-fec="<?php echo $fila['fecha_pago'] ?>"
+                                                   data-fe="<?php echo $fila['fecha_deveng'] ?>"
+                                                   data-sta="<?php echo $fila['status'] ?>"
+                                                   data-tel="<?php echo $fila['telefono'] ?>"
+                                                   data-pre="<?php echo $fila['precio'] ?>"
+                                                   data-dir="<?php echo $fila['direccion'] ?>"
+                                                   data-nom="<?php echo $fila['departamento'] ?>"
+                                                   data-fac="<?php echo $fila['ord_numfactura'] ?>"
+                                                   data-pro="<?php echo $fila['nombre'] ?>"
+                                                   data-id="<?php echo $fila['ord_id'] ?>">
                                                    <i class="fa fa-folder"></i> Ver </a>
                                               <a href="#" class="btn btn-info btn-xs btnEditar"
                                                  data-id="<?php echo $fila['ord_id'] ?>"
@@ -248,11 +288,12 @@ if (isset($_SESSION['miSesion'])){
                                                  data-method="getCroppedCanvas"
                                                  data-departamento="<?php echo $fila['departamento']?>"
                                                   data-factura="<?php echo $fila['ord_numfactura'] ?>"
-                                                   data-fecha="<?php echo $fila['fecha'] ?>"
-                                                    data-obra="<?php echo $fila['descripcion'] ?>"
-                                                    
+                                                    data-cuenta="<?php echo $fila['cuenta'] ?>"
                                                       data-observaciones="<?php echo $fila['observaciones'] ?>"
-                                                       data-vehiculo="<?php echo $fila['ord_vehiculo'] ?>">
+                                                       data-vehiculo="<?php echo $fila['ord_vehiculo'] ?>"
+                                                       data-material="<?php echo $fila['material'] ?>"
+                                                       data-caantidad="<?php echo $fila['cantidad_mate'] ?>"
+                                                       data-precio="<?php echo $fila['precio'] ?>">
                                                  <i class="fa fa-pencil"></i> Editar</a>
 
                                                <a href="#" class="btn btn-danger btn-xs btnEliminar" 
@@ -261,31 +302,33 @@ if (isset($_SESSION['miSesion'])){
                                                    data-target="#eliminar"
                                                    data-method="getCroppedCanvas">
                                                    <i class="fa fa-trash-o"></i> Eliminar</a>
-                                                   <a href="#" class="btn btn-info btn-xs btnImprimir" 
-                                                    c
-                                                   data-id="<?php echo $fila['ord_id'] ?>"
-                                                   data-toggle="modal" 
-                                                   data-target="#imprimir"
-                                                   data-method="getCroppedCanvas"
-                                                        data-departamento="<?php echo $fila['departamento']?>"
-                                                        data-factura="<?php echo $fila['ord_numfactura'] ?>"
-                                                        data-cuenta="<?php echo $fila['cuenta'] ?>"
-                                                         data-nomcuenta="<?php echo $fila['nombre'] ?>"
-                                                        data-fecha="<?php echo $fila['fecha'] ?>"
-                                                        data-obra="<?php echo $fila['descripcion'] ?>" 
-                                                        data-observaciones="<?php echo $fila['observaciones'] ?>"
-                                                        data-vehiculo="<?php echo $fila['ord_vehiculo'] ?>"
-                                                        data-total="<?php echo $fila['total_compromet'] ?>"
-                                                        data-status="<?php echo $fila['status'] ?>"
-                                                        data-proveedor="<?php echo $fila['proveedor'] ?>"
-                                                        data-material="<?php echo $fila['material'] ?>"
-                                                        data-cantidad="<?php echo $fila['cantidad'] ?>"
-                                                        data-precio="<?php echo $fila['precio'] ?>"
+                                                    
+                                                               <a href="#" class="btn btn-info btn-xs btnImprimir" 
+                                                                
+                                                               data-id="<?php echo $fila['ord_id'] ?>"
+                                                               data-toggle="modal" 
+                                                               data-target="#imprimir"
+                                                               data-method="getCroppedCanvas"
+                                                                    data-departamento="<?php echo $fila['departamento']?>"
+                                                                    data-factura="<?php echo $fila['ord_numfactura'] ?>"
+                                                                    data-cuenta="<?php echo $fila['cuenta'] ?>"
+                                                                     data-nomcuenta="<?php echo $fila['nombre'] ?>"
+                                                                    data-fecha="<?php echo $fila['fecha'] ?>"
+                                                                    data-obra="<?php echo $fila['descripcion'] ?>" 
+                                                                    data-observaciones="<?php echo $fila['observaciones'] ?>"
+                                                                    data-vehiculo="<?php echo $fila['ord_vehiculo'] ?>"
+                                                                    data-total="<?php echo $fila['total_compromet'] ?>"
+                                                                    data-status="<?php echo $fila['status'] ?>"
+                                                                    data-proveedor="<?php echo $fila['proveedor'] ?>"
+                                                                    data-material="<?php echo $fila['material'] ?>"
+                                                                    data-cantidad="<?php echo $fila['cantidad_mate'] ?>"
+                                                                    data-precio="<?php echo $fila['precio'] ?>"
 
 
-                                                  >
+                                                              >
                                                    <i class="fa fa-print"
                                                   ></i> </a>
+                                                 
      </td>
                         </tr>
                         <?php } ?>
@@ -376,17 +419,15 @@ if (isset($_SESSION['miSesion'])){
  </div>
  <div class="col-sm-1"></div>
  <div class="modal-footer" style="padding-top:35px;">
-   <button type="submit"  class="btn btn-success" >Devengar</button>
-   <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+   <button type="submit"  class="btn btn-default" >Devengar</button>
+   <button type="button" class="btn btn-success" data-dismiss="modal" >Cancelar</button>
  </div>
- <form>
+ </form>
 </div>
 </div>
 </div>
 <!--cantidad devengada-->
 <!--cantidad pagada-->
-<!-- Cantidad Pagada-->
-<!-- Cantidad Pagada
 <div id="Pagada" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -394,36 +435,44 @@ if (isset($_SESSION['miSesion'])){
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" >&times;</button>
         <h4 class="modal-title" >Cantidad Pagada</h4>
-        <input type="hidden" id="idPagado" name="idPagado">
+            <input type="hidden" id="idPagado" name="idPagado">
       </div>
-      <div class="modal-body" style="text-align: left; ">
-
+      <div class="modal-body" style="text-align: left; ">                     
        <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Cantidad </h5> </div>
-       <div class="col-sm-8"></div>
-      
+       <div class="col-sm-8">  </div>
        <div class="input-group"> 
-        <input type="text" placeholder="000,000,000.00" class="form-control" name="editar" data-fv-field="price" id="editarpag">
-        
+        <input type="text" placeholder="000,000,000.00" class="form-control" name="pagcan" data-fv-field="price" id="editarCantida">
         <span class="input-group-addon">
          $
        </span> 
-
      </div>
    </div>
-   <div class="col-sm-1"></div>
+   <div class="modal-body" style="text-align: left; ">
 
-
-
-   <div class="modal-footer" style="padding-top:35px;">
-     <button type="submit"  class="btn btn-success" >Pagar</button>
-     <button type="button" class="btn btn-default" data-dismiss="modal" >Cancelar</button>
+     <div class="col-sm-3">  <h5 class="modal-title" style="padding-top:7px;">Póliza </h5> </div>
+     <div class="col-sm-8">  </div>
+     <div class="input-group"> 
+      <input type="text" placeholder="000,000,000.00" class="form-control" name="ediPo" data-fv-field="price" id="editarPolizaPagada">
+      <span class="input-group-addon">
+       $
+     </span> 
    </div>
-   </form>
+
  </div>
+ <div class="col-sm-1"></div>
+ <div class="modal-footer" style="padding-top:35px;">
+   <button type="submit"  class="btn btn-default" >Pagar</button>
+   <button type="button" class="btn btn-success" data-dismiss="modal" >Cancelar</button>
+ </div>
+ </form>
 </div>
-</div>-->
-<!--cantidad pagada-->
+</div>
+</div>
+<!-- Cantidad Pagada-->
+
 <!-- editar-->
+<!-- Editar-->
+<!-- Editar-->
 <div id="editar" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -436,26 +485,24 @@ if (isset($_SESSION['miSesion'])){
 
           <p>Detalles de la orden  <!--<code></code> -->
           </p>
-          <input type="hidden" 
-          id="idOrdena" 
-          name="idOrdena">
-          <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Departamento </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Departamento" 
-              name="deparatmento" 
-              id="departamentoeditar">
-                <?php 
-                include './conexion.php';
-                $consulta=$mysqli->query("select * from departamentos order by id_departamento ASC")or die($mysqli->error);
-                while ( $fila=mysqli_fetch_array($consulta)) {
+          <input type="hidden" id="idOrdena" name="idOrdena">
+          <br>
+          <br>
+           <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Departamento</label>
+                          <div class="col-md-9 col-sm-9 col-xs-12">
+                                 <input   class="select2_single form-control"
+                                  name="departamento"
+                                  id="departamentoeditar"  disabled
+                                  class="form-control col-md-7 col-xs-12" tabindex="-1" style="width:65%;">
+                                 
+                                   <?php// } ?>
+                                 
+                         </div>
+                 </div>
 
-                 ?>
-                 <option value="<?php echo $fila['id_departamento'] ?>"><?php echo $fila['departamento'] ?></option>
-                 <?php } ?>
-               </select>
-             </div>
-           </div>
+                 
+                  <br>
                   <br>
            <div class="clearfix"></div>
            <div class="item form-group">
@@ -465,75 +512,12 @@ if (isset($_SESSION['miSesion'])){
               <input  class="form-control col-md-7 col-xs-12"  
               name="factura" 
               id="facturaeditar"
-              placeholder="Numero de la Factura" required="required" type="text" >
+              placeholder="Numero de la Factura"  type="text" >
             </div>
           </div>
-          <div class="clearfix"></div>
-                    <br>
-
-          <div class="item form-group" style="display:none;">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha  
-            </label>
-            <fieldset>
-              <div class="control-group">
-                <div class="controls">
-
-                  <div class="col-md-11 xdisplay_inputx form-group has-feedback" style="    width: 67%;">
-                    <input type="date" class="form-control has-feedback-left" 
-                    id="fecha" placeholder="Fecha" aria-describedby="inputSuccess2Status4"
-                     name="fechaeditar">
-                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                    <span id="inputSuccess2Status4" class="sr-only">(success)</span>
-                  </div>
-
-                </div>
-              </div>
-            </fieldset>
-
-          </div>
-                  <br>
-          <div class="clearfix"></div>
-
-          <div class="item form-group" >
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Obra  
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <select class="form-control col-md-3 col-sm-3 col-xs-1"  style="" placeholder="Obras"
-               name="obras"
-               id="obraseditar" 
-               >
-                <option value="1">Obras</option>
-                <?php 
-                include './conexion.php';
-                $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
-                while ( $fila=mysqli_fetch_array($consulta)) {
-
-                 ?>
-                 <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['nombre'] ?></option>
-                 <?php } ?>
-               </select>
-             </div>
-           </div>
-           <div class="clearfix"></div>
-           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cuenta">Cuenta  
-            </label>
-            <div class="col-md-6 col-sm-6 col-xs-12" >
-             <select class="form-control col-md-3 col-sm-3 col-xs-1" placeholder="Cuentas" 
-             id="cuentas" 
-             name="cuentaseditar">
-               
-               <?php 
-               include './conexion.php';
-               $consulta=$mysqli->query("select * from cuentas order by id_cuenta ASC")or die($mysqli->error);
-               while ( $fila=mysqli_fetch_array($consulta)) {
-
-                 ?>
-                 <option value="<?php echo $fila['id_cuenta'] ?>"><?php echo $fila['cuenta'] ?></option>
-                 <?php } ?>
-               </select>
-             </div>
-           </div>
+        
+          <br>
+           <br>
            <div class="clearfix"></div>
            <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Observaciones  
@@ -542,11 +526,13 @@ if (isset($_SESSION['miSesion'])){
               <input  class="form-control col-md-7 col-xs-12" 
                name="observaciones"
                id="observacioneseditar"
-                placeholder="Observaciones dentro de la obra" required="required" type="text">
+                placeholder="Observaciones"  type="text">
+                 
             </div>
           </div>
+          <br>
+          <br>
           <div class="clearfix"></div>
-
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Vehículo  
             </label>
@@ -554,12 +540,13 @@ if (isset($_SESSION['miSesion'])){
               <input  class="form-control col-md-7 col-xs-12" 
               name="vehiculo" 
               id="vehiculoeditar"
-              placeholder="Vehiculo" required="required" type="text">
+              placeholder="Vehiculo"  type="text">
             </div>
           </div>
-
- <div class="clearfix"></div>
-<div class="form-group">
+            <br>
+            <br>
+            <div class="clearfix"></div>
+            <div class="form-group">
                <label class="control-label col-md-3 col-sm-3 col-xs-12">Proveedor</label>
                <div class="col-md-6 col-sm-6 col-xs-12">
                 <select class="form-control col-md-3 col-sm-3 col-xs-1"
@@ -577,51 +564,150 @@ if (isset($_SESSION['miSesion'])){
                </select>
              </div>            
            </div>
+           <br>
+           <br>
  <div class="clearfix"></div>
            <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Material  <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Material 
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="material" class="form-control col-md-7 col-xs-12" 
-              name="material" placeholder="Material a comprar"  type="text"
-                 required="required" >
+              name="material" placeholder="Material a comprar"  type="text">
             </div>
           </div>
+          <br>
+          <br>
+
            <div class="clearfix"></div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad  <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Cantidad  
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="cantidad" class="form-control col-md-7 col-xs-12" 
               name="cantidad" placeholder="Unidades a comprar"  type="text"
             
-               required="required" >
+                >
             </div>
           </div>
+          <br>
+          <br>
            <div class="clearfix"></div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Precio unitario <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Precio unitario 
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="precio" class="form-control col-md-7 col-xs-12" 
 
               name="precio" placeholder="Precio unitario"  type="text"
-                required="required" >
+                >
             </div>
           </div>
+
           <div class="clearfix"></div>
         </div>
          <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-warning" >Editar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-success" >Editar</button>
         </div>
       </form>
     </div>
   </div>
 </div>
-</div>
-</div>
+
+
+
+<!-- Editar-->
 <!--Editar-->
+
+
+<!-- Ver-->
+<div id="ver" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles</h4>
+      </div>
+       <div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <div style="text-align: center; font-weight: bold;">Facturar a: <small>Presidencia Minicipal  </small></div>
+             <div style="text-align: center;"> Edificio, Constitución Oriente 304</div>
+             <div style="text-align: center;">Nuevo Casas Grandes Chihuahua </div>
+             <div style="text-align: center;">(636) 69-4-05-45 </div>
+
+                 
+             <!-- <ul class="nav navbar-right panel_toolbox">
+                <div class="btn-group" class="pull-rigth" style="margin-left">
+                <form action="./codigos/consultaverimprimir.php" method="post">
+                 <input type="hidden" id="idVer" name="idVer">
+                  <button class="btn btn-info"type="submit">
+                  <i class="fa fa-print"></i>
+               </button>
+                </form>
+                 
+              </div>
+            </ul>-->
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+        <div>
+
+                  <div class="col-md-8" style="font-weight: bold;"> Departamento de: <span id="nomVer"></span></div>
+                  <div class="col-md-4" style="font-weight: bold;">Numero de Factura: <span id="numVer"></span></div>
+        </div>
+        <br>
+        <br>
+           <div>
+                  <div class="col-md-8" style="font-weight: bold;">Proveedor: <span id="proVer"></span></div>
+                  <div class="col-md-4" style="font-weight: bold;">Material:<span id="matVer"></span></div>
+             </div>
+            <div>
+               <div class="col-md-8" style="font-weight: bold;">Dirección: <span id="direVer"></span></div>
+               <div class="col-md-4" style="font-weight: bold;" >Precio:  <span id="preVer"></span></div>
+            </div>
+            <div>
+              <div class="col-md-8" style="font-weight: bold;">Telefono: <span id="telVer"></span></div>
+              <div class="col-md-4"style="font-weight: bold;">Status: <span id="staVer"></span></div>
+            </div> 
+             <br>
+            <br>
+            <br>  
+            <br>
+           <div>
+              <div class="col-md-8" style="font-weight: bold;">Fecha Devengada:<span id="feVer"></span></div>
+              <div class="col-md-4"style="font-weight: bold;">Fecha Pagada: <span id="fecVer"></span></div>
+            </div>        
+            <div>
+              <div class="col-md-8" style="font-weight: bold;">Poliza Devengada:<span id="polVer"></span></div>
+              <div class="col-md-4"style="font-weight: bold;">Poliza Pagada: <span id="poliVer"></span></div>
+            </div>  
+            <br>  
+            <br>
+            <br>
+             <div>
+             <div class="col-md-2" style="font-weight: bold;"></div>
+              <div class="col-md-5" style="font-weight: bold;">Total: <span id="toVer"></span></div>
+              <div class="col-md-5"style="font-weight: bold;">Vehiculo: <span id="veVer"></span></div>
+
+            </div>  
+             <br>  
+            <br>  
+           <div>
+              <div class="col-md-3" style="font-weight: bold;"> </div>
+              <div class="col-md-6" style="font-weight: bold; text-align: center;" >Observaciones: <span id="obVer"></span></div>
+              <div class="col-md-3" style="font-weight: bold;"></div>
+            </div> 
+        </div>  
+
+      </div>                                                                                
+    </div>
+    </form>
+  </div>
+</div>
+</div>
+<!-- Ver -->
                       </tbody>
                     </table>
                   </div>
@@ -677,7 +763,7 @@ if (isset($_SESSION['miSesion'])){
 <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
 <script >
-  $(".btnEliminar").on('click',function(){
+   $(".btnEliminar").on('click',function(){
     var id=$(this).data('id');
     $("#idOrdene").val(id);
   });
@@ -711,36 +797,109 @@ if (isset($_SESSION['miSesion'])){
 
   });
 
-  $(".btnEditar").on('click',function(){
+  
+   $(".btnEditar").on('click',function(){
     var id=$(this).data('id');
      $("#idOrdena").val(id);
-             var departamento=$(this).data('departamento');
-           $("#departento").val(departamento);
+
+    var departamento=$(this).data('departamento');
+    $("#departamentoeditar").val(departamento) ; 
+
     var factura=$(this).data('factura');
-    $("#fac").val(factura);
-    var fecha=$(this).data('fecha');
-    $("#fecha").val(fecha);
+    $("#facturaeditar").val(factura);
+
+    var cuenta=$(this).data('cuenta');
+    $("#cuentaseditar").val(cuenta);
+
     var observaciones=$(this).data('observaciones');
-    $("#observaciones").val(observaciones);
+    $("#observacioneseditar").val(observaciones);
+
     var vehiculo=$(this).data('vehiculo');
-    $("#veh").val(vehiculo);
+    $("#vehiculoeditar").val(vehiculo);
+
+    var material=$(this).data('material');
+    $("#material").val(material);
+
+    var cantidad=$(this).data('caantidad');
+    $("#cantidad").val(cantidad);
+
+    var precio=$(this).data('precio');
+    $("#precio").val(precio);
  });
-  $(".btnDevengado").on('click',function(){
+ $(".btnPagado").on('click',function(){
     var id=$(this).data('id');
+    $("#idPagado").val(id);
+   
+    var can=$(this).data('cantidaadd');
+    $("#editarCantida").val(can);
+     
+    var p2=$(this).data('polizaa');
+    $("#editarPolizaPagada").val(p2);
+
+  });
+   $(".btnDevengado").on('click',function(){
+    var id=$(this).data('id');
+     var canti=$(this).data('cantidad');
+   
      $("#idDevengado").val(id);
    
-    var c1=$(this).data('cantidad');
-    $("#editarCantidad").val(c1);
+    
+    $("#editarCantidad").val(canti);
+
      var p1=$(this).data('poliza');
     $("#editarPoliza").val(p1);
   });
-  $(".btnPagado").on('click',function(){
-    var id=$(this).data('id');
-     $("#idPagado").val(id);
-    var c2=$(this).data('pagado');
-    $("#editarpag").val(c2);
+    $(".btnVer").on('click',function(e){
 
- });
+    var id=$(this).data('id');
+     $("#idVer").val(id);
+     
+     var nom=$(this).data('nom');
+     $("#nomVer").text(nom);
+
+     var fac=$(this).data('fac');
+     $("#numVer").text(fac);
+
+      var pro=$(this).data('pro');
+     $("#proVer").text(pro);
+
+     var mat=$(this).data('mat');
+     $("#matVer").text(mat);
+
+      var dir=$(this).data('dir');
+     $("#direVer").text(dir);
+
+     var pre=$(this).data('pre');
+     $("#preVer").text(pre);
+
+     var tel=$(this).data('tel');
+     $("#telVer").text(tel);
+
+     var sta=$(this).data('sta');
+     $("#staVer").text(sta);
+
+     var fe=$(this).data('fe');
+     $("#feVer").text(fe);
+
+     var fec=$(this).data('fec');
+     $("#fecVer").text(fec);
+
+     var pol=$(this).data('pol');
+     $("#polVer").text(pol);
+
+       var poli=$(this).data('poli');
+     $("#poliVer").text(poli);
+
+      var to=$(this).data('to');
+     $("#toVer").text(to);
+
+      var ve=$(this).data('ve');
+     $("#veVer").text(ve);
+
+       var ob=$(this).data('ob');
+     $("#obVer").text(ob);
+  });
+ 
 </script>
 
 </body>
